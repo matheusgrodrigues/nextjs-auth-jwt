@@ -37,44 +37,37 @@ Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que
 - Ele fornece uma experiência de usuário contínua, permitindo que os usuários acessem facilmente os recursos protegidos sem a necessidade de reautenticação frequente.
 ## Tecnologias Utilizadas
 
-### Frontend
+- **Frontend**
+    - HTML5
+    - CSS3 
+    - TypeScript
+    - Next.js 16
 
-- HTML5
-- CSS3 
-- TypeScript
-- Next.js 16
+- **Bibliotecas**
+    - React.js
+    - Formik 
+    - yup
+    - PrimeReact
+    - JWT (jsonwebtokens)
 
-### Bibliotecas
+- **Deploy e Hospedagem**
+    - Vercel
 
-- React.js
-- Formik 
-- yup
-- PrimeReact
-- JWT (jsonwebtokens)
+- **Versionamento**
+    - Git/Github
 
-### Deploy e Hospedagem
+- **Testes**
+    - Jest
+    - React Testing Library
+    - Cypress
+    - BDD/TDD
 
-- Vercel
+- **Prototipacao**
+    - Figma
 
-### Versionamento
-
-- Git/Github
-
-### Testes
-
-- Jest
-- React Testing Library
-- Cypress
-- BDD/TDD
-
-### Prototipacao
-
-- Figma
-
-### Documentacao
-
-- Jira
-- Confluence
+- **Documentacao**
+    - Jira
+    - Confluence
 
 ## Instrucoes de Instalacao
 
