@@ -12,7 +12,6 @@ Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que
 - [Tecnologias Utilizadas](#tecnologias-utilizadas) 
     - [Frontend](#frontend)
     - [Bibliotecas](#bibliotecas)
-    - [Infraestrutura](#infraestrutura)
     - [Deploy e Hospedagem](#deploy-e-hospedagem)
     - [Versionamento](#versionamento)
     - [Testes](#testes)
