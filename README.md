@@ -37,7 +37,7 @@ Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que
 - Formik 
 - yup
 - PrimeReact
-- JWT
+- JWT (jsonwebtokens)
 
 ### Deploy e Hospedagem
 
