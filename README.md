@@ -9,6 +9,7 @@
 
 Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.
 
+- [Como Funciona](#como-funciona)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas) 
     - [Frontend](#frontend)
     - [Bibliotecas](#bibliotecas)
@@ -22,6 +23,18 @@ Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que
 - [Contribuição](#contribuicao) 
 - [Licença](#licenca)
 
+## Como Funciona
+
+- Este sistema permite que os usuários ingressem com suas credenciais, como nome de usuário e senha.
+- Após a autenticação bem-sucedida, o servidor gera um token JWT exclusivo que é enviado de volta ao cliente. 
+- Este token é então armazenado no lado do cliente (por exemplo, em cookies ou armazenamento local) e enviado com cada solicitação subsequente para autenticação do usuário.
+- O token JWT contém informações sobre o usuário autenticado e tem uma assinatura digital que garante sua autenticidade. 
+- O servidor, ao receber solicitações, verifica a validade do token antes de conceder acesso aos recursos protegidos. 
+- Se o token estiver expirado, inválido ou ausente, o servidor negará o acesso e solicitará uma nova autenticação.
+- Além da autenticação, o sistema implementa medidas de segurança adicionais, como a capacidade de definir tempos de expiração para os tokens, protegendo contra ataques de repetição.
+- Ele também suporta revogação de tokens em casos de comprometimento da conta do usuário ou outras situações de segurança.
+- Além disso, o sistema de login JWT é altamente escalável e pode ser facilmente integrado a outros sistemas e serviços.
+- Ele fornece uma experiência de usuário contínua, permitindo que os usuários acessem facilmente os recursos protegidos sem a necessidade de reautenticação frequente.
 ## Tecnologias Utilizadas
 
 ### Frontend
