@@ -7,7 +7,7 @@ interface ITitle extends HTMLAttributes<HTMLHeadingElement> {
   label: string;
 }
 
-export const Title = ({ variant, label, ...props }: ITitle) => {
+export const ATitle = ({ variant, label, ...props }: ITitle) => {
   return (
     <>
       {variant === "h1" && (

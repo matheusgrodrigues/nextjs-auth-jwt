@@ -1,5 +1,6 @@
-import { Avatar } from "./a-avatar/a-avatar";
-import { Title } from "./a-title/a-title";
+import { AAvatar } from "./a-avatar/a-avatar";
+import { ATitle } from "./a-title/a-title";
 import { ALabel } from "./a-label/a-label";
+import { AInput } from "./a-input/a-input";
 
-export { Avatar, Title, ALabel };
+export { AAvatar, ATitle, ALabel, AInput };

@@ -1,13 +1,14 @@
 "use client";
 
-import { ALabel, Avatar, Title } from "./components";
+import { ALabel, AAvatar, ATitle, AInput } from "./components";
 
 export default function Home() {
   return (
     <>
-      <Avatar image="/images/a-avatar.jpeg" size="normal" shape="circle" />
-      <Title variant="h1" label="NextJS: Auth + JWT" />
+      <AAvatar image="/images/a-avatar.jpeg" size="normal" shape="circle" />
+      <ATitle variant="h1" label="NextJS: Auth + JWT" />
       <ALabel>ALabel</ALabel>
+      <AInput type="text" name="email" placeholder="Informe o seu e-mail" />
     </>
   );
 }
