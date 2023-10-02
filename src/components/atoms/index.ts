@@ -1,3 +1,5 @@
 import { Avatar } from "./a-avatar/a-avatar";
 
-export { Avatar };
+import { Title } from "./a-title/a-title";
+
+export { Avatar, Title };

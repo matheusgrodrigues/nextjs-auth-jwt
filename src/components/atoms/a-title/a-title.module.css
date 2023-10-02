@@ -1,0 +1,11 @@
+.title {
+  color: var(--gray-900);
+}
+
+.title_h1 {
+  font-size: var(--fs-xxlg);
+}
+
+.title_h2 {
+  font-size: var(--fs-xlg);
+}
