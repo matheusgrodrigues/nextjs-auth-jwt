@@ -22,10 +22,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.className}>
-      <body> 
-        <PrimeReactProvider value={{ unstyled: false }}>
-          {children}
-        </PrimeReactProvider>
+      <body>
+        <PrimeReactProvider value={{}}>{children}</PrimeReactProvider>
       </body>
     </html>
   );
