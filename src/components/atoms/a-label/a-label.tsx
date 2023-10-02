@@ -7,5 +7,9 @@ interface ILabel extends HTMLAttributes<HTMLLabelElement> {
 }
 
 export const ALabel = ({ children, ...props }: ILabel) => {
-  return <label className={styles.a_label} {...props}>{children}</label>;
+  return (
+    <label data-testid="a-label" className={styles.a_label} {...props}>
+      {children}
+    </label>
+  );
 };
