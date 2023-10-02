@@ -3,9 +3,9 @@
 }
 
 .title_h1 {
-  font-size: var(--fs-xxlg);
+  font-size: var(--fs-display-lg);
 }
 
 .title_h2 {
-  font-size: var(--fs-xlg);
+  font-size: var(--fs-display-sm);
 }

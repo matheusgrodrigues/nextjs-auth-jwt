@@ -1,3 +1,3 @@
-import { Avatar, Title } from "@/components/atoms";
+import { Avatar, Title, ALabel } from "@/components/atoms";
 
-export { Avatar, Title };
+export { Avatar, Title, ALabel };
