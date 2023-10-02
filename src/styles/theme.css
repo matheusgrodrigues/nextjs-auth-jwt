@@ -18,11 +18,13 @@
     rgba(16, 24, 40, 0.05);
 
   /* font-size */
-  --fs-sm: "14px";
+  --fs-text-sm: "14px";
+
   --fs-md: "16px";
   --fs-lg: "24px";
-  --fs-xlg: "30px";
-  --fs-xxlg: "48px";
+  
+  --fs-display-sm: "30px";
+  --fs-display-lg: "48px";
 
   /* font-weight */
   --fw-regular: "400";
