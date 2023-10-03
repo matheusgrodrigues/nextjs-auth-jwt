@@ -6,6 +6,8 @@ import { A_Button } from "@/components/atoms";
 // Molecules
 import { M_InputWithLabel } from "@/components/molecules";
 
+import styles from "./o-form-login.module.css";
+
 type errors = { [key: string]: string };
 
 interface I_OFormLogin {
@@ -15,7 +17,7 @@ interface I_OFormLogin {
 
 export const O_FormLogin = ({ onSubmit, errors }: I_OFormLogin) => {
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={styles.o_form_login}>
       <M_InputWithLabel
         labelText="Email"
         type="email"

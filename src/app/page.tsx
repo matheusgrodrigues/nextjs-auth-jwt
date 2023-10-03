@@ -15,6 +15,9 @@ import {
 // Molecules
 import { M_InputWithLabel } from "@/components/molecules";
 
+// Organism
+import { O_FormLogin } from "@/components/organism";
+
 export default function Home() {
   const [checked, setChecked] = useState(false);
   return (
@@ -40,6 +43,8 @@ export default function Home() {
       />
 
       <ACheckbox onChange={(e) => setChecked(e.checked)} checked={checked} />
+
+      <O_FormLogin onSubmit={() => null} errors={{}} />
     </>
   );
 }
