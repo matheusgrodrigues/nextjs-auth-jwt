@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ALabel, AAvatar, ATitle, AInput, ACheckbox } from "./components";
+import {
+  ALabel,
+  AAvatar,
+  ATitle,
+  AInput,
+  ACheckbox,
+  AButton,
+} from "./components";
 
 export default function Home() {
   const [checked, setChecked] = useState(false);
@@ -11,8 +18,8 @@ export default function Home() {
       <ATitle variant="h1" label="NextJS: Auth + JWT" />
       <ALabel>ALabel</ALabel>
       <AInput type="text" name="email" placeholder="Informe o seu e-mail" />
-      <ACheckbox onChange={e => setChecked(e.checked)} checked={checked} />
-
+      <ACheckbox onChange={(e) => setChecked(e.checked)} checked={checked} />
+      <AButton>a-button</AButton>
     </>
   );
 }

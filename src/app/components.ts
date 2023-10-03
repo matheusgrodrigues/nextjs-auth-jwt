@@ -1,3 +1,10 @@
-import { AAvatar, ATitle, ALabel, AInput, ACheckbox } from "@/components/atoms";
+import {
+  AAvatar,
+  ATitle,
+  ALabel,
+  AInput,
+  ACheckbox,
+  AButton,
+} from "@/components/atoms";
 
-export { AAvatar, ATitle, ALabel, AInput, ACheckbox };
+export { AAvatar, ATitle, ALabel, AInput, ACheckbox, AButton };
