@@ -22,6 +22,7 @@ exports[`Deve renderizar o m-input-with-label corretamente Deve preservar a estr
     onInput={[Function]}
     onKeyDown={[Function]}
     onPaste={[Function]}
+    placeholder=""
     type="email"
   />
 </div>

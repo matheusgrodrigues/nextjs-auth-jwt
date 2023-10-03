@@ -7,7 +7,7 @@ import {
   ATitle,
   A_Input,
   ACheckbox,
-  AButton,
+  A_Button,
   M_InputWithLabel,
 } from "./components";
 
@@ -19,7 +19,7 @@ export default function Home() {
       <ATitle variant="h1" label="NextJS: Auth + JWT" />
       <A_Label>ALabel</A_Label>
       <A_Input type="text" name="email" placeholder="Informe o seu e-mail" />
-      <AButton>a-button</AButton>
+      <A_Button>a-button</A_Button>
 
       <M_InputWithLabel
         labelText="E-mail"

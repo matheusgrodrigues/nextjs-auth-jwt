@@ -1,19 +1,14 @@
-import { render, screen } from "@testing-library/react";
+import renderer from "react-test-renderer";
 
 // Atoms
-import { AButton } from "./a-button";
+import { A_Button } from "./a-button";
 
 describe("Deve renderizar o a-button corretamente", () => {
-  it("Deve renderizar o botão com o texto", () => {
-    // Arrange
+  it("Deve preservar a estrutura visual do botão", () => {
     const text = "a-button";
-    render(<AButton>{text}</AButton>);
 
-    // Act
-    const get_button = screen.getByTestId("a-button");
+    const get_a_button = renderer.create(<A_Button>{text}</A_Button>);
 
-    // Assert
-    expect(get_button).toBeInTheDocument();
-    expect(get_button.textContent).not.toHaveLength(0);
+    expect(get_a_button).toMatchSnapshot();
   });
 });
