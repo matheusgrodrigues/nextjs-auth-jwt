@@ -6,14 +6,12 @@ export const AButton = ({ children, ...props }: ButtonProps) => {
   return (
     <Button
       data-testid="a-button"
+      {...props}
       pt={{
         root: {
           className: styles.a_button,
         },
       }}
-      unstyled
-      {...props}
-
     >
       {children}
     </Button>

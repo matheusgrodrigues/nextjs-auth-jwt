@@ -14,6 +14,6 @@ describe("Deve renderizar o a-button corretamente", () => {
 
     // Assert
     expect(get_button).toBeInTheDocument();
-   // expect(get_button.textContent).not.toHaveLength(0);
+    expect(get_button.textContent).not.toHaveLength(0);
   });
 });
