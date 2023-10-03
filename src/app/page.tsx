@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import {
-  ALabel,
+  A_Label,
   AAvatar,
   ATitle,
-  AInput,
+  A_Input,
   ACheckbox,
   AButton,
+  M_InputWithLabel,
 } from "./components";
 
 export default function Home() {
@@ -16,10 +17,25 @@ export default function Home() {
     <>
       <AAvatar image="/images/a-avatar.jpeg" size="normal" shape="circle" />
       <ATitle variant="h1" label="NextJS: Auth + JWT" />
-      <ALabel>ALabel</ALabel>
-      <AInput type="text" name="email" placeholder="Informe o seu e-mail" />
-      <ACheckbox onChange={(e) => setChecked(e.checked)} checked={checked} />
+      <A_Label>ALabel</A_Label>
+      <A_Input type="text" name="email" placeholder="Informe o seu e-mail" />
       <AButton>a-button</AButton>
+
+      <M_InputWithLabel
+        labelText="E-mail"
+        type="text"
+        name="email"
+        placeholder="Informe o seu e-mail"
+      />
+
+      <M_InputWithLabel
+        labelText="Senha"
+        type="password"
+        name="senha"
+        placeholder="*******"
+      />
+
+      <ACheckbox onChange={(e) => setChecked(e.checked)} checked={checked} />
     </>
   );
 }

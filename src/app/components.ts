@@ -1,10 +1,14 @@
+// Atoms
 import {
   AAvatar,
   ATitle,
-  ALabel,
-  AInput,
+  A_Label,
+  A_Input,
   ACheckbox,
   AButton,
 } from "@/components/atoms";
 
-export { AAvatar, ATitle, ALabel, AInput, ACheckbox, AButton };
+// Molecules
+import { M_InputWithLabel } from "@/components/molecules";
+
+export { AAvatar, ATitle, A_Label, A_Input, ACheckbox, AButton, M_InputWithLabel };

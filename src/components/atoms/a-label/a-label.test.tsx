@@ -1,21 +1,10 @@
-import {render, screen} from "@testing-library/react";
-import "@testing-library/jest-dom";
-
+import renderer from "react-test-renderer";
 
 // Atoms
-import { ALabel } from "..";
+import { A_Label } from "./a-label";
 
-describe("Deve renderizar o a-label corretamente", () => {
-    it("Deve renderizar o a-label com texto", () => {
-        // Arrange
-        const text = "Texto do a-label";
-        render(<ALabel>{text}</ALabel>);
+it("Deve renderizar o a-label corretamente", () => {
+  const get_a_label = renderer.create(<A_Label>{""}</A_Label>).toJSON();
 
-        // Act
-        const get_label = screen.getByTestId("a-label");
-
-        // Assert
-        expect(get_label).toBeInTheDocument();
-        expect(get_label.textContent).not.toHaveLength(0);
-    })
+  expect(get_a_label).toMatchSnapshot();
 });

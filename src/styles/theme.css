@@ -32,6 +32,7 @@
   --fw-semibold: 600;
 
   /* spaces */
+  --spacing-6: 6px;
   --spacing-12: 12px;
   --spacing-16: 16px;
 }
