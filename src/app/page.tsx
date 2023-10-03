@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+
+// Atoms
 import {
   A_Label,
   AAvatar,
@@ -8,8 +10,10 @@ import {
   A_Input,
   ACheckbox,
   A_Button,
-  M_InputWithLabel,
-} from "./components";
+} from "@/components/atoms";
+
+// Molecules
+import { M_InputWithLabel } from "@/components/molecules";
 
 export default function Home() {
   const [checked, setChecked] = useState(false);

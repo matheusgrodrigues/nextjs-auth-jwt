@@ -1,5 +1,8 @@
 import { FormEventHandler } from "react";
 
+// Atoms
+import { A_Button } from "@/components/atoms";
+
 // Molecules
 import { M_InputWithLabel } from "@/components/molecules";
 
@@ -30,6 +33,8 @@ export const O_FormLogin = ({ onSubmit, errors }: I_OFormLogin) => {
       />
 
       {errors["password"] || null}
+
+      <A_Button type="submit">Login</A_Button>
     </form>
   );
 };

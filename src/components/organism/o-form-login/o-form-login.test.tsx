@@ -30,6 +30,35 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
   });
 
   // ======================================================================
+
+  it("Deve renderizar o botão de submit", () => {
+    // Arrange
+    const onSubmit: FormEventHandler = (e) => e.preventDefault();
+    const errors = {};
+
+    render(<O_FormLogin onSubmit={onSubmit} errors={errors} />);
+
+    // Act
+    const get_a_button = screen.getByTestId("a-button");
+
+    // Assert
+    expect(get_a_button).toBeInTheDocument();
+    expect(get_a_button).toHaveAttribute("type", "submit");
+  });
+
+  // ======================================================================
+  it("Deve manter a estrutura visual do componente", () => {
+    const onSubmit: FormEventHandler = (e) => e.preventDefault();
+    const errors = {};
+
+    const get_o_form_login = renderer
+      .create(<O_FormLogin onSubmit={onSubmit} errors={errors} />)
+      .toJSON();
+
+    expect(get_o_form_login).toMatchSnapshot();
+  });
+
+  // ======================================================================
 });
 
 // =====================================
