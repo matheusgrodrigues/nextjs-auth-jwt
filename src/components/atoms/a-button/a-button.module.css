@@ -8,5 +8,7 @@
     border-radius: 8px;
     font-size: var(--fs-text-md);
     font-weight: var(--fw-semibold);
-    color: var(--white)
+    color: var(--white);
+    display: flex;
+    justify-content: center;
 }
