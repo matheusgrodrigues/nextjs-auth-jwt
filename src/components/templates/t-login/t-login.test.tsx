@@ -8,19 +8,20 @@ import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title
 // Template
 import { T_Login } from "./t-login";
 
+const loginTitleProps: I_OLoginTitle = {
+  image: "",
+  title: "",
+  username: "",
+};
+const loginFormProps: I_OLoginForm = {
+  onSubmit: () => null,
+  errors: {},
+};
+
 describe("Deve renderizar o t-login, corretamente", () => {
+  // ==================================================
   it("Deve renderizar o o-login-title", () => {
     // Arrange
-    const loginTitleProps: I_OLoginTitle = {
-      image: "",
-      title: "",
-      username: "",
-    };
-    const loginFormProps: I_OLoginForm = {
-      onSubmit: () => null,
-      errors: {},
-    };
-
     render(
       <T_Login
         loginTitleProps={loginTitleProps}
@@ -29,9 +30,40 @@ describe("Deve renderizar o t-login, corretamente", () => {
     );
 
     // Act
-    const get_t_login = screen.getByTestId("t-login");
+    const get_o_login_title = screen.getByTestId("o-login-title");
 
     // Assert
-    expect(get_t_login).toBeInTheDocument();
+    expect(get_o_login_title).toBeInTheDocument();
+  });
+  // ==================================================
+  it("Deve renderizar o o-login-form", () => {
+    // Arrange
+    render(
+      <T_Login
+        loginTitleProps={loginTitleProps}
+        loginFormProps={loginFormProps}
+      />
+    );
+
+    // Act
+    const get_o_login_form = screen.getByTestId("o-login-form");
+
+    // Assert
+    expect(get_o_login_form).toBeInTheDocument();
+  });
+
+  // ==================================================
+  it("Deve preservar a estrutura visual do componente", () => {
+    const get_t_login = renderer
+      .create(
+        <T_Login
+          loginTitleProps={loginTitleProps}
+          loginFormProps={loginFormProps}
+        />
+      )
+      .toJSON();
+
+    expect(get_t_login).toMatchSnapshot();
+    // ==================================================
   });
 });

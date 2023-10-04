@@ -1,3 +1,4 @@
+import { HTMLAttributes } from "react";
 
 // Organism and I_OTypes
 import {
@@ -12,17 +13,26 @@ import {
 // StyleSheet
 import styles from "./t-login.module.css";
 
-interface I_TLogin {
+export interface I_TLogin extends HTMLAttributes<HTMLDivElement> {
   loginTitleProps: I_OLoginTitle;
   loginFormProps: I_OLoginForm;
 }
 
-export const T_Login = ({ loginTitleProps, loginFormProps }: I_TLogin) => {
+export const T_Login = ({
+  loginTitleProps,
+  loginFormProps,
+  ...props
+}: I_TLogin) => {
   const { image, title, username } = loginTitleProps;
   const { onSubmit, errors } = loginFormProps;
 
   return (
-    <div data-testid="t-login" className={styles.t_login}>
+    <div
+      data-testid="t-login"
+      className={styles.t_login}
+      id="t-login"
+      {...props}
+    >
       <O_LoginTitle image={image} title={title} username={username} />
       <O_LoginForm onSubmit={onSubmit} errors={errors} />
     </div>

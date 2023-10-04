@@ -17,7 +17,11 @@ export interface I_OLoginForm {
 
 export const O_LoginForm = ({ onSubmit, errors }: I_OLoginForm) => {
   return (
-    <form onSubmit={onSubmit} className={styles.o_form_login}>
+    <form
+      onSubmit={onSubmit}
+      className={styles.o_form_login}
+      data-testid="o-login-form"
+    >
       <M_InputWithLabel
         labelText="Email"
         type="email"

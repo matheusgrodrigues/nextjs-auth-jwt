@@ -40,6 +40,14 @@
   --spacing-20: 20px;
   --spacing-24: 24px;
   --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-96: 96px;
+
+  /* breakpoints */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
 }
 
 * {
