@@ -1,12 +1,10 @@
-import { HTMLAttributes } from "react";
-
 // Atoms
 import { A_Avatar, A_Title, A_Text } from "@/components/atoms";
 
 // StyleSheet
 import styles from "./o-login-title.module.css";
 
-interface I_OLoginTitle extends HTMLAttributes<HTMLDivElement> {
+export interface I_OLoginTitle {
   image: string;
   title: string;
   username: string;

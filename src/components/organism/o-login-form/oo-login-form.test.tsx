@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 // Organism
-import { O_FormLogin } from "./o-form-login";
+import { O_LoginForm } from "./o-login-form";
 
 describe("Deve renderizar o o-form-login, corretamente", () => {
   // ======================================================================
@@ -14,7 +14,7 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
     const onSubmit: FormEventHandler = (e) => e.preventDefault();
     const errors = {};
 
-    render(<O_FormLogin onSubmit={onSubmit} errors={errors} />);
+    render(<O_LoginForm onSubmit={onSubmit} errors={errors} />);
 
     // Act
     const get_m_input_with_label_email = screen.getByTestId(
@@ -36,7 +36,7 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
     const onSubmit: FormEventHandler = (e) => e.preventDefault();
     const errors = {};
 
-    render(<O_FormLogin onSubmit={onSubmit} errors={errors} />);
+    render(<O_LoginForm onSubmit={onSubmit} errors={errors} />);
 
     // Act
     const get_a_button = screen.getByTestId("a-button");
@@ -52,7 +52,7 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
     const errors = {};
 
     const get_o_form_login = renderer
-      .create(<O_FormLogin onSubmit={onSubmit} errors={errors} />)
+      .create(<O_LoginForm onSubmit={onSubmit} errors={errors} />)
       .toJSON();
 
     expect(get_o_form_login).toMatchSnapshot();

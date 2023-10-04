@@ -1,3 +1,3 @@
-import { O_FormLogin } from "./o-login-form/o-form-login";
+import { O_LoginForm } from "./o-login-form/o-login-form";
 
-export { O_FormLogin };
+export { O_LoginForm };
