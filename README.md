@@ -3,7 +3,7 @@
 | ![Tela de Login](/readme/login-desktop.png) | ![Tela de Boas Vindas](/readme/dash-desktop.png) |
 | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-4&mode=design) | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-5&mode=design)
 
-# [NextJS: Auth + JWT]([https://matheusgomesdev.com.br](https://nextjs-auth-jwt-blue.vercel.app/) 🚀
+# [NextJS: Auth + JWT](https://nextjs-auth-jwt-blue.vercel.app/) 🚀
 
 > **Em andamento**: https://nextjs-auth-jwt-blue.vercel.app/
 
