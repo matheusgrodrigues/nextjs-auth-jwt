@@ -3,9 +3,9 @@
 | ![Tela de Login](/readme/login-desktop.png) | ![Tela de Boas Vindas](/readme/dash-desktop.png) |
 | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-4&mode=design) | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-5&mode=design)
 
-# [NextJS: Auth + JWT](https://matheusgomesdev.com.br) 🚀
+# [NextJS: Auth + JWT]([https://matheusgomesdev.com.br](https://nextjs-auth-jwt-blue.vercel.app/)) 🚀
 
-> **Em andamento**: 
+> **Em andamento**: https://nextjs-auth-jwt-blue.vercel.app/
 
 Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.
 
