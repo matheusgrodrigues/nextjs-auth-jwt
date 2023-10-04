@@ -16,10 +16,7 @@ export const P_Home = ({ templateLoginProps }: I_PHome) => {
 
   return (
     <main data-testid="p-home" className={styles.p_home}>
-      <T_Login
-        loginTitleProps={loginTitleProps}
-        loginFormProps={loginFormProps}
-      />
+      <T_Login loginTitleProps={loginTitleProps} loginFormProps={loginFormProps} />
     </main>
   );
 };
