@@ -4,7 +4,7 @@ import { FormEventHandler } from "react";
 import { A_Button } from "@/components/atoms";
 
 // Molecules
-import { M_InputWithLabel } from "@/components/molecules";
+import { M_CheckboxWithLabel, M_InputWithLabel } from "@/components/molecules";
 
 import styles from "./o-form-login.module.css";
 
@@ -35,6 +35,12 @@ export const O_FormLogin = ({ onSubmit, errors }: I_OFormLogin) => {
       />
 
       {errors["password"] || null}
+
+      <M_CheckboxWithLabel
+        checked={false}
+        labelText="Manter-me conectado por 30 dias."
+        style={{ margin: "var(--spacing-4) 0" }}
+      />
 
       <A_Button type="submit">Login</A_Button>
     </form>
