@@ -15,7 +15,6 @@ const loginTitleProps: I_OLoginTitle = {
 };
 const loginFormProps: I_OLoginForm = {
   onSubmit: () => null,
-  errors: {},
 };
 
 describe("Deve renderizar o t-login, corretamente", () => {

@@ -24,7 +24,7 @@ export const T_Login = ({
   ...props
 }: I_TLogin) => {
   const { image, title, username } = loginTitleProps;
-  const { onSubmit, errors } = loginFormProps;
+  const { onSubmit } = loginFormProps;
 
   return (
     <div
@@ -34,7 +34,7 @@ export const T_Login = ({
       {...props}
     >
       <O_LoginTitle image={image} title={title} username={username} />
-      <O_LoginForm onSubmit={onSubmit} errors={errors} />
+      <O_LoginForm onSubmit={onSubmit} />
     </div>
   );
 };
