@@ -3,7 +3,7 @@
 exports[`Deve renderizar o m-input-with-label corretamente Deve preservar a estrutura visual do componente 1`] = `
 <div
   className="m_input_label"
-  data-testid="m-input-label"
+  data-testid="m-input-with-label-email"
 >
   <label
     className="a_label"
@@ -22,6 +22,7 @@ exports[`Deve renderizar o m-input-with-label corretamente Deve preservar a estr
     onInput={[Function]}
     onKeyDown={[Function]}
     onPaste={[Function]}
+    placeholder=""
     type="email"
   />
 </div>

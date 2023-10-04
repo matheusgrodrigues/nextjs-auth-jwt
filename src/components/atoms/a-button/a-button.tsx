@@ -2,7 +2,7 @@ import { Button, ButtonProps } from "primereact/button";
 
 import styles from "./a-button.module.css";
 
-export const AButton = ({ children, ...props }: ButtonProps) => {
+export const A_Button = ({ children, ...props }: ButtonProps) => {
   return (
     <Button
       data-testid="a-button"

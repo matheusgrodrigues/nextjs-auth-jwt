@@ -15,7 +15,7 @@ describe("Deve renderizar o m-input-with-label corretamente", () => {
         labelText={a_label_text}
         type="email"
         name="email"
-        placeholder="Informe o seu e-mail"
+        placeholder=""
       />
     );
 
@@ -34,7 +34,7 @@ describe("Deve renderizar o m-input-with-label corretamente", () => {
     const a_label_text = "a-label";
 
     render(
-      <M_InputWithLabel labelText={a_label_text} type="email" name="email" />
+      <M_InputWithLabel labelText={a_label_text} type="email" name="email" placeholder=""/>
     );
 
     // Act
@@ -57,7 +57,7 @@ describe("Deve renderizar o m-input-with-label corretamente", () => {
 
     const get_m_input_with_label = renderer
       .create(
-        <M_InputWithLabel labelText={a_label_text} type="email" name="email" />
+        <M_InputWithLabel labelText={a_label_text} type="email" name="email" placeholder=""/>
       )
       .toJSON();
 

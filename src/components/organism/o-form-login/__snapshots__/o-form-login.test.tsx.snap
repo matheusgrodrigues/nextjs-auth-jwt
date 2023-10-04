@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura visual do componente 1`] = `
+<form
+  className="o_form_login"
+  onSubmit={[Function]}
+>
+  <div
+    className="m_input_label"
+    data-testid="m-input-with-label-email"
+  >
+    <label
+      className="a_label"
+      data-testid="a-label"
+      htmlFor="email"
+    >
+      Email
+    </label>
+    <input
+      className="p-inputtext p-component a_input"
+      data-pc-name="inputtext"
+      data-pc-section="root"
+      data-testid="a-input"
+      name="email"
+      onBeforeInput={[Function]}
+      onInput={[Function]}
+      onKeyDown={[Function]}
+      onPaste={[Function]}
+      placeholder="Informe o seu e-mail"
+      type="email"
+    />
+  </div>
+  <div
+    className="m_input_label"
+    data-testid="m-input-with-label-password"
+  >
+    <label
+      className="a_label"
+      data-testid="a-label"
+      htmlFor="password"
+    >
+      Senha
+    </label>
+    <input
+      className="p-inputtext p-component a_input"
+      data-pc-name="inputtext"
+      data-pc-section="root"
+      data-testid="a-input"
+      name="password"
+      onBeforeInput={[Function]}
+      onInput={[Function]}
+      onKeyDown={[Function]}
+      onPaste={[Function]}
+      placeholder="Informe a sua senha"
+      type="password"
+    />
+  </div>
+  <div
+    className="m_checkboxWithLabel"
+    data-testid="m-checkboxWithLabel"
+  >
+    <div
+      className="p-checkbox"
+      data-pc-name="checkbox"
+      data-pc-section="root"
+      data-testid="a-checkbox"
+      id={null}
+      onClick={[Function]}
+      onContextMenu={null}
+      onMouseDown={null}
+      style={
+        {
+          "margin": "var(--spacing-4) 0",
+        }
+      }
+    >
+      <div
+        className="p-hidden-accessible"
+        data-pc-section="hiddeninputwrapper"
+      >
+        <input
+          data-pc-section="hiddeninput"
+          data-testid="a-checkbox-input"
+          defaultChecked={false}
+          disabled={false}
+          id={null}
+          name={null}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
+          required={false}
+          tabIndex={null}
+          type="checkbox"
+        />
+      </div>
+      <div
+        className="p-checkbox-box"
+        data-p-disabled={false}
+        data-p-focus={false}
+        data-p-highlight={false}
+        data-pc-section="input"
+      />
+    </div>
+    <label
+      className="a_label"
+      data-testid="a-label"
+      htmlFor="a-checkbox"
+      onClick={[Function]}
+    >
+      Manter-me conectado por 30 dias.
+    </label>
+  </div>
+  <button
+    className="p-button p-component a_button"
+    data-pc-name="button"
+    data-pc-section="root"
+    data-testid="a-button"
+    disabled={false}
+    type="submit"
+  >
+    Login
+  </button>
+</form>
+`;
