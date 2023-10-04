@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutura visual do componente 1`] = `
+<div
+  className="o_loginTitle"
+  data-testid="o-login-title"
+>
+  <div
+    className="p-avatar p-component p-avatar-circle avatar"
+    data-pc-name="avatar"
+    data-pc-section="root"
+    data-testid="a-avatar"
+    style={{}}
+  >
+    <span
+      className="p-avatar-text avatar_label"
+      data-pc-section="label"
+    >
+      @
+    </span>
+  </div>
+  <h1
+    className="a_title"
+    data-testid="a-title"
+  >
+    NextJS: Auth + JWT
+  </h1>
+  <p
+    className="a_text"
+    data-testid="a-text"
+  >
+    @matheusgomesdev
+  </p>
+</div>
+`;
