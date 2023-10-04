@@ -6,13 +6,43 @@ import { O_LoginTitle } from "./o-login-title";
 
 describe("Deve renderizar o o-login-title, corretamente", () => {
   // ========================================
-  it("Deve renderizar o a-avatar", () => {});
+  it("Deve renderizar o a-avatar, corretamente", () => {
+    // Arrange
+    render(<O_LoginTitle image="" title="" username="" />);
+
+    // Act
+    const get_a_avatar = screen.getByTestId("a-avatar");
+
+    // Assert
+
+    expect(get_a_avatar).toBeInTheDocument();
+  });
   // ========================================
 
-  it("Deve renderizar o a-title", () => {});
+  it("Deve renderizar o a-title", () => {
+    // Arrange
+    render(<O_LoginTitle image="" title="" username="" />);
+
+    // Act
+    const get_a_title = screen.getByTestId("a-title");
+
+    // Assert
+
+    expect(get_a_title).toBeInTheDocument();
+  });
   // ========================================
 
-  it("Deve renderizar o a-text", () => {});
+  it("Deve renderizar o a-text", () => {
+    // Arrange
+    render(<O_LoginTitle image="" title="" username="" />);
+
+    // Act
+    const get_a_text = screen.getByTestId("a-text");
+
+    // Assert
+
+    expect(get_a_text).toBeInTheDocument();
+  });
   // ========================================
 
   it("Deve preservar a estrutura visual do componente", () => {

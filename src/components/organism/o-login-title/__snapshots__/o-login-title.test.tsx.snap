@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutura visual do componente 1`] = `
-<div>
+<div
+  data-testid="o-login-title"
+>
   <div
     className="p-avatar p-component p-avatar-circle avatar"
     data-pc-name="avatar"
     data-pc-section="root"
+    data-testid="a-avatar"
     style={{}}
   >
     <span
@@ -17,8 +20,14 @@ exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutur
   </div>
   <h1
     className="title title_h1"
+    data-testid="a-title"
   >
     NextJS: Auth + JWT
   </h1>
+  <p
+    data-testid="a-text"
+  >
+    @matheusgomesdev
+  </p>
 </div>
 `;
