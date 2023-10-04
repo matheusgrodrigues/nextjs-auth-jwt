@@ -2,11 +2,11 @@ import { Checkbox, CheckboxProps } from "primereact/checkbox";
 
 import "./a-checkbox.module.css";
 
-interface ICheckbox extends CheckboxProps {
+interface I_Checkbox extends CheckboxProps {
   checked: boolean;
 }
 
-export const ACheckbox = ({ checked, ...props }: ICheckbox) => {
+export const A_Checkbox = ({ checked, ...props }: I_Checkbox) => {
   return (
     <Checkbox
       data-testid="a-checkbox"
@@ -21,6 +21,10 @@ export const ACheckbox = ({ checked, ...props }: ICheckbox) => {
         icon: {
           className: "p-checkbox-icon",
         },
+        hiddenInput: {
+          "data-testid": "a-checkbox-input",
+
+        }
       }}
       unstyled
       {...props}

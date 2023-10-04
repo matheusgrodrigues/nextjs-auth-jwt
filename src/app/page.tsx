@@ -8,12 +8,12 @@ import {
   AAvatar,
   ATitle,
   A_Input,
-  ACheckbox,
+  A_Checkbox,
   A_Button,
 } from "@/components/atoms";
 
 // Molecules
-import { M_InputWithLabel } from "@/components/molecules";
+import { M_InputWithLabel, M_CheckboxWithLabel } from "@/components/molecules";
 
 // Organism
 import { O_FormLogin } from "@/components/organism";
@@ -42,9 +42,14 @@ export default function Home() {
         placeholder="*******"
       />
 
-      <ACheckbox onChange={(e) => setChecked(e.checked)} checked={checked} />
+      <A_Checkbox onChange={(e) => setChecked(e.checked)} checked={checked} />
 
       <O_FormLogin onSubmit={() => null} errors={{}} />
+
+      <M_CheckboxWithLabel
+        checked={false}
+        labelText="Manter-me conectado por 30 dias."
+      />
     </>
   );
 }

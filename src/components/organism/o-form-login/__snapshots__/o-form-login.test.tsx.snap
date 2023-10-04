@@ -2,6 +2,7 @@
 
 exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura visual do componente 1`] = `
 <form
+  className="o_form_login"
   onSubmit={[Function]}
 >
   <div
