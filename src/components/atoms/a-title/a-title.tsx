@@ -4,20 +4,19 @@ import styles from "./a-title.module.css";
 
 interface ITitle extends HTMLAttributes<HTMLHeadingElement> {
   variant: "h1" | "h2";
-  label: string;
 }
 
-export const ATitle = ({ variant, label, ...props }: ITitle) => {
+export const ATitle = ({ variant, children, ...props }: ITitle) => {
   return (
     <>
       {variant === "h1" && (
         <h1 className={`${styles.title} ${styles.title_h1}`} {...props}>
-          {label}
+          {children}
         </h1>
       )}
       {variant === "h2" && (
         <h2 className={`${styles.title} ${styles.title_h2}`} {...props}>
-          {label}
+          {children}
         </h2>
       )}
     </>
