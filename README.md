@@ -5,7 +5,7 @@
 
 # [NextJS: Auth + JWT](https://matheusgomesdev.com.br) 🚀
 
-> **Em andamento**: 
+> **Em andamento**:
 
 Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.
 
