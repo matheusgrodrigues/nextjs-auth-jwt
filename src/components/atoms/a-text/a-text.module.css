@@ -1,0 +1,5 @@
+.a_text {
+    font-size: var(--fs-text-md);
+    color: var(--gray-500);
+    font-weight: var(--fw-regular);
+}

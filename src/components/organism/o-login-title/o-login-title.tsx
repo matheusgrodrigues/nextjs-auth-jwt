@@ -14,14 +14,16 @@ interface I_OLoginTitle extends HTMLAttributes<HTMLDivElement> {
 
 export const O_LoginTitle = ({ image, title, username }: I_OLoginTitle) => {
   return (
-    <div data-testid="o-login-title">
+    <div data-testid="o-login-title" className={styles.o_loginTitle}>
       <A_Avatar
         image={image}
         label={username[0]}
         size="normal"
         shape="circle"
       />
-      <A_Title variant="h1">{title}</A_Title>
+      <A_Title variant="h1" className={styles.a_title}>
+        {title}
+      </A_Title>
       <A_Text>{username}</A_Text>
     </div>
   );
