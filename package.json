@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
-    "build-test": "jest"
+    "build-test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "@types/react-test-renderer": "^18.0.3",
