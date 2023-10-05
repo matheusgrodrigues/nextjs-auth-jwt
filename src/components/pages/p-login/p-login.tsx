@@ -12,11 +12,11 @@ interface I_PHome {
 }
 
 export const P_Home = ({ templateLoginProps }: I_PHome) => {
-  const { loginTitleProps, loginFormProps } = templateLoginProps;
+  const { loginTitleProps, loginFormUrl } = templateLoginProps;
 
   return (
     <main data-testid="p-home" className={styles.p_home}>
-      <T_Login loginTitleProps={loginTitleProps} loginFormProps={loginFormProps} />
+      <T_Login loginTitleProps={loginTitleProps} loginFormUrl={loginFormUrl} />
     </main>
   );
 };

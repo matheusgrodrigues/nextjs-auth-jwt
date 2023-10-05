@@ -24,11 +24,14 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       data-testid="a-input"
       name="email"
       onBeforeInput={[Function]}
+      onBlur={[Function]}
+      onChange={[Function]}
       onInput={[Function]}
       onKeyDown={[Function]}
       onPaste={[Function]}
       placeholder="Informe o seu e-mail"
       type="email"
+      value=""
     />
   </div>
   <div
@@ -49,11 +52,14 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       data-testid="a-input"
       name="password"
       onBeforeInput={[Function]}
+      onBlur={[Function]}
+      onChange={[Function]}
       onInput={[Function]}
       onKeyDown={[Function]}
       onPaste={[Function]}
       placeholder="Informe a sua senha"
       type="password"
+      value=""
     />
   </div>
   <div

@@ -49,11 +49,14 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
         data-testid="a-input"
         name="email"
         onBeforeInput={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
         onInput={[Function]}
         onKeyDown={[Function]}
         onPaste={[Function]}
         placeholder="Informe o seu e-mail"
         type="email"
+        value=""
       />
     </div>
     <div
@@ -74,11 +77,14 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
         data-testid="a-input"
         name="password"
         onBeforeInput={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
         onInput={[Function]}
         onKeyDown={[Function]}
         onPaste={[Function]}
         placeholder="Informe a sua senha"
         type="password"
+        value=""
       />
     </div>
     <div

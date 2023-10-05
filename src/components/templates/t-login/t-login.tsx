@@ -9,17 +9,17 @@ import styles from "./t-login.module.css";
 
 export interface I_TLogin extends HTMLAttributes<HTMLDivElement> {
   loginTitleProps: I_OLoginTitle;
-  loginFormProps: I_OLoginForm;
+  loginFormUrl: I_OLoginForm;
 }
 
-export const T_Login = ({ loginTitleProps, loginFormProps, ...props }: I_TLogin) => {
+export const T_Login = ({ loginTitleProps, loginFormUrl, ...props }: I_TLogin) => {
   const { image, title, username } = loginTitleProps;
-  const { onSubmit } = loginFormProps;
+  const { sendFormUrl } = loginFormUrl;
 
   return (
     <div data-testid="t-login" className={styles.t_login} id="t-login" {...props}>
       <O_LoginTitle image={image} title={title} username={username} />
-      <O_LoginForm onSubmit={onSubmit} />
+      <O_LoginForm sendFormUrl={sendFormUrl} />
     </div>
   );
 };

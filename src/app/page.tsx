@@ -16,17 +16,14 @@ export default function Home() {
     username: "@matheusgomesdev",
   });
 
-  const [LoginFormProps, setLoginFormProps] = useState<I_OLoginForm>({
-    onSubmit: () => null,
-    errors: {},
-  });
+  const [LoginFormUrl, setLoginFormUrl] = useState<I_OLoginForm>({ sendFormUrl: "endpoint: app/page.tsx" });
 
   return (
     <main>
       <P_Home
         templateLoginProps={{
           loginTitleProps: LoginTitleProps,
-          loginFormProps: LoginFormProps,
+          loginFormUrl: LoginFormUrl,
         }}
       />
     </main>

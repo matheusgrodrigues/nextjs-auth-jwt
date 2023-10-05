@@ -13,15 +13,15 @@ const loginTitleProps: I_OLoginTitle = {
   title: "",
   username: "",
 };
-const loginFormProps: I_OLoginForm = {
-  onSubmit: () => null,
+const loginFormUrl: I_OLoginForm = {
+ sendFormUrl: "endpoint"
 };
 
 describe("Deve renderizar o t-login, corretamente", () => {
   // ==================================================
   it("Deve renderizar o o-login-title", () => {
     // Arrange
-    render(<T_Login loginTitleProps={loginTitleProps} loginFormProps={loginFormProps} />);
+    render(<T_Login loginTitleProps={loginTitleProps} loginFormUrl={loginFormUrl} />);
 
     // Act
     const get_o_login_title = screen.getByTestId("o-login-title");
@@ -32,7 +32,7 @@ describe("Deve renderizar o t-login, corretamente", () => {
   // ==================================================
   it("Deve renderizar o o-login-form", () => {
     // Arrange
-    render(<T_Login loginTitleProps={loginTitleProps} loginFormProps={loginFormProps} />);
+    render(<T_Login loginTitleProps={loginTitleProps} loginFormUrl={loginFormUrl} />);
 
     // Act
     const get_o_login_form = screen.getByTestId("o-login-form");
@@ -44,7 +44,7 @@ describe("Deve renderizar o t-login, corretamente", () => {
   // ==================================================
   it("Deve preservar a estrutura visual do componente", () => {
     const get_t_login = renderer
-      .create(<T_Login loginTitleProps={loginTitleProps} loginFormProps={loginFormProps} />)
+      .create(<T_Login loginTitleProps={loginTitleProps} loginFormUrl={loginFormUrl} />)
       .toJSON();
 
     expect(get_t_login).toMatchSnapshot();

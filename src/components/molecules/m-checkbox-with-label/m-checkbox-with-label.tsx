@@ -13,19 +13,12 @@ interface I_MCheckboxWithLabel extends CheckboxProps {
   labelText: string;
 }
 
-export const M_CheckboxWithLabel = ({
-  checked,
-  labelText,
-  ...props
-}: I_MCheckboxWithLabel) => {
+export const M_CheckboxWithLabel = ({ checked, labelText, ...props }: I_MCheckboxWithLabel) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   return (
-    <div
-      className={styles.m_checkboxWithLabel}
-      data-testid="m-checkboxWithLabel"
-    >
-      <A_Checkbox checked={isChecked} {...props} />
+    <div className={styles.m_checkboxWithLabel} data-testid="m-checkboxWithLabel">
+      <A_Checkbox checked={isChecked} onClick={() => setIsChecked(!isChecked)} {...props} />
       <A_Label htmlFor="a-checkbox" onClick={() => setIsChecked(!isChecked)}>
         {labelText}
       </A_Label>

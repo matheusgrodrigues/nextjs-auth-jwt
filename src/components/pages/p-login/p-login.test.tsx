@@ -14,9 +14,8 @@ describe("Deve renderizar a pagina de login, corretamente", () => {
     title: "",
     username: "",
   };
-  const loginFormProps: I_OLoginForm = {
-    onSubmit: () => null,
-    errors: {},
+  const loginFormUrl: I_OLoginForm = {
+   sendFormUrl: "endpoint"
   };
 
   beforeEach(() => {
@@ -24,7 +23,7 @@ describe("Deve renderizar a pagina de login, corretamente", () => {
       <P_Home
         templateLoginProps={{
           loginTitleProps,
-          loginFormProps,
+          loginFormUrl,
         }}
       />
     );
@@ -47,7 +46,7 @@ describe("Deve renderizar a pagina de login, corretamente", () => {
         <P_Home
           templateLoginProps={{
             loginTitleProps,
-            loginFormProps,
+            loginFormUrl,
           }}
         />
       )
