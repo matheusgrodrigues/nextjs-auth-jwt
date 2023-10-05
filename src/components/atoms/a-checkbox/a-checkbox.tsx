@@ -22,9 +22,9 @@ export const A_Checkbox = ({ checked, ...props }: I_Checkbox) => {
           className: "p-checkbox-icon",
         },
         hiddenInput: {
+          defaultValue: checked,
           "data-testid": "a-checkbox-input",
-
-        }
+        },
       }}
       unstyled
       {...props}

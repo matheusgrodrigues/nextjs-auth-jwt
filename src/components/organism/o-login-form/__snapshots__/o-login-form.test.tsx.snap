@@ -71,15 +71,12 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       data-pc-name="checkbox"
       data-pc-section="root"
       data-testid="a-checkbox"
-      id={null}
+      id="a-checkbox"
+      onBlur={[Function]}
       onClick={[Function]}
       onContextMenu={null}
       onMouseDown={null}
-      style={
-        {
-          "margin": "var(--spacing-4) 0",
-        }
-      }
+      style={{}}
     >
       <div
         className="p-hidden-accessible"
@@ -89,9 +86,10 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
           data-pc-section="hiddeninput"
           data-testid="a-checkbox-input"
           defaultChecked={false}
+          defaultValue={false}
           disabled={false}
           id={null}
-          name={null}
+          name="manter_logado"
           onBlur={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -112,7 +110,6 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
     <label
       className="a_label"
       data-testid="a-label"
-      htmlFor="a-checkbox"
       onClick={[Function]}
     >
       Manter-me conectado por 30 dias.

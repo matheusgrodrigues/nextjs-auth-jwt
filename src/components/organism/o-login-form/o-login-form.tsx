@@ -1,7 +1,7 @@
-import { Formik, ErrorMessage } from "formik";
+import { useFormik } from "formik";
 
 // Atoms
-import { A_Button } from "@/components/atoms";
+import { A_Button, A_Text } from "@/components/atoms";
 
 // Molecules
 import { M_CheckboxWithLabel, M_InputWithLabel } from "@/components/molecules";
@@ -9,54 +9,51 @@ import { M_CheckboxWithLabel, M_InputWithLabel } from "@/components/molecules";
 // StyleSheet
 import styles from "./o-login-form.module.css";
 
-// Validation
+// FormValidationHelpers
 import { initialValues, validationSchema } from "./FormValidationHelpers";
-import { formValidation } from "./FormValidationHelpers/form-validation";
+import { sendLoginForm } from "./FormValidationHelpers/send-login-form";
 
 export interface I_OLoginForm {
   sendFormUrl: string;
 }
 
 export const O_LoginForm = ({ sendFormUrl }: I_OLoginForm) => {
+  const { handleSubmit, getFieldProps, isSubmitting, touched, errors, values, isValidating } = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      if (!isValidating) {
+        sendLoginForm({ values, setSubmitting, sendFormUrl });
+      }
+    },
+    validateOnChange: false,
+    validateOnBlur: true,
+  });
+
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={(values, { setFieldError, setSubmitting }) => {
-        formValidation({ values, setFieldError, setSubmitting, sendFormUrl });
-      }}
-    >
-      {({ getFieldProps, handleSubmit, isSubmitting }) => (
-        <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
-          <M_InputWithLabel
-            labelText="Email"
-            type="email"
-            placeholder="Informe o seu e-mail"
-            {...getFieldProps("email")}
-          />
+    <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
+      <M_InputWithLabel labelText="Email" type="email" placeholder="Informe o seu e-mail" {...getFieldProps("email")} />
 
-          <ErrorMessage name="email" />
+      {errors.email && touched.email && <A_Text type="error">{errors.email}</A_Text>}
 
-          <M_InputWithLabel
-            labelText="Senha"
-            type="password"
-            placeholder="Informe a sua senha"
-            {...getFieldProps("password")}
-          />
+      <M_InputWithLabel
+        labelText="Senha"
+        type="password"
+        placeholder="Informe a sua senha"
+        {...getFieldProps("password")}
+      />
 
-          <ErrorMessage name="password" />
+      {errors.password && touched.password && <A_Text type="error">{errors.password}</A_Text>}
 
-          <M_CheckboxWithLabel
-            checked={false}
-            labelText="Manter-me conectado por 30 dias."
-            style={{ margin: "var(--spacing-4) 0" }}
-          />
+      <M_CheckboxWithLabel
+        checked={values.manter_logado}
+        labelText="Manter-me conectado por 30 dias."
+        {...getFieldProps("manter_logado")}
+      />
 
-          <A_Button type="submit" disabled={isSubmitting}>
-            Login
-          </A_Button>
-        </form>
-      )}
-    </Formik>
+      <A_Button type="submit" disabled={isSubmitting}>
+        Login
+      </A_Button>
+    </form>
   );
 };

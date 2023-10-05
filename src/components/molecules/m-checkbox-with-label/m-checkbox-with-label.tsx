@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { CheckboxProps } from "primereact/checkbox";
 
 // Atoms
@@ -14,12 +12,18 @@ interface I_MCheckboxWithLabel extends CheckboxProps {
 }
 
 export const M_CheckboxWithLabel = ({ checked, labelText, ...props }: I_MCheckboxWithLabel) => {
-  const [isChecked, setIsChecked] = useState(checked);
-
   return (
     <div className={styles.m_checkboxWithLabel} data-testid="m-checkboxWithLabel">
-      <A_Checkbox checked={isChecked} onClick={() => setIsChecked(!isChecked)} {...props} />
-      <A_Label htmlFor="a-checkbox" onClick={() => setIsChecked(!isChecked)}>
+      <A_Checkbox id="a-checkbox" checked={checked} {...props} />
+      <A_Label
+        onClick={() => {
+          const get_checkbox = document.getElementById("a-checkbox");
+
+          if (get_checkbox) {
+            get_checkbox.click();
+          }
+        }}
+      >
         {labelText}
       </A_Label>
     </div>
