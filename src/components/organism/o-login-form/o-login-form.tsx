@@ -11,7 +11,7 @@ import styles from "./o-login-form.module.css";
 
 // FormValidationHelpers
 import { initialValues, validationSchema } from "./FormValidationHelpers";
-import { sendLoginForm } from "./FormValidationHelpers/send-login-form";
+import { sendLoginForm } from "./FormValidationHelpers";
 
 export interface I_OLoginForm {
   sendFormUrl: string;

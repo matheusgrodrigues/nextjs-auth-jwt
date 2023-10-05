@@ -1,5 +1,3 @@
-import { FormEventHandler } from "react";
-
 import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
@@ -9,9 +7,7 @@ import { O_LoginForm } from "./o-login-form";
 describe("Deve renderizar o o-form-login, corretamente", () => {
   // ======================================================================
   beforeEach(() => {
-    const onSubmit: FormEventHandler = (e) => e.preventDefault();
-
-    render(<O_LoginForm onSubmit={onSubmit} />);
+    render(<O_LoginForm sendFormUrl={""} />);
   });
   // ======================================================================
 
@@ -42,9 +38,7 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
 
   // ======================================================================
   it("Deve manter a estrutura visual do componente", () => {
-    const onSubmit: FormEventHandler = (e) => e.preventDefault();
-
-    const get_o_form_login = renderer.create(<O_LoginForm onSubmit={onSubmit} />).toJSON();
+    const get_o_form_login = renderer.create(<O_LoginForm sendFormUrl={""} />).toJSON();
 
     expect(get_o_form_login).toMatchSnapshot();
   });

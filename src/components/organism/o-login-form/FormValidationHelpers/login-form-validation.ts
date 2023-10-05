@@ -3,6 +3,18 @@ import * as Yup from "yup";
 // Utils
 import { messages } from "@/utils";
 
+export interface I_InitialValues {
+  email: string;
+  password: string;
+  manter_logado: boolean;
+}
+
+export const initialValues: I_InitialValues = {
+  email: "",
+  password: "",
+  manter_logado: false,
+};
+
 export const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required(messages.ERROR_MESSAGES.INVALID_EMAIL_EMPTY)

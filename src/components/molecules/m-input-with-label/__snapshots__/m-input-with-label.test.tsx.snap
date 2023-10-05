@@ -16,7 +16,7 @@ exports[`Deve renderizar o m-input-with-label corretamente Deve preservar a estr
     className="p-inputtext p-component a_input"
     data-pc-name="inputtext"
     data-pc-section="root"
-    data-testid="a-input"
+    data-testid="a-input-email"
     name="email"
     onBeforeInput={[Function]}
     onInput={[Function]}

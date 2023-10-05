@@ -38,7 +38,7 @@ describe("Deve renderizar o m-input-with-label corretamente", () => {
     );
 
     // Act
-    const get_a_input = screen.getByTestId("a-input");
+    const get_a_input = screen.getByTestId("a-input-email");
 
     // Assert
     expect(get_a_input).toBeInTheDocument();

@@ -1,4 +1,6 @@
-import { initialValues } from "./initial-values";
-import { validationSchema } from "./validation-schema";
+import { initialValues, validationSchema } from "./login-form-validation";
 
-export { initialValues, validationSchema };
+// SendForm
+import { sendLoginForm } from "./login-form-send";
+
+export { initialValues, validationSchema, sendLoginForm };
