@@ -6,7 +6,7 @@ import styles from "./a-text.module.css";
 type T_AText = "error";
 
 interface I_AText extends HTMLAttributes<HTMLParagraphElement> {
-  type: T_AText;
+  type?: T_AText;
 }
 
 export const A_Text = ({ type, children, ...props }: I_AText) => {
