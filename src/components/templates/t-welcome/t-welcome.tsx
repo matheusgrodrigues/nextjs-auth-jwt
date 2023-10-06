@@ -11,7 +11,9 @@ export interface I_TWelcome {
 export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
   return (
     <main className={styles.t_welcome} id="t-welcome">
-      <A_Text data-testid="a-text-welcome">Bem-vindo(a) ao nosso serviço !</A_Text>
+      <A_Text data-testid="a-text-welcome" variant="primary-semibold">
+        Bem-vindo(a) ao nosso serviço !
+      </A_Text>
       <A_Title data-testid="a-title-username" variant="h1">
         {username}
       </A_Title>
