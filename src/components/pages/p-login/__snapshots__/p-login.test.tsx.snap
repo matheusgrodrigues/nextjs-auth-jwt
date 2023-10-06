@@ -50,14 +50,17 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           className="p-inputtext p-component a_input"
           data-pc-name="inputtext"
           data-pc-section="root"
-          data-testid="a-input"
+          data-testid="a-input-email"
           name="email"
           onBeforeInput={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
           onInput={[Function]}
           onKeyDown={[Function]}
           onPaste={[Function]}
           placeholder="Informe o seu e-mail"
           type="email"
+          value=""
         />
       </div>
       <div
@@ -75,14 +78,17 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           className="p-inputtext p-component a_input"
           data-pc-name="inputtext"
           data-pc-section="root"
-          data-testid="a-input"
+          data-testid="a-input-password"
           name="password"
           onBeforeInput={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
           onInput={[Function]}
           onKeyDown={[Function]}
           onPaste={[Function]}
           placeholder="Informe a sua senha"
           type="password"
+          value=""
         />
       </div>
       <div
@@ -94,15 +100,12 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           data-pc-name="checkbox"
           data-pc-section="root"
           data-testid="a-checkbox"
-          id={null}
+          id="a-checkbox"
+          onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={null}
           onMouseDown={null}
-          style={
-            {
-              "margin": "var(--spacing-4) 0",
-            }
-          }
+          style={{}}
         >
           <div
             className="p-hidden-accessible"
@@ -112,9 +115,10 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
               data-pc-section="hiddeninput"
               data-testid="a-checkbox-input"
               defaultChecked={false}
+              defaultValue={false}
               disabled={false}
               id={null}
-              name={null}
+              name="manter_logado"
               onBlur={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
@@ -135,7 +139,6 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         <label
           className="a_label"
           data-testid="a-label"
-          htmlFor="a-checkbox"
           onClick={[Function]}
         >
           Manter-me conectado por 30 dias.

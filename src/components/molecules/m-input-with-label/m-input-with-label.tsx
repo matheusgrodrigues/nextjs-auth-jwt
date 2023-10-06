@@ -13,18 +13,9 @@ interface I_MInputWithLabel extends InputTextProps {
   name: string;
 }
 
-export const M_InputWithLabel = ({
-  labelText,
-  type,
-  name,
-  placeholder,
-  ...props
-}: I_MInputWithLabel) => {
+export const M_InputWithLabel = ({ labelText, type, name, placeholder, ...props }: I_MInputWithLabel) => {
   return (
-    <div
-      className={styles.m_input_label}
-      data-testid={`${name ? `m-input-with-label-${name}` : "m-input-with-label"}`}
-    >
+    <div className={styles.m_input_label} data-testid={`${name ? `m-input-with-label-${name}` : "m-input-with-label"}`}>
       <A_Label htmlFor={name}>{labelText}</A_Label>
       <A_Input type={type} name={name} placeholder={placeholder} {...props} />
     </div>

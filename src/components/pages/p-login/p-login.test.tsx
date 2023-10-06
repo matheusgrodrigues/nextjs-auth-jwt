@@ -3,28 +3,25 @@ import renderer from "react-test-renderer";
 
 // Interfaces
 import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";
-import { I_OLoginForm } from "@/components/organism/o-login-form/o-login-form";
 
 // Pages
 import { P_Home } from "./p-login";
 
 describe("Deve renderizar a pagina de login, corretamente", () => {
-  const loginTitleProps: I_OLoginTitle = {
+  const o_loginTitle: I_OLoginTitle = {
     image: "",
     title: "",
     username: "",
   };
-  const loginFormProps: I_OLoginForm = {
-    onSubmit: () => null,
-    errors: {},
-  };
+
+  const handleLoginForm = jest.fn();
 
   beforeEach(() => {
     render(
       <P_Home
-        templateLoginProps={{
-          loginTitleProps,
-          loginFormProps,
+        t_loginProps={{
+          o_loginTitle,
+          handleLoginForm,
         }}
       />
     );
@@ -45,9 +42,9 @@ describe("Deve renderizar a pagina de login, corretamente", () => {
     const get_p_login = renderer
       .create(
         <P_Home
-          templateLoginProps={{
-            loginTitleProps,
-            loginFormProps,
+          t_loginProps={{
+            o_loginTitle,
+            handleLoginForm,
           }}
         />
       )

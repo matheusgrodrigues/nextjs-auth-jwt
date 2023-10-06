@@ -10,7 +10,7 @@ exports[`Deve renderizar o m-checkbox-with-label, corretamente Deve manter a est
     data-pc-name="checkbox"
     data-pc-section="root"
     data-testid="a-checkbox"
-    id={null}
+    id="a-checkbox"
     onClick={[Function]}
     onContextMenu={null}
     onMouseDown={null}
@@ -24,6 +24,7 @@ exports[`Deve renderizar o m-checkbox-with-label, corretamente Deve manter a est
         data-pc-section="hiddeninput"
         data-testid="a-checkbox-input"
         defaultChecked={false}
+        defaultValue={false}
         disabled={false}
         id={null}
         name={null}
@@ -47,7 +48,6 @@ exports[`Deve renderizar o m-checkbox-with-label, corretamente Deve manter a est
   <label
     className="a_label"
     data-testid="a-label"
-    htmlFor="a-checkbox"
     onClick={[Function]}
   >
     a-label

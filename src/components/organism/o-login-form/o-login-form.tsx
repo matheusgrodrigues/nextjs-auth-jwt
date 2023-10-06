@@ -1,52 +1,57 @@
-import { FormEventHandler } from "react";
+import { useFormik } from "formik";
 
 // Atoms
-import { A_Button } from "@/components/atoms";
+import { A_Button, A_Text } from "@/components/atoms";
 
 // Molecules
 import { M_CheckboxWithLabel, M_InputWithLabel } from "@/components/molecules";
 
+// StyleSheet
 import styles from "./o-login-form.module.css";
 
-type errors = { [key: string]: string };
+// FormValidationHelpers
+import { initialValues, validationSchema } from "./FormValidationHelpers";
+import { I_HandleLoginProps } from "./FormValidationHelpers/login-form-send";
 
 export interface I_OLoginForm {
-  onSubmit: FormEventHandler;
-  errors: errors;
+  handleLoginForm: ({}: I_HandleLoginProps) => void;
 }
 
-export const O_LoginForm = ({ onSubmit, errors }: I_OLoginForm) => {
-  return (
-    <form
-      onSubmit={onSubmit}
-      className={styles.o_form_login}
-      data-testid="o-login-form"
-    >
-      <M_InputWithLabel
-        labelText="Email"
-        type="email"
-        name="email"
-        placeholder="Informe o seu e-mail"
-      />
+export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
+  const { handleSubmit, errors, touched, getFieldProps, values, isSubmitting } = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      handleLoginForm({ values, setSubmitting });
+    },
+    validateOnChange: false,
+    validateOnBlur: true,
+  });
 
-      {errors["email"] || null}
+  return (
+    <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
+      <M_InputWithLabel labelText="Email" type="email" placeholder="Informe o seu e-mail" {...getFieldProps("email")} />
+
+      {errors.email && touched.email && <A_Text type="error">{errors.email}</A_Text>}
 
       <M_InputWithLabel
         labelText="Senha"
         type="password"
-        name="password"
         placeholder="Informe a sua senha"
+        {...getFieldProps("password")}
       />
 
-      {errors["password"] || null}
+      {errors.password && touched.password && <A_Text type="error">{errors.password}</A_Text>}
 
       <M_CheckboxWithLabel
-        checked={false}
+        checked={values.manter_logado}
         labelText="Manter-me conectado por 30 dias."
-        style={{ margin: "var(--spacing-4) 0" }}
+        {...getFieldProps("manter_logado")}
       />
 
-      <A_Button type="submit">Login</A_Button>
+      <A_Button type="submit" disabled={isSubmitting}>
+        Login
+      </A_Button>
     </form>
   );
 };

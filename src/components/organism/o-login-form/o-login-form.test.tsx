@@ -1,5 +1,3 @@
-import { FormEventHandler } from "react";
-
 import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
@@ -7,22 +5,20 @@ import renderer from "react-test-renderer";
 import { O_LoginForm } from "./o-login-form";
 
 describe("Deve renderizar o o-form-login, corretamente", () => {
+  const handleLoginForm = jest.fn();
+
+  // ======================================================================
+  beforeEach(() => {
+    render(<O_LoginForm handleLoginForm={handleLoginForm} />);
+  });
   // ======================================================================
 
   it("Deve renderizar todos campos do formulário", () => {
-    // Arrange
-    const onSubmit: FormEventHandler = (e) => e.preventDefault();
-    const errors = {};
-
-    render(<O_LoginForm onSubmit={onSubmit} errors={errors} />);
+    // Arrange -> beforeEach
 
     // Act
-    const get_m_input_with_label_email = screen.getByTestId(
-      "m-input-with-label-email"
-    );
-    const get_m_input_with_label_password = screen.getByTestId(
-      "m-input-with-label-password"
-    );
+    const get_m_input_with_label_email = screen.getByTestId("m-input-with-label-email");
+    const get_m_input_with_label_password = screen.getByTestId("m-input-with-label-password");
 
     // Assert
     expect(get_m_input_with_label_email).toBeInTheDocument();
@@ -32,11 +28,7 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
   // ======================================================================
 
   it("Deve renderizar o botão de submit", () => {
-    // Arrange
-    const onSubmit: FormEventHandler = (e) => e.preventDefault();
-    const errors = {};
-
-    render(<O_LoginForm onSubmit={onSubmit} errors={errors} />);
+    // Arrange -> beforeEach
 
     // Act
     const get_a_button = screen.getByTestId("a-button");
@@ -48,17 +40,10 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
 
   // ======================================================================
   it("Deve manter a estrutura visual do componente", () => {
-    const onSubmit: FormEventHandler = (e) => e.preventDefault();
-    const errors = {};
-
-    const get_o_form_login = renderer
-      .create(<O_LoginForm onSubmit={onSubmit} errors={errors} />)
-      .toJSON();
+    const get_o_form_login = renderer.create(<O_LoginForm handleLoginForm={handleLoginForm} />).toJSON();
 
     expect(get_o_form_login).toMatchSnapshot();
   });
 
   // ======================================================================
 });
-
-// =====================================

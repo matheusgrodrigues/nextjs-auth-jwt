@@ -3,3 +3,8 @@
     color: var(--gray-500);
     font-weight: var(--fw-regular);
 }
+
+.a_text__error {
+    color: var(--red-500);
+    font-size: var(--fs-text-sm);
+}
