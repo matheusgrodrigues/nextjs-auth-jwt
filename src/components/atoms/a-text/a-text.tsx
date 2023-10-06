@@ -7,6 +7,7 @@ type T_AText = "error";
 
 interface I_AText extends HTMLAttributes<HTMLParagraphElement> {
   type?: T_AText;
+  "data-testid"?: string;
 }
 
 export const A_Text = ({ type, children, ...props }: I_AText) => {
