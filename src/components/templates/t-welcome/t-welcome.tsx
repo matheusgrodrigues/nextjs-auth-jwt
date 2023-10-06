@@ -1,11 +1,11 @@
 import { A_Button, A_Text, A_Title } from "@/components/atoms";
 
-interface I_Welcome {
+export interface I_TWelcome {
   username: string;
   handleLogout: () => void;
 }
 
-export const T_Welcome = ({ username, handleLogout }: I_Welcome) => {
+export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
   return (
     <main>
       <A_Text data-testid="a-text-welcome">Bem-vindo(a) ao nosso serviço !</A_Text>
