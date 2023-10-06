@@ -27,8 +27,11 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
     />
   </div>
   <form
+    action="#"
     className="o_form_login"
     data-testid="o-login-form"
+    onReset={[Function]}
+    onSubmit={[Function]}
   >
     <div
       className="m_input_label"

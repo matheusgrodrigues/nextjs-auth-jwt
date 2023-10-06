@@ -2,8 +2,11 @@
 
 exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura visual do componente 1`] = `
 <form
+  action="#"
   className="o_form_login"
   data-testid="o-login-form"
+  onReset={[Function]}
+  onSubmit={[Function]}
 >
   <div
     className="m_input_label"

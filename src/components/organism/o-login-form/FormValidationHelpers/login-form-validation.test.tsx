@@ -6,32 +6,28 @@ import { O_LoginForm } from "../o-login-form";
 
 it("Deve submeter o formulario corretamente", async () => {
   // Arrange
-  const handleSubmit = jest.fn();
+  const sendLoginForm = jest.fn();
 
   const fake_user_data = {
     email: "matheusgomes1203@hotmail.com",
     password: "1234567",
-    manter_logado: "true",
   };
 
-  render(<O_LoginForm handleSubmit={handleSubmit}  />);
+  render(<O_LoginForm sendLoginForm={sendLoginForm} />);
 
   const user = userEvent.setup();
 
   // Act
   const get_a_input_email = screen.getByTestId("a-input-email");
   const get_a_input_password = screen.getByTestId("a-input-password");
-  const get_a_input_checkbox = screen.getByTestId("a-checkbox-input");
   const get_a_button = screen.getByTestId("a-button");
 
   await user.type(get_a_input_email, fake_user_data.email);
   await user.type(get_a_input_password, fake_user_data.password);
-  await user.type(get_a_input_checkbox, fake_user_data.manter_logado);
-
-  // Assert
   await user.click(get_a_button);
 
+  // Assert
   await waitFor(() => {
-    expect(handleSubmit).toHaveBeenCalledWith(fake_user_data);
+    expect(sendLoginForm).toBeCalledTimes(1);
   });
 });

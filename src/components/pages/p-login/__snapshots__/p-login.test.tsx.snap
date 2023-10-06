@@ -31,8 +31,11 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
       />
     </div>
     <form
+      action="#"
       className="o_form_login"
       data-testid="o-login-form"
+      onReset={[Function]}
+      onSubmit={[Function]}
     >
       <div
         className="m_input_label"
