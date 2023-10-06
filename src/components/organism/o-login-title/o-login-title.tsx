@@ -22,7 +22,7 @@ export const O_LoginTitle = ({ image, title, username }: I_OLoginTitle) => {
       <A_Title variant="h1" className={styles.a_title}>
         {title}
       </A_Title>
-      <A_Text>{username}</A_Text>
+      <A_Text variant="fwReg-fs16-gray500">{username}</A_Text>
     </div>
   );
 };
