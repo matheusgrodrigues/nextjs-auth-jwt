@@ -24,7 +24,7 @@ export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
         precisar de ajuda, não hesite em nos chamar. Estamos sempre prontos para tornar sua experiência conosco
         incrível. Mais uma vez, bem-vindo(a)!
       </A_Text>
-      <A_Button data-testid="a-button-logout" onClick={handleLogout}>
+      <A_Button variant="fwMd-fs16-colGray700-bgWhite" data-testid="a-button-logout" onClick={handleLogout}>
         Logout
       </A_Button>
     </main>

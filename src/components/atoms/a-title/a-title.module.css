@@ -12,8 +12,15 @@
 
 .title__fwSb_fs48_lh60_lspN2_gray900 {
   font-weight: var(--fw-semibold);
-  font-size: var(--fs-display-lg);
-  line-height: var(--spacing-64);
+  font-size: var(--fs-display-md);
+  line-height: var(--spacing-48);
   letter-spacing: -2%;
   color: var(--gray-900);
+}
+
+@media screen and (min-width: 640px) {
+  .title__fwSb_fs48_lh60_lspN2_gray900 {
+    font-size: var(--fs-display-lg);
+    line-height: var(--spacing-64);
+  }
 }

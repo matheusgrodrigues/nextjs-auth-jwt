@@ -6,8 +6,11 @@
   --text-color: #344054;
 
   /* palette */
+  --gray-50: #F9FAFB;
+  --gray-100: #F2F4F7;
   --gray-900: #101828;
   --gray-500: #667085;
+  --gray-700: #344054;
   --gray-300: #d0d5dd;
 
   --white: #ffffff;
@@ -25,6 +28,7 @@
   --fs-lg: 24px;
 
   --fs-display-sm: 30px;
+  --fs-display-md: 36px;
   --fs-display-lg: 48px;
 
   /* font-weight */

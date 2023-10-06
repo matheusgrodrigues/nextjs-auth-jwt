@@ -116,7 +116,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
     </label>
   </div>
   <button
-    className="p-button p-component a_button"
+    className="p-button p-component a_button a_button__gradient"
     data-pc-name="button"
     data-pc-section="root"
     data-testid="a-button"
