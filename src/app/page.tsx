@@ -4,7 +4,7 @@
 import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";
 
 // Handles
-import { handleLoginForm } from "@/components/organism/o-login-form/FormValidationHelpers";
+import { handleLoginForm } from "@/components/organism/o-login-form/login-form-validation";
 
 // Pages
 import { P_Home } from "@/components/pages/p-login/p-login";

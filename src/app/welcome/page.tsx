@@ -12,7 +12,7 @@ export default function Welcome() {
   // bootstrap: T_Welcome
   const [TWelcomeProps, setTWelcomeProps] = useState<I_TWelcome>({
     username: "Matheus Gomes",
-    handleLogout: () => null,
+    handleLogout: () => location.href = "/",
   });
   return <P_Welcome t_WelcomeProps={TWelcomeProps} />;
 }

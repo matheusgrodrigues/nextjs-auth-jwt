@@ -10,8 +10,8 @@ import { M_CheckboxWithLabel, M_InputWithLabel } from "@/components/molecules";
 import styles from "./o-login-form.module.css";
 
 // FormValidationHelpers
-import { initialValues, validationSchema } from "./FormValidationHelpers";
-import { I_HandleLoginProps } from "./FormValidationHelpers/login-form-send";
+import { initialValues, validationSchema } from "./login-form-validation";
+import { I_HandleLoginProps } from "./login-form-validation/login-form-send";
 
 export interface I_OLoginForm {
   handleLoginForm: ({}: I_HandleLoginProps) => void;

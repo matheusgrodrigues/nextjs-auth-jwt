@@ -8,7 +8,7 @@ import { I_OLoginTitle, O_LoginTitle } from "@/components/organism/o-login-title
 import styles from "./t-login.module.css";
 
 // Types
-import { T_HandleLoginForm } from "@/components/organism/o-login-form/FormValidationHelpers/login-form-validation";
+import { T_HandleLoginForm } from "@/components/organism/o-login-form/login-form-validation/login-form-validation";
 
 export interface I_TLogin extends HTMLAttributes<HTMLDivElement> {
   o_loginTitle: I_OLoginTitle;

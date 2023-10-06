@@ -12,6 +12,10 @@ export const handleLoginForm = ({ values, setSubmitting }: I_HandleLoginProps) =
 
   setTimeout(() => {
     setSubmitting(false);
-    alert(`Simulando envio bem sucedido: email: ${email} -  senha: ${password} - manter_logado: ${manter_logado}`);
+
+    location.href = "/welcome";
+    console.log(
+      `Simulando envio bem sucedido: email: ${email} -  senha: ${password} - manter_logado: ${manter_logado}`
+    );
   }, 3000);
 };
