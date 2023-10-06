@@ -11,7 +11,7 @@
 }
 
 .title__fwSb_fs48_lh60_lspN2_gray900 {
-  font-weight: vaR(--fw-semibold);
+  font-weight: var(--fw-semibold);
   font-size: var(--fs-display-lg);
   line-height: var(--spacing-64);
   letter-spacing: -2%;
