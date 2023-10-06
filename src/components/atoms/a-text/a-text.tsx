@@ -3,25 +3,33 @@ import { HTMLAttributes } from "react";
 // StyleSheet
 import styles from "./a-text.module.css";
 
-type T_AText = "error" | "primary-semibold";
+type T_AText = "error" | "fwSb-fs16-primary" | "fwReg-fs20-lh30-gray500" | "";
 
 interface I_AText extends HTMLAttributes<HTMLParagraphElement> {
-  variant?: T_AText;
+  variant: T_AText;
   "data-testid"?: string;
 }
 
 export const A_Text = ({ variant, children, ...props }: I_AText) => {
-  let a_text_class = styles.a_text;
-
-  if (variant === "error") {
-    a_text_class = `${styles.a_text} ${styles.a_text__error}`;
-  } else if (variant === "primary-semibold") {
-    a_text_class = `${styles.a_text} ${styles.a_text__primarySemibold}`;
-  }
-
   return (
-    <p data-testid="a-text" className={a_text_class} {...props}>
-      {children}
-    </p>
+    <>
+      {variant === "error" && (
+        <p data-testid="a-text" className={`${styles.a_text} ${styles.a_text__error}`} {...props}>
+          {children}
+        </p>
+      )}
+
+      {variant === "fwSb-fs16-primary" && (
+        <p data-testid="a-text" className={`${styles.a_text} ${styles.a_text__fwSb_fs16_primary}`} {...props}>
+          {children}
+        </p>
+      )}
+
+      {variant === "fwReg-fs20-lh30-gray500" && (
+        <p data-testid="a-text" className={`${styles.a_text} ${styles.a_text__fwReg_fs20_lh30_gray500}`} {...props}>
+          {children}
+        </p>
+      )}
+    </>
   );
 };

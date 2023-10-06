@@ -11,13 +11,13 @@ export interface I_TWelcome {
 export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
   return (
     <main className={styles.t_welcome} id="t-welcome">
-      <A_Text data-testid="a-text-welcome" variant="primary-semibold">
+      <A_Text data-testid="a-text-welcome" variant="fwSb-fs16-primary">
         Bem-vindo(a) ao nosso serviço !
       </A_Text>
       <A_Title data-testid="a-title-username" variant="h1">
         {username}
       </A_Title>
-      <A_Text data-testid="a-text-description">
+      <A_Text data-testid="a-text-description" variant="fwReg-fs20-lh30-gray500">
         Queremos que você se sinta em casa e aproveite ao máximo tudo o que oferecemos. Se tiver alguma dúvida ou
         precisar de ajuda, não hesite em nos chamar. Estamos sempre prontos para tornar sua experiência conosco
         incrível. Mais uma vez, bem-vindo(a)!

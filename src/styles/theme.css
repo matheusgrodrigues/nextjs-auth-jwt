@@ -2,13 +2,13 @@
 
 :root {
   /* generel */
-  --primary-color: #7F56D9;
+  --primary-color: #7f56d9;
   --text-color: #344054;
 
   /* palette */
   --gray-900: #101828;
   --gray-500: #667085;
-  --gray-300: #D0D5DD;
+  --gray-300: #d0d5dd;
 
   --white: #ffffff;
 
@@ -20,6 +20,7 @@
   /* font-size */
   --fs-text-sm: 14px;
   --fs-text-md: 16px;
+  --fs-text-xl: 20px;
 
   --fs-lg: 24px;
 
