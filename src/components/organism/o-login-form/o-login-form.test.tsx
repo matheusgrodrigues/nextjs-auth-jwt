@@ -5,9 +5,11 @@ import renderer from "react-test-renderer";
 import { O_LoginForm } from "./o-login-form";
 
 describe("Deve renderizar o o-form-login, corretamente", () => {
+  const handleLoginForm = jest.fn();
+
   // ======================================================================
   beforeEach(() => {
-    render(<O_LoginForm sendFormUrl={""} />);
+    render(<O_LoginForm handleLoginForm={handleLoginForm} />);
   });
   // ======================================================================
 
@@ -38,7 +40,7 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
 
   // ======================================================================
   it("Deve manter a estrutura visual do componente", () => {
-    const get_o_form_login = renderer.create(<O_LoginForm sendFormUrl={""} />).toJSON();
+    const get_o_form_login = renderer.create(<O_LoginForm handleLoginForm={handleLoginForm} />).toJSON();
 
     expect(get_o_form_login).toMatchSnapshot();
   });

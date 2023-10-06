@@ -6,14 +6,14 @@ import { O_LoginForm } from "../o-login-form";
 
 it("Deve submeter o formulario corretamente", async () => {
   // Arrange
-  const sendLoginForm = jest.fn();
+  const handleLoginForm = jest.fn();
 
   const fake_user_data = {
     email: "matheusgomes1203@hotmail.com",
     password: "1234567",
   };
 
-  render(<O_LoginForm sendLoginForm={sendLoginForm} />);
+  render(<O_LoginForm handleLoginForm={handleLoginForm} />);
 
   const user = userEvent.setup();
 
@@ -28,6 +28,6 @@ it("Deve submeter o formulario corretamente", async () => {
 
   // Assert
   await waitFor(() => {
-    expect(sendLoginForm).toBeCalledTimes(1);
+    expect(handleLoginForm).toBeCalledTimes(1);
   });
 });

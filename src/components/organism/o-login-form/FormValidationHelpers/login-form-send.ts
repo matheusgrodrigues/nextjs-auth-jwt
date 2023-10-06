@@ -1,20 +1,17 @@
 import { I_InitialValues } from "./login-form-validation";
 
-export interface I_SendFormProps extends T_SendFormProps {
+export interface I_HandleLoginProps {
   values: I_InitialValues;
+  setSubmitting: (isSubmitting: boolean) => void;
 }
 
-export const sendLoginForm = ({ values, setSubmitting }: I_SendFormProps) => {
+export const handleLoginForm = ({ values, setSubmitting }: I_HandleLoginProps) => {
   const { email, password, manter_logado } = values;
 
-
-  return values;
-  /*
   setSubmitting(true);
 
   setTimeout(() => {
     setSubmitting(false);
     alert(`Simulando envio bem sucedido: email: ${email} -  senha: ${password} - manter_logado: ${manter_logado}`);
-  }, 3000);*/
-
+  }, 3000);
 };

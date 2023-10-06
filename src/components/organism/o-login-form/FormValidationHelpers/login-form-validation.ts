@@ -2,6 +2,9 @@ import * as Yup from "yup";
 
 // Utils
 import { messages } from "@/utils";
+import { I_HandleLoginProps } from "./login-form-send";
+
+export type T_HandleLoginForm = ({}: I_HandleLoginProps) => void;
 
 export interface I_InitialValues {
   email: string;
