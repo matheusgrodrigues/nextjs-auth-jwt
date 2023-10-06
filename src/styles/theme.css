@@ -2,13 +2,16 @@
 
 :root {
   /* generel */
-  --primary-color: #7F56D9;
+  --primary-color: #7f56d9;
   --text-color: #344054;
 
   /* palette */
+  --gray-50: #F9FAFB;
+  --gray-100: #F2F4F7;
   --gray-900: #101828;
   --gray-500: #667085;
-  --gray-300: #D0D5DD;
+  --gray-700: #344054;
+  --gray-300: #d0d5dd;
 
   --white: #ffffff;
 
@@ -20,10 +23,12 @@
   /* font-size */
   --fs-text-sm: 14px;
   --fs-text-md: 16px;
+  --fs-text-xl: 20px;
 
   --fs-lg: 24px;
 
   --fs-display-sm: 30px;
+  --fs-display-md: 36px;
   --fs-display-lg: 48px;
 
   /* font-weight */
@@ -40,7 +45,9 @@
   --spacing-20: 20px;
   --spacing-24: 24px;
   --spacing-32: 32px;
+  --spacing-40: 40px;
   --spacing-48: 48px;
+  --spacing-64: 64px;
   --spacing-96: 96px;
 
   /* breakpoints */

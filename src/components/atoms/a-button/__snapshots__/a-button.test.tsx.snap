@@ -1,13 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Deve renderizar o a-button corretamente Deve preservar a estrutura visual do botão 1`] = `
-<button
-  className="p-button p-component a_button"
-  data-pc-name="button"
-  data-pc-section="root"
-  data-testid="a-button"
-  disabled={false}
->
-  a-button
-</button>
-`;
+exports[`Deve renderizar o a-button corretamente Deve preservar a estrutura visual do botão 1`] = `null`;

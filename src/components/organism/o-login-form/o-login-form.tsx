@@ -32,7 +32,7 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
     <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
       <M_InputWithLabel labelText="Email" type="email" placeholder="Informe o seu e-mail" {...getFieldProps("email")} />
 
-      {errors.email && touched.email && <A_Text type="error">{errors.email}</A_Text>}
+      {errors.email && touched.email && <A_Text variant="error">{errors.email}</A_Text>}
 
       <M_InputWithLabel
         labelText="Senha"
@@ -41,7 +41,7 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
         {...getFieldProps("password")}
       />
 
-      {errors.password && touched.password && <A_Text type="error">{errors.password}</A_Text>}
+      {errors.password && touched.password && <A_Text variant="error">{errors.password}</A_Text>}
 
       <M_CheckboxWithLabel
         checked={values.manter_logado}
@@ -49,7 +49,7 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
         {...getFieldProps("manter_logado")}
       />
 
-      <A_Button type="submit" disabled={isSubmitting}>
+      <A_Button variant="gradient" type="submit" disabled={isSubmitting}>
         Login
       </A_Button>
     </form>

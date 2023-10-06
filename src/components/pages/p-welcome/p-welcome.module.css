@@ -1,4 +1,4 @@
-.p_home {
+.p_welcome {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -6,13 +6,13 @@
   align-items: center;
 }
 
-.p_home > [id="t-login"] {
+.p_welcome > [id="t-welcome"] {
   margin-top: var(--spacing-64);
   padding: 0 var(--spacing-16);
 }
 
 @media screen and (min-width: 640px) {
-  .p_home > [id="t-login"] {
+  .p_welcome > [id="t-welcome"] {
     margin-top: var(--spacing-96);
     padding: 0;
   }
