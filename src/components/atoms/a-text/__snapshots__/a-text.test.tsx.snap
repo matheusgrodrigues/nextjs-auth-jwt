@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o a-text, corretamente Deve preservar a estrutura visual do a-text 1`] = `
 <p
-  className="a_text a_text__fwSb_fs16_primary"
+  className="a_text__fwSb_fs16_primary"
   data-testid="a-text"
 />
 `;
