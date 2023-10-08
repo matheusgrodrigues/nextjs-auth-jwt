@@ -5,6 +5,10 @@
   border-radius: 8px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+  font-size: var(--fs-text-md);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 6px;
 }
 
 .a_button__gradient {
