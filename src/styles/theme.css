@@ -1,13 +1,11 @@
-@import "primereact/resources/themes/lara-light-indigo/theme.css";
-
 :root {
   /* generel */
   --primary-color: #7f56d9;
   --text-color: #344054;
 
   /* palette */
-  --gray-50: #F9FAFB;
-  --gray-100: #F2F4F7;
+  --gray-50: #f9fafb;
+  --gray-100: #f2f4f7;
   --gray-900: #101828;
   --gray-500: #667085;
   --gray-700: #344054;
