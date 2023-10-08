@@ -16,10 +16,9 @@ export const A_Button = ({ variant, children, ...props }: I_AButton) => {
           {...props}
           pt={{
             root: {
-              className: `${styles.a_button} ${styles.a_button__fwMd_fs16_colGray700_bgWhite} a_button__fwMd_fs16_colGray700_bgWhite`,
+              className: `${styles.a_button} ${styles.a_button__fwMd_fs16_colGray700_bgWhite}`,
             },
           }}
-          unstyled
         >
           {children}
         </Button>
@@ -34,8 +33,6 @@ export const A_Button = ({ variant, children, ...props }: I_AButton) => {
               className: `${styles.a_button} ${styles.a_button__gradient}`,
             },
           }}
-          loading={true}
-          unstyled
         >
           {children}
         </Button>

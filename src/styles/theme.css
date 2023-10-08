@@ -53,6 +53,15 @@
   --bp-md: 768px;
   --bp-lg: 1024px;
   --bp-xl: 1280px;
+
+  /* Modal mask */
+  --dialog-bg-mask: rgba(52, 64, 84, 0.7);
+
+  /* Filters */
+  --blur-md: var(--blur-8);
+
+  /* Border radius */
+  --b-radius-12: 12px;
 }
 
 * {

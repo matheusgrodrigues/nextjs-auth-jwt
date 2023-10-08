@@ -1,29 +1,27 @@
-import { ConfirmDialog, ConfirmDialogProps, confirmDialog } from "primereact/confirmdialog";
+import { Dialog, DialogProps } from "primereact/dialog";
 
 // StyleSheet
 import styles from "./m-confirm-dialog.module.css";
 
-interface I_MConfirmDialog extends ConfirmDialogProps {
+export interface I_MConfirmDialog extends DialogProps {
   "data-testid"?: string;
 }
 
-export const m_confirmDialog = confirmDialog;
-
-export const M_ConfirmDialog = ({ ...props }: I_MConfirmDialog) => {
+export const M_ConfirmDialog = ({ children, ...props }: I_MConfirmDialog) => {
   return (
-    <ConfirmDialog
+    <Dialog
       pt={{
         root: {
           "data-testid": "m-confirm-dialog",
-          className: styles.m_confirm_dialog,
+          className: styles.m_confirmDialog,
         },
-        rejectButton: {
-          root: {
-            "data-testid": "m-confirm-dialog-reject-button",
-          },
+        mask: {
+          className: styles.m_confirmDialog__mask,
         },
       }}
       {...props}
-      unstyled    />
+    >
+      {children}
+    </Dialog>
   );
 };
