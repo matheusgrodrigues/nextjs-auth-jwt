@@ -26,7 +26,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         data-testid="a-title"
       />
       <p
-        className="a_text"
+        className="a_text__fwReg_fs16_gray500"
         data-testid="a-text"
       />
     </div>
@@ -145,7 +145,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         </label>
       </div>
       <button
-        className="p-button p-component a_button"
+        className="p-button p-component a_button a_button__gradient"
         data-pc-name="button"
         data-pc-section="root"
         data-testid="a-button"
