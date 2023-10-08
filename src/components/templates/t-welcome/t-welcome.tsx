@@ -2,6 +2,7 @@ import { A_Button, A_Text, A_Title } from "@/components/atoms";
 
 // StyleSheet
 import styles from "./t-welcome.module.css";
+import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 
 export interface I_TWelcome {
   username: string;
@@ -9,6 +10,15 @@ export interface I_TWelcome {
 }
 
 export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
+  const confirm = () =>
+    confirmDialog({
+      message: "Tem certeza que deseja sair ?",
+      header: "Confirmation",
+      icon: "pi pi-exclamation-triangle",
+      accept: handleLogout,
+      reject: () => console.log("não saiu"),
+    });
+
   return (
     <main className={styles.t_welcome} id="t-welcome">
       <div className={styles.t_welcome__heading}>
@@ -24,7 +34,10 @@ export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
         precisar de ajuda, não hesite em nos chamar. Estamos sempre prontos para tornar sua experiência conosco
         incrível. Mais uma vez, bem-vindo(a)!
       </A_Text>
-      <A_Button variant="fwMd-fs16-colGray700-bgWhite" data-testid="a-button-logout" onClick={handleLogout}>
+
+      <ConfirmDialog />
+
+      <A_Button variant="fwMd-fs16-colGray700-bgWhite" data-testid="a-button-logout" onClick={confirm}>
         Logout
       </A_Button>
     </main>
