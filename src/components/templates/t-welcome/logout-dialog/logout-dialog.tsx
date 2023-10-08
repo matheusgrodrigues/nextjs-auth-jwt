@@ -2,7 +2,7 @@
 import { A_Button, A_Text, A_Title } from "@/components/atoms";
 
 // Molecules
-import { M_ConfirmDialog } from "@/components/molecules/m-confirm-dialog/m-confirm-dialog";
+import { M_Dialog } from "@/components/molecules/m-confirm-dialog/m-dialog";
 
 // StyleSheet
 import styles from "./logout-dialog.module.css";
@@ -15,7 +15,7 @@ interface I_LogoutDialog {
 
 export const LogoutDialog = ({ visible, onConfirm, onReject, ...props }: I_LogoutDialog) => {
   return (
-    <M_ConfirmDialog
+    <M_Dialog
       visible={visible}
       onHide={() => null}
       data-testid="logout-dialog"
@@ -36,14 +36,10 @@ export const LogoutDialog = ({ visible, onConfirm, onReject, ...props }: I_Logou
         <A_Button variant="gradient" data-testid="logout-dialog-confirm-button" onClick={onConfirm}>
           Sim
         </A_Button>
-        <A_Button
-          variant="fwMd-fs16-colGray700-bgWhite"
-          data-testid="logout-dialog-reject-button"
-          onClick={onReject}
-        >
+        <A_Button variant="fwMd-fs16-colGray700-bgWhite" data-testid="logout-dialog-reject-button" onClick={onReject}>
           Não
         </A_Button>
       </div>
-    </M_ConfirmDialog>
+    </M_Dialog>
   );
 };

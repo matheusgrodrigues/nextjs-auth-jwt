@@ -1,12 +1,12 @@
-.m_confirmDialog {
+.m_dialog {
   width: 100%;
   max-width: 400px;
   background-color: var(--white);
   border-radius: var(--b-radius-12);
-  padding: var(--spacing-24)
+  padding: var(--spacing-24);
 }
 
-.m_confirmDialog__mask {
+.m_dialog__mask {
   background: var(--dialog-bg-mask);
   backdrop-filter: var(--blur-md);
 }
