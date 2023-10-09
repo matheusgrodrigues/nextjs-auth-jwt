@@ -47,31 +47,39 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
   });
 
   return (
-    <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
-      <M_InputWithLabel labelText="Email" type="email" placeholder="Informe o seu e-mail" {...getFieldProps("email")} />
+    <>
+      <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
+        <M_InputWithLabel
+          labelText="Email"
+          type="email"
+          placeholder="Informe o seu e-mail"
+          {...getFieldProps("email")}
+        />
 
+        {errors.email && touched.email && <p>{errors.email}</p>}
+
+        <M_InputWithLabel
+          labelText="Senha"
+          type="password"
+          placeholder="Informe a sua senha"
+          {...getFieldProps("password")}
+        />
+
+        {errors.password && touched.password && <A_Text variant="error">{errors.password}</A_Text>}
+
+        <M_CheckboxWithLabel
+          checked={values.manter_logado}
+          labelText="Manter-me conectado por 30 dias."
+          {...getFieldProps("manter_logado")}
+        />
+
+        <A_Button variant="gradient" type="submit" loading={isSubmitting}>
+          {isSubmitting ? "" : "Login"}
+        </A_Button>
+      </form>
+
+      {/* Login Toast */}
       <M_Toast ref={mToastRef} message={mToastMessage} />
-
-      {errors.email && touched.email && <p>{errors.email}</p>}
-
-      <M_InputWithLabel
-        labelText="Senha"
-        type="password"
-        placeholder="Informe a sua senha"
-        {...getFieldProps("password")}
-      />
-
-      {errors.password && touched.password && <A_Text variant="error">{errors.password}</A_Text>}
-
-      <M_CheckboxWithLabel
-        checked={values.manter_logado}
-        labelText="Manter-me conectado por 30 dias."
-        {...getFieldProps("manter_logado")}
-      />
-
-      <A_Button variant="gradient" type="submit" loading={isSubmitting}>
-        {isSubmitting ? "" : "Login"}
-      </A_Button>
-    </form>
+    </>
   );
 };
