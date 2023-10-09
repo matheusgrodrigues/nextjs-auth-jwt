@@ -96,7 +96,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         data-testid="m-checkboxWithLabel"
       >
         <div
-          className="p-checkbox"
+          className="a_checkbox"
           data-pc-name="checkbox"
           data-pc-section="root"
           data-testid="a-checkbox"
@@ -105,7 +105,11 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           onClick={[Function]}
           onContextMenu={null}
           onMouseDown={null}
-          style={{}}
+          style={
+            {
+              "border": false,
+            }
+          }
         >
           <div
             className="p-hidden-accessible"
@@ -129,7 +133,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
             />
           </div>
           <div
-            className="p-checkbox-box"
+            className="false"
             data-p-disabled={false}
             data-p-focus={false}
             data-p-highlight={false}

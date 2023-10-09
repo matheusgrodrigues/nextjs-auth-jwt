@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // Atoms
 import { A_Button, A_Text, A_Title } from "@/components/atoms";
 
@@ -14,6 +16,8 @@ interface I_LogoutDialog {
 }
 
 export const LogoutDialog = ({ visible, onConfirm, onReject, ...props }: I_LogoutDialog) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   return (
     <M_Dialog
       visible={visible}
@@ -33,8 +37,16 @@ export const LogoutDialog = ({ visible, onConfirm, onReject, ...props }: I_Logou
       </div>
 
       <div className={styles.logoutDialog__footer}>
-        <A_Button variant="gradient" data-testid="logout-dialog-confirm-button" onClick={onConfirm}>
-          Sim
+        <A_Button
+          variant="gradient"
+          data-testid="logout-dialog-confirm-button"
+          loading={isLoading}
+          onClick={() => {
+            setIsLoading(true);
+            onConfirm();
+          }}
+        >
+          {isLoading ? "" : "Sim"}
         </A_Button>
         <A_Button variant="fwMd-fs16-colGray700-bgWhite" data-testid="logout-dialog-reject-button" onClick={onReject}>
           Não
