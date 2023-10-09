@@ -49,8 +49,8 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
         {...getFieldProps("manter_logado")}
       />
 
-      <A_Button variant="gradient" type="submit" disabled={isSubmitting}>
-        Login
+      <A_Button variant="gradient" type="submit" loading={isSubmitting}>
+        {isSubmitting ? "" : "Login"}
       </A_Button>
     </form>
   );
