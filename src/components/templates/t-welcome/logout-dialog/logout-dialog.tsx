@@ -4,7 +4,7 @@ import { useState } from "react";
 import { A_Button, A_Text, A_Title } from "@/components/atoms";
 
 // Molecules
-import { M_Dialog } from "@/components/molecules/m-confirm-dialog/m-dialog";
+import { M_Dialog } from "@/components/molecules/m-dialog/m-dialog";
 
 // StyleSheet
 import styles from "./logout-dialog.module.css";

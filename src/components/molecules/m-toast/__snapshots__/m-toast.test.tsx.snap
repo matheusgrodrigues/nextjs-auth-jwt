@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o m-toast, corretamente Deve manter a estrutura visual do Toast 1`] = `null`;
