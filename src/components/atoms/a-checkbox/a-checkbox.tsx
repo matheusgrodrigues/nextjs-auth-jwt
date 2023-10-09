@@ -1,6 +1,6 @@
 import { Checkbox, CheckboxProps } from "primereact/checkbox";
 
-import "./a-checkbox.module.css";
+import styles from "./a-checkbox.module.css";
 
 interface I_Checkbox extends CheckboxProps {
   checked: boolean;
@@ -13,10 +13,14 @@ export const A_Checkbox = ({ checked, ...props }: I_Checkbox) => {
       checked={checked}
       pt={{
         root: {
-          className: "p-checkbox",
+          className: styles.a_checkbox,
+          style: {
+            border: checked && "none",
+          },
         },
+
         input: {
-          className: checked ? "p-checkbox-box p-highlight" : "p-checkbox-box",
+          className: checked && styles.a_checkbox__checked,
         },
         icon: {
           className: "p-checkbox-icon",
