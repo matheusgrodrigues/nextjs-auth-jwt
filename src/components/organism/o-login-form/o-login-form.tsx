@@ -56,7 +56,7 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
           {...getFieldProps("email")}
         />
 
-        {errors.email && touched.email && <p>{errors.email}</p>}
+        {errors.email && touched.email && <A_Text variant="error">{errors.email}</A_Text>}
 
         <M_InputWithLabel
           labelText="Senha"
