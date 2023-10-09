@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 import { useFormik } from "formik";
 
@@ -21,6 +22,8 @@ export interface I_OLoginForm {
 }
 
 export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
+  const router = useRouter();
+
   const mToastRef = useRef<I_MToastComponent>(null);
 
   // Toast Configuration
@@ -36,11 +39,7 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
     initialValues,
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
-      handleLoginForm({ values, setSubmitting });
-
-      if (mToastRef && mToastRef.current) {
-        mToastRef.current.showToast();
-      }
+      handleLoginForm({ values, setSubmitting, mToastRef, router });
     },
     validateOnChange: false,
     validateOnBlur: true,

@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
+// Utils
+import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
+
 // Interfaces
 import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";
 
@@ -14,10 +17,15 @@ const o_loginTitle: I_OLoginTitle = {
 };
 
 const handleLoginForm = jest.fn();
+const push = jest.fn();
 
 describe("Deve renderizar o t-login, corretamente", () => {
   beforeEach(() => {
-    render(<T_Login o_loginTitle={o_loginTitle} handleLoginForm={handleLoginForm} />);
+    render(
+      <AppRouterContextProviderMock router={{ push }}>
+        <T_Login o_loginTitle={o_loginTitle} handleLoginForm={handleLoginForm} />
+      </AppRouterContextProviderMock>
+    );
   });
   // ==================================================
   it("Deve renderizar o o-login-title", () => {
@@ -43,7 +51,11 @@ describe("Deve renderizar o t-login, corretamente", () => {
   // ==================================================
   it("Deve preservar a estrutura visual do componente", () => {
     const get_t_login = renderer
-      .create(<T_Login o_loginTitle={o_loginTitle} handleLoginForm={handleLoginForm} />)
+      .create(
+        <AppRouterContextProviderMock router={{ push }}>
+          <T_Login o_loginTitle={o_loginTitle} handleLoginForm={handleLoginForm} />
+        </AppRouterContextProviderMock>
+      )
       .toJSON();
 
     expect(get_t_login).toMatchSnapshot();

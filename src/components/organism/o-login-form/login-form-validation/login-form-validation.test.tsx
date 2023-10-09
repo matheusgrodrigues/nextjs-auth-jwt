@@ -1,19 +1,26 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
 
 // Organism
 import { O_LoginForm } from "../o-login-form";
 
 it("Deve submeter o formulario corretamente", async () => {
   // Arrange
-  const handleLoginForm = jest.fn();
 
   const fake_user_data = {
     email: "matheusgomes1203@hotmail.com",
     password: "1234567",
   };
 
-  render(<O_LoginForm handleLoginForm={handleLoginForm} />);
+  const handleLoginForm = jest.fn();
+  const push = jest.fn();
+
+  render(
+    <AppRouterContextProviderMock router={{ push }}>
+      <O_LoginForm handleLoginForm={handleLoginForm} />
+    </AppRouterContextProviderMock>
+  );
 
   const user = userEvent.setup();
 

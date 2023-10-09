@@ -7,6 +7,9 @@ import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title
 // Pages
 import { P_Home } from "./p-login";
 
+// Utils
+import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
+
 describe("Deve renderizar a pagina de login, corretamente", () => {
   const o_loginTitle: I_OLoginTitle = {
     image: "",
@@ -15,15 +18,18 @@ describe("Deve renderizar a pagina de login, corretamente", () => {
   };
 
   const handleLoginForm = jest.fn();
+  const push = jest.fn();
 
   beforeEach(() => {
     render(
-      <P_Home
-        t_loginProps={{
-          o_loginTitle,
-          handleLoginForm,
-        }}
-      />
+      <AppRouterContextProviderMock router={{ push }}>
+        <P_Home
+          t_loginProps={{
+            o_loginTitle,
+            handleLoginForm,
+          }}
+        />
+      </AppRouterContextProviderMock>
     );
   });
   // ============================================
@@ -41,12 +47,14 @@ describe("Deve renderizar a pagina de login, corretamente", () => {
   it("Deve preservar a estrutura visual da p-login", () => {
     const get_p_login = renderer
       .create(
-        <P_Home
-          t_loginProps={{
-            o_loginTitle,
-            handleLoginForm,
-          }}
-        />
+        <AppRouterContextProviderMock router={{ push }}>
+          <P_Home
+            t_loginProps={{
+              o_loginTitle,
+              handleLoginForm,
+            }}
+          />
+        </AppRouterContextProviderMock>
       )
       .toJSON();
 

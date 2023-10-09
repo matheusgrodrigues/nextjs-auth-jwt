@@ -15,7 +15,11 @@ export default function Welcome() {
   // bootstrap: T_Welcome
   const [TWelcomeProps, setTWelcomeProps] = useState<I_TWelcome>({
     username: "Matheus Gomes",
-    handleLogout: () => router.push("/"),
+    handleLogout: () => {
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
+    },
   });
 
   return <P_Welcome t_WelcomeProps={TWelcomeProps} />;

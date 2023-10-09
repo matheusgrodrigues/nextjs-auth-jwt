@@ -3,18 +3,25 @@ import renderer from "react-test-renderer";
 
 // Organism
 import { O_LoginForm } from "./o-login-form";
+import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
 
 describe("Deve renderizar o o-form-login, corretamente", () => {
   const handleLoginForm = jest.fn();
+  const push = jest.fn();
 
   // ======================================================================
   beforeEach(() => {
-    render(<O_LoginForm handleLoginForm={handleLoginForm} />);
+    render(
+      <AppRouterContextProviderMock router={{ push }}>
+        <O_LoginForm handleLoginForm={handleLoginForm} />
+      </AppRouterContextProviderMock>
+    );
   });
   // ======================================================================
 
   it("Deve renderizar todos campos do formulário", () => {
     // Arrange -> beforeEach
+    const push = jest.fn();
 
     // Act
     const get_m_input_with_label_email = screen.getByTestId("m-input-with-label-email");
@@ -40,7 +47,13 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
 
   // ======================================================================
   it("Deve manter a estrutura visual do componente", () => {
-    const get_o_form_login = renderer.create(<O_LoginForm handleLoginForm={handleLoginForm} />).toJSON();
+    const get_o_form_login = renderer
+      .create(
+        <AppRouterContextProviderMock router={{ push }}>
+          <O_LoginForm handleLoginForm={handleLoginForm} />
+        </AppRouterContextProviderMock>
+      )
+      .toJSON();
 
     expect(get_o_form_login).toMatchSnapshot();
   });
