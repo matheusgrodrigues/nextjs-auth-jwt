@@ -19,12 +19,12 @@ exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutur
       @
     </span>
   </div>
-  <h1
-    className="a_title"
+  <h2
+    className="a_title__h2"
     data-testid="a-title"
   >
     NextJS: Auth + JWT
-  </h1>
+  </h2>
   <p
     className="a_text__fwReg_fs16_gray500"
     data-testid="a-text"

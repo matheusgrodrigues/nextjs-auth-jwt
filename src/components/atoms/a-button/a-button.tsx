@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from "primereact/button";
 
-import styles from "./a-button.module.css";
+import styles from "./a-button.module.scss";
 
 interface I_AButton extends ButtonProps {
   "data-testid"?: string;
@@ -11,30 +11,13 @@ export const A_Button = ({ variant, children, ...props }: I_AButton) => {
   return (
     <>
       {variant === "fwMd-fs16-colGray700-bgWhite" && (
-        <Button
-          data-testid="a-button"
-          {...props}
-          pt={{
-            root: {
-              className: `${styles.a_button} ${styles.a_button__fwMd_fs16_colGray700_bgWhite}`,
-            },
-        
-          }}
-        >
+        <Button data-testid="a-button" {...props} className={styles.a_button__fwMd_fs16_colGray700_bgWhite}>
           {children}
         </Button>
       )}
 
       {variant === "gradient" && (
-        <Button
-          data-testid="a-button"
-          {...props}
-          pt={{
-            root: {
-              className: `${styles.a_button} ${styles.a_button__gradient}`,
-            },
-          }}
-        >
+        <Button data-testid="a-button" {...props} className={styles.a_button__gradient}>
           {children}
         </Button>
       )}
