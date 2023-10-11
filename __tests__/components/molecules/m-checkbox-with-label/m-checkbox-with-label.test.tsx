@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 // Molecules
-import { M_CheckboxWithLabel } from "./m-checkbox-with-label";
+import { M_CheckboxWithLabel } from "../../../../src/components/molecules/m-checkbox-with-label/m-checkbox-with-label";
 
 describe("Deve renderizar o m-checkbox-with-label, corretamente", () => {
   // ======================================
@@ -16,7 +16,7 @@ describe("Deve renderizar o m-checkbox-with-label, corretamente", () => {
     render(<M_CheckboxWithLabel checked={false} labelText={a_label_text} />);
 
     // Act
-    const get_a_checkbox = screen.getByTestId("a-checkbox-input");
+    const get_a_checkbox = screen.getByTestId("a-checkbox");
 
     // Assert
     expect(get_a_checkbox).toBeInTheDocument();

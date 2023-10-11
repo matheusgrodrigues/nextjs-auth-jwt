@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 // Molecules
-import { M_Toast } from "./m-toast";
+import { M_Toast } from "../../../../src/components/molecules/m-toast/m-toast";
 
 describe("Deve renderizar o m-toast, corretamente", () => {
   it("Deve renderizar o componente na tela", () => {

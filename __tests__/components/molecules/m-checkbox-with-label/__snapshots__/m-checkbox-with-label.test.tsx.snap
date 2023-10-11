@@ -6,7 +6,7 @@ exports[`Deve renderizar o m-checkbox-with-label, corretamente Deve manter a est
   data-testid="m-checkboxWithLabel"
 >
   <div
-    className="a_checkbox"
+    className="p-checkbox p-component"
     data-pc-name="checkbox"
     data-pc-section="root"
     data-testid="a-checkbox"
@@ -14,11 +14,7 @@ exports[`Deve renderizar o m-checkbox-with-label, corretamente Deve manter a est
     onClick={[Function]}
     onContextMenu={null}
     onMouseDown={null}
-    style={
-      {
-        "border": false,
-      }
-    }
+    style={{}}
   >
     <div
       className="p-hidden-accessible"
@@ -26,9 +22,7 @@ exports[`Deve renderizar o m-checkbox-with-label, corretamente Deve manter a est
     >
       <input
         data-pc-section="hiddeninput"
-        data-testid="a-checkbox-input"
         defaultChecked={false}
-        defaultValue={false}
         disabled={false}
         id={null}
         name={null}
@@ -42,7 +36,7 @@ exports[`Deve renderizar o m-checkbox-with-label, corretamente Deve manter a est
       />
     </div>
     <div
-      className="false"
+      className="p-checkbox-box"
       data-p-disabled={false}
       data-p-focus={false}
       data-p-highlight={false}
