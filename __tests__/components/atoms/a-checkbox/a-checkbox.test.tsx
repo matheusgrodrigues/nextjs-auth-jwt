@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 // Atoms
-import { A_Checkbox } from "./a-checkbox";
+import { A_Checkbox } from "../../../../src/components/atoms/a-checkbox/a-checkbox";
 
 describe("Deve renderizar o a-checkbox corretamente", () => {
   it("Deve renderizar o a-checkbox na tela", () => {

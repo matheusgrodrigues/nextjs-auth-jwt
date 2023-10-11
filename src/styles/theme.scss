@@ -1,4 +1,4 @@
-@import "primereact/resources/themes/tailwind-light/theme.css";
+@import "primereact/resources/themes/bootstrap4-light-purple/theme.css";
 
 :root {
   /* generel */
@@ -75,3 +75,4 @@
 /* Override primeReact Styles */
 @import "./components/atoms/a-avatar/_a-avatar.scss";
 @import "./components/atoms/a-button/_a-button";
+@import "./components/atoms/a-checkbox/a-checkbox";

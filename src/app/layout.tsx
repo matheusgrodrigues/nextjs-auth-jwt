@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.className}>
       <body>
-        <PrimeReactProvider value={{}}>{children}</PrimeReactProvider>
+        <PrimeReactProvider value={{ripple: false}}>{children}</PrimeReactProvider>
       </body>
     </html>
   );
