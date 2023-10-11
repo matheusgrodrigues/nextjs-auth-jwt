@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
 
 // Organism
-import { O_LoginForm } from "../o-login-form";
+import { O_LoginForm } from "../../../../../src/components/organism/o-login-form/o-login-form";
 
 it("Deve submeter o formulario corretamente", async () => {
   // Arrange

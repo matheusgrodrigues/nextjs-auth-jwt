@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 // Organism
-import { O_LoginTitle } from "./o-login-title";
+import { O_LoginTitle } from "../../../../src/components/organism/o-login-title/o-login-title";
 
 describe("Deve renderizar o o-login-title, corretamente", () => {
   // ========================================

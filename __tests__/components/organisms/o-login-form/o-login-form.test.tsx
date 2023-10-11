@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 // Organism
-import { O_LoginForm } from "./o-login-form";
+import { O_LoginForm } from "../../../../src/components/organism/o-login-form/o-login-form";
 import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
 
 describe("Deve renderizar o o-form-login, corretamente", () => {
