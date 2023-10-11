@@ -13,7 +13,7 @@ exports[`Deve renderizar o m-input-with-label corretamente Deve preservar a estr
     a-label
   </label>
   <input
-    className="p-inputtext p-component a_input"
+    className="p-inputtext p-component"
     data-pc-name="inputtext"
     data-pc-section="root"
     data-testid="a-input-email"

@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o a-input corretamente. 1`] = `
 <input
-  className="p-inputtext p-component a_input"
+  className="p-inputtext p-component"
   data-pc-name="inputtext"
   data-pc-section="root"
   data-testid="a-input"
