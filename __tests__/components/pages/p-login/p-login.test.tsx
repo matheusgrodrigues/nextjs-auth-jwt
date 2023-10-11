@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";
 
 // Pages
-import { P_Home } from "./p-login";
+import { P_Home } from "../../../../src/components/pages/p-login/p-login";
 
 // Utils
 import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
