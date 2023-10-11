@@ -1,6 +1,6 @@
 import { LabelHTMLAttributes, ReactNode } from "react";
 
-import styles from "./a-label.module.css";
+import styles from "./a-label.module.scss";
 
 interface I_Label extends LabelHTMLAttributes<HTMLLabelElement> {
   children: ReactNode;

@@ -7,6 +7,7 @@
     text-align: center;
 }
 
-.a_title {
+.o_loginTitle > h2 {
     margin: var(--spacing-24) var(--spacing-12);
+    white-space: nowrap;
 }

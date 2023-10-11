@@ -7,7 +7,7 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 // Theme
-import "../styles/theme.css";
+import "../styles/theme.scss";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.className}>
       <body>
-        <PrimeReactProvider value={{unstyled: false}}>{children}</PrimeReactProvider>
+        <PrimeReactProvider value={{ripple: false}}>{children}</PrimeReactProvider>
       </body>
     </html>
   );

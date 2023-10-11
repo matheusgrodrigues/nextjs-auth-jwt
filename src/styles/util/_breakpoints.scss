@@ -1,0 +1,24 @@
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktop_up: 1280px;
+
+@mixin d($device) {
+  @if ($device == mobile) {
+    @media (max-width: ($mobile + px)) {
+      @content;
+    }
+  } @else if($device == tablet) {
+    @media (min-width: ($tablet + px)) {
+      @content;
+    }
+  } @else if($device == desktop) {
+    @media (min-width: ($desktop + px)) {
+      @content;
+    }
+  } @else if($device == desktop_up) {
+    @media (min-width: ($desktop_up + px)) {
+      @content;
+    }
+  }
+}

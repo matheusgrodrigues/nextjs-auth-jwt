@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 
 // StyleSheet
-import styles from "./a-text.module.css";
+import styles from "./a-text.module.scss";
 
 type T_AText = "error" | "fwSb-fs16-primary" | "fwReg-fs20-lh30-gray500" | "fwReg-fs16-gray500";
 
