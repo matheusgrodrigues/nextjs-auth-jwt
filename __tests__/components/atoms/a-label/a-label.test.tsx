@@ -1,7 +1,7 @@
 import renderer from "react-test-renderer";
 
 // Atoms
-import { A_Label } from "./a-label";
+import { A_Label } from "../../../../src/components/atoms/a-label/a-label";
 
 it("Deve renderizar o a-label corretamente", () => {
   const get_a_label = renderer.create(<A_Label>{""}</A_Label>).toJSON();
