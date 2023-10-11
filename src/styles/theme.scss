@@ -1,5 +1,8 @@
 @import "primereact/resources/themes/bootstrap4-light-purple/theme.css";
 
+// Utils
+@import "./util/breakpoints";
+
 :root {
   /* generel */
   --primary-color: #7f56d9;
@@ -49,12 +52,6 @@
   --spacing-48: 48px;
   --spacing-64: 64px;
   --spacing-96: 96px;
-
-  /* breakpoints */
-  --bp-sm: 640px;
-  --bp-md: 768px;
-  --bp-lg: 1024px;
-  --bp-xl: 1280px;
 
   /* Modal mask */
   --dialog-bg-mask: rgba(52, 64, 84, 0.7);
