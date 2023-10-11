@@ -17,8 +17,8 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
       data-testid="a-avatar"
       style={{}}
     />
-    <h1
-      className="a_title"
+    <h2
+      className="a_title__h2"
       data-testid="a-title"
     />
     <p
@@ -43,7 +43,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
         Email
       </label>
       <input
-        className="p-inputtext p-component a_input"
+        className="p-inputtext p-component"
         data-pc-name="inputtext"
         data-pc-section="root"
         data-testid="a-input-email"
@@ -71,7 +71,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
         Senha
       </label>
       <input
-        className="p-inputtext p-component a_input"
+        className="p-inputtext p-component"
         data-pc-name="inputtext"
         data-pc-section="root"
         data-testid="a-input-password"
@@ -92,7 +92,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
       data-testid="m-checkboxWithLabel"
     >
       <div
-        className="a_checkbox"
+        className="p-checkbox p-component"
         data-pc-name="checkbox"
         data-pc-section="root"
         data-testid="a-checkbox"
@@ -101,11 +101,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
         onClick={[Function]}
         onContextMenu={null}
         onMouseDown={null}
-        style={
-          {
-            "border": false,
-          }
-        }
+        style={{}}
       >
         <div
           className="p-hidden-accessible"
@@ -113,9 +109,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
         >
           <input
             data-pc-section="hiddeninput"
-            data-testid="a-checkbox-input"
             defaultChecked={false}
-            defaultValue={false}
             disabled={false}
             id={null}
             name="manter_logado"
@@ -129,7 +123,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
           />
         </div>
         <div
-          className="false"
+          className="p-checkbox-box"
           data-p-disabled={false}
           data-p-focus={false}
           data-p-highlight={false}
@@ -145,7 +139,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
       </label>
     </div>
     <button
-      className="p-button p-component a_button a_button__gradient"
+      className="a_button__gradient p-button p-component"
       data-pc-name="button"
       data-pc-section="root"
       data-testid="a-button"

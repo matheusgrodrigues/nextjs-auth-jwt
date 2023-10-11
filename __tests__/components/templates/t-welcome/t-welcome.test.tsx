@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 
 // Template
-import { T_Welcome } from "../index";
+import { T_Welcome } from "../../../../src/components/templates/index";
 
 const handleLogout = jest.fn();
 

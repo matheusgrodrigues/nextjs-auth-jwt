@@ -8,7 +8,7 @@ import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provi
 import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";
 
 // Template
-import { T_Login } from "./t-login";
+import { T_Login } from "../../../../src/components/templates/t-login/t-login";
 
 const o_loginTitle: I_OLoginTitle = {
   image: "",
