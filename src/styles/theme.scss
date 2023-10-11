@@ -71,3 +71,6 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Override primeReact Styles */
+@import "./components/atoms/a-avatar/a-avatar.scss";

@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o a-avatar corretamente Deve preservar a estrutura visual do componente 1`] = `
 <div
-  className="p-avatar p-component p-avatar-circle avatar"
+  className="p-avatar p-component p-avatar-circle"
   data-pc-name="avatar"
   data-pc-section="root"
   data-testid="a-avatar"

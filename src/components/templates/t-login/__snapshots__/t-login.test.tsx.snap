@@ -11,7 +11,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
     data-testid="o-login-title"
   >
     <div
-      className="p-avatar p-component p-avatar-circle avatar"
+      className="p-avatar p-component p-avatar-circle"
       data-pc-name="avatar"
       data-pc-section="root"
       data-testid="a-avatar"

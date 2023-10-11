@@ -15,7 +15,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
       data-testid="o-login-title"
     >
       <div
-        className="p-avatar p-component p-avatar-circle avatar"
+        className="p-avatar p-component p-avatar-circle"
         data-pc-name="avatar"
         data-pc-section="root"
         data-testid="a-avatar"
