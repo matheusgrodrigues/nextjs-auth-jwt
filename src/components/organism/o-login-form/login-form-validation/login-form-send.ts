@@ -1,7 +1,12 @@
-import { I_MToastComponent, I_MToastMessage } from "@/components/molecules/m-toast/m-toast";
-import { I_InitialValues } from "./login-form-validation";
 import { RefObject } from "react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+
+// Interfaces
+import { I_InitialValues } from "./login-form-validation";
+import { I_MToastComponent } from "@/components/molecules/m-toast/m-toast";
+
+// Services
+import { authService } from "@/services/auth/login";
 
 export interface I_HandleLoginProps {
   values: I_InitialValues;
@@ -10,22 +15,29 @@ export interface I_HandleLoginProps {
   router: AppRouterInstance;
 }
 
-export const handleLoginForm = ({ values, setSubmitting, mToastRef, router }: I_HandleLoginProps) => {
+export const handleLoginForm = async ({ values, setSubmitting, mToastRef, router }: I_HandleLoginProps) => {
   const { email, password, manter_logado } = values;
 
   setSubmitting(true);
 
-  setTimeout(() => {
-    setSubmitting(false);
-  }, 2000);
+  try {
+    const { data } = await authService.login({
+      identifier: email,
+      password: password,
+    });
 
-  setTimeout(() => {
+    console.log(data);
+
     if (mToastRef && mToastRef.current) {
       mToastRef.current.showToast();
     }
-  }, 2000);
 
-  setTimeout(() => {
-    router.push("/welcome");
-  }, 4000);
+    setTimeout(() => router.push("/welcome"), 2000);
+  } catch {
+    setSubmitting(false);
+
+    alert("Erro ao logar");
+  } finally {
+    setSubmitting(false);
+  }
 };

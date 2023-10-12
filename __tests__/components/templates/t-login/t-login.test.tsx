@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 // Utils
-import { AppRouterContextProviderMock } from "@/utils/tests/app-router-ctx-provider-mock";
+import { AppRouterContextProviderMock } from "@/test-utils/app-router-ctx-provider-mock";
 
 // Interfaces
 import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";

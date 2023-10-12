@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 // Utils
-import { messages } from "@/utils";
+import { messages } from "@/helpers";
 import { I_HandleLoginProps } from "./login-form-send";
 
 export type T_HandleLoginForm = ({}: I_HandleLoginProps) => void;
