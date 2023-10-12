@@ -32,6 +32,20 @@ export const mockLoginResponse: I_AuthResponseEntity = {
   },
 };
 
+export const mockLoginEmptyResponse: I_AuthResponseEntity = {
+  jwt: "",
+  user: {
+    id: 0,
+    username: "",
+    email: "",
+    provider: "",
+    confirmed: false,
+    blocked: false,
+    createdAt: "",
+    updatedAt: "",
+  },
+};
+
 /*
  * Implementarei os testes futuramente, porque está consumindo muito tempo.
  */

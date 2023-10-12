@@ -4,7 +4,8 @@ import { ComponentType, FC } from "react";
 import { I_AuthResponseEntity } from "@/core/entities/auth/authEntity";
 
 // Mock
-import { mockLoginResponse } from "../../../__mocks__/src/services/auth/authService";
+import { useSession } from "@/hooks/session/useSession";
+import { useRouter } from "next/router";
 
 export interface I_SessionHOC {
   session: I_AuthResponseEntity;
@@ -12,7 +13,15 @@ export interface I_SessionHOC {
 
 export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_SessionHOC>): React.FC<P> => {
   const Wrapper: FC<P> = (props) => {
-    const session = mockLoginResponse;
+    //const router = useRouter();
+    const { data, loading, error } = useSession();
+
+    if (!loading && error) {
+      console.log("Erro de auth");
+      // router.push("/")
+    }
+
+    const session = data.session;
 
     const modifiedProps = {
       ...props,
