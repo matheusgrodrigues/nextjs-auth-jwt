@@ -6,8 +6,8 @@ import { I_InitialValues } from "./login-form-validation";
 import { I_MToastComponent } from "@/components/molecules/m-toast/m-toast";
 
 // Services
-import { authService } from "@/services/auth/authService";
 import { messages } from "@/helpers";
+import { authUseCases } from "@/core/useCases/authUseCases/authUseCase";
 
 export interface I_HandleLoginProps {
   values: I_InitialValues;
@@ -25,7 +25,7 @@ export const handleLoginForm = async ({ values, setSubmitting, mToastRef, router
   const life = 3000;
 
   try {
-    const { data } = await authService.login({
+    const { data } = await authUseCases.login({
       identifier: email,
       password: password,
     });
