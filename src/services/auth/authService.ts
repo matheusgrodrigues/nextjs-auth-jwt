@@ -3,28 +3,28 @@ import axios, { AxiosResponse } from "axios";
 // Config
 import { STRAPI_API_URL } from "@/config";
 
-interface I_LoginCredentials {
+export interface I_LoginCredentials {
   identifier: string;
   password: string;
 }
 
-interface I_UserData {
+export interface I_UserData {
   id: number;
   username: string;
   email: string;
   provider: string;
   confirmed: boolean;
-  blocked: number;
+  blocked: boolean;
   createdAt: string;
   updatedAt: string;
 }
 
-interface I_LoginResponse {
+export interface I_LoginResponse {
   jwt: string;
   user: I_UserData;
 }
 
-interface I_AuthService {
+export interface I_AuthService {
   login: (body: I_LoginCredentials) => Promise<AxiosResponse<I_LoginResponse>>;
 }
 
