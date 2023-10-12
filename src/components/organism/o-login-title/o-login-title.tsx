@@ -14,9 +14,7 @@ export const O_LoginTitle = ({ image, title, username }: I_OLoginTitle) => {
   return (
     <div data-testid="o-login-title" className={styles.o_loginTitle}>
       <A_Avatar image={image} label={username[0]} shape="circle" />
-      <A_Title variant="h2">
-        {title}
-      </A_Title>
+      <A_Title variant="h2">{title}</A_Title>
       <A_Text variant="fwReg-fs16-gray500">{username}</A_Text>
     </div>
   );

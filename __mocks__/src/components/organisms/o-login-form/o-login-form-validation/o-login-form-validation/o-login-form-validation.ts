@@ -1,18 +1,15 @@
 import { AxiosResponse } from "axios";
 
-// Entity
 import { I_AuthCredentialsEntity, I_AuthResponseEntity } from "@/core/entities/auth/authEntity";
 
-/*
 interface I_MockAuthService {
   login: jest.Mock<Promise<AxiosResponse<I_AuthResponseEntity>>>;
-} */
+}
 
-/*
 export const mockAuthService: I_MockAuthService = {
   login: jest.fn(),
 };
-*/
+
 export const mockLoginValues: I_AuthCredentialsEntity = {
   identifier: "mockedemail@hotmail.com",
   password: "mockedpassword",
@@ -31,7 +28,3 @@ export const mockLoginResponse: I_AuthResponseEntity = {
     updatedAt: "2023-10-11T22:31:06.753Z",
   },
 };
-
-/*
- * Implementarei os testes futuramente, porque está consumindo muito tempo.
- */

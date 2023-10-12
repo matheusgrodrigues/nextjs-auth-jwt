@@ -9,7 +9,16 @@ import { handleLoginForm } from "@/components/organism/o-login-form/login-form-v
 // Pages
 import { P_Home } from "@/components/pages/p-login/p-login";
 
-export default function Home() {
+// HOC
+import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
+
+interface I_Home extends I_SessionHOC {}
+
+function Home({ ...props }: I_Home) {
+  const { jwt, user } = props.session;
+
+  console.log(jwt, user);
+
   // Organism: LoginTitle
   const o_loginTitle: I_OLoginTitle = {
     image: "/images/a-avatar.jpeg",
@@ -25,3 +34,5 @@ export default function Home() {
 
   return <P_Home t_loginProps={t_loginProps} />;
 }
+
+export default withSessionHOC(Home);
