@@ -8,15 +8,14 @@ export interface I_MToastMessage extends ToastMessage {}
 
 interface I_MToast extends ToastProps {
   "data-testid"?: string;
-  message: I_MToastMessage | I_MToastMessage[];
 }
 
 interface I_MToastHandle {
-  showToast: () => void;
+  showToast: (message: I_MToastMessage | I_MToastMessage[]) => void;
 }
 
 export interface I_MToastComponent extends Toast {
-  showToast: () => void;
+  showToast: (message: I_MToastMessage | I_MToastMessage[]) => void;
 }
 
 export const M_Toast = forwardRef<I_MToastHandle, I_MToast>(function M_Toast(props, ref) {
@@ -26,14 +25,14 @@ export const M_Toast = forwardRef<I_MToastHandle, I_MToast>(function M_Toast(pro
     ref,
     () => {
       return {
-        showToast() {
+        showToast(message: I_MToastMessage | I_MToastMessage[]) {
           if (mToastRef && mToastRef.current) {
-            mToastRef.current.show(props.message);
+            mToastRef.current.show(message);
           }
         },
       };
     },
-    [mToastRef, props.message]
+    [mToastRef]
   );
 
   return (
@@ -50,8 +49,8 @@ export const M_Toast = forwardRef<I_MToastHandle, I_MToast>(function M_Toast(pro
           className: styles.m_toast__icon,
         },
         text: {
-          className: styles.m_toast__text
-        }
+          className: styles.m_toast__text,
+        },
       }}
       ref={mToastRef}
       {...props}

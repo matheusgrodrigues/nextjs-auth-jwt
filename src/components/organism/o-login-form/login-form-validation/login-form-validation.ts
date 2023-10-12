@@ -20,9 +20,9 @@ export const initialValues: I_InitialValues = {
 
 export const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .required(messages.ERROR_MESSAGES.INVALID_EMAIL_EMPTY)
-    .email(messages.ERROR_MESSAGES.INVALID_EMAIL),
+    .required(messages.login.ERROR_MESSAGES.INVALID_EMAIL_EMPTY)
+    .email(messages.login.ERROR_MESSAGES.INVALID_EMAIL),
   password: Yup.string()
-    .required(messages.ERROR_MESSAGES.INVALID_PASSWORD_EMPTY)
-    .min(4, messages.ERROR_MESSAGES.INVALID_PASSWORD),
+    .required(messages.login.ERROR_MESSAGES.INVALID_PASSWORD_EMPTY)
+    .min(4, messages.login.ERROR_MESSAGES.INVALID_PASSWORD_MIN_LENGTH),
 });

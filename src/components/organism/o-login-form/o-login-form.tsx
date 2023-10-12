@@ -8,7 +8,7 @@ import { A_Button, A_Text } from "@/components/atoms";
 
 // Molecules
 import { M_CheckboxWithLabel, M_InputWithLabel } from "@/components/molecules";
-import { I_MToastComponent, I_MToastMessage, M_Toast } from "@/components/molecules/m-toast/m-toast";
+import { I_MToastComponent, M_Toast } from "@/components/molecules/m-toast/m-toast";
 
 // StyleSheet
 import styles from "./o-login-form.module.css";
@@ -25,14 +25,6 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
   const router = useRouter();
 
   const mToastRef = useRef<I_MToastComponent>(null);
-
-  // Toast Configuration
-  const mToastMessage: I_MToastMessage = {
-    severity: "success",
-    summary: "Sucesso!",
-    detail: "Aguarde enquanto redirecionamos você.",
-    life: 3000000,
-  };
 
   // SubmitFormHandle
   const { handleSubmit, errors, touched, getFieldProps, values, isSubmitting } = useFormik({
@@ -78,7 +70,7 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
       </form>
 
       {/* Login Toast */}
-      <M_Toast ref={mToastRef} message={mToastMessage} />
+      <M_Toast ref={mToastRef} position="bottom-center"/>
     </>
   );
 };
