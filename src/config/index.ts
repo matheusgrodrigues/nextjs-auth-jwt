@@ -1,1 +1,7 @@
-export const STRAPI_API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL || "";
+// Messages
+import { messages } from "./messages";
+
+// Urls
+import { STRAPI_API_URL } from "./url";
+
+export { STRAPI_API_URL, messages };

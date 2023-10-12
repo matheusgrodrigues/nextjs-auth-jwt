@@ -6,7 +6,8 @@ import { I_InitialValues } from "./login-form-validation";
 import { I_MToastComponent } from "@/components/molecules/m-toast/m-toast";
 
 // Services
-import { authService } from "@/services/auth/login";
+import { messages } from "@/utils";
+import { authUseCases } from "@/core/useCases/auth/authUseCase";
 
 export interface I_HandleLoginProps {
   values: I_InitialValues;
@@ -20,24 +21,39 @@ export const handleLoginForm = async ({ values, setSubmitting, mToastRef, router
 
   setSubmitting(true);
 
+  // Tempo de duração do Toast na tela.
+  const life = 3000;
+
   try {
-    const { data } = await authService.login({
+    const { data } = await authUseCases.login({
       identifier: email,
       password: password,
     });
 
     console.log(data);
 
+    setSubmitting(false);
+
     if (mToastRef && mToastRef.current) {
-      mToastRef.current.showToast();
+      mToastRef.current.showToast({
+        severity: "success",
+        summary: messages.login.TOAST.SUCCESS_TITLE,
+        detail: messages.login.TOAST.REDIRECT_MESSAGE,
+        life,
+      });
     }
 
-    setTimeout(() => router.push("/welcome"), 2000);
+    setTimeout(() => router.push("/welcome"), life);
   } catch {
     setSubmitting(false);
 
-    alert("Erro ao logar");
-  } finally {
-    setSubmitting(false);
+    if (mToastRef && mToastRef.current) {
+      mToastRef.current.showToast({
+        severity: "error",
+        summary: messages.login.TOAST.ERROR_TITLE,
+        detail: messages.login.ERROR_MESSAGES.INVALID_EMAIL_PASSWORD,
+        life,
+      });
+    }
   }
 };
