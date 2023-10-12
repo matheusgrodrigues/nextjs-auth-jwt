@@ -8,7 +8,7 @@ import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title
 import { P_Home } from "../../../../../src/components/pages/p-login/p-login";
 
 // Utils
-import { AppRouterContextProviderMock } from "@/test-utils/app-router-ctx-provider-mock";
+import { AppRouterContextProviderMock } from "@/utils/test-utils";
 
 describe("Deve renderizar a pagina de login, corretamente", () => {
   const o_loginTitle: I_OLoginTitle = {

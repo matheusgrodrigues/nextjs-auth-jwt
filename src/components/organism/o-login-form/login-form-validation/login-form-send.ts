@@ -6,8 +6,8 @@ import { I_InitialValues } from "./login-form-validation";
 import { I_MToastComponent } from "@/components/molecules/m-toast/m-toast";
 
 // Services
-import { messages } from "@/helpers";
-import { authUseCases } from "@/core/useCases/authUseCases/authUseCase";
+import { messages } from "@/utils";
+import { authUseCases } from "@/core/useCases/auth/authUseCase";
 
 export interface I_HandleLoginProps {
   values: I_InitialValues;

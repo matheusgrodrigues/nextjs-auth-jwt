@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { O_LoginForm } from "../../../../../src/components/organism/o-login-form/o-login-form";
 
 // Test utils
-import { AppRouterContextProviderMock } from "@/test-utils/app-router-ctx-provider-mock";
+import { AppRouterContextProviderMock } from "@/utils/test-utils";
 
 // Mock values
 import { mockLoginValues } from "../../../../../__mocks__/src/services/auth/authService";

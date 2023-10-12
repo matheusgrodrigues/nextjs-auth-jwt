@@ -2,7 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 // Test-utils
-import { AppRouterContextProviderMock } from "@/test-utils/app-router-ctx-provider-mock";
+import { AppRouterContextProviderMock } from "@/utils/test-utils";
 
 // Organism
 import { O_LoginForm } from "../../../../../../src/components/organism/o-login-form/o-login-form";
