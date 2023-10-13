@@ -1,15 +1,18 @@
-import { ComponentType } from "react";
+import { ComponentType, useContext } from "react";
 
 // Entity
-import { I_AuthResponseEntity } from "@/core/entities/auth/authEntity";
+import { I_AuthUserEntity } from "@/core/entities/auth/authEntity";
 
-// Mock
+// useCases
+import { authUseCases } from "@/core/useCases/auth/authUseCase";
+
+// Services
 import { useSession } from "@/hooks/session/useSession";
-import { useRouter } from "next/router";
+import { tokenService } from "../tokenService/tokenService";
 
 export interface I_SessionHOC {
   data: {
-    session: I_AuthResponseEntity;
+    session: I_AuthUserEntity | undefined;
   };
 }
 
@@ -23,6 +26,8 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
       // router.push("/")
     }
 
+    console.log(data);
+
     const modifiedProps = {
       ...props,
       data,
@@ -30,8 +35,24 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
       loading,
     };
 
-    return <Component {...modifiedProps} />;
+    return <Component {...modifiedProps}></Component>;
   };
 
   return Wrapper;
+};
+
+export const getSession = async () => {
+  const token = tokenService.get();
+
+  // Buscar os dados o usuário logado
+
+  if (token) {
+    try {
+      const user = await authUseCases.me(token);
+
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
 };

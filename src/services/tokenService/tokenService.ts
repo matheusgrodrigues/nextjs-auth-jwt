@@ -27,14 +27,14 @@ const deleteStorage = (ctx?: GetServerSidePropsContext) => {
 
 export const tokenService = {
   save(value: string, ctx?: GetServerSidePropsContext) {
-    saveStorage(value, ctx);
+    return saveStorage(value, ctx);
   },
 
   get(ctx?: GetServerSidePropsContext) {
-    getStorage();
+    return getStorage();
   },
 
   delete(ctx?: GetServerSidePropsContext) {
-    deleteStorage();
+    return deleteStorage();
   },
 };

@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
 
 // Entity
-import { I_AuthResponseEntity } from "@/core/entities/auth/authEntity";
+import { I_AuthUserEntity } from "@/core/entities/auth/authEntity";
 
-// Mock
-import { mockLoginEmptyResponse, mockLoginResponse } from "../../../__mocks__/src/services/auth/authService";
+// Services
+import { getSession } from "@/services/sessionService/sessionService";
 
 export function useSession() {
-  const [session, setSession] = useState<I_AuthResponseEntity>(mockLoginEmptyResponse);
+  const [session, setSession] = useState<I_AuthUserEntity | undefined>(undefined);
   const [error, setError] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const is_auth = false;
-
-    if (is_auth) {
-      setSession(mockLoginResponse);
-    } else {
-      setError(true);
-    }
-  }, [session, error]);
+    getSession()
+      .then((userSession) => {
+        console.log(userSession);
+        setSession(userSession);
+      })
+      .catch((error) => {
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   return {
     data: {
