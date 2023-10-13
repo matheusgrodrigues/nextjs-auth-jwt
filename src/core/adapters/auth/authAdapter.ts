@@ -21,7 +21,7 @@ export const authAdapter: I_AuthPort = {
     try {
       const response: AxiosResponse<I_AuthResponseEntity> = await httpInfra({ method, url, body });
 
-      return response;
+      return response.data;
     } catch (error) {
       throw error;
     }

@@ -12,18 +12,21 @@ import { I_TWelcome } from "@/components/templates/t-welcome/t-welcome";
 // HOC
 import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
 
+// Services
+import { tokenService } from "@/services/tokenService/tokenService";
+
 interface I_Home extends I_SessionHOC {}
 
 function Welcome({ ...props }: I_Home) {
   const router = useRouter();
 
-  const {jwt, user} = props.data.session;
-
+  const { jwt, user } = props.data.session;
 
   // bootstrap: T_Welcome
   const [TWelcomeProps, setTWelcomeProps] = useState<I_TWelcome>({
     username: user.username,
     handleLogout: () => {
+      tokenService.delete();
       setTimeout(() => {
         router.push("/");
       }, 2000);

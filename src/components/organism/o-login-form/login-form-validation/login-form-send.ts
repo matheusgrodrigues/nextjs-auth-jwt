@@ -25,12 +25,10 @@ export const handleLoginForm = async ({ values, setSubmitting, mToastRef, router
   const life = 3000;
 
   try {
-    const { data } = await authUseCases.login({
+    const { jwt, user } = await authUseCases.login({
       identifier: email,
       password: password,
     });
-
-    console.log(data);
 
     setSubmitting(false);
 
