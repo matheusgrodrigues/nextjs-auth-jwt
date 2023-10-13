@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentType, useEffect, useState } from "react";
+import { ComponentType, useEffect } from "react";
 
 import { GetServerSidePropsContext } from "next";
 
