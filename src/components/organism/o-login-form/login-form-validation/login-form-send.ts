@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import {  RefObject } from "react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 // Interfaces
@@ -6,8 +6,9 @@ import { I_InitialValues } from "./login-form-validation";
 import { I_MToastComponent } from "@/components/molecules/m-toast/m-toast";
 
 // Services
-import { messages } from "@/utils";
 import { authUseCases } from "@/core/useCases/auth/authUseCase";
+import { messages } from "@/config";
+import { tokenService } from "@/services/tokenService/tokenService";
 
 export interface I_HandleLoginProps {
   values: I_InitialValues;
@@ -15,7 +16,6 @@ export interface I_HandleLoginProps {
   mToastRef: RefObject<I_MToastComponent>;
   router: AppRouterInstance;
 }
-
 export const handleLoginForm = async ({ values, setSubmitting, mToastRef, router }: I_HandleLoginProps) => {
   const { email, password, manter_logado } = values;
 
@@ -25,10 +25,12 @@ export const handleLoginForm = async ({ values, setSubmitting, mToastRef, router
   const life = 3000;
 
   try {
-    const { jwt, user } = await authUseCases.login({
+    const { jwt } = await authUseCases.login({
       identifier: email,
       password: password,
     });
+
+    tokenService.save(jwt);
 
     setSubmitting(false);
 

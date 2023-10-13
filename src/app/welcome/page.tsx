@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 // Pages
@@ -20,11 +20,9 @@ interface I_Home extends I_SessionHOC {}
 function Welcome({ ...props }: I_Home) {
   const router = useRouter();
 
-  const { jwt, user } = props.data.session;
-
   // bootstrap: T_Welcome
   const [TWelcomeProps, setTWelcomeProps] = useState<I_TWelcome>({
-    username: user.username,
+    username: "",
     handleLogout: () => {
       tokenService.delete();
       setTimeout(() => {
