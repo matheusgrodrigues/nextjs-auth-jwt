@@ -20,4 +20,13 @@ export const authUseCases: I_AuthPort = {
       throw error;
     }
   },
+  me: async (token: string) => {
+    try {
+      const response = await authAdapter.me(token);
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };

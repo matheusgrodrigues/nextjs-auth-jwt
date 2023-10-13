@@ -12,13 +12,17 @@ export function useSession() {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const user = getSession();
-
-    if (user) {
-      setSession(user);
-    } else {
-      setError(true);
-    }
+    getSession()
+      .then((userSession) => {
+        console.log(userSession);
+        setSession(userSession);
+      })
+      .catch((error) => {
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return {

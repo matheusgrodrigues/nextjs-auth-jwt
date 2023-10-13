@@ -3,10 +3,12 @@ import { ComponentType, useContext } from "react";
 // Entity
 import { I_AuthUserEntity } from "@/core/entities/auth/authEntity";
 
-// Mock
+// useCases
+import { authUseCases } from "@/core/useCases/auth/authUseCase";
+
+// Services
 import { useSession } from "@/hooks/session/useSession";
 import { tokenService } from "../tokenService/tokenService";
-import { mockLoginResponse } from "../../../__mocks__/src/components/organisms/o-login-form/o-login-form-validation/o-login-form-validation/o-login-form-validation";
 
 export interface I_SessionHOC {
   data: {
@@ -39,14 +41,18 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
   return Wrapper;
 };
 
-export const getSession = () => {
+export const getSession = async () => {
   const token = tokenService.get();
 
+  // Buscar os dados o usuário logado
 
- 
+  if (token) {
+    try {
+      const user = await authUseCases.me(token);
 
-  // Fake user
-  const fake_user = mockLoginResponse.user;
-
-  return fake_user;
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
 };

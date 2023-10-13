@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 
 // Entities
-import { I_AuthResponseEntity } from "@/core/entities/auth/authEntity";
+import { I_AuthResponseEntity, I_AuthUserEntity } from "@/core/entities/auth/authEntity";
 
 // Ports
 import { I_AuthPort } from "@/core/ports/auth/authPort";
@@ -20,6 +20,19 @@ export const authAdapter: I_AuthPort = {
 
     try {
       const response: AxiosResponse<I_AuthResponseEntity> = await httpInfra({ method, url, body });
+
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  me: async (token: string) => {
+    const method = "GET";
+
+    const url = `${STRAPI_API_URL}/users/me`;
+
+    try {
+      const response: AxiosResponse<I_AuthUserEntity> = await httpInfra({ method, url, token });
 
       return response.data;
     } catch (error) {
