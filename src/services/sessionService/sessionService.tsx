@@ -1,4 +1,4 @@
-import { ComponentType, FC } from "react";
+import { ComponentType } from "react";
 
 // Entity
 import { I_AuthResponseEntity } from "@/core/entities/auth/authEntity";
@@ -8,11 +8,13 @@ import { useSession } from "@/hooks/session/useSession";
 import { useRouter } from "next/router";
 
 export interface I_SessionHOC {
-  session: I_AuthResponseEntity;
+  data: {
+    session: I_AuthResponseEntity;
+  };
 }
 
 export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_SessionHOC>): React.FC<P> => {
-  const Wrapper: FC<P> = (props) => {
+  const Wrapper: React.FC<P> = (props) => {
     //const router = useRouter();
     const { data, loading, error } = useSession();
 
@@ -21,11 +23,11 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
       // router.push("/")
     }
 
-    const session = data.session;
-
     const modifiedProps = {
       ...props,
-      session,
+      data,
+      error,
+      loading,
     };
 
     return <Component {...modifiedProps} />;
