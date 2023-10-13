@@ -16,11 +16,11 @@ export interface I_TLogin extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const T_Login = ({ o_loginTitle, handleLoginForm, ...props }: I_TLogin) => {
-  const { image, title, username } = o_loginTitle;
+  const { image, title } = o_loginTitle;
 
   return (
     <div data-testid="t-login" className={styles.t_login} id="t-login" {...props}>
-      <O_LoginTitle image={image} title={title} username={username} />
+      <O_LoginTitle image={image} title={title} userSession={o_loginTitle.userSession} />
       <O_LoginForm handleLoginForm={handleLoginForm} />
     </div>
   );

@@ -11,14 +11,7 @@ exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutur
     data-pc-section="root"
     data-testid="a-avatar"
     style={{}}
-  >
-    <span
-      className="p-avatar-text"
-      data-pc-section="label"
-    >
-      @
-    </span>
-  </div>
+  />
   <h2
     className="a_title__h2"
     data-testid="a-title"
@@ -28,8 +21,6 @@ exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutur
   <p
     className="a_text__fwReg_fs16_gray500"
     data-testid="a-text"
-  >
-    @matheusgomesdev
-  </p>
+  />
 </div>
 `;

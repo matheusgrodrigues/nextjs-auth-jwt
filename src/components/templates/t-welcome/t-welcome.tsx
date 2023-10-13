@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // StyleSheet
-import styles from "./t-welcome.module.css";
+import styles from "./t-welcome.module.scss";
 
 // Atoms
 import { A_Button, A_Text, A_Title } from "@/components/atoms";
@@ -9,12 +9,15 @@ import { A_Button, A_Text, A_Title } from "@/components/atoms";
 // Logout Dialog
 import { LogoutDialog } from "./logout-dialog/logout-dialog";
 
+// Interfaces
+import { I_SessionHOC } from "@/services/sessionService/sessionService";
+
 export interface I_TWelcome {
-  username: string;
+  userSession: I_SessionHOC | undefined;
   handleLogout: () => void;
 }
 
-export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
+export const T_Welcome = ({ userSession, handleLogout }: I_TWelcome) => {
   const [visible, setVisible] = useState<boolean>(false);
 
   const toggleVisible = () => setVisible(!visible);
@@ -27,7 +30,7 @@ export const T_Welcome = ({ username, handleLogout }: I_TWelcome) => {
         </A_Text>
 
         <A_Title data-testid="a-title-username" variant="fwSB-fs48-lh60-lspN2-gray900">
-          {username}
+          {userSession && userSession.data.session?.username}
         </A_Title>
       </div>
 

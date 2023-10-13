@@ -8,16 +8,15 @@ import { getSession } from "@/services/sessionService/sessionService";
 
 export function useSession() {
   const [session, setSession] = useState<I_AuthUserEntity | undefined>(undefined);
-  const [error, setError] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getSession()
       .then((userSession) => {
-        console.log(userSession);
         setSession(userSession);
       })
-      .catch((error) => {
+      .catch(() => {
         setError(true);
       })
       .finally(() => {

@@ -8,7 +8,7 @@ describe("Deve renderizar o o-login-title, corretamente", () => {
   // ========================================
   it("Deve renderizar o a-avatar, corretamente", () => {
     // Arrange
-    render(<O_LoginTitle image="" title="" username="" />);
+    render(<O_LoginTitle image="" title="" userSession={undefined} />);
 
     // Act
     const get_a_avatar = screen.getByTestId("a-avatar");
@@ -21,7 +21,7 @@ describe("Deve renderizar o o-login-title, corretamente", () => {
 
   it("Deve renderizar o a-title", () => {
     // Arrange
-    render(<O_LoginTitle image="" title="" username="" />);
+    render(<O_LoginTitle image="" title="" userSession={undefined} />);
 
     // Act
     const get_a_title = screen.getByTestId("a-title");
@@ -34,7 +34,7 @@ describe("Deve renderizar o o-login-title, corretamente", () => {
 
   it("Deve renderizar o a-text", () => {
     // Arrange
-    render(<O_LoginTitle image="" title="" username="" />);
+    render(<O_LoginTitle image="" title="" userSession={undefined} />);
 
     // Act
     const get_a_text = screen.getByTestId("a-text");
@@ -47,13 +47,7 @@ describe("Deve renderizar o o-login-title, corretamente", () => {
 
   it("Deve preservar a estrutura visual do componente", () => {
     const get_o_login_title = renderer
-      .create(
-        <O_LoginTitle
-          image=""
-          title="NextJS: Auth + JWT"
-          username="@matheusgomesdev"
-        />
-      )
+      .create(<O_LoginTitle image="" title="NextJS: Auth + JWT" username={undefined} />)
       .toJSON();
 
     expect(get_o_login_title).toMatchSnapshot();
