@@ -1,5 +1,7 @@
 import { GetServerSidePropsContext } from "next";
 
+import nookies from "nookies";
+
 const ACCESS_TOKEN_KEY = "ACCESS_TOKEN_KEY";
 
 const ONE_SECOND = 1;
@@ -11,30 +13,57 @@ const ONE_YEAR = ONE_DAY * 365;
 const saveStorage = (value: string, ctx?: GetServerSidePropsContext) => {
   globalThis?.localStorage?.setItem(ACCESS_TOKEN_KEY, value);
   globalThis?.sessionStorage?.setItem(ACCESS_TOKEN_KEY, value);
+
+  /*
+   *
+   * Para solicitações http, não se esqueça de utilizar as props relacionados a segurança, abaixo:
+   *
+   * httpOnly: true,
+   * sameSite: "lax",
+   *
+   */
+
+  nookies.set(ctx, ACCESS_TOKEN_KEY, value, {
+    maxAge: ONE_YEAR,
+    path: "/",
+  });
 };
+
+/*
+ *
+ * O parametro ctx: GetServerSideProps, só funciona no PagesRouter.
+ * Na nova versão do react, lançaram o AppRoute, que funciona no servidor por padrão.
+ * Utilize {cookies} from "next/headers", para pegar o cookie no servidor.
+ *
+ */
 
 const getStorage = (ctx?: GetServerSidePropsContext) => {
   const localStorage = globalThis?.localStorage?.getItem(ACCESS_TOKEN_KEY);
   const sessionStorage = globalThis?.sessionStorage?.getItem(ACCESS_TOKEN_KEY);
+  const cookie = nookies.get(ctx);
 
-  return localStorage ? localStorage : sessionStorage;
+  let in_use_token = "";
+
+  if (cookie[ACCESS_TOKEN_KEY]) {
+    in_use_token = cookie[ACCESS_TOKEN_KEY];
+  } else if (localStorage) {
+    in_use_token = localStorage;
+  } else if (sessionStorage) {
+    in_use_token = sessionStorage;
+  }
+
+  return in_use_token;
 };
 
 const deleteStorage = (ctx?: GetServerSidePropsContext) => {
   globalThis?.localStorage?.removeItem(ACCESS_TOKEN_KEY);
   globalThis?.sessionStorage?.removeItem(ACCESS_TOKEN_KEY);
+
+  nookies.destroy(ctx, ACCESS_TOKEN_KEY);
 };
 
 export const tokenService = {
-  save(value: string, ctx?: GetServerSidePropsContext) {
-    return saveStorage(value, ctx);
-  },
-
-  get(ctx?: GetServerSidePropsContext) {
-    return getStorage();
-  },
-
-  delete(ctx?: GetServerSidePropsContext) {
-    return deleteStorage();
-  },
+  save: (value: string, ctx?: GetServerSidePropsContext) => saveStorage(value, ctx),
+  get: (ctx?: GetServerSidePropsContext) => getStorage(ctx),
+  delete: (ctx?: GetServerSidePropsContext) => deleteStorage(ctx),
 };

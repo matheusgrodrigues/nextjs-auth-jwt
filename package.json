@@ -32,6 +32,7 @@
     "formik": "^2.4.5",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "nookies": "^2.5.2",
     "react-test-renderer": "^18.2.0",
     "sass": "^1.69.2",
     "typescript": "latest",
