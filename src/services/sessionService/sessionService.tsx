@@ -1,6 +1,10 @@
-import { ComponentType } from "react";
+"use client";
+
+import { ComponentType, useEffect, useState } from "react";
 
 import { GetServerSidePropsContext } from "next";
+
+import { useRouter } from "next/navigation";
 
 // Entity
 import { I_AuthUserEntity } from "@/core/entities/auth/authEntity";
@@ -15,37 +19,55 @@ import { tokenService } from "../tokenService/tokenService";
 export interface I_SessionHOC {
   data: {
     session: I_AuthUserEntity | undefined;
-  };
+  },
+  error: boolean,
+  loading: boolean
 }
+
 
 export const getSession = async (ctx?: GetServerSidePropsContext) => {
   const token = tokenService.get(ctx);
 
-  // Buscar os dados do usuário logado
+  /*
+   * Buscar os dados do usuário logado.
+   *
+   * Atenção !
+   *
+   * Não verificar se o token existe, para fazer o try...catch [if(token)].
+   * Porque senão vai cair no finally no getSession(), e não vai setar o erro para true
+   * Porque não vai disparar a exception, que controla a exibição das paginas autorizadas.
+   *
+   */
 
-  if (token) {
-    try {
-      const user = await authUseCases.me(token);
+  try {
+    const user = await authUseCases.me(token);
 
-      return user;
-    } catch (error) {
-      throw error;
-    }
+    return user;
+  } catch (error) {
+    throw error;
   }
 };
 
 // Client
 export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_SessionHOC>): React.FC<P> => {
   const Wrapper: React.FC<P> = (props) => {
-    //const router = useRouter();
     const { data, loading, error } = useSession();
 
-    if (!loading && error) {
-      console.log("Erro de auth");
-      // router.push("/")
-    }
+    const router = useRouter();
 
-    console.log(data);
+    useEffect(() => {
+      /*
+       *
+       * Em casos em que, passou o token jwt incorreto na requisição.
+       * Ou o token expirou.
+       * Ou não está autenticado.
+       *
+       */
+
+      if (!loading && error) {
+        router.push("/");
+      }
+    }, [loading, error, router]);
 
     const modifiedProps = {
       ...props,
@@ -54,7 +76,7 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
       loading,
     };
 
-    return <Component {...modifiedProps}></Component>;
+    return <Component {...modifiedProps} />;
   };
 
   return Wrapper;

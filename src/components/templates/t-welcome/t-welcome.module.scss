@@ -1,6 +1,8 @@
+@import "../../../styles/util/breakpoints";
+
 .t_welcome {
   width: 100%;
-  max-width: var(--bp-md);
+  max-width: $tablet;
   display: flex;
   flex-direction: column;
   text-align: center;

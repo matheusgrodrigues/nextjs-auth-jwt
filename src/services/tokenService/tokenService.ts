@@ -16,7 +16,7 @@ const saveStorage = (value: string, ctx?: GetServerSidePropsContext) => {
 
   /*
    *
-   * Para solicitações http, não se esqueça de utilizar as props relacionados a segurança, abaixo:
+   * Para solicitações http, não se esqueça de utilizar as props relacionadas a segurança, abaixo:
    *
    * httpOnly: true,
    * sameSite: "lax",

@@ -1,6 +1,5 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 // Pages
@@ -15,23 +14,23 @@ import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionS
 // Services
 import { tokenService } from "@/services/tokenService/tokenService";
 
-interface I_Home extends I_SessionHOC {}
+interface I_Welcome extends I_SessionHOC {}
 
-function Welcome({ ...props }: I_Home) {
+function Welcome(props: I_Welcome) {
   const router = useRouter();
 
-  // bootstrap: T_Welcome
-  const [TWelcomeProps, setTWelcomeProps] = useState<I_TWelcome>({
-    username: "",
+  const { session } = props.data;
+
+  // T_Welcome
+  const welcomeProps: I_TWelcome = {
+    userSession: props,
     handleLogout: () => {
       tokenService.delete();
-      setTimeout(() => {
-        router.push("/");
-      }, 2000);
+      router.push("/");
     },
-  });
+  };
 
-  return <P_Welcome t_WelcomeProps={TWelcomeProps} />;
+  return session && <P_Welcome t_WelcomeProps={welcomeProps} />;
 }
 
 export default withSessionHOC(Welcome);

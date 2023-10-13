@@ -10,14 +10,18 @@ import { handleLoginForm } from "@/components/organism/o-login-form/login-form-v
 import { P_Home } from "@/components/pages/p-login/p-login";
 
 // HOC
-import { withSessionHOC } from "@/services/sessionService/sessionService";
+import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
 
-function Home() {
+interface I_Home extends I_SessionHOC {}
+
+function Home(props: I_Home) {
+  const { session } = props.data;
+
   // Organism: LoginTitle
   const o_loginTitle: I_OLoginTitle = {
     image: "/images/a-avatar.jpeg",
     title: "NextJS: Auth + JWT",
-    username: "@matheusgomesdev",
+    userSession: props,
   };
 
   // Template: LoginForm

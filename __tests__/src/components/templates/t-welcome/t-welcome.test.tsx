@@ -2,12 +2,26 @@ import { render, screen } from "@testing-library/react";
 
 // Template
 import { T_Welcome } from "../../../../../src/components/templates/index";
+import { mockLoginResponse } from "../../../../../__mocks__/src/services/auth/authService";
 
 const handleLogout = jest.fn();
 
 const username = "Matheus Gomes";
 
-beforeEach(() => render(<T_Welcome username={username} handleLogout={handleLogout} />));
+beforeEach(() =>
+  render(
+    <T_Welcome
+      userSession={{
+        data: {
+          session: mockLoginResponse.user,
+        },
+        error: false,
+        loading: false,
+      }}
+      handleLogout={handleLogout}
+    />
+  )
+);
 
 describe("Deve renderizar o t-welcome corretamente.", () => {
   // =====================================================================
