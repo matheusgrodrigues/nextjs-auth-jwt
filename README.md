@@ -1,6 +1,6 @@
 | Tela de Login                                       | Tela de Boas Vindas                                      |
 | ------------------------------------------- | ----------------------------------------- |
-| ![Tela de Login](/readme/login-desktop.png) | ![Tela de Boas Vindas](/readme/dash-desktop.png) |
+| ![Tela de Login](https://nextjs-auth-jwt-backend-4be97176fefb.herokuapp.com/uploads/login_desktop_9446c083f7.png) | ![Tela de Boas Vindas](https://nextjs-auth-jwt-backend-4be97176fefb.herokuapp.com/uploads/dash_desktop_71f305d0c8.png) |
 | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-4&mode=design) | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-5&mode=design)
 
 # [NextJS: Auth + JWT](https://nextjs-auth-jwt-blue.vercel.app/) 🚀
