@@ -20,6 +20,17 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         src="/images/a-avatar.jpeg"
       />
     </div>
+    <button
+      className="a_button p-button p-component"
+      data-pc-name="button"
+      data-pc-section="root"
+      data-testid="a-button"
+      disabled={false}
+    >
+      <i
+        className="a_icon pi pi-sun"
+      />
+    </button>
   </header>,
   <main
     className="p_home"
@@ -40,7 +51,9 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         <h2
           className="a_title__h2"
           data-testid="a-title"
-        />
+        >
+          Acesse sua conta
+        </h2>
         <p
           className="a_text__fwReg_fs16_gray500"
           data-testid="a-text"
@@ -173,5 +186,44 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
       </form>
     </div>
   </main>,
+  <footer
+    className="o_footer"
+  >
+    <div
+      className="o_footer__name"
+    >
+      <p>
+        © 
+        2023
+        <a
+          className="a_link"
+          href="https://matheusgomesdev.com.br"
+        >
+          matheusgomesdev
+        </a>
+        .
+      </p>
+    </div>
+    <div
+      className="o_footer__icons"
+    >
+      <a
+        className="a_link"
+        href="https://github.com/matheusgrodrigues"
+      >
+        <i
+          className="a_icon pi pi-github"
+        />
+      </a>
+      <a
+        className="a_link"
+        href="https://www.linkedin.com/in/matheusgomes/"
+      >
+        <i
+          className="a_icon pi pi-linkedin"
+        />
+      </a>
+    </div>
+  </footer>,
 ]
 `;

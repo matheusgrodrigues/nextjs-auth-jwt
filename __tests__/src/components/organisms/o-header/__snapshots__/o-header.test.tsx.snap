@@ -16,8 +16,19 @@ exports[`Deve renderizar o Header corretamente Deve preservar a estrutura visual
       alt="avatar"
       data-pc-section="image"
       onError={[Function]}
-      src="/images/a-avatar.jpeg"
+      src="/images/avatar.jpeg"
     />
   </div>
+  <button
+    className="a_button p-button p-component"
+    data-pc-name="button"
+    data-pc-section="root"
+    data-testid="a-button"
+    disabled={false}
+  >
+    <i
+      className="a_icon pi pi-sun"
+    />
+  </button>
 </header>
 `;

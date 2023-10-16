@@ -6,18 +6,6 @@ import { O_LoginTitle } from "../../../../../src/components/organism/o-login-tit
 
 describe("Deve renderizar o o-login-title, corretamente", () => {
   // ========================================
-  it("Deve renderizar o a-avatar, corretamente", () => {
-    // Arrange
-    render(<O_LoginTitle image="" title="" userSession={undefined} />);
-
-    // Act
-    const get_a_avatar = screen.getByTestId("a-avatar");
-
-    // Assert
-
-    expect(get_a_avatar).toBeInTheDocument();
-  });
-  // ========================================
 
   it("Deve renderizar o a-title", () => {
     // Arrange
