@@ -11,16 +11,10 @@ import { handleLoginForm } from "@/components/organism/o-login-form/login-form-v
 // Pages
 import { P_Home } from "@/components/pages/p-login/p-login";
 
-// HOC
-import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
-
-interface I_Home extends I_SessionHOC {}
-
-function Home(props: I_Home) {
-  const { session } = props.data;
-
+export default function Home() {
   // Organism: Header
   const o_headerProps: I_OHeader = {
+    link: "https://github.com/matheusgrodrigues",
     image: "/images/a-avatar.jpeg",
   };
 
@@ -28,7 +22,6 @@ function Home(props: I_Home) {
   const o_loginTitle: I_OLoginTitle = {
     image: "/images/a-avatar.jpeg",
     title: "Acesse sua conta",
-    userSession: props,
   };
 
   // Template: LoginForm
@@ -41,11 +34,9 @@ function Home(props: I_Home) {
   const o_footerProps = {
     name: "matheusgomesdev",
     site: "https://matheusgomesdev.com.br",
-    github: "https://github.com/matheusgrodrigues",
+    github: "https://github.com/matheusgrodrigues/nextjs-auth-jwt",
     linkedin: "https://www.linkedin.com/in/matheusgomes/",
   };
 
   return <P_Home o_headerProps={o_headerProps} t_loginProps={t_loginProps} o_footerProps={o_footerProps} />;
 }
-
-export default withSessionHOC(Home);

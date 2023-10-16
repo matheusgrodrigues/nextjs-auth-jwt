@@ -65,7 +65,7 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
        */
 
       if (!loading && error) {
-        router.push("/");
+        router.push("/401");
       }
     }, [loading, error, router]);
 

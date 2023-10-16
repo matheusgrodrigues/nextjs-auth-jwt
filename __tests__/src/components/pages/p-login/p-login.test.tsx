@@ -19,6 +19,7 @@ describe("Deve renderizar a pagina de login, corretamente", () => {
 
   // Organism: Header
   const o_headerProps: I_OHeader = {
+    link: "https://github.com/matheusgrodrigues",
     image: "/images/a-avatar.jpeg",
   };
 

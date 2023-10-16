@@ -20,7 +20,7 @@ interface I_PHome {
 export const P_Home = ({ o_headerProps, t_loginProps, o_footerProps }: I_PHome) => {
   return (
     <main data-testid="p-home" className={styles.p_home}>
-      <O_Header image={o_headerProps.image} />
+      <O_Header image={o_headerProps.image} link={o_headerProps.link} />
 
       <T_Login o_loginTitle={t_loginProps.o_loginTitle} handleLoginForm={t_loginProps.handleLoginForm} />
 

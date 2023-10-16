@@ -20,7 +20,7 @@ export const T_Login = ({ o_loginTitle, handleLoginForm, ...props }: I_TLogin) =
 
   return (
     <div data-testid="t-login" className={styles.t_login} id="t-login" {...props}>
-      <O_LoginTitle image={image} title={title} userSession={o_loginTitle.userSession} />
+      <O_LoginTitle image={image} title={title} />
       <O_LoginForm handleLoginForm={handleLoginForm} />
     </div>
   );

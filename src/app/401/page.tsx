@@ -14,6 +14,7 @@ export default function Page401() {
 
   // Organism: Header
   const o_headerProps: I_OHeader = {
+    link: "https://github.com/matheusgrodrigues",
     image: "/images/a-avatar.jpeg",
   };
 
@@ -26,7 +27,7 @@ export default function Page401() {
   const o_footerProps: I_OFooter = {
     name: "matheusgomesdev",
     site: "https://matheusgomesdev.com.br",
-    github: "https://github.com/matheusgrodrigues",
+    github: "https://github.com/matheusgrodrigues/nextjs-auth-jwt",
     linkedin: "https://www.linkedin.com/in/matheusgomes/",
   };
 

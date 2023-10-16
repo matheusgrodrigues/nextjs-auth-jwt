@@ -20,7 +20,7 @@ export const O_Footer = ({ name, site, github, linkedin }: I_OFooter) => {
       <div className={styles.o_footer__name}>
         <p>
           © {date.getFullYear()}
-          <A_Link href={site}>{name}</A_Link>.
+          <A_Link href={site}>{name}.</A_Link>
         </p>
       </div>
 

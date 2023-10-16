@@ -19,7 +19,7 @@ export interface I_P401 {
 export const P_401 = ({ o_headerProps, t_401Props, o_footerProps }: I_P401) => {
   return (
     <main data-testid="p-401" className={styles.p_401}>
-      <O_Header image={o_headerProps.image} />
+      <O_Header image={o_headerProps.image} link={o_headerProps.link} />
 
       <T_401 handleLogin={t_401Props.handleLogin} />
 
