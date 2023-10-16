@@ -30,12 +30,8 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
       className="o_loginTitle"
       data-testid="o-login-title"
     >
-      <div
-        className="p-avatar p-component p-avatar-circle"
-        data-pc-name="avatar"
-        data-pc-section="root"
-        data-testid="a-avatar"
-        style={{}}
+      <i
+        className="a_icon pi pi-lock"
       />
       <h2
         className="a_title__h2"
@@ -44,7 +40,9 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
       <p
         className="a_text__fwReg_fs16_gray500"
         data-testid="a-text"
-      />
+      >
+        Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
+      </p>
     </div>
     <form
       className="o_form_login"
@@ -74,7 +72,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
           onInput={[Function]}
           onKeyDown={[Function]}
           onPaste={[Function]}
-          placeholder="Informe o seu e-mail"
+          placeholder="Endereço de e-mail"
           type="email"
           value=""
         />
@@ -102,7 +100,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
           onInput={[Function]}
           onKeyDown={[Function]}
           onPaste={[Function]}
-          placeholder="Informe a sua senha"
+          placeholder="Digite sua senha"
           type="password"
           value=""
         />
@@ -155,7 +153,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
           data-testid="a-label"
           onClick={[Function]}
         >
-          Manter-me conectado por 30 dias.
+          Mantenha-me conectado.
         </label>
       </div>
       <button
@@ -166,7 +164,7 @@ exports[`Deve renderizar o t-login, corretamente Deve preservar a estrutura visu
         disabled={false}
         type="submit"
       >
-        Login
+        Entrar
       </button>
     </form>
   </div>,

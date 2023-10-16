@@ -2,6 +2,6 @@
 
 exports[`Deve renderizar os icones corretamente Deve preservar a estrutura visual do icone 1`] = `
 <i
-  className="pi pi-lock"
+  className="a_icon pi pi-lock"
 />
 `;

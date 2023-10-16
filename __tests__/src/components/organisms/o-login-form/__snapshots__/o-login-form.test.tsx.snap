@@ -29,7 +29,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       onInput={[Function]}
       onKeyDown={[Function]}
       onPaste={[Function]}
-      placeholder="Informe o seu e-mail"
+      placeholder="Endereço de e-mail"
       type="email"
       value=""
     />
@@ -57,7 +57,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       onInput={[Function]}
       onKeyDown={[Function]}
       onPaste={[Function]}
-      placeholder="Informe a sua senha"
+      placeholder="Digite sua senha"
       type="password"
       value=""
     />
@@ -110,7 +110,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       data-testid="a-label"
       onClick={[Function]}
     >
-      Manter-me conectado por 30 dias.
+      Mantenha-me conectado.
     </label>
   </div>
   <button
@@ -121,7 +121,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
     disabled={false}
     type="submit"
   >
-    Login
+    Entrar
   </button>
 </form>
 `;
