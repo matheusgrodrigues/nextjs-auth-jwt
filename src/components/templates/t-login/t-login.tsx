@@ -3,6 +3,7 @@ import { HTMLAttributes } from "react";
 // Organism and I_OTypes
 import { O_LoginForm } from "@/components/organism/o-login-form/o-login-form";
 import { I_OLoginTitle, O_LoginTitle } from "@/components/organism/o-login-title/o-login-title";
+import { O_Header } from "@/components/organism/o-header/o-header";
 
 // StyleSheet
 import styles from "./t-login.module.css";
@@ -19,9 +20,12 @@ export const T_Login = ({ o_loginTitle, handleLoginForm, ...props }: I_TLogin) =
   const { image, title } = o_loginTitle;
 
   return (
-    <div data-testid="t-login" className={styles.t_login} id="t-login" {...props}>
-      <O_LoginTitle image={image} title={title} userSession={o_loginTitle.userSession} />
-      <O_LoginForm handleLoginForm={handleLoginForm} />
-    </div>
+    <>
+      <O_Header />
+      <div data-testid="t-login" className={styles.t_login} id="t-login" {...props}>
+        <O_LoginTitle image={image} title={title} userSession={o_loginTitle.userSession} />
+        <O_LoginForm handleLoginForm={handleLoginForm} />
+      </div>
+    </>
   );
 };

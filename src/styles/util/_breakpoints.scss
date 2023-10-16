@@ -22,3 +22,8 @@ $desktop_up: 1280px;
     }
   }
 }
+
+@mixin centralizar {
+  margin-left: 0;
+  margin-right: 0;
+}
