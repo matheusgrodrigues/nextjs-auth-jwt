@@ -12,7 +12,7 @@ export interface I_OHeader {
 
 export const O_Header = ({ link, image }: I_OHeader) => {
   return (
-    <header data-testid="o-header" className={styles.o_header}>
+    <header data-testid="o-header" className={styles.o_header} id="o-header">
       <A_Link href={link}>
         <A_Avatar image={image} label={""} shape="circle" />
       </A_Link>

@@ -19,11 +19,10 @@ import { tokenService } from "../tokenService/tokenService";
 export interface I_SessionHOC {
   data: {
     session: I_AuthUserEntity | undefined;
-  },
-  error: boolean,
-  loading: boolean
+  };
+  error: boolean;
+  loading: boolean;
 }
-
 
 export const getSession = async (ctx?: GetServerSidePropsContext) => {
   const token = tokenService.get(ctx);
@@ -65,9 +64,15 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
        */
 
       if (!loading && error) {
-        router.push("/401");
+        if (window.location.pathname === "/") {
+          router.push("/");
+        } else {
+          router.push("/401");
+        }
+      } else if (!loading && !error && data.session && window.location.pathname === "/") {
+        router.push("/welcome");
       }
-    }, [loading, error, router]);
+    }, [loading, error, router, data.session]);
 
     const modifiedProps = {
       ...props,
