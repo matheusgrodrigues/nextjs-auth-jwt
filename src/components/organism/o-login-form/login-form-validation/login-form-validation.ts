@@ -13,8 +13,8 @@ export interface I_InitialValues {
 }
 
 export const initialValues: I_InitialValues = {
-  email: "",
-  password: "",
+  email: "admin@matheusgomesdev.com.br",
+  password: "123456",
   manter_logado: false,
 };
 
