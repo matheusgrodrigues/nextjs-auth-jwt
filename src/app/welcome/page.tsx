@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 // Pages
 import { P_Welcome } from "@/components/pages/p-welcome/p-welcome";
 
+// Organism
+import { I_OHeader } from "@/components/organism/o-header/o-header";
+import { I_OFooter } from "@/components/organism/o-footer/o-footer";
+
 // Templates
 import { I_TWelcome } from "@/components/templates/t-welcome/t-welcome";
 
@@ -21,6 +25,12 @@ function Welcome(props: I_Welcome) {
 
   const { session } = props.data;
 
+  // Organism: Header
+  const o_headerProps: I_OHeader = {
+    link: "https://github.com/matheusgrodrigues",
+    image: "/images/a-avatar.jpeg",
+  };
+
   // T_Welcome
   const welcomeProps: I_TWelcome = {
     userSession: props,
@@ -30,7 +40,17 @@ function Welcome(props: I_Welcome) {
     },
   };
 
-  return session && <P_Welcome t_WelcomeProps={welcomeProps} />;
+  // Organism: Footer
+  const o_footerProps: I_OFooter = {
+    name: "matheusgomesdev",
+    site: "https://matheusgomesdev.com.br",
+    github: "https://github.com/matheusgrodrigues/nextjs-auth-jwt",
+    linkedin: "https://www.linkedin.com/in/matheusgomes/",
+  };
+
+  return (
+    session && <P_Welcome o_headerProps={o_headerProps} t_WelcomeProps={welcomeProps} o_footerProps={o_footerProps} />
+  );
 }
 
 export default withSessionHOC(Welcome);

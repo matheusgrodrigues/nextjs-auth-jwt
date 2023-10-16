@@ -11,12 +11,17 @@ import { handleLoginForm } from "@/components/organism/o-login-form/login-form-v
 // Pages
 import { P_Home } from "@/components/pages/p-login/p-login";
 
-export default function Home() {
+// HOC
+import { withSessionHOC } from "@/services/sessionService/sessionService";
+
+function Home() {
   // Organism: Header
   const o_headerProps: I_OHeader = {
     link: "https://github.com/matheusgrodrigues",
     image: "/images/a-avatar.jpeg",
   };
+
+  // Dados falsos
 
   // Organism: LoginTitle
   const o_loginTitle: I_OLoginTitle = {
@@ -40,3 +45,5 @@ export default function Home() {
 
   return <P_Home o_headerProps={o_headerProps} t_loginProps={t_loginProps} o_footerProps={o_footerProps} />;
 }
+
+export default withSessionHOC(Home);

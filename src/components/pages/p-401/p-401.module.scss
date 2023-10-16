@@ -2,19 +2,21 @@
 
 .p_401 {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
   & > [id="t-401"] {
-    padding: 0 var(--spacing-16);
-    margin-top: -64px;
+    padding: var(--spacing-64) var(--spacing-16);
 
     @include d(tablet) {
-      padding: 0;
-      margin-top: -96px;
+      padding: var(--spacing-96) 0;
     }
+  }
+
+  & > [id="o-footer"] {
+    margin-top: auto;
   }
 }

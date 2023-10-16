@@ -16,7 +16,7 @@ export const O_Footer = ({ name, site, github, linkedin }: I_OFooter) => {
   const date = new Date();
 
   return (
-    <footer className={styles.o_footer} id="o-footer">
+    <div className={styles.o_footer} id="o-footer">
       <div className={styles.o_footer__name}>
         <p>
           © {date.getFullYear()}
@@ -33,6 +33,6 @@ export const O_Footer = ({ name, site, github, linkedin }: I_OFooter) => {
           <A_Icon icon="pi-linkedin" />
         </A_Link>
       </div>
-    </footer>
+    </div>
   );
 };

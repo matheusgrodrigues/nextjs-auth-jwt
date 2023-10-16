@@ -1,13 +1,14 @@
 @import "../../../styles/util/_breakpoints.scss";
 
-.p_home {
+.p_welcome {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
-  & > [id="t-login"] {
+  & > [id="t-welcome"] {
     padding: var(--spacing-64) var(--spacing-16);
 
     @include d(tablet) {
