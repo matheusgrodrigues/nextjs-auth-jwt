@@ -72,7 +72,7 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & I_
       } else if (!loading && !error && data.session && window.location.pathname === "/") {
         router.push("/welcome");
       }
-    }, [loading, error, router]);
+    }, [loading, error, router, data.session]);
 
     const modifiedProps = {
       ...props,

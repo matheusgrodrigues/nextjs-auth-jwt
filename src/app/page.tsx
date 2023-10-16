@@ -8,13 +8,20 @@ import { I_TLogin } from "@/components/templates/t-login/t-login";
 // Handles
 import { handleLoginForm } from "@/components/organism/o-login-form/login-form-validation";
 
+// Organism
+import { O_BlockUI } from "@/components/organism/o-block-ui/o-block-ui";
+
 // Pages
 import { P_Home } from "@/components/pages/p-login/p-login";
 
 // HOC
-import { withSessionHOC } from "@/services/sessionService/sessionService";
+import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
 
-function Home() {
+interface I_Home extends I_SessionHOC {}
+
+function Home({ data, loading, error }: I_Home) {
+  const { session } = data;
+
   // Organism: Header
   const o_headerProps: I_OHeader = {
     link: "https://github.com/matheusgrodrigues",
@@ -43,7 +50,12 @@ function Home() {
     linkedin: "https://www.linkedin.com/in/matheusgomes/",
   };
 
-  return <P_Home o_headerProps={o_headerProps} t_loginProps={t_loginProps} o_footerProps={o_footerProps} />;
+  return (
+    <>
+      <P_Home o_headerProps={o_headerProps} t_loginProps={t_loginProps} o_footerProps={o_footerProps} />
+      <O_BlockUI blocked={session && !error && !loading ? true : false} fullScreen />
+    </>
+  );
 }
 
 export default withSessionHOC(Home);
