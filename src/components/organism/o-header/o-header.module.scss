@@ -7,6 +7,7 @@
   padding: var(--spacing-20) var(--spacing-16);
   @include centralizar;
   display: flex;
+  justify-content: space-between;
 
   @include d(tablet) {
     height: 80px;
