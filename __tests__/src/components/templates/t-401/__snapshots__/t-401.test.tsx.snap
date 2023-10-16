@@ -2,7 +2,9 @@
 
 exports[`Deve renderizar o template 401 corretamente Deve preservar a estrutura do template 401 1`] = `
 <main
+  className="t_401"
   data-testid="t-401"
+  id="t-401"
 >
   <p
     className="a_text__fwSb_fs16_primary"
