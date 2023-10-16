@@ -20,7 +20,7 @@ function Home(props: I_Home) {
   // Organism: LoginTitle
   const o_loginTitle: I_OLoginTitle = {
     image: "/images/a-avatar.jpeg",
-    title: "NextJS: Auth + JWT",
+    title: "Acesse sua conta",
     userSession: props,
   };
 

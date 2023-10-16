@@ -6,6 +6,7 @@ import styles from "./o-login-title.module.css";
 
 // HOC
 import { I_SessionHOC } from "@/services/sessionService/sessionService";
+import { A_Icon } from "@/components/atoms/a-icon/a-icon";
 
 export interface I_OLoginTitle {
   image: string;
@@ -18,9 +19,11 @@ export const O_LoginTitle = ({ image, title, userSession }: I_OLoginTitle) => {
 
   return (
     <div data-testid="o-login-title" className={styles.o_loginTitle}>
-      <A_Avatar image={image} label={session?.username[0] || ""} shape="circle" />
+      <A_Icon icon="pi-lock" />
       <A_Title variant="h2">{title}</A_Title>
-      <A_Text variant="fwReg-fs16-gray500">{session?.username}</A_Text>
+      <A_Text variant="fwReg-fs16-gray500">
+        Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
+      </A_Text>
     </div>
   );
 };

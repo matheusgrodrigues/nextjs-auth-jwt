@@ -11,3 +11,7 @@
     margin: var(--spacing-24) var(--spacing-12);
     white-space: nowrap;
 }
+
+.o_loginTitle > p {
+    line-height: 24px;
+}
