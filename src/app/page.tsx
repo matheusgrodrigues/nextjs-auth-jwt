@@ -22,6 +22,8 @@ interface I_Home extends I_SessionHOC {}
 function Home({ data, loading, error }: I_Home) {
   const { session } = data;
 
+  const showBlockUI = session && !error && !loading ? true : false;
+
   // Organism: Header
   const o_headerProps: I_OHeader = {
     link: "https://github.com/matheusgrodrigues",
@@ -53,7 +55,7 @@ function Home({ data, loading, error }: I_Home) {
   return (
     <>
       <P_Home o_headerProps={o_headerProps} t_loginProps={t_loginProps} o_footerProps={o_footerProps} />
-      <O_BlockUI blocked={session && !error && !loading ? true : false} fullScreen />
+      {showBlockUI && <O_BlockUI blocked={showBlockUI} fullScreen />}
     </>
   );
 }

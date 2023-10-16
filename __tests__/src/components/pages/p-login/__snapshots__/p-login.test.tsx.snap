@@ -35,6 +35,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
       data-pc-section="root"
       data-testid="a-button"
       disabled={false}
+      onClick={[Function]}
     >
       <i
         className="a_icon pi pi-sun"

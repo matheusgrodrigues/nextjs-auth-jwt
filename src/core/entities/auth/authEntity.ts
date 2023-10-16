@@ -1,6 +1,7 @@
 export interface I_AuthCredentialsEntity {
   identifier: string;
   password: string;
+  manter_logado: boolean
 }
 
 export interface I_AuthUserEntity {

@@ -9,11 +9,11 @@ import { I_AuthPort } from "@/core/ports/auth/authPort";
 import { tokenService } from "@/services/tokenService/tokenService";
 
 export const authUseCases: I_AuthPort = {
-  login: async ({ identifier, password }: I_AuthCredentialsEntity) => {
+  login: async ({ identifier, password, manter_logado }: I_AuthCredentialsEntity) => {
     try {
-      const response = await authAdapter.login({ identifier, password });
+      const response = await authAdapter.login({ identifier, password, manter_logado });
 
-      tokenService.save(response.jwt);
+      tokenService.save(response.jwt, manter_logado);
 
       return response;
     } catch (error) {

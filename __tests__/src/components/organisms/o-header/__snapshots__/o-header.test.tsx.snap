@@ -30,6 +30,7 @@ exports[`Deve renderizar o Header corretamente Deve preservar a estrutura visual
     data-pc-section="root"
     data-testid="a-button"
     disabled={false}
+    onClick={[Function]}
   >
     <i
       className="a_icon pi pi-sun"

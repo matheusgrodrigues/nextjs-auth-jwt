@@ -16,6 +16,7 @@
   --gray-500: #667085;
   --gray-700: #344054;
   --gray-300: #d0d5dd;
+  --gray-900: #101828;
 
   --white: #ffffff;
 
@@ -70,9 +71,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: var(--white);
+}
+
 /* Override primeReact Styles */
 @import "./components/atoms/a-avatar/_a-avatar.scss";
 @import "./components/atoms/a-button/_a-button";
 @import "./components/atoms/a-checkbox/a-checkbox";
 @import "./components/atoms/a-input/a-input";
 @import "./components/organism/o-block-ui/o-block-ui";
+@import "./components/organism/o-dialog/o-dialog-ui";
