@@ -1,6 +1,6 @@
 @import "../../../styles/util/_breakpoints.scss";
 
-.p_home {
+.p_401 {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
 
-  & > [id="t-login"] {
+  & > [id="t-401"] {
     padding: 0 var(--spacing-16);
     margin-top: -64px;
 

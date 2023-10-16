@@ -2,10 +2,12 @@
 
 import { useRouter } from "next/navigation";
 
-// Pages
-import { P_401 } from "@/components/pages/p-401/p-401";
+// Interfaces
 import { I_OHeader } from "@/components/organism/o-header/o-header";
 import { I_OFooter } from "@/components/organism/o-footer/o-footer";
+
+// Pages
+import { P_401 } from "@/components/pages/p-401/p-401";
 
 export default function Page401() {
   const router = useRouter();
@@ -19,6 +21,7 @@ export default function Page401() {
   const t_401Props = {
     handleLogin: () => router.push("/"),
   };
+
   // Organism: Footer
   const o_footerProps: I_OFooter = {
     name: "matheusgomesdev",

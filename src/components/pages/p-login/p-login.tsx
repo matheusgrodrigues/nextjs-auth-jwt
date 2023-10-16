@@ -19,12 +19,10 @@ interface I_PHome {
 
 export const P_Home = ({ o_headerProps, t_loginProps, o_footerProps }: I_PHome) => {
   return (
-    <>
+    <main data-testid="p-home" className={styles.p_home}>
       <O_Header image={o_headerProps.image} />
 
-      <main data-testid="p-home" className={styles.p_home}>
-        <T_Login o_loginTitle={t_loginProps.o_loginTitle} handleLoginForm={t_loginProps.handleLoginForm} />
-      </main>
+      <T_Login o_loginTitle={t_loginProps.o_loginTitle} handleLoginForm={t_loginProps.handleLoginForm} />
 
       <O_Footer
         name={o_footerProps.name}
@@ -32,6 +30,6 @@ export const P_Home = ({ o_headerProps, t_loginProps, o_footerProps }: I_PHome) 
         github={o_footerProps.github}
         linkedin={o_footerProps.linkedin}
       />
-    </>
+    </main>
   );
 };
