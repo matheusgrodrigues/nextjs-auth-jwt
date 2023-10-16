@@ -1,7 +1,7 @@
-$mobile: 640px;
-$tablet: 768px;
-$desktop: 1024px;
-$desktop_up: 1280px;
+$mobile: 640;
+$tablet: 768;
+$desktop: 1024;
+$desktop_up: 1280;
 
 @mixin d($device) {
   @if ($device == mobile) {
@@ -21,4 +21,9 @@ $desktop_up: 1280px;
       @content;
     }
   }
+}
+
+@mixin centralizar {
+  margin-left: auto;
+  margin-right: auto;
 }

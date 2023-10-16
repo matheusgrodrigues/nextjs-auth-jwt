@@ -1,6 +1,12 @@
 $atom_name: "a_button";
 
 .#{$atom_name} {
+  width: auto;
+  height: auto;
+  border: none;
+  background: transparent;
+  color: var(--gray-700);
+
   &__gradient {
     font-weight: var(--fw-semibold);
     color: var(--white);

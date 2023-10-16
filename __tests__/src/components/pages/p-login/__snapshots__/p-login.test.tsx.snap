@@ -5,6 +5,36 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
   className="p_home"
   data-testid="p-home"
 >
+  <header
+    className="o_header"
+    data-testid="o-header"
+  >
+    <div
+      className="p-avatar p-component p-avatar-image p-avatar-circle"
+      data-pc-name="avatar"
+      data-pc-section="root"
+      data-testid="a-avatar"
+      style={{}}
+    >
+      <img
+        alt="avatar"
+        data-pc-section="image"
+        onError={[Function]}
+        src="/images/a-avatar.jpeg"
+      />
+    </div>
+    <button
+      className="a_button p-button p-component"
+      data-pc-name="button"
+      data-pc-section="root"
+      data-testid="a-button"
+      disabled={false}
+    >
+      <i
+        className="a_icon pi pi-sun"
+      />
+    </button>
+  </header>
   <div
     className="t_login"
     data-testid="t-login"
@@ -14,21 +44,21 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
       className="o_loginTitle"
       data-testid="o-login-title"
     >
-      <div
-        className="p-avatar p-component p-avatar-circle"
-        data-pc-name="avatar"
-        data-pc-section="root"
-        data-testid="a-avatar"
-        style={{}}
+      <i
+        className="a_icon pi pi-lock"
       />
       <h2
         className="a_title__h2"
         data-testid="a-title"
-      />
+      >
+        Acesse sua conta
+      </h2>
       <p
         className="a_text__fwReg_fs16_gray500"
         data-testid="a-text"
-      />
+      >
+        Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
+      </p>
     </div>
     <form
       className="o_form_login"
@@ -58,7 +88,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           onInput={[Function]}
           onKeyDown={[Function]}
           onPaste={[Function]}
-          placeholder="Informe o seu e-mail"
+          placeholder="Endereço de e-mail"
           type="email"
           value=""
         />
@@ -86,7 +116,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           onInput={[Function]}
           onKeyDown={[Function]}
           onPaste={[Function]}
-          placeholder="Informe a sua senha"
+          placeholder="Digite sua senha"
           type="password"
           value=""
         />
@@ -139,7 +169,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           data-testid="a-label"
           onClick={[Function]}
         >
-          Manter-me conectado por 30 dias.
+          Mantenha-me conectado.
         </label>
       </div>
       <button
@@ -150,9 +180,49 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         disabled={false}
         type="submit"
       >
-        Login
+        Entrar
       </button>
     </form>
   </div>
+  <footer
+    className="o_footer"
+    id="o-footer"
+  >
+    <div
+      className="o_footer__name"
+    >
+      <p>
+        © 
+        2023
+        <a
+          className="a_link"
+          href="https://matheusgomesdev.com.br"
+        >
+          matheusgomesdev
+        </a>
+        .
+      </p>
+    </div>
+    <div
+      className="o_footer__icons"
+    >
+      <a
+        className="a_link"
+        href="https://github.com/matheusgrodrigues"
+      >
+        <i
+          className="a_icon pi pi-github"
+        />
+      </a>
+      <a
+        className="a_link"
+        href="https://www.linkedin.com/in/matheusgomes/"
+      >
+        <i
+          className="a_icon pi pi-linkedin"
+        />
+      </a>
+    </div>
+  </footer>
 </main>
 `;

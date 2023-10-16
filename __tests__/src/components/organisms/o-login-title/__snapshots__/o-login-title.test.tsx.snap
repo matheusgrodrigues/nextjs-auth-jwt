@@ -5,12 +5,8 @@ exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutur
   className="o_loginTitle"
   data-testid="o-login-title"
 >
-  <div
-    className="p-avatar p-component p-avatar-circle"
-    data-pc-name="avatar"
-    data-pc-section="root"
-    data-testid="a-avatar"
-    style={{}}
+  <i
+    className="a_icon pi pi-lock"
   />
   <h2
     className="a_title__h2"
@@ -21,6 +17,8 @@ exports[`Deve renderizar o o-login-title, corretamente Deve preservar a estrutur
   <p
     className="a_text__fwReg_fs16_gray500"
     data-testid="a-text"
-  />
+  >
+    Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
+  </p>
 </div>
 `;

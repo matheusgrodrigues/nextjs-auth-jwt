@@ -40,19 +40,14 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
-        <M_InputWithLabel
-          labelText="Email"
-          type="email"
-          placeholder="Informe o seu e-mail"
-          {...getFieldProps("email")}
-        />
+        <M_InputWithLabel labelText="Email" type="email" placeholder="Endereço de e-mail" {...getFieldProps("email")} />
 
         {errors.email && touched.email && <A_Text variant="error">{errors.email}</A_Text>}
 
         <M_InputWithLabel
           labelText="Senha"
           type="password"
-          placeholder="Informe a sua senha"
+          placeholder="Digite sua senha"
           {...getFieldProps("password")}
         />
 
@@ -60,12 +55,12 @@ export const O_LoginForm = ({ handleLoginForm }: I_OLoginForm) => {
 
         <M_CheckboxWithLabel
           checked={values.manter_logado}
-          labelText="Manter-me conectado por 30 dias."
+          labelText="Mantenha-me conectado."
           {...getFieldProps("manter_logado")}
         />
 
         <A_Button variant="gradient" type="submit" loading={isSubmitting}>
-          {isSubmitting ? "" : "Login"}
+          {isSubmitting ? "" : "Entrar"}
         </A_Button>
       </form>
 
