@@ -14,8 +14,8 @@ export const mockAuthService: I_MockAuthService = {
 };
 */
 export const mockLoginValues: I_AuthCredentialsEntity = {
-  identifier: "mockedemail@hotmail.com",
-  password: "mockedpassword",
+  identifier: "admin@matheusgomesdev.com.br",
+  password: "123456",
 };
 
 export const mockLoginResponse: I_AuthResponseEntity = {

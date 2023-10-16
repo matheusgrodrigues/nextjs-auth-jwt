@@ -4,6 +4,7 @@ exports[`Deve renderizar o Header corretamente Deve preservar a estrutura visual
 <header
   className="o_header"
   data-testid="o-header"
+  id="o-header"
 >
   <a
     className="a_link"

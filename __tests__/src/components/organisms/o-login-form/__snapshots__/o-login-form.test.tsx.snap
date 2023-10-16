@@ -18,7 +18,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       Email
     </label>
     <input
-      className="p-inputtext p-component"
+      className="p-inputtext p-component p-filled"
       data-pc-name="inputtext"
       data-pc-section="root"
       data-testid="a-input-email"
@@ -31,7 +31,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       onPaste={[Function]}
       placeholder="Endereço de e-mail"
       type="email"
-      value=""
+      value="admin@matheusgomesdev.com.br"
     />
   </div>
   <div
@@ -46,7 +46,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       Senha
     </label>
     <input
-      className="p-inputtext p-component"
+      className="p-inputtext p-component p-filled"
       data-pc-name="inputtext"
       data-pc-section="root"
       data-testid="a-input-password"
@@ -59,7 +59,7 @@ exports[`Deve renderizar o o-form-login, corretamente Deve manter a estrutura vi
       onPaste={[Function]}
       placeholder="Digite sua senha"
       type="password"
-      value=""
+      value="123456"
     />
   </div>
   <div

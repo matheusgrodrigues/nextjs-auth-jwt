@@ -8,6 +8,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
   <header
     className="o_header"
     data-testid="o-header"
+    id="o-header"
   >
     <a
       className="a_link"
@@ -82,7 +83,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           Email
         </label>
         <input
-          className="p-inputtext p-component"
+          className="p-inputtext p-component p-filled"
           data-pc-name="inputtext"
           data-pc-section="root"
           data-testid="a-input-email"
@@ -95,7 +96,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           onPaste={[Function]}
           placeholder="Endereço de e-mail"
           type="email"
-          value=""
+          value="admin@matheusgomesdev.com.br"
         />
       </div>
       <div
@@ -110,7 +111,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           Senha
         </label>
         <input
-          className="p-inputtext p-component"
+          className="p-inputtext p-component p-filled"
           data-pc-name="inputtext"
           data-pc-section="root"
           data-testid="a-input-password"
@@ -123,7 +124,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           onPaste={[Function]}
           placeholder="Digite sua senha"
           type="password"
-          value=""
+          value="123456"
         />
       </div>
       <div
@@ -189,7 +190,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
       </button>
     </form>
   </div>
-  <footer
+  <div
     className="o_footer"
     id="o-footer"
   >
@@ -228,6 +229,6 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
         />
       </a>
     </div>
-  </footer>
+  </div>
 </main>
 `;

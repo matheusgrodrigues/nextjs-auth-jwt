@@ -1,4 +1,4 @@
-import {  RefObject } from "react";
+import { RefObject } from "react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 // Interfaces
@@ -30,7 +30,7 @@ export const handleLoginForm = async ({ values, setSubmitting, mToastRef, router
       password: password,
     });
 
-    tokenService.save(jwt);
+    tokenService.save(jwt, manter_logado);
 
     setSubmitting(false);
 

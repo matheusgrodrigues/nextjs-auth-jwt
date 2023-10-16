@@ -34,8 +34,15 @@ describe("Deve logar o usuario corretamente", () => {
     const get_a_input_password = screen.getByTestId("a-input-password");
     const get_a_button = screen.getByTestId("a-button");
 
-    await user.type(get_a_input_email, mockLoginValues.identifier);
-    await user.type(get_a_input_password, mockLoginValues.password);
+    /* Desativei a simulação de preenchimento dos campos, porque estou setando o usuario
+     *
+     * teste no initialValues do formik, por padrão, para as pessoas testarem o sistema.
+     *
+     */
+
+    // await user.type(get_a_input_email, mockLoginValues.identifier);
+    // await user.type(get_a_input_password, mockLoginValues.password);
+
     await user.click(get_a_button);
 
     // Assert

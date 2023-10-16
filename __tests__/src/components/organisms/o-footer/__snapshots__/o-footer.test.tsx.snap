@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Deve renderizar o footer corretamente Deve preservar a estrutura visual do footer 1`] = `
-<footer
+<div
   className="o_footer"
   id="o-footer"
 >
@@ -40,5 +40,5 @@ exports[`Deve renderizar o footer corretamente Deve preservar a estrutura visual
       />
     </a>
   </div>
-</footer>
+</div>
 `;

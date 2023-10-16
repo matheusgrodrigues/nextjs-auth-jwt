@@ -8,6 +8,7 @@ exports[`Deve renderizar a pagina 401 corretamenta Deve preservar a estrutura da
   <header
     className="o_header"
     data-testid="o-header"
+    id="o-header"
   >
     <a
       className="a_link"
@@ -74,7 +75,7 @@ exports[`Deve renderizar a pagina 401 corretamenta Deve preservar a estrutura da
       Faça Login
     </button>
   </main>
-  <footer
+  <div
     className="o_footer"
     id="o-footer"
   >
@@ -113,6 +114,6 @@ exports[`Deve renderizar a pagina 401 corretamenta Deve preservar a estrutura da
         />
       </a>
     </div>
-  </footer>
+  </div>
 </main>
 `;

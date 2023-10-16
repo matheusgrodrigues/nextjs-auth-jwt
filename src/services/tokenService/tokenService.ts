@@ -10,23 +10,26 @@ const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 const ONE_YEAR = ONE_DAY * 365;
 
-const saveStorage = (value: string, ctx?: GetServerSidePropsContext) => {
-  globalThis?.localStorage?.setItem(ACCESS_TOKEN_KEY, value);
-  globalThis?.sessionStorage?.setItem(ACCESS_TOKEN_KEY, value);
+const saveStorage = (value: string, manter_logado: boolean, ctx?: GetServerSidePropsContext) => {
+  if (manter_logado) {
+    globalThis?.localStorage?.setItem(ACCESS_TOKEN_KEY, value);
 
-  /*
-   *
-   * Para solicitações http, não se esqueça de utilizar as props relacionadas a segurança, abaixo:
-   *
-   * httpOnly: true,
-   * sameSite: "lax",
-   *
-   */
+    /*
+     *
+     * Para solicitações http, não se esqueça de utilizar as props relacionadas a segurança, abaixo:
+     *
+     * httpOnly: true,
+     * sameSite: "lax",
+     *
+     */
 
-  nookies.set(ctx, ACCESS_TOKEN_KEY, value, {
-    maxAge: ONE_YEAR,
-    path: "/",
-  });
+    nookies.set(ctx, ACCESS_TOKEN_KEY, value, {
+      maxAge: ONE_YEAR,
+      path: "/",
+    });
+  } else {
+    globalThis?.sessionStorage?.setItem(ACCESS_TOKEN_KEY, value);
+  }
 };
 
 /*
@@ -63,7 +66,9 @@ const deleteStorage = (ctx?: GetServerSidePropsContext) => {
 };
 
 export const tokenService = {
-  save: (value: string, ctx?: GetServerSidePropsContext) => saveStorage(value, ctx),
+  save: (value: string, manter_logado: boolean, ctx?: GetServerSidePropsContext) => {
+    return saveStorage(value, manter_logado, ctx);
+  },
   get: (ctx?: GetServerSidePropsContext) => getStorage(ctx),
   delete: (ctx?: GetServerSidePropsContext) => deleteStorage(ctx),
 };
