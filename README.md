@@ -1,75 +1,54 @@
-| Tela de Login                                       | Tela de Boas Vindas                                      |
-| ------------------------------------------- | ----------------------------------------- |
-| ![Tela de Login](/readme/login-desktop.png) | ![Tela de Boas Vindas](/readme/dash-desktop.png) |
-| [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-4&mode=design) | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-5&mode=design)
+| Tela de Login                                                                                                                             | Tela de Boas Vindas                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Tela de Login](https://nextjs-auth-jwt-blue.vercel.app/images/readme/login-desk.png)                                                    | ![Tela de Boas Vindas](https://nextjs-auth-jwt-blue.vercel.app/images/readme/dash-desk.png)                                               |
+| [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-4&mode=design) | [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6552-5&mode=design) |
 
 # [NextJS: Auth + JWT](https://nextjs-auth-jwt-blue.vercel.app/) 🚀
 
-> **Em andamento**: https://nextjs-auth-jwt-blue.vercel.app/
+> 💡 Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.
 
-Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.
+## 🚩Conteudo
 
-- [Como Funciona](#como-funciona)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas) 
-    - [Frontend](#frontend)
-    - [Bibliotecas](#bibliotecas)
-    - [Deploy e Hospedagem](#deploy-e-hospedagem)
-    - [Versionamento](#versionamento)
-    - [Testes](#testes)
-    - [Prototipação](#prototipacao)
-    - [Documentação](#documentacao)
-- [Instruções de Instalação](#instrucoes-de-instalacao) 
-- [Como Usar](#como-usar) 
-- [Contribuição](#contribuicao) 
+- [Como Usar](#🐾-como-usar)
+- [Instalação](#⚡-instalação)
+- [Fluxos do Sistema](#fluxos-do-sistema)
+  - [Tela de Login](#tela-de-login)
+  - [Validações](#validacoes)
+    - [Autenticação e Autorização](#autenticacao-e-autorizacao)
+    - [Gerenciamento de Sessão](#gerenciamento-de-sessao)
+    - [Extra: Temas](#extra---temas)
+- [Tecnologias Utilizadas](#🔧-tecnologias-utilizadas)
+  - [Prototipação](#prototipacao)
+  - [Metodologias](#metodologias)
+  - [Bibliotecas](#bibliotecas)
+  - [Frontend](#frontend)
+  - [Versionamento](#versionamento)
+  - [Testes](#testes)
+  - [Deploy e Hospedagem](#deploy-e-hospedagem)
+  - [Documentação](#documentacao)
+- [Arquitetura do Projeto](#📦-arquitetura-do-projeto)
+  - [Camada de Domínio](#camada-de-domínio)
+  - [Camada da Aplicação](#camada-da-aplicacao)
+    - [Atomic Design](#atomic-design)
+    - [Services](#services)
+    - [Testes](#testes-1)
+    - [Configurações](#configuracoes)
+    - [App](#app)
+- [Contribuição](#contribuicao)
+- [Autor](#👨‍💻-autor)
 - [Licença](#licenca)
 
-## Como Funciona
+## 🐾 Como Usar
 
-- Este sistema permite que os usuários ingressem com suas credenciais, como nome de usuário e senha.
-- Após a autenticação bem-sucedida, o servidor gera um token JWT exclusivo que é enviado de volta ao cliente. 
-- Este token é então armazenado no lado do cliente (por exemplo, em cookies ou armazenamento local) e enviado com cada solicitação subsequente para autenticação do usuário.
-- O token JWT contém informações sobre o usuário autenticado e tem uma assinatura digital que garante sua autenticidade. 
-- O servidor, ao receber solicitações, verifica a validade do token antes de conceder acesso aos recursos protegidos. 
-- Se o token estiver expirado, inválido ou ausente, o servidor negará o acesso e solicitará uma nova autenticação.
-- Além da autenticação, o sistema implementa medidas de segurança adicionais, como a capacidade de definir tempos de expiração para os tokens, protegendo contra ataques de repetição.
-- Ele também suporta revogação de tokens em casos de comprometimento da conta do usuário ou outras situações de segurança.
-- Além disso, o sistema de login JWT é altamente escalável e pode ser facilmente integrado a outros sistemas e serviços.
-- Ele fornece uma experiência de usuário contínua, permitindo que os usuários acessem facilmente os recursos protegidos sem a necessidade de reautenticação frequente.
-## Tecnologias Utilizadas
+1. [Acesse a aplicação](https://nextjs-auth-jwt-blue.vercel.app/), no seu ambiente, e insira o `email` e `senha` que disponibilizei para testar o funcionamento do sistema.
 
-- **Frontend**
-    - HTML5
-    - CSS3 
-    - TypeScript
-    - Next.js 16
+> email: admin@matheusgomesdev.com.br
 
-- **Bibliotecas**
-    - React.js
-    - Formik 
-    - yup
-    - PrimeReact
-    - JWT (jsonwebtokens)
+> password: 123456
 
-- **Deploy e Hospedagem**
-    - Vercel
+Clique em entrar e pronto :)
 
-- **Versionamento**
-    - Git/Github
-
-- **Testes**
-    - Jest
-    - React Testing Library
-    - Cypress
-    - BDD/TDD
-
-- **Prototipacao**
-    - Figma
-
-- **Documentacao**
-    - Jira
-    - Confluence
-
-## Instrucoes de Instalacao
+## ⚡ Instalação
 
 1. Clone o repositório para sua máquina local usando o seguinte comando:
 
@@ -79,21 +58,179 @@ Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que
 
    > cd nextjs-auth-jwt
 
-3. Inicie um servidor local para visualizar o portfólio.
+3. Crie um arquivo .env na raiz do projeto e configure a variavel de ambiente com a URL da API.
+
+   - `NEXT_PUBLIC_STRAPI_API_URL=https://nextjs-auth-jwt-backend-4be97176fefb.herokuapp.com/api`
+
+4. Inicie um servidor local para visualizar o portfólio.
 
    > yarn dev ou yarn start
 
-4. Abra o navegador e visualize o portfolio na porta 3000
+5. Abra o navegador e visualize o portfolio na porta 3000 🎉
    > http://localhost:3000
 
-## Como Usar
+## Fluxos do sistema
 
-Este portfólio é simples de usar. Basta acessar as rotas disponíveis que podem ser visualizadas dentro da pasta `app`.
+Entenda algumas características por trás do funcionamento do sistema.
 
-## Contribuicao
+### Tela de Login
+
+- O usuário acessa o sistema e informa o `email` e `senha`.
+- O sistema valida se as informações correspondem aos padrôes de validação.
+- Se os dados estiverem **incorretos**, o sistema informa o usuário para corrigi-los.
+- Se os dados estiverem **corretos**, o sistema informa o usuário do sucesso, e é feito o login.
+
+### Validacoes
+
+Algumas validações importantes do sistema:
+
+#### Autenticacao e Autorizacao
+
+- O sistema valida se o usuário está `autenticado` e `autorizado` para acessar páginas internas.
+- Caso não esteja autenticado e autorizado, o sistema informa o usuário e o redireciona para a página de `401`, e pede que ele faça o login.
+
+#### Gerenciamento de Sessao
+
+- Por padrão, o usuario é autenticado no `sessionStorage`, e caso ele feche o browser ele terá que logar novamente.
+- O usuário tem a opção de `manter_logado`, que faz com que ele não precise se logar novamente.
+- `manter_logado`, armazena o token do usuário no localStorage de no cookie, até que a duração do **token expire**.
+- **Obs**: na minha regra de negócio coloquei para expirar o token em 365 dias, adapte para o seu cenário !
+- Caso o usuario esteja na opção `manter_logado`, quando ele acessar o sistema, ele automaticamente será redirecionado para a tela principal, **sem precisar informar o email e password novamente**.
+
+#### Extra - Temas
+
+- O usuário poderá mudar a cor do tema, de `light` para `dark` para facilitar a visualização do sistema e não forçar os olhos.
+
+## 🔧 Tecnologias Utilizadas
+
+### Prototipacao
+
+- Figma
+- Untitled UI
+
+### Metodologias
+
+- BDD/TDD
+- Atomic Design
+- Arquitetura Hexagonal
+- BEM
+- REST API
+- JWT
+
+### Bibliotecas
+
+- React.js
+- Formik
+- yup
+- PrimeReact
+
+### Frontend
+
+- HTML5
+- CSS3
+- TypeScript
+- Next.js 13
+
+### Versionamento
+
+- Git/Github
+
+### Testes
+
+- Jest e React Testing Library
+
+### Deploy e Hospedagem
+
+- Vercel
+- Heroku
+
+### Documentacao
+
+- Jira
+- Confluence
+
+## 📦 Arquitetura do Projeto
+
+O sistema está utilizando a arquitetura Hexagonal, e todas as funcionalidades da camada de Domínio e Aplicação, estão localizadas em suas respectivas pastas.
+
+Abaixo está um resumo dos arquivos e pastas.
+
+### Camada de Domínio
+
+Os arquivos da camada de domínio estão localizadas na pasta: `src/core/*`.
+
+| Nome             | Exemplo            | Descrição                                                                                               |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------- |
+| `/adapters/auth` | `/authAdapter.ts`  | Função responsável pela conexão com a api e executar as lógicas necessárias de autenticação do usuário. |
+| `/entities/auth` | `/authEntity.ts`   | Estrutura dos dados do usuário que estão modelados no banco e são retornados pela API.                  |
+| `/infra/http`    | `/httpInfra.ts`    | Método responsável pelas chamadas HTTP da aplicação, tudo passa por ela.                                |
+| `/ports/auth`    | `/authPort.ts`     | Interfaces que os Adapters implementam.                                                                 |
+| `/useCases/auth` | `/authUseCase.tsx` | Função que a camada de aplicação executa.                                                               |
+
+### Camada da Aplicacao
+
+Os arquivos da camada da aplicação estão localizadas nas pastas: dentro de `/src/*` com exeção da pasta **core**.
+
+#### Atomic Design
+
+![Pensamento Atomic Design](https://nextjs-auth-jwt-blue.vercel.app/images/readme/pensamento-atomic.png)
+
+Os componentes do sistema estão utilizando a metodologia Atomic Design, e estão localizados na pasta `/src/componentes/*`.
+
+| Nome        | Exemplo                 | Descrição              |
+| ----------- | ----------------------- | ---------------------- |
+| `atoms`     | `/a-button.tsx`         | Atomos do sistema.     |
+| `molecules` | `/input-with-label.tsx` | Moleculas do sistema.  |
+| `organisms` | `/o-form-login.tsx`     | Organismos do sistema. |
+| `templates` | `/t-login.tsx`          | Templates do sistema.  |
+| `pages`     | `/p-login.tsx`          | Paginas do sistema.    |
+
+#### Services
+
+A camada da aplicação possui alguns serviços que são executados rotineiramente por diversas partes do sistema, e estão localizados na pasta `/src/services/*`.
+
+| Nome             | Exemplo               | Descrição                                               |
+| ---------------- | --------------------- | ------------------------------------------------------- |
+| `sessionService` | `/sessionService.tsx` | Decorator pattern (HOC) e helpers de sessão do usuário. |
+| `tokenService`   | `/tokenService.tsx`   | Funções de gerenciamento do token do usuário logado.    |
+
+### Testes
+
+O sistema foi construido utilizando a metodologia **TDD**, todos os testes e os mocks, estão localizadas na raiz do projeto nas pastas `__tests__` e `__mocks__` e estão seguindo a mesma estrutura de arquivos e pastas referente aos arquivos que estão sendo testados.
+
+| Nome          | Exemplo                                                   | Descrição                                                                     |
+| ------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `__tests__`   | `/atoms/a-button/a-button.test.tsx`                       | Exemplo do teste relacionado ao atomo a-buttom.                               |
+| `__mocks__`   | `/components/organism/o-login-form/o-login-form.test.tsx` | Mocks utilizados no teste de login do usuário.                                |
+| `/src/utils/` | `/providers/app-router-ctx-provider.tsx`                  | Helper utilizado nos testes para adicionar o AppRouter do Next.js nos testes. |
+
+**Obs.** Foquei em testar as partes mais importantes do siste, alguns ficaram pendentes para serem publicados nas proximas atualizações.
+
+### Configuracoes
+
+As configurações de `urls` e `mensagens` estão localizadas na pasta `/src/config/*`.
+
+| Nome       | Exemplo               | Descrição                                                  |
+| ---------- | --------------------- | ---------------------------------------------------------- |
+| `url`      | `/url/index.tsx`      | URL do endpoint da API que está armazenado no .env.        |
+| `messages` | `/messages/index.tsx` | Mensagens utilizadas pelo sistema para informar o usuário. |
+
+### App
+
+As paginas do sistema utilizam o **AppRouter** do Next.js, e basicamente instanciam as `pages` e informam as configurações dos `templates`.
+
+Confira em `/app/*`.
+
+## 💬 Contribuicao
 
 Sinta-se a vontade para contribuir enviando um pull request.
 
-## Licenca
+## 👨‍💻 Autor
+
+- [Site](https://matheusgomesdev.com.br/)
+- [Github](https://github.com/matheusgrodrigues)
+- [Linkedin](https://www.linkedin.com/in/matheusgomes/)
+
+## 📜 Licenca
 
 MIT License.
