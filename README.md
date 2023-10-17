@@ -5,8 +5,6 @@
 
 # [NextJS: Auth + JWT](https://nextjs-auth-jwt-blue.vercel.app/) 🚀
 
-> **Em andamento**: https://nextjs-auth-jwt-blue.vercel.app/
-
 Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
@@ -22,6 +20,71 @@ Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que
 - [Como Usar](#como-usar)
 - [Contribuição](#contribuicao)
 - [Licença](#licenca)
+
+## Como Usar
+
+1. [Acesse a aplicação](https://nextjs-auth-jwt-blue.vercel.app/), no seu ambiente, e insira o `login` e `senha` que disponibilizei para testar o funcionamento do sistema.
+
+> email: admin@matheusgomesdev.com.br
+
+> password: 123456
+
+Clique em entrar e pronto :)
+
+## Instalação
+
+1. Clone o repositório para sua máquina local usando o seguinte comando:
+
+   > git clone https://github.com/matheusgomesdevelop/nextjs-auth-jwt.git
+
+2. Navegue até o diretório do projeto:
+
+   > cd nextjs-auth-jwt
+
+3. Crie um arquivo .env na raiz do projeto e configure a variavel de ambiente com a URL da API.
+
+   - `NEXT_PUBLIC_STRAPI_API_URL=https://nextjs-auth-jwt-backend-4be97176fefb.herokuapp.com/api`
+
+4. Inicie um servidor local para visualizar o portfólio.
+
+   > yarn dev ou yarn start
+
+5. Abra o navegador e visualize o portfolio na porta 3000
+   > http://localhost:3000
+
+## Fluxos do sistema
+
+Entenda algumas características por trás do funcionamento do sistema.
+
+### Tela de Login
+
+- O usuário acessa o sistema e informa o `email` e `senha`.
+  - O sistema valida se as informações correspondem aos padrôes de validação.
+    - Se os dados estiverem **incorretos**, o sistema informa o usuário para corrigi-los.
+    - Se os dados estiverem **corretos**, o sistema informa o usuário do sucesso, e é feito o login.
+
+### Validacoes
+
+Algumas validações importantes do sistema:
+
+#### Autenticacao e Autorizacao
+
+- O sistema valida se o usuário está `autenticado` e `autorizado` para acessar páginas internas.
+
+  - Caso não esteja autenticado e autorizado, o sistema informa o usuário e o redireciona para a página de `401`, e pede que ele faça o login.
+
+#### Gerenciamento de Sessao
+
+- Por padrão, o usuario é autenticado no `sessionStorage`, e caso ele feche o browser ele terá que logar novamente.
+- O usuário tem a opção de `manter_logado`, que faz com que ele não precise se logar novamente.
+- `manter_logado`, armazena o token do usuário no localStorage de no cookie, até que a duração do **token expire**.
+
+  - **Obs**: na minha regra de negócio coloquei para expirar o token em 365 dias, adapte para o seu cenário !
+  - Caso o usuario esteja na opção `manter_logado`, quando ele acessar o sistema, ele automaticamente será redirecionado para a tela principal, **sem precisar informar o email e password novamente**.
+
+  #### Extra - Temas
+
+  - O usuário poderá mudar a cor do tema, de `light` para `dark` para facilitar a visualização do sistema e não forçar os olhos.
 
 ## Tecnologias Utilizadas
 
@@ -70,40 +133,6 @@ Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que
 
 - Jira
 - Confluence
-
-## Fluxos do sistema
-
-Entenda algumas características por trás do funcionamento do sistema.
-
-### Tela de Login
-
-- O usuário acessa o sistema e informa o `email` e `senha`.
-  - O sistema valida se as informações correspondem aos padrôes de validação.
-    - Se os dados estiverem **incorretos**, o sistema informa o usuário para corrigi-los.
-    - Se os dados estiverem **corretos**, o sistema informa o usuário do sucesso, e é feito o login.
-
-### Validacoes
-
-**Algumas validações importantes do sistema:**
-
-#### Autenticacao e Autorizacao
-
-- O sistema valida se o usuário está `autenticado` e `autorizado` para acessar páginas internas.
-
-  - Caso não esteja autenticado e autorizado, o sistema informa o usuário e o redireciona para a página de `401`, e pede que ele faça o login.
-
-#### Gerenciamento de Sessao
-
-- Por padrão, o usuario é autenticado no `sessionStorage`, e caso ele feche o browser ele terá que logar novamente.
-- O usuário tem a opção de `manter_logado`, que faz com que ele não precise se logar novamente.
-- `manter_logado`, armazena o token do usuário no localStorage de no cookie, até que a duração do **token expire**.
-
-  - **Obs**: na minha regra de negócio coloquei para expirar o token em 365 dias, adapte para o seu cenário !
-  - Caso o usuario esteja na opção `manter_logado`, quando ele acessar o sistema, ele automaticamente será redirecionado para a tela principal, **sem precisar informar o email e password novamente**.
-
-  #### Extra - Temas
-
-  - O usuário poderá mudar a cor do tema, de `light` para `dark` para facilitar a visualização do sistema e não forçar os olhos.
 
 ## Arquitetura do Projeto
 
@@ -174,33 +203,6 @@ As configurações de `urls` e `mensagens` estão localizadas na pasta `/src/con
 As paginas do sistema utilizam o **AppRouter** do Next.js, e basicamente instanciam as `pages` e informam as configurações dos `templates`.
 
 Confira em `/app/*`.
-
-## Instalação
-
-1. Clone o repositório para sua máquina local usando o seguinte comando:
-
-   > git clone https://github.com/matheusgomesdevelop/nextjs-auth-jwt.git
-
-2. Navegue até o diretório do projeto:
-
-   > cd nextjs-auth-jwt
-
-3. Inicie um servidor local para visualizar o portfólio.
-
-   > yarn dev ou yarn start
-
-4. Abra o navegador e visualize o portfolio na porta 3000
-   > http://localhost:3000
-
-## Como Usar
-
-1. [Acesse a aplicação](https://nextjs-auth-jwt-blue.vercel.app/), no seu ambiente, e insira o `login` e `senha` que disponibilizei para testar o funcionamento do sistema.
-
-> email: admin@matheusgomesdev.com.br
-
-> password: 123456
-
-Clique em entrar e pronto :)
 
 ## Contribuicao
 
