@@ -173,6 +173,8 @@ Os arquivos da camada da aplicação estão localizadas nas pastas: dentro de `/
 
 #### Atomic Design
 
+![Pensamento Atomic Design](https://nextjs-auth-jwt-blue.vercel.app/images/readme/pensamento-atomic.png)
+
 Os componentes do sistema estão utilizando a metodologia Atomic Design, e estão localizados na pasta `/src/componentes/*`.
 
 | Nome        | Exemplo                 | Descrição              |
