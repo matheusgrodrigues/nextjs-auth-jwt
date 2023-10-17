@@ -129,7 +129,7 @@ Algumas validações importantes do sistema:
 - HTML5
 - CSS3
 - TypeScript
-- Next.js 16
+- Next.js 13
 
 ### Versionamento
 
@@ -162,7 +162,7 @@ Os arquivos da camada de domínio estão localizadas na pasta: `src/core/*`.
 | Nome             | Exemplo            | Descrição                                                                                               |
 | ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------- |
 | `/adapters/auth` | `/authAdapter.ts`  | Função responsável pela conexão com a api e executar as lógicas necessárias de autenticação do usuário. |
-| `/antities/auth` | `/authEntity.ts`   | Estrutura dos dados do usuário que estão modelados no banco e são retornados pela API.                  |
+| `/entities/auth` | `/authEntity.ts`   | Estrutura dos dados do usuário que estão modelados no banco e são retornados pela API.                  |
 | `/infra/http`    | `/httpInfra.ts`    | Método responsável pelas chamadas HTTP da aplicação, tudo passa por ela.                                |
 | `/ports/auth`    | `/authPort.ts`     | Interfaces que os Adapters implementam.                                                                 |
 | `/useCases/auth` | `/authUseCase.tsx` | Função que a camada de aplicação executa.                                                               |
