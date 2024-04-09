@@ -6,13 +6,13 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
   data-testid="p-home"
 >
   <header
-    className="o_header"
-    data-testid="o-header"
-    id="o-header"
+    className="header"
+    data-testid="header"
+    id="header"
   >
     <a
       className="a_link"
-      href="https://github.com/matheusgrodrigues"
+      href="/images/a-avatar.jpeg"
     >
       <div
         className="p-avatar p-component p-avatar-image p-avatar-circle"
@@ -25,7 +25,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
           alt="avatar"
           data-pc-section="image"
           onError={[Function]}
-          src="/images/a-avatar.jpeg"
+          src="https://github.com/matheusgrodrigues"
         />
       </div>
     </a>
@@ -43,164 +43,158 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
     </button>
   </header>
   <div
-    className="t_login"
-    data-testid="t-login"
-    id="t-login"
+    className="loginTitle"
+    data-testid="loginTitle"
+  >
+    <i
+      className="a_icon pi pi-lock"
+    />
+    <h2
+      className="a_title__h2"
+      data-testid="a-title"
+    >
+      Acesse sua conta
+    </h2>
+    <p
+      className="a_text__fwReg_fs16_gray500"
+      data-testid="a-text"
+    >
+      Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
+    </p>
+  </div>
+  <form
+    className="o_form_login"
+    data-testid="o-login-form"
+    onSubmit={[Function]}
   >
     <div
-      className="o_loginTitle"
-      data-testid="o-login-title"
+      className="m_input_label"
+      data-testid="m-input-with-label-email"
     >
-      <i
-        className="a_icon pi pi-lock"
+      <label
+        className="a_label"
+        data-testid="a-label"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="p-inputtext p-component p-filled"
+        data-pc-name="inputtext"
+        data-pc-section="root"
+        data-testid="a-input-email"
+        name="email"
+        onBeforeInput={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onInput={[Function]}
+        onKeyDown={[Function]}
+        onPaste={[Function]}
+        placeholder="Endereço de e-mail"
+        type="email"
+        value="admin@matheusgomesdev.com.br"
       />
-      <h2
-        className="a_title__h2"
-        data-testid="a-title"
-      >
-        Acesse sua conta
-      </h2>
-      <p
-        className="a_text__fwReg_fs16_gray500"
-        data-testid="a-text"
-      >
-        Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
-      </p>
     </div>
-    <form
-      className="o_form_login"
-      data-testid="o-login-form"
-      onSubmit={[Function]}
+    <div
+      className="m_input_label"
+      data-testid="m-input-with-label-password"
+    >
+      <label
+        className="a_label"
+        data-testid="a-label"
+        htmlFor="password"
+      >
+        Senha
+      </label>
+      <input
+        className="p-inputtext p-component p-filled"
+        data-pc-name="inputtext"
+        data-pc-section="root"
+        data-testid="a-input-password"
+        name="password"
+        onBeforeInput={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onInput={[Function]}
+        onKeyDown={[Function]}
+        onPaste={[Function]}
+        placeholder="Digite sua senha"
+        type="password"
+        value="123456"
+      />
+    </div>
+    <div
+      className="m_checkboxWithLabel"
+      data-testid="m-checkboxWithLabel"
     >
       <div
-        className="m_input_label"
-        data-testid="m-input-with-label-email"
-      >
-        <label
-          className="a_label"
-          data-testid="a-label"
-          htmlFor="email"
-        >
-          Email
-        </label>
-        <input
-          className="p-inputtext p-component p-filled"
-          data-pc-name="inputtext"
-          data-pc-section="root"
-          data-testid="a-input-email"
-          name="email"
-          onBeforeInput={[Function]}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onInput={[Function]}
-          onKeyDown={[Function]}
-          onPaste={[Function]}
-          placeholder="Endereço de e-mail"
-          type="email"
-          value="admin@matheusgomesdev.com.br"
-        />
-      </div>
-      <div
-        className="m_input_label"
-        data-testid="m-input-with-label-password"
-      >
-        <label
-          className="a_label"
-          data-testid="a-label"
-          htmlFor="password"
-        >
-          Senha
-        </label>
-        <input
-          className="p-inputtext p-component p-filled"
-          data-pc-name="inputtext"
-          data-pc-section="root"
-          data-testid="a-input-password"
-          name="password"
-          onBeforeInput={[Function]}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onInput={[Function]}
-          onKeyDown={[Function]}
-          onPaste={[Function]}
-          placeholder="Digite sua senha"
-          type="password"
-          value="123456"
-        />
-      </div>
-      <div
-        className="m_checkboxWithLabel"
-        data-testid="m-checkboxWithLabel"
+        className="p-checkbox p-component"
+        data-pc-name="checkbox"
+        data-pc-section="root"
+        data-testid="a-checkbox"
+        id="a-checkbox"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={null}
+        onMouseDown={null}
+        style={{}}
       >
         <div
-          className="p-checkbox p-component"
-          data-pc-name="checkbox"
-          data-pc-section="root"
-          data-testid="a-checkbox"
-          id="a-checkbox"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={null}
-          onMouseDown={null}
-          style={{}}
+          className="p-hidden-accessible"
+          data-pc-section="hiddeninputwrapper"
         >
-          <div
-            className="p-hidden-accessible"
-            data-pc-section="hiddeninputwrapper"
-          >
-            <input
-              data-pc-section="hiddeninput"
-              defaultChecked={false}
-              disabled={false}
-              id={null}
-              name="manter_logado"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
-              required={false}
-              tabIndex={null}
-              type="checkbox"
-            />
-          </div>
-          <div
-            className="p-checkbox-box"
-            data-p-disabled={false}
-            data-p-focus={false}
-            data-p-highlight={false}
-            data-pc-section="input"
+          <input
+            data-pc-section="hiddeninput"
+            defaultChecked={false}
+            disabled={false}
+            id={null}
+            name="manter_logado"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            required={false}
+            tabIndex={null}
+            type="checkbox"
           />
         </div>
-        <label
-          className="a_label"
-          data-testid="a-label"
-          onClick={[Function]}
-        >
-          Mantenha-me conectado.
-        </label>
+        <div
+          className="p-checkbox-box"
+          data-p-disabled={false}
+          data-p-focus={false}
+          data-p-highlight={false}
+          data-pc-section="input"
+        />
       </div>
-      <button
-        className="a_button__gradient p-button p-component"
-        data-pc-name="button"
-        data-pc-section="root"
-        data-testid="a-button"
-        disabled={false}
-        type="submit"
+      <label
+        className="a_label"
+        data-testid="a-label"
+        onClick={[Function]}
       >
-        Entrar
-      </button>
-    </form>
-  </div>
+        Mantenha-me conectado.
+      </label>
+    </div>
+    <button
+      className="a_button__gradient p-button p-component"
+      data-pc-name="button"
+      data-pc-section="root"
+      data-testid="a-button"
+      disabled={false}
+      type="submit"
+    >
+      Entrar
+    </button>
+  </form>
   <div
-    className="o_footer"
+    className="footer"
     id="o-footer"
   >
     <div
-      className="o_footer__name"
+      className="footer__name"
     >
       <p>
         © 
-        2023
+        2024
         <a
           className="a_link"
           href="https://matheusgomesdev.com.br"
@@ -211,11 +205,11 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
       </p>
     </div>
     <div
-      className="o_footer__icons"
+      className="footer__icons"
     >
       <a
         className="a_link"
-        href="https://github.com/matheusgrodrigues"
+        href="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
       >
         <i
           className="a_icon pi pi-github"

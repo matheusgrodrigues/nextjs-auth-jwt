@@ -1,0 +1,21 @@
+@import '../../util/breakpoints';
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > [id='t-login'] {
+        padding: var(--spacing-64) var(--spacing-16);
+
+        @include d(tablet) {
+            padding: var(--spacing-96) 0;
+        }
+    }
+
+    & > [id='o-footer'] {
+        margin-top: auto;
+    }
+}

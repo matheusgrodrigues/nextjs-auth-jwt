@@ -1,63 +1,107 @@
-"use client";
+'use client';
 
-// Interfaces
-import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";
-import { I_OHeader } from "@/components/organism/o-header/o-header";
-import { I_TLogin } from "@/components/templates/t-login/t-login";
+import { useCallback, useMemo, useRef } from 'react';
 
-// Handles
-import { handleLoginForm } from "@/components/organism/o-login-form/login-form-validation";
+import { useRouter } from 'next/navigation';
 
-// Organism
-import { O_BlockUI } from "@/components/organism/o-block-ui/o-block-ui";
+import { useFormik } from 'formik';
 
-// Pages
-import { P_Home } from "@/components/pages/p-login/p-login";
+import { SessionHOCProps, withSessionHOC } from '@/core/services/sessionService';
 
-// HOC
-import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
+import styles from '@/styles/components/pages/login.module.scss';
 
-interface I_Home extends I_SessionHOC {}
+import Header from '@/components/organism/Header/Header';
+import Footer from '@/components/organism/Footer/Footer';
 
-function Home({ data, loading, error }: I_Home) {
-  const { session } = data;
+import { O_BlockUI } from '@/components/organism/o-block-ui/o-block-ui';
 
-  const showBlockUI = session && !error && !loading ? true : false;
+import { A_Icon } from '@/components/atoms/a-icon/a-icon';
+import { A_Button, A_Text, A_Title } from '@/components/atoms';
+import { M_CheckboxWithLabel, M_InputWithLabel } from '@/components/molecules';
+import { I_MToastComponent, M_Toast } from '@/components/molecules/m-toast/m-toast';
 
-  // Organism: Header
-  const o_headerProps: I_OHeader = {
-    link: "https://github.com/matheusgrodrigues",
-    image: "/images/a-avatar.jpeg",
-  };
+import { initialValues, validationSchema } from '@/components/organism/o-login-form/login-form-validation';
+import { I_HandleLoginProps } from '@/components/organism/o-login-form/login-form-validation/login-form-send';
 
-  // Dados falsos
+interface HomeProps extends SessionHOCProps {}
 
-  // Organism: LoginTitle
-  const o_loginTitle: I_OLoginTitle = {
-    image: "/images/a-avatar.jpeg",
-    title: "Acesse sua conta",
-  };
+function Home({ loading, data, error }: HomeProps) {
+    const { session } = data;
 
-  // Template: LoginForm
-  const t_loginProps: I_TLogin = {
-    o_loginTitle,
-    handleLoginForm,
-  };
+    const router = useRouter();
 
-  // Organism: Footer
-  const o_footerProps = {
-    name: "matheusgomesdev",
-    site: "https://matheusgomesdev.com.br",
-    github: "https://github.com/matheusgrodrigues/nextjs-auth-jwt",
-    linkedin: "https://www.linkedin.com/in/matheusgomes/",
-  };
+    const mToastRef = useRef<I_MToastComponent>(null);
 
-  return (
-    <>
-      <P_Home o_headerProps={o_headerProps} t_loginProps={t_loginProps} o_footerProps={o_footerProps} />
-      {showBlockUI && <O_BlockUI blocked={showBlockUI} fullScreen />}
-    </>
-  );
+    const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
+
+    const handleLoginForm = useCallback(({}: I_HandleLoginProps) => {}, []);
+
+    const { handleSubmit, errors, touched, getFieldProps, values, isSubmitting } = useFormik({
+        initialValues,
+        validationSchema,
+        onSubmit: (values, { setSubmitting }) => {
+            handleLoginForm({ values, setSubmitting, mToastRef, router });
+        },
+        validateOnChange: false,
+        validateOnBlur: true,
+    });
+
+    return (
+        <>
+            <main data-testid="p-home" className={styles.p_home}>
+                <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
+
+                <div data-testid="loginTitle" className={styles.loginTitle}>
+                    <A_Icon icon="pi-lock" />
+                    <A_Title variant="h2">{'Acesse sua conta'}</A_Title>
+                    <A_Text variant="fwReg-fs16-gray500">
+                        Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
+                    </A_Text>
+                </div>
+
+                <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
+                    <M_InputWithLabel
+                        labelText="Email"
+                        type="email"
+                        placeholder="Endereço de e-mail"
+                        {...getFieldProps('email')}
+                    />
+
+                    {errors.email && touched.email && <A_Text variant="error">{errors.email}</A_Text>}
+
+                    <M_InputWithLabel
+                        labelText="Senha"
+                        type="password"
+                        placeholder="Digite sua senha"
+                        {...getFieldProps('password')}
+                    />
+
+                    {errors.password && touched.password && <A_Text variant="error">{errors.password}</A_Text>}
+
+                    <M_CheckboxWithLabel
+                        checked={values.manter_logado}
+                        labelText="Mantenha-me conectado."
+                        {...getFieldProps('manter_logado')}
+                    />
+
+                    <A_Button variant="gradient" type="submit" loading={isSubmitting}>
+                        {isSubmitting ? '' : 'Entrar'}
+                    </A_Button>
+                </form>
+
+                <Footer
+                    github="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
+                    linkedin="https://www.linkedin.com/in/matheusgomes/"
+                    name="matheusgomesdev"
+                    site="https://matheusgomesdev.com.br"
+                />
+            </main>
+
+            <M_Toast ref={mToastRef} position="bottom-center" />
+
+            {showBlockUI && <O_BlockUI blocked={showBlockUI} fullScreen />}
+        </>
+    );
 }
 
 export default withSessionHOC(Home);

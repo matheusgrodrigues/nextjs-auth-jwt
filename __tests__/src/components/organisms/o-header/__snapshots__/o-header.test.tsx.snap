@@ -2,12 +2,13 @@
 
 exports[`Deve renderizar o Header corretamente Deve preservar a estrutura visual do componente 1`] = `
 <header
-  className="o_header"
-  data-testid="o-header"
-  id="o-header"
+  className="header"
+  data-testid="header"
+  id="header"
 >
   <a
     className="a_link"
+    href=""
   >
     <div
       className="p-avatar p-component p-avatar-image p-avatar-circle"
