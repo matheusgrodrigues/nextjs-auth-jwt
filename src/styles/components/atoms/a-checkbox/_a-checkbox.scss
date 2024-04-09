@@ -6,19 +6,19 @@
 */
 
 .p-checkbox {
-  &-box {
-    & svg {
-      width: 14px;
-      height: 14px;
+    &-box {
+        & svg {
+            width: 14px;
+            height: 14px;
+        }
     }
-  }
 
-  & input {
-    opacity: 0;
-    position: absolute;
-  }
+    & input {
+        opacity: 0;
+        position: absolute;
+    }
 
-  &-icon {
-    background-color: var(--primary-color);
-  }
+    &-icon {
+        background-color: var(--primary-color);
+    }
 }

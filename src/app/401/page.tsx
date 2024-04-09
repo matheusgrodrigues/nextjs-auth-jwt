@@ -1,35 +1,35 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 // Interfaces
-import { I_OHeader } from "@/components/organism/header/o-header";
-import { I_OFooter } from "@/components/organism/Footer/o-footer";
+import { I_OHeader } from '@/components/organism/header/o-header';
+import { I_OFooter } from '@/components/organism/Footer/o-footer';
 
 // Pages
-import { P_401 } from "@/components/pages/p-401/p-401";
+import { P_401 } from '@/components/pages/p-401/p-401';
 
 export default function Page401() {
-  const router = useRouter();
+    const router = useRouter();
 
-  // Organism: Header
-  const o_headerProps: I_OHeader = {
-    link: "https://github.com/matheusgrodrigues",
-    image: "/images/a-avatar.jpeg",
-  };
+    // Organism: Header
+    const o_headerProps: I_OHeader = {
+        link: 'https://github.com/matheusgrodrigues',
+        image: '/images/a-avatar.jpeg',
+    };
 
-  // P_401Props
-  const t_401Props = {
-    handleLogin: () => router.push("/"),
-  };
+    // P_401Props
+    const t_401Props = {
+        handleLogin: () => router.push('/'),
+    };
 
-  // Organism: Footer
-  const o_footerProps: I_OFooter = {
-    name: "matheusgomesdev",
-    site: "https://matheusgomesdev.com.br",
-    github: "https://github.com/matheusgrodrigues/nextjs-auth-jwt",
-    linkedin: "https://www.linkedin.com/in/matheusgomes/",
-  };
+    // Organism: Footer
+    const o_footerProps: I_OFooter = {
+        name: 'matheusgomesdev',
+        site: 'https://matheusgomesdev.com.br',
+        github: 'https://github.com/matheusgrodrigues/nextjs-auth-jwt',
+        linkedin: 'https://www.linkedin.com/in/matheusgomes/',
+    };
 
-  return <P_401 o_headerProps={o_headerProps} t_401Props={t_401Props} o_footerProps={o_footerProps} />;
+    return <P_401 o_headerProps={o_headerProps} t_401Props={t_401Props} o_footerProps={o_footerProps} />;
 }

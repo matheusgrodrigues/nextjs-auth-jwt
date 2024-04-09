@@ -1,67 +1,67 @@
-"use client";
+'use client';
 
-import { ComponentType, useEffect } from "react";
+import { ComponentType, useEffect } from 'react';
 
-import { GetServerSidePropsContext } from "next";
+import { GetServerSidePropsContext } from 'next';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
-import { I_AuthUserEntity } from "@/schemas/AuthSchema";
+import { I_AuthUserEntity } from '@/schemas/AuthSchema';
 
-import { authUseCases } from "@/services/AuthService";
+import { authUseCases } from '@/services/AuthService';
 
-import { useSession } from "@/core/hooks/useSession";
-import { tokenService } from "./tokenService";
+import { useSession } from '@/core/hooks/useSession';
+import { tokenService } from './tokenService';
 
 export interface SessionHOCProps {
-  data: {
-    session: I_AuthUserEntity | undefined;
-  };
-  error: boolean;
-  loading: boolean;
+    data: {
+        session: I_AuthUserEntity | undefined;
+    };
+    error: boolean;
+    loading: boolean;
 }
 
 export const getSession = async (ctx?: GetServerSidePropsContext) => {
-  const token = tokenService.get(ctx);
+    const token = tokenService.get(ctx);
 
-  try {
-    const user = await authUseCases.me(token);
+    try {
+        const user = await authUseCases.me(token);
 
-    return user;
-  } catch (error) {
-    throw error;
-  }
+        return user;
+    } catch (error) {
+        throw error;
+    }
 };
 
 export const withSessionHOC = <P extends object>(Component: ComponentType<P & SessionHOCProps>): React.FC<P> => {
-  const Wrapper: React.FC<P> = (props) => {
-    const { data, loading, error } = useSession();
+    const Wrapper: React.FC<P> = (props) => {
+        const { data, loading, error } = useSession();
 
-    const router = useRouter();
+        const router = useRouter();
 
-    useEffect(() => {
-      if (!loading && error) {
-        if (window.location.pathname === "/") {
-          router.push("/");
-        } else {
-          router.push("/401");
-        }
-      } else if (!loading && !error && data.session && window.location.pathname === "/") {
-        router.push("/welcome");
-      }
-    }, [loading, error, router, data.session]);
+        useEffect(() => {
+            if (!loading && error) {
+                if (window.location.pathname === '/') {
+                    router.push('/');
+                } else {
+                    router.push('/401');
+                }
+            } else if (!loading && !error && data.session && window.location.pathname === '/') {
+                router.push('/welcome');
+            }
+        }, [loading, error, router, data.session]);
 
-    const modifiedProps = {
-      ...props,
-      data,
-      error,
-      loading,
+        const modifiedProps = {
+            ...props,
+            data,
+            error,
+            loading,
+        };
+
+        return <Component {...modifiedProps} />;
     };
 
-    return <Component {...modifiedProps} />;
-  };
-
-  return Wrapper;
+    return Wrapper;
 };
 
 /*

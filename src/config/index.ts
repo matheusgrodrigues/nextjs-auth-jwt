@@ -1,3 +1,3 @@
-import { messages } from "./messages";
+import { messages } from './messages';
 
 export { messages };
