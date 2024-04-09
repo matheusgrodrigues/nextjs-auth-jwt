@@ -35,7 +35,7 @@ const executeDarkTheme = () => {
     document.documentElement.style.setProperty('--text-color', defaultTheme.dark.gray50);
 };
 
-export const useTheme = () => {
+const useTheme = () => {
     const themeStorage: T_Theme | string | null = globalThis?.localStorage?.getItem('theme');
 
     const [theme, setTheme] = useState<T_Theme>(themeStorage || 'light');
@@ -72,3 +72,5 @@ export const useTheme = () => {
         toggleTheme,
     };
 };
+
+export default useTheme;

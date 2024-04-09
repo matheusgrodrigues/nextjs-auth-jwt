@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 
 import { I_AuthUserEntity } from '@/schemas/AuthSchema';
 
-import { getSession } from '../services/sessionService';
+import getSession from '../services/sessionService';
 
-export function useSession() {
+function useSession() {
     const [session, setSession] = useState<I_AuthUserEntity | undefined>(undefined);
     const [error, setError] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
@@ -30,3 +30,5 @@ export function useSession() {
         loading,
     };
 }
+
+export default useSession;

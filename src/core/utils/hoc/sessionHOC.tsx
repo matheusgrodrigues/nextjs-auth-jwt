@@ -2,16 +2,11 @@
 
 import { ComponentType, useEffect } from 'react';
 
-import { GetServerSidePropsContext } from 'next';
-
 import { useRouter } from 'next/navigation';
 
 import { I_AuthUserEntity } from '@/schemas/AuthSchema';
 
-import { authUseCases } from '@/services/AuthService';
-
-import { useSession } from '@/core/hooks/useSession';
-import { tokenService } from './tokenService';
+import useSession from '@/core/hooks/useSession';
 
 export interface SessionHOCProps {
     data: {
@@ -20,18 +15,6 @@ export interface SessionHOCProps {
     error: boolean;
     loading: boolean;
 }
-
-export const getSession = async (ctx?: GetServerSidePropsContext) => {
-    const token = tokenService.get(ctx);
-
-    try {
-        const user = await authUseCases.me(token);
-
-        return user;
-    } catch (error) {
-        throw error;
-    }
-};
 
 export const withSessionHOC = <P extends object>(Component: ComponentType<P & SessionHOCProps>): React.FC<P> => {
     const Wrapper: React.FC<P> = (props) => {

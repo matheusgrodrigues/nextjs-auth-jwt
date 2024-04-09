@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 import { useFormik } from 'formik';
 
-import { SessionHOCProps, withSessionHOC } from '@/core/services/sessionService';
+import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
 
 import styles from '@/styles/components/pages/login.module.scss';
 
