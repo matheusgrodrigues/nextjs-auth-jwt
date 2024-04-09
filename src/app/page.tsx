@@ -10,14 +10,15 @@ import { O_BlockUI } from "@/components/organism/o-block-ui/o-block-ui";
 
 import { P_Home } from "@/components/pages/p-login/p-login";
 
-import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
+import { SessionHOCProps, withSessionHOC } from "@/services/sessionService/sessionService";
+import { useMemo } from "react";
 
-interface I_Home extends I_SessionHOC {}
+interface HomeProps extends SessionHOCProps {}
 
-function Home({ data, loading, error }: I_Home) {
+function Home({ loading, data, error }: HomeProps) {
   const { session } = data;
 
-  const showBlockUI = session && !error && !loading ? true : false;
+  const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
 
   const o_headerProps: I_OHeader = {
     link: "https://github.com/matheusgrodrigues",
