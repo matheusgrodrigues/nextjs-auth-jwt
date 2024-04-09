@@ -1,11 +1,8 @@
-// Entity
 import { I_AuthCredentialsEntity } from "@/core/entities/auth/authEntity";
 
-// Ports and Adapters
 import { authAdapter } from "@/core/adapters/auth/authAdapter";
-import { I_AuthPort } from "@/core/ports/auth/authPort";
+import { I_AuthPort } from "@/core/Ports/auth/authPort";
 
-// Application Services
 import { tokenService } from "@/services/tokenService/tokenService";
 
 export const authUseCases: I_AuthPort = {

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { I_AuthUserEntity } from "@/core/entities/auth/authEntity";
 
 // Services
-import { getSession } from "@/services/sessionService/sessionService";
+import { getSession } from "@/core/services/sessionService/sessionService";
 
 export function useSession() {
   const [session, setSession] = useState<I_AuthUserEntity | undefined>(undefined);

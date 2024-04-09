@@ -10,7 +10,7 @@ import { A_Button, A_Text, A_Title } from "@/components/atoms";
 import { LogoutDialog } from "./logout-dialog/logout-dialog";
 
 // Interfaces
-import { I_SessionHOC } from "@/services/sessionService/sessionService";
+import { I_SessionHOC } from "@/core/services/sessionService/sessionService";
 
 export interface I_TWelcome {
   userSession: I_SessionHOC | undefined;

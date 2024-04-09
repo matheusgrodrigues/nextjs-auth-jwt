@@ -1,15 +1,11 @@
 import { AxiosResponse } from "axios";
 
-// Entities
 import { I_AuthResponseEntity, I_AuthUserEntity } from "@/core/entities/auth/authEntity";
 
-// Ports
-import { I_AuthPort } from "@/core/ports/auth/authPort";
+import { I_AuthPort } from "@/core/Ports/auth/authPort";
 
-// Infra
 import { httpInfra } from "@/core/infra/http/httpInfra";
 
-// Config
 import { STRAPI_API_URL } from "@/config";
 
 export const authAdapter: I_AuthPort = {

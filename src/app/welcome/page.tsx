@@ -13,7 +13,7 @@ import { I_OFooter } from "@/components/organism/Footer/o-footer";
 import { I_TWelcome } from "@/components/templates/t-welcome/t-welcome";
 
 // HOC
-import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
+import { I_SessionHOC, withSessionHOC } from "@/core/services/sessionService/sessionService";
 
 // Services
 import { tokenService } from "@/services/tokenService/tokenService";

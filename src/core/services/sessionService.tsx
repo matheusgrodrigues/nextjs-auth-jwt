@@ -10,8 +10,8 @@ import { I_AuthUserEntity } from "@/core/entities/auth/authEntity";
 
 import { authUseCases } from "@/core/useCases/auth/authUseCase";
 
-import { useSession } from "@/hooks/session/useSession";
-import { tokenService } from "../tokenService/tokenService";
+import { useSession } from "@/core/Hooks/useSession/useSession";
+import { tokenService } from "./tokenService";
 
 export interface SessionHOCProps {
   data: {

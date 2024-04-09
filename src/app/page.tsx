@@ -2,14 +2,15 @@
 
 import { useCallback, useMemo, useRef } from "react";
 
-import styles from "@/styles/components/pages/p-login.module.scss";
+import { SessionHOCProps, withSessionHOC } from "@/core/services/sessionService/sessionService";
+
+import styles from "@/styles/components/pages/login.module.scss";
 
 import Header from "@/components/organism/Header/Header";
 import Footer from "@/components/organism/Footer/Footer";
 
 import { O_BlockUI } from "@/components/organism/o-block-ui/o-block-ui";
 
-import { SessionHOCProps, withSessionHOC } from "@/services/sessionService/sessionService";
 import { A_Icon } from "@/components/atoms/a-icon/a-icon";
 import { A_Button, A_Text, A_Title } from "@/components/atoms";
 import { M_CheckboxWithLabel, M_InputWithLabel } from "@/components/molecules";
