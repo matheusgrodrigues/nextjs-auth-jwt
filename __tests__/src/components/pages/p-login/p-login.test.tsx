@@ -8,7 +8,7 @@ import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title
 import { P_Home } from "../../../../../src/components/pages/p-login/p-login";
 
 // Utils
-import { AppRouterContextProviderMock } from "@/utils/test-utils";
+import { AppRouterContextProviderMock } from "@/core/utils/test-utils";
 import { I_OHeader } from "@/components/organism/header/o-header";
 import { mockLoginResponse } from "../../../../../__mocks__/src/services/auth/authService";
 import { I_TLogin } from "@/components/templates/Login/t-login";
