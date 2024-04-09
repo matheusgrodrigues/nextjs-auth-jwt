@@ -1,24 +1,21 @@
-// StyleSheet
-import styles from "./o-header.module.scss";
+import styles from "./Header.module.scss";
 
-// Atoms
+import { useTheme } from "@/hooks/theme/useTheme";
+
 import { A_Avatar, A_Button } from "@/components/atoms";
 import { A_Link } from "@/components/atoms/a-link/a-link";
 import { A_Icon } from "@/components/atoms/a-icon/a-icon";
 
-// Hooks
-import { useTheme } from "@/hooks/theme/useTheme";
-
-export interface I_OHeader {
+interface HeaderProps {
   link: string;
   image: string;
 }
 
-export const O_Header = ({ link, image }: I_OHeader) => {
+const Header = ({ link, image }: HeaderProps) => {
   const theme = useTheme();
 
   return (
-    <header data-testid="o-header" className={styles.o_header} id="o-header">
+    <header data-testid="header" className={styles.header} id="header">
       <A_Link href={link}>
         <A_Avatar image={image} label={""} shape="circle" />
       </A_Link>
@@ -28,3 +25,5 @@ export const O_Header = ({ link, image }: I_OHeader) => {
     </header>
   );
 };
+
+export default Header;

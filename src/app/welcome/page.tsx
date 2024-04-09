@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { P_Welcome } from "@/components/pages/p-welcome/p-welcome";
 
 // Organism
-import { I_OHeader } from "@/components/organism/o-header/o-header";
-import { I_OFooter } from "@/components/organism/o-footer/o-footer";
+import { I_OHeader } from "@/components/organism/header/o-header";
+import { I_OFooter } from "@/components/organism/Footer/o-footer";
 
 // Templates
 import { I_TWelcome } from "@/components/templates/t-welcome/t-welcome";

@@ -6,8 +6,8 @@ import styles from "./p-welcome.module.scss";
 
 // Organism and Interfaces
 import { I_TWelcome } from "@/components/templates/t-welcome/t-welcome";
-import { I_OFooter, O_Footer } from "@/components/organism/o-footer/o-footer";
-import { I_OHeader, O_Header } from "@/components/organism/o-header/o-header";
+import { I_OFooter, O_Footer } from "@/components/organism/Footer/o-footer";
+import { I_OHeader, O_Header } from "@/components/organism/header/o-header";
 
 export interface I_PWelcome {
   o_headerProps: I_OHeader;

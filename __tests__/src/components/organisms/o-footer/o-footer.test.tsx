@@ -1,7 +1,7 @@
 import renderer from "react-test-renderer";
 
 // Organism
-import { O_Footer } from "@/components/organism/o-footer/o-footer";
+import { O_Footer } from "@/components/organism/Footer/o-footer";
 
 describe("Deve renderizar o footer corretamente", () => {
   it("Deve preservar a estrutura visual do footer", () => {

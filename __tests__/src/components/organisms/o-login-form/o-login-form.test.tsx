@@ -53,7 +53,6 @@ describe("Deve renderizar o o-form-login, corretamente", () => {
     expect(get_a_button).toHaveAttribute("type", "submit");
   });
 
-
   // ======================================================================
 
   it("Deve manter a estrutura visual do componente", () => {

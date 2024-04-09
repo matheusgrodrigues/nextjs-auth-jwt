@@ -1,6 +1,6 @@
 // Interfaces
-import { I_OFooter, O_Footer } from "@/components/organism/o-footer/o-footer";
-import { I_OHeader, O_Header } from "@/components/organism/o-header/o-header";
+import { I_OFooter, O_Footer } from "@/components/organism/Footer/o-footer";
+import { I_OHeader, O_Header } from "@/components/organism/header/o-header";
 
 // StyleSheet
 import styles from "./p-401.module.scss";

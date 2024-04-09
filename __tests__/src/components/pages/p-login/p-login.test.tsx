@@ -9,9 +9,9 @@ import { P_Home } from "../../../../../src/components/pages/p-login/p-login";
 
 // Utils
 import { AppRouterContextProviderMock } from "@/utils/test-utils";
-import { I_OHeader } from "@/components/organism/o-header/o-header";
+import { I_OHeader } from "@/components/organism/header/o-header";
 import { mockLoginResponse } from "../../../../../__mocks__/src/services/auth/authService";
-import { I_TLogin } from "@/components/templates/t-login/t-login";
+import { I_TLogin } from "@/components/templates/Login/t-login";
 
 describe("Deve renderizar a pagina de login, corretamente", () => {
   const handleLoginForm = jest.fn();

@@ -1,8 +1,8 @@
 import renderer from "react-test-renderer";
 
 // Interface
-import { I_OHeader } from "@/components/organism/o-header/o-header";
-import { I_OFooter } from "@/components/organism/o-footer/o-footer";
+import { I_OHeader } from "@/components/organism/header/o-header";
+import { I_OFooter } from "@/components/organism/Footer/o-footer";
 
 // Page
 import { P_401 } from "@/components/pages/p-401/p-401";

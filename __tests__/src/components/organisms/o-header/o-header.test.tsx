@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 // Organism
-import { O_Header } from "@/components/organism/o-header/o-header";
+import { O_Header } from "@/components/organism/header/o-header";
 
 describe("Deve renderizar o Header corretamente", () => {
   // ========================================
