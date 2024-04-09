@@ -1,14 +1,11 @@
 import { RefObject } from "react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-// Interfaces
 import { I_InitialValues } from "./login-form-validation";
 import { I_MToastComponent } from "@/components/molecules/m-toast/m-toast";
 
-// Services
-import { authUseCases } from "@/core/useCases/auth/authUseCase";
 import { messages } from "@/config";
-import { tokenService } from "@/services/tokenService/tokenService";
+import { authUseCases } from "@/services/AuthService";
 
 export interface I_HandleLoginProps {
   values: I_InitialValues;

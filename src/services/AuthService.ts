@@ -1,9 +1,10 @@
-import { I_AuthCredentialsEntity } from "@/core/entities/auth/authEntity";
+import { tokenService } from "@/core/services/tokenService";
 
-import { authAdapter } from "@/core/adapters/auth/authAdapter";
-import { I_AuthPort } from "@/core/Ports/auth/authPort";
+import { authAdapter } from "@/core/adapters/authAdapter";
 
-import { tokenService } from "@/services/tokenService/tokenService";
+import { I_AuthPort } from "@/core/ports/authPort";
+
+import { I_AuthCredentialsEntity } from "@/schemas/AuthSchema";
 
 export const authUseCases: I_AuthPort = {
   login: async ({ identifier, password, manter_logado }: I_AuthCredentialsEntity) => {

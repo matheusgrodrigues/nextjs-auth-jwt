@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 
-import { useTheme } from "@/hooks/theme/useTheme";
+import { useTheme } from "@/core/hooks/useTheme";
 
 import { A_Avatar, A_Button } from "@/components/atoms";
 import { A_Link } from "@/components/atoms/a-link/a-link";

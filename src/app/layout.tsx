@@ -1,12 +1,10 @@
 import { ReactNode } from "react";
 
-import { PrimeReactProvider } from "primereact/api";
-
 import { Metadata } from "next";
-
 import { Inter } from "next/font/google";
 
-// Theme
+import { PrimeReactProvider } from "primereact/api";
+
 import "../styles/theme.scss";
 
 const inter = Inter({

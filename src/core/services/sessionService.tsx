@@ -6,11 +6,11 @@ import { GetServerSidePropsContext } from "next";
 
 import { useRouter } from "next/navigation";
 
-import { I_AuthUserEntity } from "@/core/entities/auth/authEntity";
+import { I_AuthUserEntity } from "@/schemas/AuthSchema";
 
-import { authUseCases } from "@/core/useCases/auth/authUseCase";
+import { authUseCases } from "@/services/AuthService";
 
-import { useSession } from "@/core/Hooks/useSession/useSession";
+import { useSession } from "@/core/hooks/useSession";
 import { tokenService } from "./tokenService";
 
 export interface SessionHOCProps {
@@ -24,17 +24,6 @@ export interface SessionHOCProps {
 export const getSession = async (ctx?: GetServerSidePropsContext) => {
   const token = tokenService.get(ctx);
 
-  /*
-   * Buscar os dados do usuário logado.
-   *
-   * Atenção !
-   *
-   * Não verificar se o token existe, para fazer o try...catch [if(token)].
-   * Porque senão vai cair no finally no getSession(), e não vai setar o erro para true
-   * Porque não vai disparar a exception, que controla a exibição das paginas autorizadas.
-   *
-   */
-
   try {
     const user = await authUseCases.me(token);
 
@@ -44,7 +33,6 @@ export const getSession = async (ctx?: GetServerSidePropsContext) => {
   }
 };
 
-// Client
 export const withSessionHOC = <P extends object>(Component: ComponentType<P & SessionHOCProps>): React.FC<P> => {
   const Wrapper: React.FC<P> = (props) => {
     const { data, loading, error } = useSession();
@@ -52,14 +40,6 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & Se
     const router = useRouter();
 
     useEffect(() => {
-      /*
-       *
-       * Em casos em que, passou o token jwt incorreto na requisição.
-       * Ou o token expirou.
-       * Ou não está autenticado.
-       *
-       */
-
       if (!loading && error) {
         if (window.location.pathname === "/") {
           router.push("/");
