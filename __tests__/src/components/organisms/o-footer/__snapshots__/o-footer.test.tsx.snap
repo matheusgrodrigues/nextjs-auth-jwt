@@ -10,7 +10,7 @@ exports[`Deve renderizar o footer corretamente Deve preservar a estrutura visual
   >
     <p>
       © 
-      2023
+      2024
       <a
         className="a_link"
         href="https://matheusgomesdev.com.br"

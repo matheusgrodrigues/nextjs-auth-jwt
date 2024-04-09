@@ -200,7 +200,7 @@ exports[`Deve renderizar a pagina de login, corretamente Deve preservar a estrut
     >
       <p>
         © 
-        2023
+        2024
         <a
           className="a_link"
           href="https://matheusgomesdev.com.br"
