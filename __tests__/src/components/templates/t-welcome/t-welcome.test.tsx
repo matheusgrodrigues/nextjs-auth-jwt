@@ -1,12 +1,10 @@
 import { render, screen } from '@testing-library/react';
 
-// Template
-import { T_Welcome } from '../../../../../src/components/templates/index';
 import { mockLoginResponse } from '../../../../../__mocks__/src/services/auth/authService';
 
-const handleLogout = jest.fn();
+import { T_Welcome } from '@/components/templates/t-welcome/t-welcome';
 
-const username = 'Matheus Gomes';
+const handleLogout = jest.fn();
 
 beforeEach(() =>
     render(
@@ -24,8 +22,6 @@ beforeEach(() =>
 );
 
 describe('Deve renderizar o t-welcome corretamente.', () => {
-    // =====================================================================
-
     it('Deve renderizar o titulo de bem vindo.', () => {
         const get_welcome_text = screen.getByTestId('a-text-welcome');
 
@@ -44,8 +40,6 @@ describe('Deve renderizar o t-welcome corretamente.', () => {
 
         expect(get_description).toBeInTheDocument();
     });
-
-    // =====================================================================
 
     describe('Deve renderizar o botão de logout', () => {
         it('Deve mostrar o botão na tela', () => {

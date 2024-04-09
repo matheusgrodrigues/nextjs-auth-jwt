@@ -1,15 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import userEvent from '@testing-library/user-event';
 
-// Organism
+import { AppRouterContextProviderMock } from '@/core/utils/test-utils/app-router-ctx-provider';
+
 import { O_LoginForm } from '../../../../../src/components/organism/o-login-form/o-login-form';
-
-// Test utils
-import { AppRouterContextProviderMock } from '@/core/utils/test-utils';
-
-// Mock values
-import { mockLoginValues } from '../../../../../__mocks__/src/services/auth/authService';
 
 describe('Deve renderizar o o-form-login, corretamente', () => {
     const handleLoginForm = jest.fn();

@@ -1,21 +1,14 @@
 import renderer from 'react-test-renderer';
 
-// Interface
-import { I_OHeader } from '@/components/organism/header/o-header';
-import { I_OFooter } from '@/components/organism/Footer/o-footer';
-
-// Page
 import { P_401 } from '@/components/pages/p-401/p-401';
 
 describe('Deve renderizar a pagina 401 corretamenta', () => {
-    // Organism: Header
-    const o_headerProps: I_OHeader = {
+    const o_headerProps = {
         link: 'https://github.com/matheusgrodrigues',
         image: '/images/a-avatar.jpeg',
     };
 
-    // Organism: Footer
-    const o_footerProps: I_OFooter = {
+    const o_footerProps = {
         name: 'matheusgomesdev',
         site: 'https://matheusgomesdev.com.br',
         github: 'https://github.com/matheusgrodrigues',

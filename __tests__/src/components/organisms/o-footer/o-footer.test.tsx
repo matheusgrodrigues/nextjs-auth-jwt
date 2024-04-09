@@ -1,13 +1,12 @@
 import renderer from 'react-test-renderer';
 
-// Organism
-import { O_Footer } from '@/components/organism/Footer/o-footer';
+import Footer from '@/components/organism/Footer/Footer';
 
 describe('Deve renderizar o footer corretamente', () => {
     it('Deve preservar a estrutura visual do footer', () => {
         const three = renderer
             .create(
-                <O_Footer
+                <Footer
                     name="matheusgomesdev"
                     site="https://matheusgomesdev.com.br"
                     github="https://github.com/matheusgrodrigues"
