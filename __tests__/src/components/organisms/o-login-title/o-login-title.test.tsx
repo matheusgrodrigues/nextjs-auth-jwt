@@ -1,44 +1,28 @@
 import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
-// Organism
-import { O_LoginTitle } from "../../../../../src/components/organism/o-login-title/o-login-title";
+import LoginTitle from "@/components/organism/o-login-title/LoginTitle";
 
 describe("Deve renderizar o o-login-title, corretamente", () => {
-  // ========================================
-
   it("Deve renderizar o a-title", () => {
-    // Arrange
-    render(<O_LoginTitle image="" title="" userSession={undefined} />);
+    render(<LoginTitle title="" />);
 
-    // Act
     const get_a_title = screen.getByTestId("a-title");
-
-    // Assert
 
     expect(get_a_title).toBeInTheDocument();
   });
-  // ========================================
 
   it("Deve renderizar o a-text", () => {
-    // Arrange
-    render(<O_LoginTitle image="" title="" userSession={undefined} />);
+    render(<LoginTitle title="" />);
 
-    // Act
     const get_a_text = screen.getByTestId("a-text");
-
-    // Assert
 
     expect(get_a_text).toBeInTheDocument();
   });
-  // ========================================
 
   it("Deve preservar a estrutura visual do componente", () => {
-    const get_o_login_title = renderer
-      .create(<O_LoginTitle image="" title="NextJS: Auth + JWT" username={undefined} />)
-      .toJSON();
+    const get_login_title = renderer.create(<LoginTitle title="NextJS: Auth + JWT" />).toJSON();
 
-    expect(get_o_login_title).toMatchSnapshot();
+    expect(get_login_title).toMatchSnapshot();
   });
-  // ========================================
 });

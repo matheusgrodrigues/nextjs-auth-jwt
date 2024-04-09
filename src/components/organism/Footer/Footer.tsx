@@ -1,4 +1,4 @@
-import styles from "./o-footer.module.scss";
+import styles from "./Footer.module.scss";
 
 import { A_Icon } from "@/components/atoms/a-icon/a-icon";
 import { A_Link } from "@/components/atoms/a-link/a-link";
