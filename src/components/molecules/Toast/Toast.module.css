@@ -1,15 +1,12 @@
-.m_toast__content {
+.toast__content {
     display: flex;
     gap: var(--spacing-16);
 }
-.m_toast__message {
+.toast__message {
     padding: var(--spacing-24) var(--spacing-16);
 }
 
-.m_toast__icon {
-}
-
-.m_toast__text {
+.toast__text {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-6);

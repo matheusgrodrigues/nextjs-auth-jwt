@@ -1,4 +1,4 @@
-.m_dialog {
+.dialog {
     width: 100%;
     max-width: 400px;
     background-color: var(--white);
@@ -6,7 +6,7 @@
     padding: var(--spacing-24);
 }
 
-.m_dialog__mask {
+.dialog__mask {
     background: var(--dialog-bg-mask);
     backdrop-filter: var(--blur-md);
 }

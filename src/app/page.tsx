@@ -9,12 +9,10 @@ import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
 import styles from '@/styles/components/pages/login.module.scss';
 
 import { Button, Text, Title, Icon } from '@/components/atoms';
-import { Header, Footer } from '@/components/organism';
+import { BlockUI, Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
-import { O_BlockUI } from '@/components/organism/o-block-ui/o-block-ui';
-
-import { I_MToastComponent, M_Toast } from '@/components/molecules/m-toast/m-toast';
+import { I_MToastComponent, M_Toast } from '@/components/molecules/Toast/m-toast';
 
 import { initialValues, validationSchema } from '@/components/organism/o-login-form/login-form-validation';
 import { I_HandleLoginProps } from '@/components/organism/o-login-form/login-form-validation/login-form-send';
@@ -95,7 +93,7 @@ function Home({ loading, data, error }: HomeProps) {
 
             <M_Toast ref={mToastRef} position="bottom-center" />
 
-            {showBlockUI && <O_BlockUI blocked={showBlockUI} fullScreen />}
+            {showBlockUI && <BlockUI blocked={showBlockUI} fullScreen />}
         </>
     );
 }

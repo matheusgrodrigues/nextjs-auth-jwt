@@ -2,7 +2,7 @@ import { RefObject } from 'react';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 import { I_InitialValues } from './login-form-validation';
-import { I_MToastComponent } from '@/components/molecules/m-toast/m-toast';
+import { I_MToastComponent } from '@/components/molecules/Toast/m-toast';
 
 import { messages } from '@/config';
 import { authUseCases } from '@/services/AuthService';

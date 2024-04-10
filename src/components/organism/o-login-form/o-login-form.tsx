@@ -8,7 +8,7 @@ import { A_Button, A_Text } from '@/components/atoms';
 
 // Molecules
 import { M_CheckboxWithLabel, M_InputWithLabel } from '@/components/molecules';
-import { I_MToastComponent, M_Toast } from '@/components/molecules/m-toast/m-toast';
+import { I_MToastComponent, M_Toast } from '@/components/molecules/Toast/m-toast';
 
 // StyleSheet
 import styles from './o-login-form.module.css';
