@@ -1,22 +1,19 @@
 'use client';
 
 import { useCallback, useMemo, useRef } from 'react';
-
 import { useRouter } from 'next/navigation';
-
 import { useFormik } from 'formik';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
 
 import styles from '@/styles/components/pages/login.module.scss';
 
-import Header from '@/components/organism/Header/Header';
-import Footer from '@/components/organism/Footer/Footer';
+import { Button, Text, Title, Icon } from '@/components/atoms';
+import { Header, Footer } from '@/components/organism';
+import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
 import { O_BlockUI } from '@/components/organism/o-block-ui/o-block-ui';
 
-import { Button, Text, Title, Icon } from '@/components/atoms';
-import { M_CheckboxWithLabel, M_InputWithLabel } from '@/components/molecules';
 import { I_MToastComponent, M_Toast } from '@/components/molecules/m-toast/m-toast';
 
 import { initialValues, validationSchema } from '@/components/organism/o-login-form/login-form-validation';
@@ -59,7 +56,7 @@ function Home({ loading, data, error }: HomeProps) {
                 </div>
 
                 <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
-                    <M_InputWithLabel
+                    <InputWithLabel
                         labelText="Email"
                         type="email"
                         placeholder="Endereço de e-mail"
@@ -68,7 +65,7 @@ function Home({ loading, data, error }: HomeProps) {
 
                     {errors.email && touched.email && <Text variant="error">{errors.email}</Text>}
 
-                    <M_InputWithLabel
+                    <InputWithLabel
                         labelText="Senha"
                         type="password"
                         placeholder="Digite sua senha"
@@ -77,7 +74,7 @@ function Home({ loading, data, error }: HomeProps) {
 
                     {errors.password && touched.password && <Text variant="error">{errors.password}</Text>}
 
-                    <M_CheckboxWithLabel
+                    <CheckboxWithLabel
                         checked={values.manter_logado}
                         labelText="Mantenha-me conectado."
                         {...getFieldProps('manter_logado')}

@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
 // Molecules
-import { M_CheckboxWithLabel } from '../../../../../src/components/molecules/m-checkbox-with-label/m-checkbox-with-label';
+import { M_CheckboxWithLabel } from '../../../../../src/components/molecules/CheckboxWithLabel/CheckboxWithLabel';
 
 describe('Deve renderizar o m-checkbox-with-label, corretamente', () => {
     // ======================================
