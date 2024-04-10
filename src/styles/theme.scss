@@ -65,9 +65,16 @@ body {
     background-color: var(--white);
 }
 
-@import './components/atoms/a-avatar/_a-avatar.scss';
-@import './components/atoms/a-button/_a-button';
-@import './components/atoms/a-checkbox/a-checkbox';
-@import './components/atoms/a-input/a-input';
-@import './components/organism/o-block-ui/o-block-ui';
-@import './components/organism/o-dialog/o-dialog-ui';
+@import './components/atoms/_avatar.scss';
+@import './components/atoms/_button.scss';
+@import './components/atoms/_checkbox.scss';
+@import './components/atoms/_input.scss';
+
+@import './components/organism/_blockUI.scss';
+@import './components/organism/_dialog.scss';
+
+@import './components/templates/_401.scss';
+
+@import './components/pages/_welcome.scss';
+@import './components/pages/_login.scss';
+@import './components/pages/_401.scss';

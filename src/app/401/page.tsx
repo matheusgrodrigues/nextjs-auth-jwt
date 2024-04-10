@@ -1,35 +1,40 @@
 'use client';
 
+import React, { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
-// Interfaces
-import { I_OHeader } from '@/components/organism/header/o-header';
-import { I_OFooter } from '@/components/organism/Footer/o-footer';
+import { Button, Text, Title } from '@/components/atoms';
+import { Footer, Header } from '@/components/organism';
 
-// Pages
-import { P_401 } from '@/components/pages/p-401/p-401';
-
-export default function Page401() {
+const Page401 = () => {
     const router = useRouter();
 
-    // Organism: Header
-    const o_headerProps: I_OHeader = {
-        link: 'https://github.com/matheusgrodrigues',
-        image: '/images/a-avatar.jpeg',
-    };
+    const handleLogin = useCallback(() => router.push('/'), []);
 
-    // P_401Props
-    const t_401Props = {
-        handleLogin: () => router.push('/'),
-    };
+    return (
+        <main data-testid="p-401" className={'p_401'}>
+            <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
 
-    // Organism: Footer
-    const o_footerProps: I_OFooter = {
-        name: 'matheusgomesdev',
-        site: 'https://matheusgomesdev.com.br',
-        github: 'https://github.com/matheusgrodrigues/nextjs-auth-jwt',
-        linkedin: 'https://www.linkedin.com/in/matheusgomes/',
-    };
+            <main data-testid="t-401" className={'t_401'} id="t-401">
+                <Text variant="fwSb-fs16-primary">401</Text>
+                <Title variant="h1">Acesso não autorizado</Title>
+                <Text variant="fwReg-fs16-gray500">
+                    Desculpe, você não tem permissão para acessar esta página. Por favor, verifique suas credenciais ou
+                    entre em contato com o suporte se precisar de assistência.
+                </Text>
+                <Button variant="gradient" onClick={handleLogin}>
+                    Faça Login
+                </Button>
+            </main>
 
-    return <P_401 o_headerProps={o_headerProps} t_401Props={t_401Props} o_footerProps={o_footerProps} />;
-}
+            <Footer
+                github="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
+                linkedin="https://www.linkedin.com/in/matheusgomes/"
+                name="matheusgomesdev"
+                site="https://matheusgomesdev.com.br"
+            />
+        </main>
+    );
+};
+
+export default Page401;

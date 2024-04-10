@@ -1,58 +1,72 @@
 'use client';
 
+import React, { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
-// Pages
-import { P_Welcome } from '@/components/pages/p-welcome/p-welcome';
+import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
+import tokenService from '@/core/services/tokenService';
 
-// Organism
-import { I_OHeader } from '@/components/organism/header/o-header';
-import { I_OFooter } from '@/components/organism/Footer/o-footer';
+import { Button, Text, Title } from '@/components/atoms';
+import { Header, Footer } from '@/components/organism';
 
-// Templates
-import { I_TWelcome } from '@/components/templates/t-welcome/t-welcome';
+interface WelcomeProps extends SessionHOCProps {}
 
-// HOC
-import { I_SessionHOC, withSessionHOC } from '@/core/services/sessionService/sessionService';
-
-// Services
-import { tokenService } from '@/services/tokenService/tokenService';
-
-interface I_Welcome extends I_SessionHOC {}
-
-function Welcome(props: I_Welcome) {
+const Welcome: React.FC<WelcomeProps> = (props) => {
     const router = useRouter();
 
     const { session } = props.data;
 
-    // Organism: Header
-    const o_headerProps: I_OHeader = {
-        link: 'https://github.com/matheusgrodrigues',
-        image: '/images/a-avatar.jpeg',
-    };
-
-    // T_Welcome
-    const welcomeProps: I_TWelcome = {
-        userSession: props,
-        handleLogout: () => {
-            tokenService.delete();
-            router.push('/');
-        },
-    };
-
-    // Organism: Footer
-    const o_footerProps: I_OFooter = {
-        name: 'matheusgomesdev',
-        site: 'https://matheusgomesdev.com.br',
-        github: 'https://github.com/matheusgrodrigues/nextjs-auth-jwt',
-        linkedin: 'https://www.linkedin.com/in/matheusgomes/',
-    };
+    const handleLogout = useCallback(() => {
+        tokenService.delete();
+        router.push('/');
+    }, []);
 
     return (
-        session && (
-            <P_Welcome o_headerProps={o_headerProps} t_WelcomeProps={welcomeProps} o_footerProps={o_footerProps} />
-        )
+        <section className="p-welcome">
+            <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
+
+            {session && (
+                <main className={'t_welcome'} id="t-welcome">
+                    <div className={'t_welcome__heading'}>
+                        <Text data-testid="a-text-welcome" variant="fwSb-fs16-primary">
+                            Bem-vindo(a) ao nosso serviço !
+                        </Text>
+
+                        <Title data-testid="a-title-username" variant="fwSB-fs48-lh60-lspN2-gray900">
+                            {'colocar o nome do usuario logado aqui'}
+                        </Title>
+                    </div>
+
+                    <Text data-testid="a-text-description" variant="fwReg-fs20-lh30-gray500" id="a-text-description">
+                        Queremos que você se sinta em casa e aproveite ao máximo tudo o que oferecemos. Se tiver alguma
+                        dúvida ou precisar de ajuda, não hesite em nos chamar. Estamos sempre prontos para tornar sua
+                        experiência conosco incrível. Mais uma vez, bem-vindo(a)!
+                    </Text>
+
+                    <Button
+                        variant="fwMd-fs16-colGray700-bgWhite"
+                        data-testid="a-button-logout"
+                        onClick={() => {
+                            // TODO: abrir Dialog
+                            handleLogout();
+                        }}
+                    >
+                        Logout
+                    </Button>
+
+                    {/* Dialog Logout 
+               <LogoutDialog visible={visible} onConfirm={handleLogout} onReject={toggleVisible} /> */}
+                </main>
+            )}
+
+            <Footer
+                github="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
+                linkedin="https://www.linkedin.com/in/matheusgomes/"
+                name="matheusgomesdev"
+                site="https://matheusgomesdev.com.br"
+            />
+        </section>
     );
-}
+};
 
 export default withSessionHOC(Welcome);

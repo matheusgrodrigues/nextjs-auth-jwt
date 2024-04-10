@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 // LogoutDialog
-import { LogoutDialog } from '../../../../../../src/components/templates/t-welcome/logout-dialog/logout-dialog';
+import { LogoutDialog } from '../../../../../../src/components/templates/LogoutDialog/LogoutDiaglog';
 
 describe('Deve renderizar o logout dialog, corretamente', () => {
     beforeEach(() => {
