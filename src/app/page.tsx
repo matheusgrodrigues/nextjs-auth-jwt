@@ -4,8 +4,6 @@ import { useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
 
-import styles from '@/styles/components/pages/login.module.scss';
-
 import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
 
 import { Button, Text, Title, Icon } from '@/components/atoms';
@@ -41,10 +39,10 @@ function Home({ loading, data, error }: HomeProps) {
 
     return (
         <>
-            <main data-testid="p-home" className={styles.p_home}>
+            <main data-testid="p-home" className={'p_home'}>
                 <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
 
-                <div data-testid="loginTitle" className={styles.loginTitle}>
+                <div data-testid="loginTitle" className={'loginTitle'}>
                     <Icon icon="pi-lock" />
                     <Title variant="h2">{'Acesse sua conta'}</Title>
                     <Text variant="fwReg-fs16-gray500">
@@ -52,7 +50,7 @@ function Home({ loading, data, error }: HomeProps) {
                     </Text>
                 </div>
 
-                <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
+                <form onSubmit={handleSubmit} className={'o_form_login'} data-testid="o-login-form">
                     <InputWithLabel
                         labelText="Email"
                         type="email"
