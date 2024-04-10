@@ -15,8 +15,7 @@ import Footer from '@/components/organism/Footer/Footer';
 
 import { O_BlockUI } from '@/components/organism/o-block-ui/o-block-ui';
 
-import { A_Icon } from '@/components/atoms/a-icon/a-icon';
-import { A_Button, A_Text, A_Title } from '@/components/atoms';
+import { Button, Text, Title, Icon } from '@/components/atoms';
 import { M_CheckboxWithLabel, M_InputWithLabel } from '@/components/molecules';
 import { I_MToastComponent, M_Toast } from '@/components/molecules/m-toast/m-toast';
 
@@ -52,11 +51,11 @@ function Home({ loading, data, error }: HomeProps) {
                 <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
 
                 <div data-testid="loginTitle" className={styles.loginTitle}>
-                    <A_Icon icon="pi-lock" />
-                    <A_Title variant="h2">{'Acesse sua conta'}</A_Title>
-                    <A_Text variant="fwReg-fs16-gray500">
+                    <Icon icon="pi-lock" />
+                    <Title variant="h2">{'Acesse sua conta'}</Title>
+                    <Text variant="fwReg-fs16-gray500">
                         Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
-                    </A_Text>
+                    </Text>
                 </div>
 
                 <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
@@ -67,7 +66,7 @@ function Home({ loading, data, error }: HomeProps) {
                         {...getFieldProps('email')}
                     />
 
-                    {errors.email && touched.email && <A_Text variant="error">{errors.email}</A_Text>}
+                    {errors.email && touched.email && <Text variant="error">{errors.email}</Text>}
 
                     <M_InputWithLabel
                         labelText="Senha"
@@ -76,7 +75,7 @@ function Home({ loading, data, error }: HomeProps) {
                         {...getFieldProps('password')}
                     />
 
-                    {errors.password && touched.password && <A_Text variant="error">{errors.password}</A_Text>}
+                    {errors.password && touched.password && <Text variant="error">{errors.password}</Text>}
 
                     <M_CheckboxWithLabel
                         checked={values.manter_logado}
@@ -84,9 +83,9 @@ function Home({ loading, data, error }: HomeProps) {
                         {...getFieldProps('manter_logado')}
                     />
 
-                    <A_Button variant="gradient" type="submit" loading={isSubmitting}>
+                    <Button variant="gradient" type="submit" loading={isSubmitting}>
                         {isSubmitting ? '' : 'Entrar'}
-                    </A_Button>
+                    </Button>
                 </form>
 
                 <Footer

@@ -1,9 +1,11 @@
-import { A_Avatar } from './a-avatar/a-avatar';
-import { A_Title } from './a-title/a-title';
-import { A_Label } from './a-label/a-label';
-import { A_Input } from './a-input/a-input';
-import { A_Checkbox } from './a-checkbox/a-checkbox';
-import { A_Button } from './a-button/a-button';
-import { A_Text } from './a-text/a-text';
+import Checkbox from './Checkbox/Checkbox';
+import Button from './Button/Button';
+import Avatar from './Avatar/Avatar';
+import Label from './Label/Label';
+import Input from './Input/Input';
+import Title from './Title/Title';
+import Text from './Text/Text';
+import Icon from './Icon/Icon';
+import Link from './Link/Link';
 
-export { A_Avatar, A_Title, A_Label, A_Input, A_Checkbox, A_Button, A_Text };
+export { Checkbox, Button, Avatar, Title, Label, Input, Text, Icon, Link };

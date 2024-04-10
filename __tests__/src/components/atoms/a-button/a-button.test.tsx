@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 
 // Atoms
-import { A_Button } from '../../../../../src/components/atoms/a-button/a-button';
+import { A_Button } from '../../../../../src/components/atoms/Button/Button';
 
 describe('Deve renderizar o a-button corretamente', () => {
     it('Deve preservar a estrutura visual do botão', () => {
