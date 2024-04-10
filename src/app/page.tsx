@@ -1,24 +1,17 @@
 'use client';
 
 import { useCallback, useMemo, useRef } from 'react';
-
 import { useRouter } from 'next/navigation';
-
 import { useFormik } from 'formik';
-
-import { SessionHOCProps, withSessionHOC } from '@/core/services/sessionService';
 
 import styles from '@/styles/components/pages/login.module.scss';
 
-import Header from '@/components/organism/Header/Header';
-import Footer from '@/components/organism/Footer/Footer';
+import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
 
-import { O_BlockUI } from '@/components/organism/o-block-ui/o-block-ui';
-
-import { A_Icon } from '@/components/atoms/a-icon/a-icon';
-import { A_Button, A_Text, A_Title } from '@/components/atoms';
-import { M_CheckboxWithLabel, M_InputWithLabel } from '@/components/molecules';
-import { I_MToastComponent, M_Toast } from '@/components/molecules/m-toast/m-toast';
+import { Button, Text, Title, Icon } from '@/components/atoms';
+import { BlockUI, Header, Footer } from '@/components/organism';
+import { CheckboxWithLabel, InputWithLabel, Toast } from '@/components/molecules';
+import { ToastRef } from '@/components/molecules/Toast/Toast';
 
 import { initialValues, validationSchema } from '@/components/organism/o-login-form/login-form-validation';
 import { I_HandleLoginProps } from '@/components/organism/o-login-form/login-form-validation/login-form-send';
@@ -30,7 +23,7 @@ function Home({ loading, data, error }: HomeProps) {
 
     const router = useRouter();
 
-    const mToastRef = useRef<I_MToastComponent>(null);
+    const toastRef = useRef<ToastRef>(null);
 
     const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
 
@@ -40,7 +33,7 @@ function Home({ loading, data, error }: HomeProps) {
         initialValues,
         validationSchema,
         onSubmit: (values, { setSubmitting }) => {
-            handleLoginForm({ values, setSubmitting, mToastRef, router });
+            handleLoginForm({ values, setSubmitting, mToastRef: toastRef, router });
         },
         validateOnChange: false,
         validateOnBlur: true,
@@ -52,41 +45,41 @@ function Home({ loading, data, error }: HomeProps) {
                 <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
 
                 <div data-testid="loginTitle" className={styles.loginTitle}>
-                    <A_Icon icon="pi-lock" />
-                    <A_Title variant="h2">{'Acesse sua conta'}</A_Title>
-                    <A_Text variant="fwReg-fs16-gray500">
+                    <Icon icon="pi-lock" />
+                    <Title variant="h2">{'Acesse sua conta'}</Title>
+                    <Text variant="fwReg-fs16-gray500">
                         Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
-                    </A_Text>
+                    </Text>
                 </div>
 
                 <form onSubmit={handleSubmit} className={styles.o_form_login} data-testid="o-login-form">
-                    <M_InputWithLabel
+                    <InputWithLabel
                         labelText="Email"
                         type="email"
                         placeholder="Endereço de e-mail"
                         {...getFieldProps('email')}
                     />
 
-                    {errors.email && touched.email && <A_Text variant="error">{errors.email}</A_Text>}
+                    {errors.email && touched.email && <Text variant="error">{errors.email}</Text>}
 
-                    <M_InputWithLabel
+                    <InputWithLabel
                         labelText="Senha"
                         type="password"
                         placeholder="Digite sua senha"
                         {...getFieldProps('password')}
                     />
 
-                    {errors.password && touched.password && <A_Text variant="error">{errors.password}</A_Text>}
+                    {errors.password && touched.password && <Text variant="error">{errors.password}</Text>}
 
-                    <M_CheckboxWithLabel
+                    <CheckboxWithLabel
                         checked={values.manter_logado}
                         labelText="Mantenha-me conectado."
                         {...getFieldProps('manter_logado')}
                     />
 
-                    <A_Button variant="gradient" type="submit" loading={isSubmitting}>
+                    <Button variant="gradient" type="submit" loading={isSubmitting}>
                         {isSubmitting ? '' : 'Entrar'}
-                    </A_Button>
+                    </Button>
                 </form>
 
                 <Footer
@@ -97,9 +90,9 @@ function Home({ loading, data, error }: HomeProps) {
                 />
             </main>
 
-            <M_Toast ref={mToastRef} position="bottom-center" />
+            <Toast ref={toastRef} position="bottom-center" />
 
-            {showBlockUI && <O_BlockUI blocked={showBlockUI} fullScreen />}
+            {showBlockUI && <BlockUI blocked={showBlockUI} fullScreen />}
         </>
     );
 }

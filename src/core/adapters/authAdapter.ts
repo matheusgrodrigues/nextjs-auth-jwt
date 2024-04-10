@@ -1,12 +1,12 @@
 import { AxiosResponse } from 'axios';
 
-import { I_AuthPort } from '../ports/authPort';
+import I_AuthPort from '../ports/authPort';
 
-import { httpInfra } from '../middleware/HttpMiddleware';
+import httpInfra from '../middleware/HttpMiddleware';
 
 import { I_AuthResponseEntity, I_AuthUserEntity } from '@/schemas/AuthSchema';
 
-export const authAdapter: I_AuthPort = {
+const authAdapter: I_AuthPort = {
     login: async ({ identifier, password }) => {
         const method = 'POST';
 
@@ -41,3 +41,5 @@ export const authAdapter: I_AuthPort = {
         }
     },
 };
+
+export default authAdapter;

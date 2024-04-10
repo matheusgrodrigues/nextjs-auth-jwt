@@ -1,7 +1,6 @@
 import styles from './Footer.module.scss';
 
-import { A_Icon } from '@/components/atoms/a-icon/a-icon';
-import { A_Link } from '@/components/atoms/a-link/a-link';
+import { Link, Icon } from '@/components/atoms';
 
 interface FooterProps {
     name: string;
@@ -18,18 +17,18 @@ const Footer = ({ name, site, github, linkedin }: FooterProps) => {
             <div className={styles.footer__name}>
                 <p>
                     © {date.getFullYear()}
-                    <A_Link href={site}>{name}.</A_Link>
+                    <Link href={site}>{name}.</Link>
                 </p>
             </div>
 
             <div className={styles.footer__icons}>
-                <A_Link href={github}>
-                    <A_Icon icon="pi-github" />
-                </A_Link>
+                <Link href={github}>
+                    <Icon icon="pi-github" />
+                </Link>
 
-                <A_Link href={linkedin}>
-                    <A_Icon icon="pi-linkedin" />
-                </A_Link>
+                <Link href={linkedin}>
+                    <Icon icon="pi-linkedin" />
+                </Link>
             </div>
         </div>
     );

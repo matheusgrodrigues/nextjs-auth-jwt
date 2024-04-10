@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
 // Molecules
-import { M_InputWithLabel } from '../../../../../src/components/molecules/m-input-with-label/m-input-with-label';
+import { M_InputWithLabel } from '../../../../../src/components/molecules/InputWithLabel/InputWithLabel';
 
 describe('Deve renderizar o m-input-with-label corretamente', () => {
     // ======================================================================

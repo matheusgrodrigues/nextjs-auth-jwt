@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 
 // Atoms
-import { A_Text } from '../../../../../src/components/atoms/a-text/a-text';
+import { A_Text } from '../../../../../src/components/atoms/Text/Text';
 
 describe('Deve renderizar o a-text, corretamente', () => {
     it('Deve preservar a estrutura visual do a-text', () => {

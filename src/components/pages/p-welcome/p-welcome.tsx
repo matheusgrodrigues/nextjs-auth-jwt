@@ -1,10 +1,7 @@
-// Templates
 import { T_Welcome } from '@/components/templates';
 
-// StyleSheet
 import styles from './p-welcome.module.scss';
 
-// Organism and Interfaces
 import { I_TWelcome } from '@/components/templates/t-welcome/t-welcome';
 import { I_OFooter, O_Footer } from '@/components/organism/Footer/o-footer';
 import { I_OHeader, O_Header } from '@/components/organism/header/o-header';

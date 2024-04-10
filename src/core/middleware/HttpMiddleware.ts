@@ -6,7 +6,7 @@ interface I_HttpInfra {
     token?: string;
     body?: {};
 }
-export const httpInfra = async ({ method, url, token, body }: I_HttpInfra) => {
+const httpInfra = async ({ method, url, token, body }: I_HttpInfra) => {
     const defaultHeader = {
         'Content-Type': 'application/json',
     };
@@ -28,3 +28,5 @@ export const httpInfra = async ({ method, url, token, body }: I_HttpInfra) => {
         throw error;
     }
 };
+
+export default httpInfra;

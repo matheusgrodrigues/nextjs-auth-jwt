@@ -1,4 +1,6 @@
-import { M_InputWithLabel } from './m-input-with-label/m-input-with-label';
-import { M_CheckboxWithLabel } from './m-checkbox-with-label/m-checkbox-with-label';
+import CheckboxWithLabel from './CheckboxWithLabel/CheckboxWithLabel';
+import InputWithLabel from './InputWithLabel/InputWithLabel';
+import Dialog from './Dialog/Dialog';
+import Toast from './Toast/Toast';
 
-export { M_InputWithLabel, M_CheckboxWithLabel };
+export { CheckboxWithLabel, InputWithLabel, Dialog, Toast };

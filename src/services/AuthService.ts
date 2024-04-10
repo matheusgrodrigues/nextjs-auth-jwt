@@ -1,8 +1,8 @@
-import { tokenService } from '@/core/services/tokenService';
+import tokenService from '@/core/services/tokenService';
 
-import { authAdapter } from '@/core/adapters/authAdapter';
+import authAdapter from '@/core/adapters/authAdapter';
 
-import { I_AuthPort } from '@/core/ports/authPort';
+import I_AuthPort from '@/core/ports/authPort';
 
 import { I_AuthCredentialsEntity } from '@/schemas/AuthSchema';
 
