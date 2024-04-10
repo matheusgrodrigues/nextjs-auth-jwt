@@ -1,42 +1,28 @@
-import React, { createRef, useImperativeHandle } from 'react';
+import React, { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import * as PrToast from 'primereact/toast';
 
-import styles from './m-toast.module.css';
+import styles from './Toast.module.css';
 
-interface ToastMessageProps extends PrToast.ToastMessage {}
-
-interface ToastProps extends PrToast.ToastProps {
-    'data-testid'?: string;
+export interface ToastRef {
+    showToast: (message: PrToast.ToastMessage | PrToast.ToastMessage[]) => void;
 }
 
-interface ToastHandleProps {
-    showToast: (message: ToastMessageProps | ToastMessageProps[]) => void;
-}
+interface ToastProps extends PrToast.ToastProps {}
 
-interface ToastComponentProps extends PrToast.ToastProps {
-    showToast: (message: ToastMessageProps | ToastMessageProps[]) => void;
-}
+const Toast: React.ForwardRefRenderFunction<ToastRef, ToastProps> = (props, ref) => {
+    const toastRef = useRef<PrToast.Toast>(null);
 
-const Toast = React.forwardRef<ToastHandleProps, ToastProps>(function Toast(props, ref) {
-    const mToastRef = createRef<ToastComponentProps>();
+    const showToast = useCallback((message: PrToast.ToastMessage | PrToast.ToastMessage[]) => {
+        if (toastRef && toastRef.current) {
+            toastRef.current.show(message);
+        }
+    }, []);
 
-    useImperativeHandle(
-        ref,
-        () => {
-            return {
-                showToast(message: ToastMessageProps | ToastMessageProps[]) {
-                    if (mToastRef && mToastRef.current) {
-                        mToastRef.current.showToast(message);
-                    }
-                },
-            };
-        },
-        [mToastRef]
-    );
+    useImperativeHandle(ref, () => ({ showToast }), []);
 
     return (
-        <Toast
+        <PrToast.Toast
             data-testid="toast-testid"
             pt={{
                 message: {
@@ -52,10 +38,10 @@ const Toast = React.forwardRef<ToastHandleProps, ToastProps>(function Toast(prop
                     className: styles.toast__text,
                 },
             }}
-            ref={mToastRef}
+            ref={toastRef}
             {...props}
         />
     );
-});
+};
 
-export default Toast;
+export default forwardRef(Toast);

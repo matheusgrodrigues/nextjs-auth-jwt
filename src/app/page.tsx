@@ -4,15 +4,14 @@ import { useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
 
-import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
-
 import styles from '@/styles/components/pages/login.module.scss';
+
+import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
 
 import { Button, Text, Title, Icon } from '@/components/atoms';
 import { BlockUI, Header, Footer } from '@/components/organism';
-import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
-
-import { I_MToastComponent, M_Toast } from '@/components/molecules/Toast/m-toast';
+import { CheckboxWithLabel, InputWithLabel, Toast } from '@/components/molecules';
+import { ToastRef } from '@/components/molecules/Toast/Toast';
 
 import { initialValues, validationSchema } from '@/components/organism/o-login-form/login-form-validation';
 import { I_HandleLoginProps } from '@/components/organism/o-login-form/login-form-validation/login-form-send';
@@ -24,7 +23,7 @@ function Home({ loading, data, error }: HomeProps) {
 
     const router = useRouter();
 
-    const mToastRef = useRef<I_MToastComponent>(null);
+    const toastRef = useRef<ToastRef>(null);
 
     const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
 
@@ -34,7 +33,7 @@ function Home({ loading, data, error }: HomeProps) {
         initialValues,
         validationSchema,
         onSubmit: (values, { setSubmitting }) => {
-            handleLoginForm({ values, setSubmitting, mToastRef, router });
+            handleLoginForm({ values, setSubmitting, mToastRef: toastRef, router });
         },
         validateOnChange: false,
         validateOnBlur: true,
@@ -91,7 +90,7 @@ function Home({ loading, data, error }: HomeProps) {
                 />
             </main>
 
-            <M_Toast ref={mToastRef} position="bottom-center" />
+            <Toast ref={toastRef} position="bottom-center" />
 
             {showBlockUI && <BlockUI blocked={showBlockUI} fullScreen />}
         </>

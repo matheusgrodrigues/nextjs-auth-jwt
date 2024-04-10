@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as PrDialogProps from 'primereact/dialog';
 
-import styles from './m-dialog.module.css';
+import styles from './Dialog.module.css';
 
 interface DialogProps extends PrDialogProps.DialogProps {
     'data-testid'?: string;
