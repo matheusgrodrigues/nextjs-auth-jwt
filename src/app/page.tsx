@@ -24,21 +24,6 @@ interface InitialValuesProps {
     manter_logado: boolean;
 }
 
-const initialValues: InitialValuesProps = {
-    email: 'admin@matheusgomesdev.com.br',
-    password: '123456',
-    manter_logado: false,
-};
-
-const validationSchema = Yup.object().shape({
-    email: Yup.string()
-        .required(messages.login.ERROR_MESSAGES.INVALID_EMAIL_EMPTY)
-        .email(messages.login.ERROR_MESSAGES.INVALID_EMAIL),
-    password: Yup.string()
-        .required(messages.login.ERROR_MESSAGES.INVALID_PASSWORD_EMPTY)
-        .min(4, messages.login.ERROR_MESSAGES.INVALID_PASSWORD_MIN_LENGTH),
-});
-
 interface HandleLoginProps {
     values: InitialValuesProps;
     setSubmitting: (isSubmitting: boolean) => void;
@@ -57,8 +42,8 @@ function Home({ loading, data, error }: HomeProps) {
 
     const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
 
-    const handleLoginForm = useCallback(async ({ values, setSubmitting, mToastRef, router }: HandleLoginProps) => {
-        const { email, password, manter_logado } = values;
+    const handleLogin = useCallback(async ({ values, setSubmitting, mToastRef, router }: HandleLoginProps) => {
+        const { manter_logado, password, email } = values;
 
         setSubmitting(true);
 
@@ -97,14 +82,25 @@ function Home({ loading, data, error }: HomeProps) {
         }
     }, []);
 
-    const { handleSubmit, errors, touched, getFieldProps, values, isSubmitting } = useFormik({
-        initialValues,
+    const validationSchema = Yup.object().shape({
+        email: Yup.string()
+            .required(messages.login.ERROR_MESSAGES.INVALID_EMAIL_EMPTY)
+            .email(messages.login.ERROR_MESSAGES.INVALID_EMAIL),
+        password: Yup.string()
+            .required(messages.login.ERROR_MESSAGES.INVALID_PASSWORD_EMPTY)
+            .min(4, messages.login.ERROR_MESSAGES.INVALID_PASSWORD_MIN_LENGTH),
+    });
+
+    const { getFieldProps, isSubmitting, handleSubmit, touched, errors, values } = useFormik({
         validationSchema,
-        onSubmit: (values, { setSubmitting }) => {
-            handleLoginForm({ values, setSubmitting, mToastRef: toastRef, router });
-        },
         validateOnChange: false,
         validateOnBlur: true,
+        initialValues: {
+            email: 'admin@matheusgomesdev.com.br',
+            password: '123456',
+            manter_logado: false,
+        },
+        onSubmit: (values, { setSubmitting }) => handleLogin({ setSubmitting, mToastRef: toastRef, values, router }),
     });
 
     return (

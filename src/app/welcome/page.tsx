@@ -11,10 +11,10 @@ import { Header, Footer } from '@/components/organism';
 
 interface WelcomeProps extends SessionHOCProps {}
 
-const Welcome: React.FC<WelcomeProps> = (props) => {
+const Welcome: React.FC<WelcomeProps> = ({ data }) => {
     const router = useRouter();
 
-    const { session } = props.data;
+    const { session } = data;
 
     const handleLogout = useCallback(() => {
         tokenService.delete();
