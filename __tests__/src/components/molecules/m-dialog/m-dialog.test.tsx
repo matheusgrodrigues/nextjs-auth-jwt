@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { M_Dialog } from '../../../../../src/components/molecules/Dialog/Dialog';
+import { M_Dialog } from '../../../../../src/core/components/Dialog/Dialog';
 
 // Molecules
 

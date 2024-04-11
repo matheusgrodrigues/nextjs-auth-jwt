@@ -3,7 +3,7 @@
 import React, { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
+import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
 import tokenService from '@/core/services/tokenService';
 
 import { Button, Text, Title } from '@/components/atoms';
