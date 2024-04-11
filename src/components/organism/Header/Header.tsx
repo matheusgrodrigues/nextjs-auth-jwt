@@ -11,8 +11,8 @@ const Header: React.FC = () => {
 
     return (
         <header data-testid="header" className={styles.header} id="header">
-            <Link href={'/images/a-avatar.jpeg'}>
-                <Avatar image={'https://github.com/matheusgrodrigues'} label={''} shape="circle" />
+            <Link href="https://github.com/matheusgrodrigues">
+                <Avatar image="/images/a-avatar.jpeg" label={''} shape="circle" />
             </Link>
             <Button variant="transparent" onClick={theme.toggleTheme}>
                 <Icon icon="pi-sun" />

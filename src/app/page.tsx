@@ -102,49 +102,51 @@ function Home({ loading, data, error }: HomeProps) {
 
     return (
         <>
-            <main data-testid="p-home" className={'p_home'}>
+            <main data-testid="page-login" className="page-login">
                 <Header />
 
-                <div data-testid="loginTitle" className={'loginTitle'}>
-                    <Icon icon="pi-lock" />
-                    <Title variant="h2">{t('specific.home.label.title')}</Title>
-                    <Text variant="fwReg-fs16-gray500">{t('specific.home.label.description')}</Text>
+                <div className="page-login__form">
+                    <div data-testid="page-login-title-testid" className="page-login__form_title">
+                        <Icon icon="pi-lock" />
+                        <Title variant="h2">{t('specific.home.label.title')}</Title>
+                        <Text variant="fwReg-fs16-gray500">{t('specific.home.label.description')}</Text>
+                    </div>
+
+                    <form
+                        onSubmit={handleSubmit}
+                        className={'o_form_login'}
+                        data-testid="o-login-form"
+                        style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+                    >
+                        <InputWithLabel
+                            labelText="Email"
+                            type="email"
+                            placeholder={t('specific.home.label.email')}
+                            {...getFieldProps('email')}
+                        />
+
+                        {errors.email && touched.email && <Text variant="error">{errors.email}</Text>}
+
+                        <InputWithLabel
+                            labelText="Senha"
+                            type="password"
+                            placeholder={t('specific.home.label.senha')}
+                            {...getFieldProps('password')}
+                        />
+
+                        {errors.password && touched.password && <Text variant="error">{errors.password}</Text>}
+
+                        <CheckboxWithLabel
+                            checked={values.manter_logado}
+                            labelText={`${t('specific.home.inputLabel.manterConectado')}`}
+                            {...getFieldProps('manter_logado')}
+                        />
+
+                        <Button variant="gradient" type="submit" loading={isSubmitting}>
+                            {isSubmitting ? '' : 'Entrar'}
+                        </Button>
+                    </form>
                 </div>
-
-                <form
-                    onSubmit={handleSubmit}
-                    className={'o_form_login'}
-                    data-testid="o-login-form"
-                    style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-                >
-                    <InputWithLabel
-                        labelText="Email"
-                        type="email"
-                        placeholder={t('specific.home.label.email')}
-                        {...getFieldProps('email')}
-                    />
-
-                    {errors.email && touched.email && <Text variant="error">{errors.email}</Text>}
-
-                    <InputWithLabel
-                        labelText="Senha"
-                        type="password"
-                        placeholder={t('specific.home.label.senha')}
-                        {...getFieldProps('password')}
-                    />
-
-                    {errors.password && touched.password && <Text variant="error">{errors.password}</Text>}
-
-                    <CheckboxWithLabel
-                        checked={values.manter_logado}
-                        labelText={`${t('specific.home.label.manterConectado')}`}
-                        {...getFieldProps('manter_logado')}
-                    />
-
-                    <Button variant="gradient" type="submit" loading={isSubmitting}>
-                        {isSubmitting ? '' : 'Entrar'}
-                    </Button>
-                </form>
 
                 <Footer />
             </main>
