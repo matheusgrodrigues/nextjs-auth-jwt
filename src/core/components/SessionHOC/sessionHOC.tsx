@@ -1,6 +1,6 @@
 'use client';
 
-import { ComponentType, useEffect } from 'react';
+import React, { ComponentType, useEffect } from 'react';
 
 import { useRouter } from 'next/navigation';
 
