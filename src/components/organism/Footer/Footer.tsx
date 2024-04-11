@@ -4,14 +4,7 @@ import styles from './Footer.module.scss';
 
 import { Link, Icon } from '@/components/atoms';
 
-interface FooterProps {
-    name: string;
-    site: string;
-    github: string;
-    linkedin: string;
-}
-
-const Footer: React.FC<FooterProps> = ({ name, site, github, linkedin }) => {
+const Footer: React.FC = () => {
     const date = new Date();
 
     return (
@@ -19,16 +12,16 @@ const Footer: React.FC<FooterProps> = ({ name, site, github, linkedin }) => {
             <div className={styles.footer__name}>
                 <p>
                     © {date.getFullYear()}
-                    <Link href={site}>{name}.</Link>
+                    <Link href={'https://matheusgomesdev.com.br'}>{'matheusgomesdev'}.</Link>
                 </p>
             </div>
 
             <div className={styles.footer__icons}>
-                <Link href={github}>
+                <Link href={'https://github.com/matheusgrodrigues/nextjs-auth-jwt'}>
                     <Icon icon="pi-github" />
                 </Link>
 
-                <Link href={linkedin}>
+                <Link href={'https://www.linkedin.com/in/matheusgomes/'}>
                     <Icon icon="pi-linkedin" />
                 </Link>
             </div>

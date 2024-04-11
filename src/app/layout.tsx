@@ -7,14 +7,15 @@ import { PrimeReactProvider } from 'primereact/api';
 
 import '../styles/theme.scss';
 
+import i18n_metadata from '@/config/i18n/Metadata/metadata';
+
 const inter = Inter({
     subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-    title: 'NextJS: Auth + JWT',
-    description:
-        'Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.',
+    title: i18n_metadata.metadata.title,
+    description: i18n_metadata.metadata.description,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
