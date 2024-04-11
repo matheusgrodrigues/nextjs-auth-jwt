@@ -7,6 +7,8 @@ import { useFormik } from 'formik';
 
 import * as Yup from 'yup';
 
+import useTranslation from '@/core/hooks/useTranslation';
+
 import { messages } from '@/config';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
@@ -16,7 +18,6 @@ import BlockUI from '@/core/components/BlockUI/BlockUI';
 import { Button, Text, Title, Icon } from '@/components/atoms';
 import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
-import { LogoutDialog, LogoutDialogRef } from '@/components/templates';
 
 import { authUseCases } from '@/services/AuthService';
 
@@ -29,7 +30,7 @@ interface InitialValuesProps {
 interface HandleLoginProps {
     values: InitialValuesProps;
     setSubmitting: (isSubmitting: boolean) => void;
-    mToastRef: React.RefObject<ToastRef>;
+    toastRef: React.RefObject<ToastRef>;
     router: AppRouterInstance;
 }
 
@@ -41,11 +42,12 @@ function Home({ loading, data, error }: HomeProps) {
     const router = useRouter();
 
     const toastRef = useRef<ToastRef>(null);
-    const logoutDialogRef = useRef<LogoutDialogRef>(null);
 
     const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
 
-    const handleLogin = useCallback(async ({ values, setSubmitting, mToastRef, router }: HandleLoginProps) => {
+    const { t } = useTranslation();
+
+    const handleLogin = useCallback(async ({ setSubmitting, toastRef, values, router }: HandleLoginProps) => {
         const { manter_logado, password, email } = values;
 
         setSubmitting(true);
@@ -59,25 +61,21 @@ function Home({ loading, data, error }: HomeProps) {
 
             setSubmitting(false);
 
-            if (mToastRef && mToastRef.current) {
-                mToastRef.current.showToast({
-                    severity: 'success',
-                    summary: messages.login.TOAST.SUCCESS_TITLE,
-                    detail: messages.login.TOAST.REDIRECT_MESSAGE,
-                });
-            }
+            toastRef.current?.showToast({
+                severity: 'success',
+                summary: messages.login.TOAST.SUCCESS_TITLE,
+                detail: messages.login.TOAST.REDIRECT_MESSAGE,
+            });
 
             setTimeout(() => router.push('/welcome'), 3000);
         } catch {
             setSubmitting(false);
 
-            if (mToastRef && mToastRef.current) {
-                mToastRef.current.showToast({
-                    severity: 'error',
-                    summary: messages.login.TOAST.ERROR_TITLE,
-                    detail: messages.login.ERROR_MESSAGES.INVALID_EMAIL_PASSWORD,
-                });
-            }
+            toastRef.current?.showToast({
+                severity: 'error',
+                summary: messages.login.TOAST.ERROR_TITLE,
+                detail: messages.login.ERROR_MESSAGES.INVALID_EMAIL_PASSWORD,
+            });
         }
     }, []);
 
@@ -99,23 +97,18 @@ function Home({ loading, data, error }: HomeProps) {
             password: '123456',
             manter_logado: false,
         },
-        onSubmit: (values, { setSubmitting }) => handleLogin({ setSubmitting, mToastRef: toastRef, values, router }),
+        onSubmit: (values, { setSubmitting }) => handleLogin({ setSubmitting, toastRef, values, router }),
     });
 
     return (
         <>
-            <button onClick={() => logoutDialogRef.current?.setVisible(true)}>Abrir dialog</button>
-            <LogoutDialog ref={logoutDialogRef} />
-
             <main data-testid="p-home" className={'p_home'}>
-                <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
+                <Header />
 
                 <div data-testid="loginTitle" className={'loginTitle'}>
                     <Icon icon="pi-lock" />
-                    <Title variant="h2">{'Acesse sua conta'}</Title>
-                    <Text variant="fwReg-fs16-gray500">
-                        Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
-                    </Text>
+                    <Title variant="h2">{t('specific.home.label.title')}</Title>
+                    <Text variant="fwReg-fs16-gray500">{t('specific.home.label.description')}</Text>
                 </div>
 
                 <form
@@ -153,12 +146,7 @@ function Home({ loading, data, error }: HomeProps) {
                     </Button>
                 </form>
 
-                <Footer
-                    github="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
-                    linkedin="https://www.linkedin.com/in/matheusgomes/"
-                    name="matheusgomesdev"
-                    site="https://matheusgomesdev.com.br"
-                />
+                <Footer />
             </main>
 
             <Toast ref={toastRef} position="bottom-center" />
