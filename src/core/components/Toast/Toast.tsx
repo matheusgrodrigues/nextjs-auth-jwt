@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
+import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 
 import * as PrToast from 'primereact/toast';
 
@@ -13,12 +13,7 @@ interface ToastProps extends PrToast.ToastProps {}
 const Toast: React.ForwardRefRenderFunction<ToastRef, ToastProps> = (props, ref) => {
     const toastRef = useRef<PrToast.Toast>(null);
 
-    const showToast = useCallback(
-        (message: PrToast.ToastMessage | PrToast.ToastMessage[]) => toastRef.current?.show(message),
-        []
-    );
-
-    useImperativeHandle(ref, () => ({ showToast }), []);
+    useImperativeHandle(ref, () => ({ showToast: (message) => toastRef.current?.show({ ...message }) }), []);
 
     return (
         <PrToast.Toast

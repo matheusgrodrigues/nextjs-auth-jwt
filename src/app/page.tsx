@@ -7,12 +7,13 @@ import { useFormik } from 'formik';
 
 import * as Yup from 'yup';
 
-import { SessionHOCProps, withSessionHOC } from '@/core/utils/hoc/sessionHOC';
+import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
+import Toast, { ToastRef } from '@/core/components/Toast/Toast';
+import BlockUI from '@/core/components/BlockUI/BlockUI';
 
 import { Button, Text, Title, Icon } from '@/components/atoms';
-import { BlockUI, Header, Footer } from '@/components/organism';
-import { CheckboxWithLabel, InputWithLabel, Toast } from '@/components/molecules';
-import { ToastRef } from '@/components/molecules/Toast/Toast';
+import { Header, Footer } from '@/components/organism';
+import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
 import { messages } from '@/config';
 
@@ -47,8 +48,6 @@ function Home({ loading, data, error }: HomeProps) {
 
         setSubmitting(true);
 
-        const life = 3000;
-
         try {
             await authUseCases.login({
                 identifier: email,
@@ -63,11 +62,10 @@ function Home({ loading, data, error }: HomeProps) {
                     severity: 'success',
                     summary: messages.login.TOAST.SUCCESS_TITLE,
                     detail: messages.login.TOAST.REDIRECT_MESSAGE,
-                    life,
                 });
             }
 
-            setTimeout(() => router.push('/welcome'), life);
+            setTimeout(() => router.push('/welcome'), 3000);
         } catch {
             setSubmitting(false);
 
@@ -76,7 +74,6 @@ function Home({ loading, data, error }: HomeProps) {
                     severity: 'error',
                     summary: messages.login.TOAST.ERROR_TITLE,
                     detail: messages.login.ERROR_MESSAGES.INVALID_EMAIL_PASSWORD,
-                    life,
                 });
             }
         }
@@ -105,6 +102,17 @@ function Home({ loading, data, error }: HomeProps) {
 
     return (
         <>
+            <button
+                onClick={() => {
+                    toastRef.current?.showToast({
+                        severity: 'success',
+                        summary: messages.login.TOAST.SUCCESS_TITLE,
+                        detail: messages.login.TOAST.REDIRECT_MESSAGE,
+                    });
+                }}
+            >
+                Show Toast
+            </button>
             <main data-testid="p-home" className={'p_home'}>
                 <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
 
