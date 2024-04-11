@@ -7,6 +7,8 @@ import { useFormik } from 'formik';
 
 import * as Yup from 'yup';
 
+import { messages } from '@/config';
+
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
 import Toast, { ToastRef } from '@/core/components/Toast/Toast';
 import BlockUI from '@/core/components/BlockUI/BlockUI';
@@ -14,8 +16,7 @@ import BlockUI from '@/core/components/BlockUI/BlockUI';
 import { Button, Text, Title, Icon } from '@/components/atoms';
 import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
-
-import { messages } from '@/config';
+import { LogoutDialog, LogoutDialogRef } from '@/components/templates';
 
 import { authUseCases } from '@/services/AuthService';
 
@@ -40,6 +41,7 @@ function Home({ loading, data, error }: HomeProps) {
     const router = useRouter();
 
     const toastRef = useRef<ToastRef>(null);
+    const logoutDialogRef = useRef<LogoutDialogRef>(null);
 
     const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
 
@@ -102,17 +104,9 @@ function Home({ loading, data, error }: HomeProps) {
 
     return (
         <>
-            <button
-                onClick={() => {
-                    toastRef.current?.showToast({
-                        severity: 'success',
-                        summary: messages.login.TOAST.SUCCESS_TITLE,
-                        detail: messages.login.TOAST.REDIRECT_MESSAGE,
-                    });
-                }}
-            >
-                Show Toast
-            </button>
+            <button onClick={() => logoutDialogRef.current?.setVisible(true)}>Abrir dialog</button>
+            <LogoutDialog ref={logoutDialogRef} />
+
             <main data-testid="p-home" className={'p_home'}>
                 <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
 
