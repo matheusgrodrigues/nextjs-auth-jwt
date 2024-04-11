@@ -120,7 +120,7 @@ function Home({ loading, data, error }: HomeProps) {
                     <InputWithLabel
                         labelText="Email"
                         type="email"
-                        placeholder="Endereço de e-mail"
+                        placeholder={t('specific.home.label.email')}
                         {...getFieldProps('email')}
                     />
 
@@ -129,7 +129,7 @@ function Home({ loading, data, error }: HomeProps) {
                     <InputWithLabel
                         labelText="Senha"
                         type="password"
-                        placeholder="Digite sua senha"
+                        placeholder={t('specific.home.label.senha')}
                         {...getFieldProps('password')}
                     />
 
@@ -137,7 +137,7 @@ function Home({ loading, data, error }: HomeProps) {
 
                     <CheckboxWithLabel
                         checked={values.manter_logado}
-                        labelText="Mantenha-me conectado."
+                        labelText={`${t('specific.home.label.manterConectado')}`}
                         {...getFieldProps('manter_logado')}
                     />
 

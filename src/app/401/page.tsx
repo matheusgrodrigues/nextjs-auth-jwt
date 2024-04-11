@@ -6,33 +6,32 @@ import { useRouter } from 'next/navigation';
 import { Button, Text, Title } from '@/components/atoms';
 import { Footer, Header } from '@/components/organism';
 
+import useTranslation from '@/core/hooks/useTranslation';
+
 const Page401 = () => {
     const router = useRouter();
+
+    const { t } = useTranslation();
 
     const handleLogin = useCallback(() => router.push('/'), []);
 
     return (
         <main data-testid="p-401" className={'p_401'}>
-            <Header image="https://github.com/matheusgrodrigues" link="/images/a-avatar.jpeg" />
+            <Header />
 
             <main data-testid="t-401" className={'t_401'} id="t-401">
-                <Text variant="fwSb-fs16-primary">401</Text>
-                <Title variant="h1">Acesso não autorizado</Title>
-                <Text variant="fwReg-fs16-gray500">
-                    Desculpe, você não tem permissão para acessar esta página. Por favor, verifique suas credenciais ou
-                    entre em contato com o suporte se precisar de assistência.
-                </Text>
+                <Text variant="fwSb-fs16-primary">{t('specific.404.title')}</Text>
+
+                <Title variant="h1">{t('specific.404.naoAutorizado')}</Title>
+
+                <Text variant="fwReg-fs16-gray500">{t('specific.404.desciption')}</Text>
+
                 <Button variant="gradient" onClick={handleLogin}>
-                    Faça Login
+                    {t('specific.404.facaLogin')}
                 </Button>
             </main>
 
-            <Footer
-                github="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
-                linkedin="https://www.linkedin.com/in/matheusgomes/"
-                name="matheusgomesdev"
-                site="https://matheusgomesdev.com.br"
-            />
+            <Footer />
         </main>
     );
 };
