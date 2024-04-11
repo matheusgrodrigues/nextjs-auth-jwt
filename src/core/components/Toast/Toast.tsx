@@ -13,11 +13,10 @@ interface ToastProps extends PrToast.ToastProps {}
 const Toast: React.ForwardRefRenderFunction<ToastRef, ToastProps> = (props, ref) => {
     const toastRef = useRef<PrToast.Toast>(null);
 
-    const showToast = useCallback((message: PrToast.ToastMessage | PrToast.ToastMessage[]) => {
-        if (toastRef && toastRef.current) {
-            toastRef.current.show(message);
-        }
-    }, []);
+    const showToast = useCallback(
+        (message: PrToast.ToastMessage | PrToast.ToastMessage[]) => toastRef.current?.show(message),
+        []
+    );
 
     useImperativeHandle(ref, () => ({ showToast }), []);
 
