@@ -20,6 +20,8 @@ import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
 import { authUseCases } from '@/services/AuthService';
+import Form from '@/core/components/Form/Form';
+import BaseForm from '@/core/components/Form/Form';
 
 interface InitialValuesProps {
     email: string;
@@ -105,6 +107,8 @@ function Home({ loading, data, error }: HomeProps) {
             <main data-testid="page-login" className="page-login">
                 <Header />
 
+                <BaseForm />
+
                 <div className="page-login__form">
                     <div data-testid="page-login-title-testid" className="page-login__form_title">
                         <Icon icon="pi-lock" />
@@ -121,7 +125,7 @@ function Home({ loading, data, error }: HomeProps) {
                         <InputWithLabel
                             labelText="Email"
                             type="email"
-                            placeholder={t('specific.home.label.email')}
+                            placeholder={t('specific.home.inputLabel.email')}
                             {...getFieldProps('email')}
                         />
 
@@ -130,7 +134,7 @@ function Home({ loading, data, error }: HomeProps) {
                         <InputWithLabel
                             labelText="Senha"
                             type="password"
-                            placeholder={t('specific.home.label.senha')}
+                            placeholder={t('specific.home.inputLabel.senha')}
                             {...getFieldProps('password')}
                         />
 
