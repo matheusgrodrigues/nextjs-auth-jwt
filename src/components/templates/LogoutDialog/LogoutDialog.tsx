@@ -1,25 +1,21 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-// Atoms
-import { A_Button, A_Text, A_Title } from '@/components/atoms';
+import styles from './LogoutDialog.module.css';
 
-// Molecules
-import { M_Dialog } from '@/components/molecules/m-dialog/m-dialog';
+import { Button, Text, Title } from '@/components/atoms';
+import { Dialog } from '@/components/molecules';
 
-// StyleSheet
-import styles from './logout-dialog.module.css';
-
-interface I_LogoutDialog {
+interface LogoutDialogProps {
     visible: boolean;
     onConfirm: () => void;
     onReject: () => void;
 }
 
-export const LogoutDialog = ({ visible, onConfirm, onReject, ...props }: I_LogoutDialog) => {
+export const LogoutDialog: React.FC<LogoutDialogProps> = ({ visible, onConfirm, onReject, ...props }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     return (
-        <M_Dialog
+        <Dialog
             visible={visible}
             onHide={() => null}
             data-testid="logout-dialog"
@@ -28,16 +24,17 @@ export const LogoutDialog = ({ visible, onConfirm, onReject, ...props }: I_Logou
             {...props}
         >
             <div className={styles.logoutDialog__header}>
-                <A_Title variant="h2" data-testid="logout-dialog-title">
+                <Title variant="h2" data-testid="logout-dialog-title">
                     Confirmação
-                </A_Title>
-                <A_Text variant="fwReg-fs20-lh30-gray500" data-testid="logout-dialog-description">
+                </Title>
+
+                <Text variant="fwReg-fs20-lh30-gray500" data-testid="logout-dialog-description">
                     Tem certeza que deseja sair ?
-                </A_Text>
+                </Text>
             </div>
 
             <div className={styles.logoutDialog__footer}>
-                <A_Button
+                <Button
                     variant="gradient"
                     data-testid="logout-dialog-confirm-button"
                     loading={isLoading}
@@ -47,15 +44,15 @@ export const LogoutDialog = ({ visible, onConfirm, onReject, ...props }: I_Logou
                     }}
                 >
                     {isLoading ? '' : 'Sim'}
-                </A_Button>
-                <A_Button
+                </Button>
+                <Button
                     variant="fwMd-fs16-colGray700-bgWhite"
                     data-testid="logout-dialog-reject-button"
                     onClick={onReject}
                 >
                     Não
-                </A_Button>
+                </Button>
             </div>
-        </M_Dialog>
+        </Dialog>
     );
 };
