@@ -1,10 +1,10 @@
-import axios, { AxiosHeaders, AxiosResponse } from 'axios';
+import axios from 'axios';
 
 interface I_HttpInfra {
     method: string;
     url: string;
     token?: string;
-    body?: {};
+    body?: object;
 }
 const httpInfra = async ({ method, url, token, body }: I_HttpInfra) => {
     const defaultHeader = {

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styles from './Header.module.scss';
 
 import useTheme from '@/core/hooks/useTheme';
@@ -9,7 +11,7 @@ interface HeaderProps {
     image: string;
 }
 
-const Header = ({ link, image }: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({ link, image }) => {
     const theme = useTheme();
 
     return (

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styles from './Footer.module.scss';
 
 import { Link, Icon } from '@/components/atoms';
@@ -9,7 +11,7 @@ interface FooterProps {
     linkedin: string;
 }
 
-const Footer = ({ name, site, github, linkedin }: FooterProps) => {
+const Footer: React.FC<FooterProps> = ({ name, site, github, linkedin }) => {
     const date = new Date();
 
     return (

@@ -8,7 +8,7 @@ interface AvatarProps extends PrAvatar.AvatarProps {
     label: string;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ image, size, shape, label, ...props }) => {
+const Avatar: React.FC<AvatarProps> = ({ image, shape, label, ...props }) => {
     return <PrAvatar.Avatar label={label} data-testid="avatar-testid" image={image} shape={shape} {...props} />;
 };
 
