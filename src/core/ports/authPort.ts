@@ -1,8 +1,8 @@
-import { I_AuthCredentialsEntity, I_AuthResponseEntity, I_AuthUserEntity } from '@/schemas/AuthSchema';
+import { AuthCredentialSchema, AuthResponseSchema, AuthUserSchema } from '@/schemas/AuthSchema';
 
-interface I_AuthPort {
-    login: (body: I_AuthCredentialsEntity) => Promise<I_AuthResponseEntity>;
-    me: (token: string) => Promise<I_AuthUserEntity>;
+interface AuthPortProps {
+    login: (body: AuthCredentialSchema) => Promise<AuthResponseSchema>;
+    me: (token: string) => Promise<AuthUserSchema>;
 }
 
-export default I_AuthPort;
+export default AuthPortProps;

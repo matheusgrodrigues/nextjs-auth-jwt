@@ -1,15 +1,17 @@
 import axios from 'axios';
 
-interface I_HttpInfra {
+interface HttpMiddlewareProps {
     method: string;
     url: string;
     token?: string;
     body?: object;
 }
-const httpInfra = async ({ method, url, token, body }: I_HttpInfra) => {
+
+const httpMiddleware = async ({ method, url, token, body }: HttpMiddlewareProps) => {
     const defaultHeader = {
         'Content-Type': 'application/json',
     };
+
     const authHeader = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -29,4 +31,4 @@ const httpInfra = async ({ method, url, token, body }: I_HttpInfra) => {
     }
 };
 
-export default httpInfra;
+export default httpMiddleware;

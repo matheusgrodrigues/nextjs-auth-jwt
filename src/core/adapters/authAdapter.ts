@@ -1,19 +1,19 @@
 import { AxiosResponse } from 'axios';
 
-import I_AuthPort from '../ports/authPort';
+import AuthPortProps from '../ports/authPort';
 
-import httpInfra from '../middleware/HttpMiddleware';
+import httpMiddleware from '../middleware/HttpMiddleware';
 
-import { I_AuthResponseEntity, I_AuthUserEntity } from '@/schemas/AuthSchema';
+import { AuthResponseSchema, AuthUserSchema } from '@/schemas/AuthSchema';
 
-const authAdapter: I_AuthPort = {
+const authAdapter: AuthPortProps = {
     login: async ({ identifier, password }) => {
         const method = 'POST';
 
-        const url = `${process.env.STRAPI_API_URL}/auth/local`;
+        const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local`;
 
         try {
-            const response: AxiosResponse<I_AuthResponseEntity> = await httpInfra({
+            const response: AxiosResponse<AuthResponseSchema> = await httpMiddleware({
                 method,
                 url,
                 body: {
@@ -33,7 +33,7 @@ const authAdapter: I_AuthPort = {
         const url = `${process.env.STRAPI_API_URL}/users/me`;
 
         try {
-            const response: AxiosResponse<I_AuthUserEntity> = await httpInfra({ method, url, token });
+            const response: AxiosResponse<AuthUserSchema> = await httpMiddleware({ method, url, token });
 
             return response.data;
         } catch (error) {

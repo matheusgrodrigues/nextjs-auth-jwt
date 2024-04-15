@@ -1,10 +1,10 @@
-export interface I_AuthCredentialsEntity {
+export interface AuthCredentialSchema {
     identifier: string;
     password: string;
     manter_logado: boolean;
 }
 
-export interface I_AuthUserEntity {
+export interface AuthUserSchema {
     id: number;
     username: string;
     email: string;
@@ -15,7 +15,7 @@ export interface I_AuthUserEntity {
     updatedAt: string;
 }
 
-export interface I_AuthResponseEntity {
+export interface AuthResponseSchema {
     jwt: string;
-    user: I_AuthUserEntity;
+    user: AuthUserSchema;
 }

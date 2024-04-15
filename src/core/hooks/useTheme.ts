@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-type T_Theme = 'light' | 'dark' | string | null;
+type Theme = 'light' | 'dark' | string | null;
 
 const defaultTheme = {
     light: {
@@ -36,9 +36,9 @@ const executeDarkTheme = () => {
 };
 
 const useTheme = () => {
-    const themeStorage: T_Theme | string | null = globalThis?.localStorage?.getItem('theme');
+    const themeStorage: Theme | string | null = globalThis?.localStorage?.getItem('theme');
 
-    const [theme, setTheme] = useState<T_Theme>(themeStorage || 'light');
+    const [theme, setTheme] = useState<Theme>(themeStorage || 'light');
 
     useEffect(() => {
         const initTheme = () => {
