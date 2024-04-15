@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
 
@@ -10,15 +10,22 @@ import { Header, Footer } from '@/components/organism';
 import { LogoutDialog, LogoutDialogRef } from '@/components/templates';
 
 import useTranslation from '@/core/hooks/useTranslation';
+import { GlobalContext } from '@/core/context/GlobalContext';
 
 interface WelcomeProps extends SessionHOCProps {}
 
 const Welcome: React.FC<WelcomeProps> = ({ data }) => {
     const { session } = data;
 
+    const { blockUIRef } = useContext(GlobalContext);
+
     const logoutDialogRef = useRef<LogoutDialogRef>(null);
 
     const { t } = useTranslation();
+
+    useEffect(() => {
+        blockUIRef.current?.setIsBlocked(false);
+    }, []);
 
     return (
         <>

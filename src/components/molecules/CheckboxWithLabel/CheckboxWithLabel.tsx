@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CheckboxProps } from 'primereact/checkbox';
 
-import styles from './CheckboxWithLabel.module.css';
+import styles from './CheckboxWithLabel.module.scss';
 
 import { Checkbox, Label } from '@/components/atoms';
 

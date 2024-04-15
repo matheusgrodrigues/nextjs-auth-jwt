@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useImperativeHandle, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import styles from './LogoutDialog.module.css';
+import styles from './LogoutDialog.module.scss';
 
 import Dialog from '@/core/components/Dialog/Dialog';
 

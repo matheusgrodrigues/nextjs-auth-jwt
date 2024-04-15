@@ -2,7 +2,7 @@ import React from 'react';
 
 import { InputTextProps } from 'primereact/inputtext';
 
-import styles from './InputWithLabel.module.css';
+import styles from './InputWithLabel.module.scss';
 
 import { Label, Input } from '../../atoms';
 

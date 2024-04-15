@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <div className={styles.footer__name}>
                 <p>
                     © {date.getFullYear()}
-                    <Link href={'https://matheusgomesdev.com.br'}>{'matheusgomesdev'}.</Link>
+                    <Link href={'https://matheusgomesdev.com.br'}>matheusgomesdev.</Link>
                 </p>
             </div>
 

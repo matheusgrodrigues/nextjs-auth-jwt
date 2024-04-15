@@ -1,13 +1,11 @@
 'use client';
 
-import React, { useCallback, useContext, useEffect, useRef } from 'react';
+import React, { useCallback, useContext, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 import * as Yup from 'yup';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
-import Toast from '@/core/components/Toast/Toast';
-import BlockUI from '@/core/components/BlockUI/BlockUI';
 import BaseForm, { FormikHelpers, FormikValues } from '@/core/components/Form/Form';
 import { GlobalContext } from '@/core/context/GlobalContext';
 
@@ -21,7 +19,7 @@ import { authUseCases } from '@/services/AuthService';
 
 interface HomeProps extends SessionHOCProps {}
 
-function Home({ loading, data, error }: HomeProps) {
+const Home: React.FC<HomeProps> = ({ loading, error, data }) => {
     const { session } = data;
 
     const { blockUIRef, toastRef } = useContext(GlobalContext);
@@ -31,6 +29,12 @@ function Home({ loading, data, error }: HomeProps) {
     const btnSubmitRef = useRef<ButtonRef>(null);
 
     const { t } = useTranslation();
+
+    useMemo(() => {
+        if (session && !error && !loading) {
+            blockUIRef.current?.setIsBlocked(true);
+        }
+    }, [loading, session, error]);
 
     const validationSchema = Yup.object().shape({
         email: Yup.string()
@@ -75,12 +79,6 @@ function Home({ loading, data, error }: HomeProps) {
             });
         }
     }, []);
-
-    useEffect(() => {
-        if (session && !error && !loading) {
-            blockUIRef.current?.setIsBlocked(true);
-        }
-    }, [loading, session, error]);
 
     return (
         <>
@@ -129,18 +127,15 @@ function Home({ loading, data, error }: HomeProps) {
                         />
 
                         <Button variant="gradient" type="submit" ref={btnSubmitRef}>
-                            Entrar
+                            {`${t('specific.home.inputLabel.btnEntrar')}`}
                         </Button>
                     </div>
                 </BaseForm>
 
                 <Footer />
             </main>
-
-            <Toast ref={toastRef} position="bottom-center" />
-            <BlockUI fullScreen ref={blockUIRef} />
         </>
     );
-}
+};
 
 export default withSessionHOC(Home);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Link.module.css';
+import styles from './Link.module.scss';
 
 interface LinkProps {
     href: string;
