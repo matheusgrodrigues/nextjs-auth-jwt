@@ -6,6 +6,8 @@ import styles from './InputWithLabel.module.css';
 
 import { Label, Input } from '../../atoms';
 
+import BaseField from '@/core/components/Form/Field';
+
 interface InputWithLabelProps extends InputTextProps {
     labelText: string;
     type: React.HTMLInputTypeAttribute;
@@ -15,11 +17,16 @@ interface InputWithLabelProps extends InputTextProps {
 const InputWithLabel: React.FC<InputWithLabelProps> = ({ labelText, type, name, placeholder, ...props }) => {
     return (
         <div
-            className={styles.m_input_label}
+            className={styles.input_label}
             data-testid={`${name ? `input-with-label-${name}-testid` : 'input-with-label-testid'}`}
         >
             <Label htmlFor={name}>{labelText}</Label>
-            <Input type={type} name={name} placeholder={placeholder} {...props} />
+
+            <BaseField
+                name={name}
+                type={type}
+                render={<Input type={type} name={name} placeholder={placeholder} {...props} />}
+            />
         </div>
     );
 };

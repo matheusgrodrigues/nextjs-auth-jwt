@@ -20,7 +20,6 @@ import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
 import { authUseCases } from '@/services/AuthService';
-import BaseField from '@/core/components/Form/Field';
 
 interface HomeProps extends SessionHOCProps {}
 
@@ -37,6 +36,8 @@ function Home({ loading, data, error }: HomeProps) {
 
     const handleLogin = useCallback(async (values: FormikValues, actions: FormikHelpers<FormikValues>) => {
         const { manter_logado, password, email } = values;
+
+        console.log(values);
 
         actions.setSubmitting(true);
 
@@ -81,14 +82,6 @@ function Home({ loading, data, error }: HomeProps) {
             <main data-testid="page-login" className="page-login">
                 <Header />
 
-                {/*
-TODO: 
-        adicionar as props no BaseForm
-    className={'o_form_login'}
-  style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-                    data-testid="o-login-form"
-
-*/}
                 <BaseForm
                     initialValues={{
                         email: 'admin@matheusgomesdev.com.br',
@@ -99,6 +92,9 @@ TODO:
                     validateOnChange={false}
                     validateOnBlur={true}
                     onSubmit={handleLogin}
+                    data-testid="o-login-form"
+                    className={'o_form_login'}
+                    style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
                 >
                     <div className="page-login__form">
                         <div data-testid="page-login-title-testid" className="page-login__form_title">
@@ -106,8 +102,6 @@ TODO:
                             <Title variant="h2">{t('specific.home.label.title')}</Title>
                             <Text variant="fwReg-fs16-gray500">{t('specific.home.label.description')}</Text>
                         </div>
-
-                        <BaseField name="email" />
 
                         <InputWithLabel
                             labelText="Email"

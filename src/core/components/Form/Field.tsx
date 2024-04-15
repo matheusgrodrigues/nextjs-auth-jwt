@@ -1,15 +1,26 @@
 import React from 'react';
 
-import { ErrorMessage, Field, FieldAttributes } from 'formik';
+import { ErrorMessage, Field, FieldAttributes, FieldProps } from 'formik';
 
-interface BaseFieldProps extends FieldAttributes<any> {}
+import { Text } from '@/components/atoms';
 
-export const BaseField: React.FC<BaseFieldProps> = ({ name, type, ...props }) => {
+interface BaseFieldProps extends FieldAttributes<any> {
+    render: React.ReactElement;
+}
+
+export const BaseField: React.FC<BaseFieldProps> = ({ render, name, type, ...props }) => {
     return (
-        <>
-            <Field name={name} type={type} {...props} />
-            <ErrorMessage name={name} />
-        </>
+        <Field name={name} type={type} {...props}>
+            {({ field }: FieldProps) => (
+                <>
+                    {React.cloneElement(render, {
+                        ...field,
+                    })}
+
+                    <ErrorMessage name={name} render={(msg) => <Text variant="error">{msg}</Text>} />
+                </>
+            )}
+        </Field>
     );
 };
 
