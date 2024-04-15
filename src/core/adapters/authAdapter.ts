@@ -30,7 +30,7 @@ const authAdapter: AuthPortProps = {
     me: async (token: string) => {
         const method = 'GET';
 
-        const url = `${process.env.STRAPI_API_URL}/users/me`;
+        const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/users/me`;
 
         try {
             const response: AxiosResponse<AuthUserSchema> = await httpMiddleware({ method, url, token });

@@ -4,13 +4,13 @@ import React, { ComponentType, useEffect } from 'react';
 
 import { useRouter } from 'next/navigation';
 
-import { I_AuthUserEntity } from '@/schemas/AuthSchema';
+import { AuthUserSchema } from '@/schemas/AuthSchema';
 
 import useSession from '@/core/hooks/useSession';
 
 export interface SessionHOCProps {
     data: {
-        session: I_AuthUserEntity | undefined;
+        session: AuthUserSchema | undefined;
     };
     error: boolean;
     loading: boolean;
@@ -46,46 +46,3 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & Se
 
     return Wrapper;
 };
-
-/*
-*
-* Aplicar tipagem do typescript e testar.
-* Estava consumindo muito tempo, então resolvi adiar.
-* Por enquanto está buscando via GetServerSideProps diretamente no component.
-* 
-* Sinta-se a vontade para tipar esta função, testar e fazer um pull request no repositório :)
-* 
-* Obs: o GetServerSideProps só funciona no PagesRouter.
-* A nova versão do next.js utiliza o AppRouter, que vem com o SSR ativado por padrão.
-* Para buscar os cookies utilize {cookies} from "next/router".
-* 
-*
-
-================================================================================
-
-// Server
-export function withSession(cb) {
-  return async (ctx) => {
-    try {
-      const session = await getSession();
-      const modifiedCtx = {
-        ...ctx,
-        req: {
-          ...ctx.req,
-          session,
-        },
-      };
-      return cb(modifiedCtx);
-    } catch (err) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: "/?error=401",
-        },
-      };
-    }
-  };
-}
-================================================================================
-
-*/
