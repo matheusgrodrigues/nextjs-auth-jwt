@@ -26,8 +26,8 @@ const Welcome: React.FC<WelcomeProps> = ({ data }) => {
                 <Header />
 
                 {session && (
-                    <main className="page-welcome__welcome">
-                        <div className="page-welcome__welcome_heading">
+                    <main className="page-welcome__content">
+                        <div className="page-welcome__content_heading">
                             <Text data-testid="a-text-welcome" variant="fwSb-fs16-primary">
                                 {t('specific.welcome.label.title')}
                             </Text>
