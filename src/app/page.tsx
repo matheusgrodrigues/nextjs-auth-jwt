@@ -1,18 +1,16 @@
 'use client';
 
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { FormikHelpers, FormikValues, useFormikContext } from 'formik';
+import { FormikHelpers, FormikValues } from 'formik';
 
 import * as Yup from 'yup';
 
 import useTranslation from '@/core/hooks/useTranslation';
 
-import { messages } from '@/config';
-
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
 import Toast, { ToastRef } from '@/core/components/Toast/Toast';
-import BlockUI from '@/core/components/BlockUI/BlockUI';
+import BlockUI, { BlockUIRef } from '@/core/components/BlockUI/BlockUI';
 import BaseForm from '@/core/components/Form/Form';
 
 import { Button, Text, Title, Icon, ButtonRef } from '@/components/atoms';
@@ -30,10 +28,18 @@ function Home({ loading, data, error }: HomeProps) {
 
     const toastRef = useRef<ToastRef>(null);
     const btnSubmitRef = useRef<ButtonRef>(null);
-
-    const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
+    const blockUIRef = useRef<BlockUIRef>(null);
 
     const { t } = useTranslation();
+
+    const validationSchema = Yup.object().shape({
+        email: Yup.string()
+            .required(`${t('specific.home.inputErrorMessage.invalid_email')}`)
+            .email(`${t('specific.home.inputErrorMessage.invalid_email')}`),
+        password: Yup.string()
+            .required(`${t('specific.home.inputErrorMessage.invalid_password_empty')}`)
+            .min(4, `${t('specific.home.inputErrorMessage.invalid_password_min_length')}`),
+    });
 
     const handleLogin = useCallback(async (values: FormikValues, actions: FormikHelpers<FormikValues>) => {
         const { manter_logado, password, email } = values;
@@ -53,8 +59,8 @@ function Home({ loading, data, error }: HomeProps) {
 
             toastRef.current?.showToast({
                 severity: 'success',
-                summary: messages.login.TOAST.SUCCESS_TITLE,
-                detail: messages.login.TOAST.REDIRECT_MESSAGE,
+                summary: `${t('specific.home.toast.success_title')}`,
+                detail: `${t('specific.home.toast.redirect_message')}`,
             });
 
             setTimeout(() => router.push('/welcome'), 3000);
@@ -64,26 +70,17 @@ function Home({ loading, data, error }: HomeProps) {
 
             toastRef.current?.showToast({
                 severity: 'error',
-                summary: messages.login.TOAST.ERROR_TITLE,
-                detail: messages.login.ERROR_MESSAGES.INVALID_EMAIL_PASSWORD,
+                summary: `${t('specific.home.toast.error_title')}`,
+                detail: `${t('specific.home.inputErrorMessage.invalid_email_password')}`,
             });
         }
     }, []);
 
-    const validationSchema = Yup.object().shape({
-        email: Yup.string()
-            .required(messages.login.ERROR_MESSAGES.INVALID_EMAIL_EMPTY)
-            .email(messages.login.ERROR_MESSAGES.INVALID_EMAIL),
-        password: Yup.string()
-            .required(messages.login.ERROR_MESSAGES.INVALID_PASSWORD_EMPTY)
-            .min(4, messages.login.ERROR_MESSAGES.INVALID_PASSWORD_MIN_LENGTH),
-    });
-
-    const initialValues = {
-        email: 'admin@matheusgomesdev.com.br',
-        password: '123456',
-        manter_logado: false,
-    };
+    useEffect(() => {
+        if (session && !error && !loading) {
+            blockUIRef.current?.setIsBlocked(true);
+        }
+    }, [loading, session, error]);
 
     return (
         <>
@@ -91,7 +88,11 @@ function Home({ loading, data, error }: HomeProps) {
                 <Header />
 
                 <BaseForm
-                    initialValues={initialValues}
+                    initialValues={{
+                        email: 'admin@matheusgomesdev.com.br',
+                        password: '123456',
+                        manter_logado: false,
+                    }}
                     validationSchema={validationSchema}
                     validateOnChange={false}
                     validateOnBlur={true}
@@ -124,14 +125,12 @@ function Home({ loading, data, error }: HomeProps) {
                         <CheckboxWithLabel
                             name="manter_logado"
                             labelText={`${t('specific.home.inputLabel.manterConectado')}`}
-                            checked={initialValues.manter_logado}
+                            checked={false}
                         />
 
                         <Button variant="gradient" type="submit" ref={btnSubmitRef}>
                             Entrar
                         </Button>
-
-                        <GetValues />
                     </div>
                 </BaseForm>
 
@@ -139,27 +138,9 @@ function Home({ loading, data, error }: HomeProps) {
             </main>
 
             <Toast ref={toastRef} position="bottom-center" />
-
-            {showBlockUI && <BlockUI blocked={showBlockUI} fullScreen />}
+            <BlockUI fullScreen ref={blockUIRef} />
         </>
     );
 }
-
-const GetValues: React.FC = () => {
-    const { values } = useFormikContext();
-
-    return (
-        <>
-            <button
-                type="button"
-                onClick={() => {
-                    console.log(values);
-                }}
-            >
-                GetFormValues
-            </button>
-        </>
-    );
-};
 
 export default withSessionHOC(Home);
