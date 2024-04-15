@@ -13,7 +13,7 @@ const BlockUI: React.ForwardRefRenderFunction<BlockUIRef, BlockUIProps> = ({ ...
 
     useImperativeHandle(ref, () => ({ setIsBlocked }), []);
 
-    return <PrBlockUI.BlockUI {...props} blocked={isBlocked} />;
+    return <>{isBlocked && <PrBlockUI.BlockUI {...props} blocked={isBlocked} />}</>;
 };
 
 export default forwardRef(BlockUI);
