@@ -2,23 +2,22 @@
 
 import React, { useCallback, useContext, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { FormikHelpers, FormikValues } from 'formik';
 
 import * as Yup from 'yup';
-
-import useTranslation from '@/core/hooks/useTranslation';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
 import Toast from '@/core/components/Toast/Toast';
 import BlockUI from '@/core/components/BlockUI/BlockUI';
-import BaseForm from '@/core/components/Form/Form';
+import BaseForm, { FormikHelpers, FormikValues } from '@/core/components/Form/Form';
+import { GlobalContext } from '@/core/context/GlobalContext';
 
 import { Button, Text, Title, Icon, ButtonRef } from '@/components/atoms';
 import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
+import useTranslation from '@/core/hooks/useTranslation';
+
 import { authUseCases } from '@/services/AuthService';
-import { GlobalContext } from '@/core/context/GlobalContext';
 
 interface HomeProps extends SessionHOCProps {}
 

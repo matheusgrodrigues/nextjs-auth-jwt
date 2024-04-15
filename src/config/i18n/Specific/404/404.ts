@@ -1,5 +1,5 @@
 const i18n_404 = {
-    welcome: {
+    404: {
         label: {
             title: '404',
             naoAutorizado: 'Acesso não autorizado',

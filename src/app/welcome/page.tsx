@@ -1,40 +1,35 @@
 'use client';
 
-import React, { useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useRef } from 'react';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
-import tokenService from '@/core/services/tokenService';
 
 import { Button, Text, Title } from '@/components/atoms';
 import { Header, Footer } from '@/components/organism';
+
+import { LogoutDialog, LogoutDialogRef } from '@/components/templates';
 
 import useTranslation from '@/core/hooks/useTranslation';
 
 interface WelcomeProps extends SessionHOCProps {}
 
 const Welcome: React.FC<WelcomeProps> = ({ data }) => {
-    const router = useRouter();
-
     const { session } = data;
+
+    const logoutDialogRef = useRef<LogoutDialogRef>(null);
 
     const { t } = useTranslation();
 
-    const handleLogout = useCallback(() => {
-        tokenService.delete();
-        router.push('/');
-    }, []);
-
     return (
         <>
-            <section className="p-welcome">
+            <section className="page-welcome">
                 <Header />
 
                 {session && (
-                    <main className={'t_welcome'} id="t-welcome">
-                        <div className={'t_welcome__heading'}>
+                    <main className="page-welcome__welcome">
+                        <div className="page-welcome__welcome_heading">
                             <Text data-testid="a-text-welcome" variant="fwSb-fs16-primary">
-                                {t('specific.welcome.label.bemVindo')}
+                                {t('specific.welcome.label.title')}
                             </Text>
 
                             <Title data-testid="a-title-username" variant="fwSB-fs48-lh60-lspN2-gray900">
@@ -53,12 +48,9 @@ const Welcome: React.FC<WelcomeProps> = ({ data }) => {
                         <Button
                             variant="fwMd-fs16-colGray700-bgWhite"
                             data-testid="a-button-logout"
-                            onClick={() => {
-                                // TODO: abrir Dialog
-                                handleLogout();
-                            }}
+                            onClick={() => logoutDialogRef.current?.setVisible(true)}
                         >
-                            Logout
+                            {t('specific.welcome.label.btnLogout')}
                         </Button>
                     </main>
                 )}
@@ -66,8 +58,7 @@ const Welcome: React.FC<WelcomeProps> = ({ data }) => {
                 <Footer />
             </section>
 
-            {/* Dialog Logout 
-               <LogoutDialog visible={visible} onConfirm={handleLogout} onReject={toggleVisible} /> */}
+            <LogoutDialog ref={logoutDialogRef} />
         </>
     );
 };

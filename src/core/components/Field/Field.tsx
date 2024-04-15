@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 
-const Field: React.FC = () => {
-    return <></>;
+import { ErrorMessage, Field, FieldAttributes, FieldProps } from 'formik';
+
+import { Text } from '@/components/atoms';
+
+interface BaseFieldProps extends FieldAttributes<any> {
+    render: React.ReactElement;
+    name: string;
+    type: HTMLInputTypeAttribute;
+}
+
+export const BaseField: React.FC<BaseFieldProps> = ({ render, name, type, ...props }) => {
+    return (
+        <Field name={name} type={type} {...props}>
+            {({ field }: FieldProps) => (
+                <>
+                    {React.cloneElement(render, {
+                        ...field,
+                    })}
+
+                    <ErrorMessage name={name} render={(msg) => <Text variant="error">{msg}</Text>} />
+                </>
+            )}
+        </Field>
+    );
 };
 
-export default Field;
+export default BaseField;

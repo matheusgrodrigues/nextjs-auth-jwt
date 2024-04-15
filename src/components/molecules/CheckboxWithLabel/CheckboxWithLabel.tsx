@@ -6,7 +6,7 @@ import styles from './CheckboxWithLabel.module.css';
 
 import { Checkbox, Label } from '@/components/atoms';
 
-import BaseField from '@/core/components/Form/Field';
+import BaseField from '@/core/components/Field/Field';
 
 interface CheckboxWithLabelProps extends CheckboxProps {
     labelText: string;

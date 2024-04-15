@@ -1,6 +1,6 @@
 @import '../../util/breakpoints';
 
-.p_welcome {
+.page-welcome {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -8,36 +8,34 @@
     align-items: center;
     position: relative;
 
-    & > [id='t-welcome'] {
+    &__welcome {
+        width: 100%;
+        max-width: $tablet;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        max-width: 768px;
+
         padding: var(--spacing-64) var(--spacing-16);
 
         @include d(tablet) {
             padding: var(--spacing-96) 0;
         }
+
+        &_heading {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-12);
+            margin-bottom: var(--spacing-24);
+        }
+
+        & > [id='a-text-description'] {
+            margin-bottom: var(--spacing-40);
+        }
     }
 
-    & > [id='o-footer'] {
+    & > [id='footer'] {
         margin-top: auto;
     }
-}
-
-.t_welcome {
-    width: 100%;
-    max-width: $tablet;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    max-width: 768px;
-}
-
-.t_welcome__heading {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-12);
-    margin-bottom: var(--spacing-24);
-}
-
-.t_welcome > [id='a-text-description'] {
-    margin-bottom: var(--spacing-40);
 }
