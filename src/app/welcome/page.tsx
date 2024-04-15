@@ -27,14 +27,14 @@ const Welcome: React.FC<WelcomeProps> = ({ data }) => {
 
     return (
         <>
-            <section className="p-welcome">
+            <section className="page-welcome">
                 <Header />
 
                 {session && (
-                    <main className={'t_welcome'} id="t-welcome">
-                        <div className={'t_welcome__heading'}>
+                    <main className="page-welcome__welcome">
+                        <div className="page-welcome__welcome_heading">
                             <Text data-testid="a-text-welcome" variant="fwSb-fs16-primary">
-                                {t('specific.welcome.label.bemVindo')}
+                                {t('specific.welcome.label.title')}
                             </Text>
 
                             <Title data-testid="a-title-username" variant="fwSB-fs48-lh60-lspN2-gray900">

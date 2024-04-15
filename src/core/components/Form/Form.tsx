@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, Formik, FormikConfig, FormikValues } from 'formik';
+import { Form, Formik, FormikConfig, FormikHelpers, FormikValues } from 'formik';
 
 interface BaseFormProps extends FormikConfig<FormikValues> {
     children: React.ReactNode;
@@ -18,5 +18,7 @@ const BaseForm: React.FC<BaseFormProps> = ({ children, className, style, ...prop
         </Formik>
     );
 };
+
+export type { FormikHelpers, FormikValues };
 
 export default BaseForm;

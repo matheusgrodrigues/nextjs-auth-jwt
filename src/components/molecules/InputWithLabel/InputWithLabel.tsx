@@ -6,7 +6,7 @@ import styles from './InputWithLabel.module.css';
 
 import { Label, Input } from '../../atoms';
 
-import BaseField from '@/core/components/Form/Field';
+import BaseField from '@/core/components/Field/Field';
 
 interface InputWithLabelProps extends InputTextProps {
     labelText: string;
