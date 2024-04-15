@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { I_AuthUserEntity } from '@/schemas/AuthSchema';
+import { AuthUserSchema } from '@/schemas/AuthSchema';
 
 import getSession from '../services/sessionService';
 
 function useSession() {
-    const [session, setSession] = useState<I_AuthUserEntity | undefined>(undefined);
+    const [session, setSession] = useState<AuthUserSchema | undefined>(undefined);
     const [error, setError] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
 

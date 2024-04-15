@@ -14,15 +14,6 @@ const saveStorage = (value: string, manter_logado: boolean, ctx?: GetServerSideP
     if (manter_logado) {
         globalThis?.localStorage?.setItem(ACCESS_TOKEN_KEY, value);
 
-        /*
-         *
-         * Para solicitações http, não se esqueça de utilizar as props relacionadas a segurança, abaixo:
-         *
-         * httpOnly: true,
-         * sameSite: "lax",
-         *
-         */
-
         nookies.set(ctx, ACCESS_TOKEN_KEY, value, {
             maxAge: ONE_YEAR,
             path: '/',
@@ -31,14 +22,6 @@ const saveStorage = (value: string, manter_logado: boolean, ctx?: GetServerSideP
         globalThis?.sessionStorage?.setItem(ACCESS_TOKEN_KEY, value);
     }
 };
-
-/*
- *
- * O parametro ctx: GetServerSideProps, só funciona no PagesRouter.
- * Na nova versão do react, lançaram o AppRoute, que funciona no servidor por padrão.
- * Utilize {cookies} from "next/headers", para pegar o cookie no servidor.
- *
- */
 
 const getStorage = (ctx?: GetServerSidePropsContext) => {
     const localStorage = globalThis?.localStorage?.getItem(ACCESS_TOKEN_KEY);

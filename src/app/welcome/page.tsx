@@ -38,7 +38,7 @@ const Welcome: React.FC<WelcomeProps> = ({ data }) => {
                             </Text>
 
                             <Title data-testid="a-title-username" variant="fwSB-fs48-lh60-lspN2-gray900">
-                                {/* Todo: 'colocar o nome do usuario logado aqui'*/}
+                                {session.username}
                             </Title>
                         </div>
 
