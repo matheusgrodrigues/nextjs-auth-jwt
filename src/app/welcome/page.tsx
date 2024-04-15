@@ -1,29 +1,24 @@
 'use client';
 
-import React, { useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useRef } from 'react';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
-import tokenService from '@/core/services/tokenService';
 
 import { Button, Text, Title } from '@/components/atoms';
 import { Header, Footer } from '@/components/organism';
+
+import { LogoutDialog, LogoutDialogRef } from '@/components/templates';
 
 import useTranslation from '@/core/hooks/useTranslation';
 
 interface WelcomeProps extends SessionHOCProps {}
 
 const Welcome: React.FC<WelcomeProps> = ({ data }) => {
-    const router = useRouter();
-
     const { session } = data;
 
-    const { t } = useTranslation();
+    const logoutDialogRef = useRef<LogoutDialogRef>(null);
 
-    const handleLogout = useCallback(() => {
-        tokenService.delete();
-        router.push('/');
-    }, []);
+    const { t } = useTranslation();
 
     return (
         <>
@@ -53,12 +48,9 @@ const Welcome: React.FC<WelcomeProps> = ({ data }) => {
                         <Button
                             variant="fwMd-fs16-colGray700-bgWhite"
                             data-testid="a-button-logout"
-                            onClick={() => {
-                                // TODO: abrir Dialog
-                                handleLogout();
-                            }}
+                            onClick={() => logoutDialogRef.current?.setVisible(true)}
                         >
-                            Logout
+                            {t('specific.welcome.label.btnLogout')}
                         </Button>
                     </main>
                 )}
@@ -66,8 +58,7 @@ const Welcome: React.FC<WelcomeProps> = ({ data }) => {
                 <Footer />
             </section>
 
-            {/* Dialog Logout 
-               <LogoutDialog visible={visible} onConfirm={handleLogout} onReject={toggleVisible} /> */}
+            <LogoutDialog ref={logoutDialogRef} />
         </>
     );
 };

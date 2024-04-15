@@ -1,10 +1,15 @@
-import React, { forwardRef, useCallback, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, useCallback, useImperativeHandle, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import styles from './LogoutDialog.module.css';
 
 import Dialog from '@/core/components/Dialog/Dialog';
 
-import { Button, Text, Title } from '@/components/atoms';
+import { Button, ButtonRef, Text, Title } from '@/components/atoms';
+
+import tokenService from '@/core/services/tokenService';
+
+import useTranslation from '@/core/hooks/useTranslation';
 
 interface ConfirmButtonProps {
     onConfirm: () => void;
@@ -12,6 +17,8 @@ interface ConfirmButtonProps {
 
 const ConfirmButton: React.FC<ConfirmButtonProps> = ({ onConfirm }) => {
     const [isLoading, setIsLoading] = useState(false);
+
+    const { t } = useTranslation();
 
     return (
         <Button
@@ -23,7 +30,7 @@ const ConfirmButton: React.FC<ConfirmButtonProps> = ({ onConfirm }) => {
                 onConfirm();
             }}
         >
-            {isLoading ? '' : 'Sim'}
+            {isLoading ? '' : t('specific.welcome.modal.logoutDialog.btnConfirm')}
         </Button>
     );
 };
@@ -35,8 +42,19 @@ export interface LogoutDialogRef {
 const LogoutDialog: React.ForwardRefRenderFunction<LogoutDialogRef, object> = (props, ref) => {
     const [visible, setVisible] = useState(false);
 
-    const onConfirm = useCallback(() => {}, []);
-    const onReject = useCallback(() => {}, []);
+    const router = useRouter();
+
+    const btnLogoutRef = useRef<ButtonRef>(null);
+
+    const { t } = useTranslation();
+
+    const onConfirm = useCallback(() => {
+        btnLogoutRef.current?.setLoading(true);
+        tokenService.delete();
+        router.push('/');
+    }, []);
+
+    const onReject = useCallback(() => setVisible(false), []);
 
     useImperativeHandle(ref, () => ({ setVisible }), []);
 
@@ -50,11 +68,11 @@ const LogoutDialog: React.ForwardRefRenderFunction<LogoutDialogRef, object> = (p
         >
             <div className={styles.logoutDialog__header}>
                 <Title variant="h2" data-testid="logout-dialog-title">
-                    Confirmação
+                    {t('specific.welcome.modal.logoutDialog.title')}
                 </Title>
 
                 <Text variant="fwReg-fs20-lh30-gray500" data-testid="logout-dialog-description">
-                    Tem certeza que deseja sair ?
+                    {t('specific.welcome.modal.logoutDialog.description')}
                 </Text>
             </div>
 
@@ -66,7 +84,7 @@ const LogoutDialog: React.ForwardRefRenderFunction<LogoutDialogRef, object> = (p
                     data-testid="logout-dialog-reject-button"
                     onClick={onReject}
                 >
-                    Não
+                    {t('specific.welcome.modal.logoutDialog.btnReject')}
                 </Button>
             </div>
         </Dialog>
