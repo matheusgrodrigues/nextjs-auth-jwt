@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 
 import * as PrBlockUI from 'primereact/blockui';
 
 interface BlockUIProps extends PrBlockUI.BlockUIProps {}
 
-const BlockUI: React.FC<BlockUIProps> = ({ ...props }) => <BlockUI {...props} />;
+export interface BlockUIRef {
+    setIsBlocked: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export default BlockUI;
+const BlockUI: React.ForwardRefRenderFunction<BlockUIRef, BlockUIProps> = ({ ...props }, ref) => {
+    const [isBlocked, setIsBlocked] = useState(false);
+
+    useImperativeHandle(ref, () => ({ setIsBlocked }), []);
+
+    return <>{isBlocked && <PrBlockUI.BlockUI {...props} blocked={isBlocked} />}</>;
+};
+
+export default forwardRef(BlockUI);

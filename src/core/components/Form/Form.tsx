@@ -1,0 +1,22 @@
+import React from 'react';
+
+import { Form, Formik, FormikConfig, FormikValues } from 'formik';
+
+interface BaseFormProps extends FormikConfig<FormikValues> {
+    children: React.ReactNode;
+    'data-testid'?: string;
+    className?: string;
+    style?: React.CSSProperties;
+}
+
+const BaseForm: React.FC<BaseFormProps> = ({ children, className, style, ...props }) => {
+    return (
+        <Formik {...props}>
+            <Form data-testid={props['data-testid']} className={className} style={style}>
+                {children}
+            </Form>
+        </Formik>
+    );
+};
+
+export default BaseForm;

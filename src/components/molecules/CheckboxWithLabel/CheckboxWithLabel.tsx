@@ -6,15 +6,17 @@ import styles from './CheckboxWithLabel.module.css';
 
 import { Checkbox, Label } from '@/components/atoms';
 
+import BaseField from '@/core/components/Form/Field';
+
 interface CheckboxWithLabelProps extends CheckboxProps {
-    checked: boolean;
     labelText: string;
 }
 
-const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ checked, labelText, ...props }) => {
+const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ labelText, ...props }) => {
     return (
         <div className={styles.checkboxWithLabel} data-testid="checkboxWithLabel-testid">
-            <Checkbox id="checkbox" checked={checked} {...props} />
+            <BaseField name={`${props.name}`} type="checkbox" render={<Checkbox id="checkbox" {...props} />} />
+
             <Label
                 onClick={() => {
                     const get_checkbox = document.getElementById('checkbox');

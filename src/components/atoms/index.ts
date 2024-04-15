@@ -1,5 +1,5 @@
 import Checkbox from './Checkbox/Checkbox';
-import Button from './Button/Button';
+import Button, { ButtonRef } from './Button/Button';
 import Avatar from './Avatar/Avatar';
 import Label from './Label/Label';
 import Input from './Input/Input';
@@ -9,3 +9,5 @@ import Icon from './Icon/Icon';
 import Link from './Link/Link';
 
 export { Checkbox, Button, Avatar, Title, Label, Input, Text, Icon, Link };
+
+export type { ButtonRef };
