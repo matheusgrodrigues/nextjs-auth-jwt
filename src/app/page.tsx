@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useCallback, useMemo, useRef } from 'react';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { useRouter } from 'next/navigation';
-import { useFormik } from 'formik';
+import { FormikHelpers, FormikValues } from 'formik';
 
 import * as Yup from 'yup';
 
@@ -14,27 +13,14 @@ import { messages } from '@/config';
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
 import Toast, { ToastRef } from '@/core/components/Toast/Toast';
 import BlockUI from '@/core/components/BlockUI/BlockUI';
+import BaseForm from '@/core/components/Form/Form';
 
 import { Button, Text, Title, Icon } from '@/components/atoms';
 import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
 import { authUseCases } from '@/services/AuthService';
-import Form from '@/core/components/Form/Form';
-import BaseForm from '@/core/components/Form/Form';
-
-interface InitialValuesProps {
-    email: string;
-    password: string;
-    manter_logado: boolean;
-}
-
-interface HandleLoginProps {
-    values: InitialValuesProps;
-    setSubmitting: (isSubmitting: boolean) => void;
-    toastRef: React.RefObject<ToastRef>;
-    router: AppRouterInstance;
-}
+import BaseField from '@/core/components/Form/Field';
 
 interface HomeProps extends SessionHOCProps {}
 
@@ -49,10 +35,10 @@ function Home({ loading, data, error }: HomeProps) {
 
     const { t } = useTranslation();
 
-    const handleLogin = useCallback(async ({ setSubmitting, toastRef, values, router }: HandleLoginProps) => {
+    const handleLogin = useCallback(async (values: FormikValues, actions: FormikHelpers<FormikValues>) => {
         const { manter_logado, password, email } = values;
 
-        setSubmitting(true);
+        actions.setSubmitting(true);
 
         try {
             await authUseCases.login({
@@ -61,7 +47,7 @@ function Home({ loading, data, error }: HomeProps) {
                 manter_logado,
             });
 
-            setSubmitting(false);
+            actions.setSubmitting(false);
 
             toastRef.current?.showToast({
                 severity: 'success',
@@ -71,7 +57,7 @@ function Home({ loading, data, error }: HomeProps) {
 
             setTimeout(() => router.push('/welcome'), 3000);
         } catch {
-            setSubmitting(false);
+            actions.setSubmitting(false);
 
             toastRef.current?.showToast({
                 severity: 'error',
@@ -90,67 +76,65 @@ function Home({ loading, data, error }: HomeProps) {
             .min(4, messages.login.ERROR_MESSAGES.INVALID_PASSWORD_MIN_LENGTH),
     });
 
-    const { getFieldProps, isSubmitting, handleSubmit, touched, errors, values } = useFormik({
-        validationSchema,
-        validateOnChange: false,
-        validateOnBlur: true,
-        initialValues: {
-            email: 'admin@matheusgomesdev.com.br',
-            password: '123456',
-            manter_logado: false,
-        },
-        onSubmit: (values, { setSubmitting }) => handleLogin({ setSubmitting, toastRef, values, router }),
-    });
-
     return (
         <>
             <main data-testid="page-login" className="page-login">
                 <Header />
 
-                <BaseForm />
+                {/*
+TODO: 
+        adicionar as props no BaseForm
+    className={'o_form_login'}
+  style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+                    data-testid="o-login-form"
 
-                <div className="page-login__form">
-                    <div data-testid="page-login-title-testid" className="page-login__form_title">
-                        <Icon icon="pi-lock" />
-                        <Title variant="h2">{t('specific.home.label.title')}</Title>
-                        <Text variant="fwReg-fs16-gray500">{t('specific.home.label.description')}</Text>
-                    </div>
+*/}
+                <BaseForm
+                    initialValues={{
+                        email: 'admin@matheusgomesdev.com.br',
+                        password: '123456',
+                        manter_logado: false,
+                    }}
+                    validationSchema={validationSchema}
+                    validateOnChange={false}
+                    validateOnBlur={true}
+                    onSubmit={handleLogin}
+                >
+                    <div className="page-login__form">
+                        <div data-testid="page-login-title-testid" className="page-login__form_title">
+                            <Icon icon="pi-lock" />
+                            <Title variant="h2">{t('specific.home.label.title')}</Title>
+                            <Text variant="fwReg-fs16-gray500">{t('specific.home.label.description')}</Text>
+                        </div>
 
-                    <form
-                        onSubmit={handleSubmit}
-                        className={'o_form_login'}
-                        data-testid="o-login-form"
-                        style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-                    >
+                        <BaseField name="email" />
+
                         <InputWithLabel
                             labelText="Email"
+                            name="email"
                             type="email"
                             placeholder={t('specific.home.inputLabel.email')}
-                            {...getFieldProps('email')}
                         />
-
-                        {errors.email && touched.email && <Text variant="error">{errors.email}</Text>}
 
                         <InputWithLabel
                             labelText="Senha"
+                            name="password"
                             type="password"
                             placeholder={t('specific.home.inputLabel.senha')}
-                            {...getFieldProps('password')}
                         />
 
-                        {errors.password && touched.password && <Text variant="error">{errors.password}</Text>}
-
+                        {/* TODO: pegar o checked dinamicamente */}
                         <CheckboxWithLabel
-                            checked={values.manter_logado}
+                            checked={false}
                             labelText={`${t('specific.home.inputLabel.manterConectado')}`}
-                            {...getFieldProps('manter_logado')}
                         />
 
-                        <Button variant="gradient" type="submit" loading={isSubmitting}>
-                            {isSubmitting ? '' : 'Entrar'}
+                        {/*TODO: corrigir loading */}
+                        <Button variant="gradient" type="submit" loading={false}>
+                            Entrar
                         </Button>
-                    </form>
-                </div>
+                    </div>
+                </BaseForm>
 
                 <Footer />
             </main>
