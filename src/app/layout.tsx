@@ -9,6 +9,8 @@ import '../styles/theme.scss';
 
 import i18n_metadata from '@/config/i18n/Metadata/metadata';
 
+import GlobalContextProvider from '@/core/context/GlobalContext';
+
 const inter = Inter({
     subsets: ['latin'],
 });
@@ -23,7 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="pt-BR" className={inter.className}>
             <link rel="icon" href="/images/lock.svg" sizes="any" />
             <body>
-                <PrimeReactProvider value={{ ripple: false }}>{children}</PrimeReactProvider>
+                <PrimeReactProvider value={{ ripple: false }}>
+                    <GlobalContextProvider>{children}</GlobalContextProvider>
+                </PrimeReactProvider>
             </body>
         </html>
     );

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useContext, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { FormikHelpers, FormikValues } from 'formik';
 
@@ -9,8 +9,8 @@ import * as Yup from 'yup';
 import useTranslation from '@/core/hooks/useTranslation';
 
 import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
-import Toast, { ToastRef } from '@/core/components/Toast/Toast';
-import BlockUI, { BlockUIRef } from '@/core/components/BlockUI/BlockUI';
+import Toast from '@/core/components/Toast/Toast';
+import BlockUI from '@/core/components/BlockUI/BlockUI';
 import BaseForm from '@/core/components/Form/Form';
 
 import { Button, Text, Title, Icon, ButtonRef } from '@/components/atoms';
@@ -18,17 +18,18 @@ import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
 import { authUseCases } from '@/services/AuthService';
+import { GlobalContext } from '@/core/context/GlobalContext';
 
 interface HomeProps extends SessionHOCProps {}
 
 function Home({ loading, data, error }: HomeProps) {
     const { session } = data;
 
+    const { blockUIRef, toastRef } = useContext(GlobalContext);
+
     const router = useRouter();
 
-    const toastRef = useRef<ToastRef>(null);
     const btnSubmitRef = useRef<ButtonRef>(null);
-    const blockUIRef = useRef<BlockUIRef>(null);
 
     const { t } = useTranslation();
 
