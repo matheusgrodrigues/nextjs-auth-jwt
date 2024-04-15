@@ -2,7 +2,7 @@
 
 import React, { useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { FormikHelpers, FormikValues } from 'formik';
+import { FormikHelpers, FormikValues, useFormikContext } from 'formik';
 
 import * as Yup from 'yup';
 
@@ -15,7 +15,7 @@ import Toast, { ToastRef } from '@/core/components/Toast/Toast';
 import BlockUI from '@/core/components/BlockUI/BlockUI';
 import BaseForm from '@/core/components/Form/Form';
 
-import { Button, Text, Title, Icon } from '@/components/atoms';
+import { Button, Text, Title, Icon, ButtonRef } from '@/components/atoms';
 import { Header, Footer } from '@/components/organism';
 import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
@@ -29,6 +29,7 @@ function Home({ loading, data, error }: HomeProps) {
     const router = useRouter();
 
     const toastRef = useRef<ToastRef>(null);
+    const btnSubmitRef = useRef<ButtonRef>(null);
 
     const showBlockUI = useMemo(() => (session && !error && !loading ? true : false), [loading, session, error]);
 
@@ -37,9 +38,8 @@ function Home({ loading, data, error }: HomeProps) {
     const handleLogin = useCallback(async (values: FormikValues, actions: FormikHelpers<FormikValues>) => {
         const { manter_logado, password, email } = values;
 
-        console.log(values);
-
         actions.setSubmitting(true);
+        btnSubmitRef.current?.setLoading(true);
 
         try {
             await authUseCases.login({
@@ -49,6 +49,7 @@ function Home({ loading, data, error }: HomeProps) {
             });
 
             actions.setSubmitting(false);
+            btnSubmitRef.current?.setLoading(false);
 
             toastRef.current?.showToast({
                 severity: 'success',
@@ -59,6 +60,7 @@ function Home({ loading, data, error }: HomeProps) {
             setTimeout(() => router.push('/welcome'), 3000);
         } catch {
             actions.setSubmitting(false);
+            btnSubmitRef.current?.setLoading(false);
 
             toastRef.current?.showToast({
                 severity: 'error',
@@ -77,17 +79,19 @@ function Home({ loading, data, error }: HomeProps) {
             .min(4, messages.login.ERROR_MESSAGES.INVALID_PASSWORD_MIN_LENGTH),
     });
 
+    const initialValues = {
+        email: 'admin@matheusgomesdev.com.br',
+        password: '123456',
+        manter_logado: false,
+    };
+
     return (
         <>
             <main data-testid="page-login" className="page-login">
                 <Header />
 
                 <BaseForm
-                    initialValues={{
-                        email: 'admin@matheusgomesdev.com.br',
-                        password: '123456',
-                        manter_logado: false,
-                    }}
+                    initialValues={initialValues}
                     validationSchema={validationSchema}
                     validateOnChange={false}
                     validateOnBlur={true}
@@ -117,16 +121,17 @@ function Home({ loading, data, error }: HomeProps) {
                             placeholder={t('specific.home.inputLabel.senha')}
                         />
 
-                        {/* TODO: pegar o checked dinamicamente */}
                         <CheckboxWithLabel
-                            checked={false}
+                            name="manter_logado"
                             labelText={`${t('specific.home.inputLabel.manterConectado')}`}
+                            checked={initialValues.manter_logado}
                         />
 
-                        {/*TODO: corrigir loading */}
-                        <Button variant="gradient" type="submit" loading={false}>
+                        <Button variant="gradient" type="submit" ref={btnSubmitRef}>
                             Entrar
                         </Button>
+
+                        <GetValues />
                     </div>
                 </BaseForm>
 
@@ -139,5 +144,22 @@ function Home({ loading, data, error }: HomeProps) {
         </>
     );
 }
+
+const GetValues: React.FC = () => {
+    const { values } = useFormikContext();
+
+    return (
+        <>
+            <button
+                type="button"
+                onClick={() => {
+                    console.log(values);
+                }}
+            >
+                GetFormValues
+            </button>
+        </>
+    );
+};
 
 export default withSessionHOC(Home);

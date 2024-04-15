@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 
 import { ErrorMessage, Field, FieldAttributes, FieldProps } from 'formik';
 
@@ -6,6 +6,8 @@ import { Text } from '@/components/atoms';
 
 interface BaseFieldProps extends FieldAttributes<any> {
     render: React.ReactElement;
+    name: string;
+    type: HTMLInputTypeAttribute;
 }
 
 export const BaseField: React.FC<BaseFieldProps> = ({ render, name, type, ...props }) => {
