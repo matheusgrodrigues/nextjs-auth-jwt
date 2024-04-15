@@ -1,7 +1,7 @@
-const i18n_404 = {
-    404: {
+const i18n_unauthorized = {
+    unauthorized: {
         label: {
-            title: '404',
+            title: '401',
             naoAutorizado: 'Acesso não autorizado',
             description:
                 'Desculpe, você não tem permissão para acessar esta página. Por favor, verifique suas credenciais ou entre em contato com o suporte se precisar de assistência.',
@@ -10,4 +10,4 @@ const i18n_404 = {
     },
 };
 
-export default i18n_404;
+export default i18n_unauthorized;

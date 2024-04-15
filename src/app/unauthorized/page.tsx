@@ -8,7 +8,7 @@ import { Footer, Header } from '@/components/organism';
 
 import useTranslation from '@/core/hooks/useTranslation';
 
-const Page401 = () => {
+const PageUnauthorized = () => {
     const router = useRouter();
 
     const { t } = useTranslation();
@@ -16,18 +16,18 @@ const Page401 = () => {
     const handleLogin = useCallback(() => router.push('/'), []);
 
     return (
-        <main data-testid="p-401" className={'p_401'}>
+        <main data-testid="p-401" className="page-unauthorized">
             <Header />
 
-            <main data-testid="t-401" className={'t_401'} id="t-401">
-                <Text variant="fwSb-fs16-primary">{t('specific.404.title')}</Text>
+            <main data-testid="t-401" className="page-unauthorized__content" id="t-401">
+                <Text variant="fwSb-fs16-primary">{t('specific.unauthorized.label.title')}</Text>
 
-                <Title variant="h1">{t('specific.404.naoAutorizado')}</Title>
+                <Title variant="fwSB-fs48-lh60-lspN2-gray900">{t('specific.unauthorized.label.naoAutorizado')}</Title>
 
-                <Text variant="fwReg-fs16-gray500">{t('specific.404.desciption')}</Text>
+                <Text variant="fwReg-fs20-lh30-gray500">{t('specific.unauthorized.label.description')}</Text>
 
                 <Button variant="gradient" onClick={handleLogin}>
-                    {t('specific.404.facaLogin')}
+                    {t('specific.unauthorized.label.facaLogin')}
                 </Button>
             </main>
 
@@ -36,4 +36,4 @@ const Page401 = () => {
     );
 };
 
-export default Page401;
+export default PageUnauthorized;
