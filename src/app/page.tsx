@@ -95,8 +95,7 @@ const Home: React.FC<HomeProps> = ({ loading, error, data }) => {
                     validateOnChange={false}
                     validateOnBlur={true}
                     onSubmit={handleLogin}
-                    data-testid="o-login-form"
-                    className={'o_form_login'}
+                    data-testid="page-login-form-testid"
                     style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
                 >
                     <div className="page-login__form">
@@ -107,10 +106,10 @@ const Home: React.FC<HomeProps> = ({ loading, error, data }) => {
                         </div>
 
                         <InputWithLabel
+                            placeholder={t('specific.home.inputLabel.email')}
                             labelText="Email"
                             name="email"
                             type="email"
-                            placeholder={t('specific.home.inputLabel.email')}
                         />
 
                         <InputWithLabel

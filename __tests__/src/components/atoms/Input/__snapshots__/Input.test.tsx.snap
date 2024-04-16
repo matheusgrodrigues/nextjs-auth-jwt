@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o Input corretamente. 1`] = `
+<input
+  className="p-inputtext p-component"
+  data-pc-name="inputtext"
+  data-pc-section="root"
+  onBeforeInput={[Function]}
+  onInput={[Function]}
+  onKeyDown={[Function]}
+  onPaste={[Function]}
+/>
+`;

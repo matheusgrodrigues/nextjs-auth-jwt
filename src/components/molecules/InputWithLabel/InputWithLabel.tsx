@@ -16,16 +16,21 @@ interface InputWithLabelProps extends InputTextProps {
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({ labelText, type, name, placeholder, ...props }) => {
     return (
-        <div
-            className={styles.input_label}
-            data-testid={`${name ? `input-with-label-${name}-testid` : 'input-with-label-testid'}`}
-        >
+        <div className={styles.input_label} data-testid={`${`input-with-label-${name}-testid`}`}>
             <Label htmlFor={name}>{labelText}</Label>
 
             <BaseField
                 name={name}
                 type={type}
-                render={<Input type={type} name={name} placeholder={placeholder} {...props} />}
+                render={
+                    <Input
+                        data-testid={`input-${name}-testid`}
+                        type={type}
+                        name={name}
+                        placeholder={placeholder}
+                        {...props}
+                    />
+                }
             />
         </div>
     );

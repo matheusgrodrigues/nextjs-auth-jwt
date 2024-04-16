@@ -3,7 +3,7 @@
 exports[`Deve renderizar o footer corretamente Deve preservar a estrutura visual do footer 1`] = `
 <div
   className="footer"
-  id="o-footer"
+  id="footer"
 >
   <div
     className="footer__name"
@@ -12,11 +12,10 @@ exports[`Deve renderizar o footer corretamente Deve preservar a estrutura visual
       © 
       2024
       <a
-        className="a_link"
+        className="link"
         href="https://matheusgomesdev.com.br"
       >
-        matheusgomesdev
-        .
+        matheusgomesdev.
       </a>
     </p>
   </div>
@@ -24,19 +23,19 @@ exports[`Deve renderizar o footer corretamente Deve preservar a estrutura visual
     className="footer__icons"
   >
     <a
-      className="a_link"
-      href="https://github.com/matheusgrodrigues"
+      className="link"
+      href="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
     >
       <i
-        className="a_icon pi pi-github"
+        className="icon pi pi-github"
       />
     </a>
     <a
-      className="a_link"
+      className="link"
       href="https://www.linkedin.com/in/matheusgomes/"
     >
       <i
-        className="a_icon pi pi-linkedin"
+        className="icon pi pi-linkedin"
       />
     </a>
   </div>
