@@ -55,7 +55,7 @@ Clique em entrar e pronto :)
 
 3. Crie um arquivo .env na raiz do projeto e configure a variavel de ambiente com a URL da API.
 
-    - `NEXT_PUBLIC_STRAPI_API_URL=https://nextjs-auth-jwt-backend-4be97176fefb.herokuapp.com/api`
+    - `NEXT_PUBLIC_STRAPI_API_URL=https://nextjs-auth-jwt-backend-new.onrender.com/api`
 
 4. Inicie um servidor local para visualizar o portfólio.
 
