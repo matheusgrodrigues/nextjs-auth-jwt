@@ -5,7 +5,6 @@ exports[`Deve renderizar o Avatar corretamente Deve preservar a estrutura visual
   className="p-avatar p-component p-avatar-circle"
   data-pc-name="avatar"
   data-pc-section="root"
-  data-testid="avatar-testid"
   style={{}}
 />
 `;

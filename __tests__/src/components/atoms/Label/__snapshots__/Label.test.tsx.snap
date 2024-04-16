@@ -3,6 +3,5 @@
 exports[`Deve renderizar o Label corretamente 1`] = `
 <label
   className="label"
-  data-testid="label-testid"
 />
 `;
