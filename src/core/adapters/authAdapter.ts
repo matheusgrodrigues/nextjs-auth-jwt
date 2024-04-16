@@ -10,7 +10,7 @@ const authAdapter: AuthPortProps = {
     login: async ({ identifier, password }) => {
         const method = 'POST';
 
-        const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local`;
+        const url = 'api/auth/local';
 
         try {
             const response: AxiosResponse<AuthResponseSchema> = await httpMiddleware({
@@ -30,7 +30,7 @@ const authAdapter: AuthPortProps = {
     me: async (token: string) => {
         const method = 'GET';
 
-        const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/users/me`;
+        const url = 'api/users/me';
 
         try {
             const response: AxiosResponse<AuthUserSchema> = await httpMiddleware({ method, url, token });
