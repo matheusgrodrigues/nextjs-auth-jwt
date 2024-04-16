@@ -10,9 +10,7 @@ const authAdapter: AuthPortProps = {
     login: async ({ identifier, password }) => {
         const method = 'POST';
 
-        // TODO: ajustar NEXT_PUBLIC_STRAPI_API_URL para STRAPI_API_URL que está na vercel.
-
-        const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local`;
+        const url = `${process.env.STRAPI_API_URL}/auth/local`;
 
         try {
             const response: AxiosResponse<AuthResponseSchema> = await httpMiddleware({
@@ -32,7 +30,7 @@ const authAdapter: AuthPortProps = {
     me: async (token: string) => {
         const method = 'GET';
 
-        const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/users/me`;
+        const url = `${process.env.STRAPI_API_URL}/users/me`;
 
         try {
             const response: AxiosResponse<AuthUserSchema> = await httpMiddleware({ method, url, token });
