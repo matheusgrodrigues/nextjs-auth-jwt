@@ -87,7 +87,7 @@ const Home: React.FC<HomeProps> = ({ loading, error, data }) => {
 
                 <BaseForm
                     initialValues={{
-                        email: 'admin@matheusgomesdev.com.br',
+                        email: 'test@matheusgomesdev.com.br',
                         password: '123456',
                         manter_logado: false,
                     }}
