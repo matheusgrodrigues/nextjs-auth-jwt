@@ -21,7 +21,7 @@ const i18n_home = {
         toast: {
             error_title: 'Erro !',
             success_title: 'Sucesso !',
-            redirect_message: 'Aguarde enquanto redirecionamos você!',
+            redirect_message: 'Logado com sucesso!',
         },
     },
 };
