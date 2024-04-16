@@ -12,7 +12,7 @@ exports[`Deve renderizar o InputWithLabel corretamente. Deve preservar a estrutu
   >
     <label
       className="label"
-      data-testid="label-testid"
+      data-testid="label-email-testid"
       htmlFor="email"
     >
       Email

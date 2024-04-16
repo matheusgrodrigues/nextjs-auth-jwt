@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o Checkbox corretamente Deve renderizar o Checkbox na tela 1`] = `
+<div
+  className="p-checkbox p-component"
+  data-pc-name="checkbox"
+  data-pc-section="root"
+  data-testid="checkbox-testid"
+  id={null}
+  onClick={[Function]}
+  onContextMenu={null}
+  onMouseDown={null}
+  style={{}}
+>
+  <div
+    className="p-hidden-accessible"
+    data-pc-section="hiddeninputwrapper"
+  >
+    <input
+      data-pc-section="hiddeninput"
+      defaultChecked={false}
+      disabled={false}
+      id={null}
+      name={null}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={false}
+      required={false}
+      tabIndex={null}
+      type="checkbox"
+    />
+  </div>
+  <div
+    className="p-checkbox-box"
+    data-p-disabled={false}
+    data-p-focus={false}
+    data-p-highlight={false}
+    data-pc-section="input"
+  />
+</div>
+`;

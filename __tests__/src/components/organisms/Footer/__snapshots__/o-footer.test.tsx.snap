@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o footer corretamente Deve preservar a estrutura visual do footer 1`] = `
+<div
+  className="footer"
+  id="footer"
+>
+  <div
+    className="footer__name"
+  >
+    <p>
+      © 
+      2024
+      <a
+        className="link"
+        href="https://matheusgomesdev.com.br"
+      >
+        matheusgomesdev.
+      </a>
+    </p>
+  </div>
+  <div
+    className="footer__icons"
+  >
+    <a
+      className="link"
+      href="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
+    >
+      <i
+        className="icon pi pi-github"
+      />
+    </a>
+    <a
+      className="link"
+      href="https://www.linkedin.com/in/matheusgomes/"
+    >
+      <i
+        className="icon pi pi-linkedin"
+      />
+    </a>
+  </div>
+</div>
+`;

@@ -10,14 +10,20 @@ import BaseField from '@/core/components/Field/Field';
 
 interface CheckboxWithLabelProps extends CheckboxProps {
     labelText: string;
+    name: string;
 }
 
-const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ labelText, ...props }) => {
+const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ labelText, name, ...props }) => {
     return (
         <div className={styles.checkboxWithLabel} data-testid="checkboxWithLabel-testid">
-            <BaseField name={`${props.name}`} type="checkbox" render={<Checkbox id="checkbox" {...props} />} />
+            <BaseField
+                name={name}
+                type="checkbox"
+                render={<Checkbox id="checkbox" data-testid={`input-${name}-testid`} {...props} />}
+            />
 
             <Label
+                data-testid={`label-${name}-testid`}
                 onClick={() => {
                     const get_checkbox = document.getElementById('checkbox');
 

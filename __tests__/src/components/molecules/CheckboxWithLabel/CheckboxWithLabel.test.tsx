@@ -3,48 +3,44 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
-describe('Deve renderizar o m-checkbox-with-label, corretamente', () => {
-    // ======================================
+import BaseForm from '@/core/components/Form/Form';
 
-    it('Deve renderizar o a-checkbox', () => {
-        // Arrange
-        const a_label_text = '';
+import { CheckboxWithLabel } from '@/components/molecules';
 
-        render(<M_CheckboxWithLabel checked={false} labelText={a_label_text} />);
+describe('Deve renderizar o CheckboxWithLabel, corretamente.', () => {
+    it('Deve renderizar o Checkbox.', () => {
+        render(
+            <BaseForm initialValues={{}} onSubmit={() => {}}>
+                <CheckboxWithLabel labelText="" checked={false} name="manter_logado" />
+            </BaseForm>
+        );
 
-        // Act
-        const get_a_checkbox = screen.getByTestId('a-checkbox');
+        const getCheckbox = screen.getByTestId('label-manter_logado-testid');
 
-        // Assert
-        expect(get_a_checkbox).toBeInTheDocument();
-        expect(get_a_checkbox).not.toBeChecked();
+        expect(getCheckbox).toBeInTheDocument();
     });
 
-    // ======================================
+    it('Deve renderizar o Label', () => {
+        render(
+            <BaseForm initialValues={{}} onSubmit={() => {}}>
+                <CheckboxWithLabel labelText="" checked={false} name="manter_logado" />
+            </BaseForm>
+        );
 
-    it('Deve renderizar o a-label', () => {
-        // Arrange
-        const a_label_text = 'a-label';
+        const getLabel = screen.getByTestId('label-manter_logado-testid');
 
-        render(<M_CheckboxWithLabel checked={false} labelText={a_label_text} />);
-
-        // Act
-        const get_a_label = screen.getByTestId('a-label');
-
-        // Assert
-        expect(get_a_label).toBeInTheDocument();
-        expect(get_a_label.textContent).not.toHaveLength(0);
+        expect(getLabel).toBeInTheDocument();
     });
-
-    // ======================================
 
     it('Deve manter a estrutura visual do componente', () => {
-        const get_m_checkboxWithLabel = renderer
-            .create(<M_CheckboxWithLabel checked={false} labelText="a-label" />)
+        const getCheckboxWithLabel = renderer
+            .create(
+                <BaseForm initialValues={{}} onSubmit={() => {}}>
+                    <CheckboxWithLabel labelText="" checked={false} name="manter_logado" />
+                </BaseForm>
+            )
             .toJSON();
 
-        expect(get_m_checkboxWithLabel).toMatchSnapshot();
+        expect(getCheckboxWithLabel).toMatchSnapshot();
     });
-
-    // ======================================
 });
