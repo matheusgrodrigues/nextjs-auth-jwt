@@ -67,7 +67,7 @@ const Home: React.FC<HomeProps> = ({ loading, error, data }) => {
                 detail: `${t('specific.home.toast.redirect_message')}`,
             });
 
-            setTimeout(() => router.push('/welcome'), 3000);
+            router.push('/welcome');
         } catch {
             actions.setSubmitting(false);
             btnSubmitRef.current?.setLoading(false);
