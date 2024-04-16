@@ -2,6 +2,6 @@
 
 ### Features
 
-- Lançamento da primeira versão do sistema.
-- Deploy do frontend na vercel.
-- Deploy do backend no heroku -> strapi headless cms.
+-   Lançamento da primeira versão do sistema.
+-   Deploy do frontend na vercel.
+-   Deploy do backend no heroku -> strapi headless cms.

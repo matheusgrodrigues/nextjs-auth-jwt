@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Deve renderizar o a-text, corretamente Deve preservar a estrutura visual do a-text 1`] = `
-<p
-  className="a_text__fwSb_fs16_primary"
-  data-testid="a-text"
-/>
-`;

@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Deve renderizar os links corretamente Deve preservar a estrutura visual dos links 1`] = `
-<a
-  className="a_link"
-  href="/"
-/>
-`;

@@ -1,31 +1,34 @@
-import { ReactNode } from "react";
+import React from 'react';
 
-import { PrimeReactProvider } from "primereact/api";
+import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-import { Metadata } from "next";
+import { PrimeReactProvider } from 'primereact/api';
 
-import { Inter } from "next/font/google";
+import '../styles/theme.scss';
 
-// Theme
-import "../styles/theme.scss";
+import i18n_metadata from '@/config/i18n/Metadata/metadata';
+
+import GlobalContextProvider from '@/core/context/GlobalContext';
 
 const inter = Inter({
-  subsets: ["latin"],
+    subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "NextJS: Auth + JWT",
-  description:
-    "Aplicação de autenticação segura baseada em tokens JWT (JSON Web Tokens) que oferece uma experiência de login fluida e segura para os usuários.",
+    title: i18n_metadata.metadata.title,
+    description: i18n_metadata.metadata.description,
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="pt-BR" className={inter.className}>
-      <link rel="icon" href="/images/lock.svg" sizes="any" />
-      <body>
-        <PrimeReactProvider value={{ ripple: false }}>{children}</PrimeReactProvider>
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="pt-BR" className={inter.className}>
+            <link rel="icon" href="/images/lock.svg" sizes="any" />
+            <body>
+                <PrimeReactProvider value={{ ripple: false }}>
+                    <GlobalContextProvider>{children}</GlobalContextProvider>
+                </PrimeReactProvider>
+            </body>
+        </html>
+    );
 }

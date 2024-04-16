@@ -1,63 +1,140 @@
-"use client";
+'use client';
 
-// Interfaces
-import { I_OLoginTitle } from "@/components/organism/o-login-title/o-login-title";
-import { I_OHeader } from "@/components/organism/o-header/o-header";
-import { I_TLogin } from "@/components/templates/t-login/t-login";
+import React, { useCallback, useContext, useMemo, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
-// Handles
-import { handleLoginForm } from "@/components/organism/o-login-form/login-form-validation";
+import * as Yup from 'yup';
 
-// Organism
-import { O_BlockUI } from "@/components/organism/o-block-ui/o-block-ui";
+import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
+import BaseForm, { FormikHelpers, FormikValues } from '@/core/components/Form/Form';
+import { GlobalContext } from '@/core/context/GlobalContext';
 
-// Pages
-import { P_Home } from "@/components/pages/p-login/p-login";
+import { Button, Text, Title, Icon, ButtonRef } from '@/components/atoms';
+import { Header, Footer } from '@/components/organism';
+import { CheckboxWithLabel, InputWithLabel } from '@/components/molecules';
 
-// HOC
-import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
+import useTranslation from '@/core/hooks/useTranslation';
 
-interface I_Home extends I_SessionHOC {}
+import { authUseCases } from '@/services/AuthService';
 
-function Home({ data, loading, error }: I_Home) {
-  const { session } = data;
+interface HomeProps extends SessionHOCProps {}
 
-  const showBlockUI = session && !error && !loading ? true : false;
+const Home: React.FC<HomeProps> = ({ loading, error, data }) => {
+    const { session } = data;
 
-  // Organism: Header
-  const o_headerProps: I_OHeader = {
-    link: "https://github.com/matheusgrodrigues",
-    image: "/images/a-avatar.jpeg",
-  };
+    const { blockUIRef, toastRef } = useContext(GlobalContext);
 
-  // Dados falsos
+    const router = useRouter();
 
-  // Organism: LoginTitle
-  const o_loginTitle: I_OLoginTitle = {
-    image: "/images/a-avatar.jpeg",
-    title: "Acesse sua conta",
-  };
+    const btnSubmitRef = useRef<ButtonRef>(null);
 
-  // Template: LoginForm
-  const t_loginProps: I_TLogin = {
-    o_loginTitle,
-    handleLoginForm,
-  };
+    const { t } = useTranslation();
 
-  // Organism: Footer
-  const o_footerProps = {
-    name: "matheusgomesdev",
-    site: "https://matheusgomesdev.com.br",
-    github: "https://github.com/matheusgrodrigues/nextjs-auth-jwt",
-    linkedin: "https://www.linkedin.com/in/matheusgomes/",
-  };
+    useMemo(() => {
+        if (session && !error && !loading) {
+            blockUIRef.current?.setIsBlocked(true);
+        }
+    }, [loading, session, error]);
 
-  return (
-    <>
-      <P_Home o_headerProps={o_headerProps} t_loginProps={t_loginProps} o_footerProps={o_footerProps} />
-      {showBlockUI && <O_BlockUI blocked={showBlockUI} fullScreen />}
-    </>
-  );
-}
+    const validationSchema = Yup.object().shape({
+        email: Yup.string()
+            .required(`${t('specific.home.inputErrorMessage.invalid_email')}`)
+            .email(`${t('specific.home.inputErrorMessage.invalid_email')}`),
+        password: Yup.string()
+            .required(`${t('specific.home.inputErrorMessage.invalid_password_empty')}`)
+            .min(4, `${t('specific.home.inputErrorMessage.invalid_password_min_length')}`),
+    });
+
+    const handleLogin = useCallback(async (values: FormikValues, actions: FormikHelpers<FormikValues>) => {
+        const { manter_logado, password, email } = values;
+
+        actions.setSubmitting(true);
+        btnSubmitRef.current?.setLoading(true);
+
+        try {
+            await authUseCases.login({
+                identifier: email,
+                password,
+                manter_logado,
+            });
+
+            actions.setSubmitting(false);
+            btnSubmitRef.current?.setLoading(false);
+
+            toastRef.current?.showToast({
+                severity: 'success',
+                summary: `${t('specific.home.toast.success_title')}`,
+                detail: `${t('specific.home.toast.redirect_message')}`,
+            });
+
+            setTimeout(() => router.push('/welcome'), 3000);
+        } catch {
+            actions.setSubmitting(false);
+            btnSubmitRef.current?.setLoading(false);
+
+            toastRef.current?.showToast({
+                severity: 'error',
+                summary: `${t('specific.home.toast.error_title')}`,
+                detail: `${t('specific.home.inputErrorMessage.invalid_email_password')}`,
+            });
+        }
+    }, []);
+
+    return (
+        <>
+            <main data-testid="page-login" className="page-login">
+                <Header />
+
+                <BaseForm
+                    initialValues={{
+                        email: 'admin@matheusgomesdev.com.br',
+                        password: '123456',
+                        manter_logado: false,
+                    }}
+                    validationSchema={validationSchema}
+                    validateOnChange={false}
+                    validateOnBlur={true}
+                    onSubmit={handleLogin}
+                    data-testid="page-login-form-testid"
+                    style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+                >
+                    <div className="page-login__form">
+                        <div data-testid="page-login-title-testid" className="page-login__form_title">
+                            <Icon icon="pi-lock" />
+                            <Title variant="h2">{t('specific.home.label.title')}</Title>
+                            <Text variant="fwReg-fs16-gray500">{t('specific.home.label.description')}</Text>
+                        </div>
+
+                        <InputWithLabel
+                            placeholder={t('specific.home.inputLabel.email')}
+                            labelText="Email"
+                            name="email"
+                            type="email"
+                        />
+
+                        <InputWithLabel
+                            labelText="Senha"
+                            name="password"
+                            type="password"
+                            placeholder={t('specific.home.inputLabel.senha')}
+                        />
+
+                        <CheckboxWithLabel
+                            name="manter_logado"
+                            labelText={`${t('specific.home.inputLabel.manterConectado')}`}
+                            checked={false}
+                        />
+
+                        <Button variant="gradient" type="submit" ref={btnSubmitRef}>
+                            {`${t('specific.home.inputLabel.btnEntrar')}`}
+                        </Button>
+                    </div>
+                </BaseForm>
+
+                <Footer />
+            </main>
+        </>
+    );
+};
 
 export default withSessionHOC(Home);

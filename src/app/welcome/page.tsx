@@ -1,56 +1,73 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
+import React, { useContext, useEffect, useRef } from 'react';
 
-// Pages
-import { P_Welcome } from "@/components/pages/p-welcome/p-welcome";
+import { SessionHOCProps, withSessionHOC } from '@/core/components/SessionHOC/sessionHOC';
 
-// Organism
-import { I_OHeader } from "@/components/organism/o-header/o-header";
-import { I_OFooter } from "@/components/organism/o-footer/o-footer";
+import { Button, Text, Title } from '@/components/atoms';
+import { Header, Footer } from '@/components/organism';
 
-// Templates
-import { I_TWelcome } from "@/components/templates/t-welcome/t-welcome";
+import { LogoutDialog, LogoutDialogRef } from '@/components/templates';
 
-// HOC
-import { I_SessionHOC, withSessionHOC } from "@/services/sessionService/sessionService";
+import useTranslation from '@/core/hooks/useTranslation';
+import { GlobalContext } from '@/core/context/GlobalContext';
 
-// Services
-import { tokenService } from "@/services/tokenService/tokenService";
+interface WelcomeProps extends SessionHOCProps {}
 
-interface I_Welcome extends I_SessionHOC {}
+const Welcome: React.FC<WelcomeProps> = ({ data }) => {
+    const { session } = data;
 
-function Welcome(props: I_Welcome) {
-  const router = useRouter();
+    const { blockUIRef } = useContext(GlobalContext);
 
-  const { session } = props.data;
+    const logoutDialogRef = useRef<LogoutDialogRef>(null);
 
-  // Organism: Header
-  const o_headerProps: I_OHeader = {
-    link: "https://github.com/matheusgrodrigues",
-    image: "/images/a-avatar.jpeg",
-  };
+    const { t } = useTranslation();
 
-  // T_Welcome
-  const welcomeProps: I_TWelcome = {
-    userSession: props,
-    handleLogout: () => {
-      tokenService.delete();
-      router.push("/");
-    },
-  };
+    useEffect(() => {
+        blockUIRef.current?.setIsBlocked(false);
+    }, []);
 
-  // Organism: Footer
-  const o_footerProps: I_OFooter = {
-    name: "matheusgomesdev",
-    site: "https://matheusgomesdev.com.br",
-    github: "https://github.com/matheusgrodrigues/nextjs-auth-jwt",
-    linkedin: "https://www.linkedin.com/in/matheusgomes/",
-  };
+    return (
+        <>
+            <section className="page-welcome">
+                <Header />
 
-  return (
-    session && <P_Welcome o_headerProps={o_headerProps} t_WelcomeProps={welcomeProps} o_footerProps={o_footerProps} />
-  );
-}
+                {session && (
+                    <main className="page-welcome__content">
+                        <div className="page-welcome__content_heading">
+                            <Text data-testid="a-text-welcome" variant="fwSb-fs16-primary">
+                                {t('specific.welcome.label.title')}
+                            </Text>
+
+                            <Title data-testid="a-title-username" variant="fwSB-fs48-lh60-lspN2-gray900">
+                                {session.username}
+                            </Title>
+                        </div>
+
+                        <Text
+                            data-testid="a-text-description"
+                            variant="fwReg-fs20-lh30-gray500"
+                            id="a-text-description"
+                        >
+                            {t('specific.welcome.label.description')}
+                        </Text>
+
+                        <Button
+                            variant="fwMd-fs16-colGray700-bgWhite"
+                            data-testid="a-button-logout"
+                            onClick={() => logoutDialogRef.current?.setVisible(true)}
+                        >
+                            {t('specific.welcome.label.btnLogout')}
+                        </Button>
+                    </main>
+                )}
+
+                <Footer />
+            </section>
+
+            <LogoutDialog ref={logoutDialogRef} />
+        </>
+    );
+};
 
 export default withSessionHOC(Welcome);

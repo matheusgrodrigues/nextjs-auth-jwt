@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o Button corretamente Deve preservar a estrutura visual do botão 1`] = `
+<button
+  className="button__fwMd_fs16_colGray700_bgWhite p-button p-component"
+  data-pc-name="button"
+  data-pc-section="root"
+  data-testid="button-testid"
+  disabled={false}
+>
+  Button
+</button>
+`;

@@ -1,4 +1,5 @@
-import { T_Login } from "./t-login/t-login";
-import { T_Welcome } from "./t-welcome/t-welcome";
+import LogoutDialog, { LogoutDialogRef } from './LogoutDialog/LogoutDialog';
 
-export { T_Login, T_Welcome };
+export { LogoutDialog };
+
+export type { LogoutDialogRef };

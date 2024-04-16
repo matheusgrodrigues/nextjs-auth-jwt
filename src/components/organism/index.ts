@@ -1,3 +1,4 @@
-import { O_LoginForm } from "./o-login-form/o-login-form";
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
-export { O_LoginForm };
+export { Footer, Header };

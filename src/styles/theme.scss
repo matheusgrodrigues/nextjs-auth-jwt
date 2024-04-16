@@ -1,84 +1,80 @@
-@import "primereact/resources/themes/bootstrap4-light-purple/theme.css";
-@import "primeicons/primeicons.css";
+@import 'primereact/resources/themes/bootstrap4-light-purple/theme.css';
+@import 'primeicons/primeicons.css';
 
-// Utils
-@import "./util/breakpoints";
+@import './util/breakpoints';
 
 :root {
-  /* generel */
-  --primary-color: #7f56d9;
-  --text-color: #344054;
+    --primary-color: #7f56d9;
+    --text-color: #344054;
 
-  /* palette */
-  --gray-50: #f9fafb;
-  --gray-100: #f2f4f7;
-  --gray-900: #101828;
-  --gray-500: #667085;
-  --gray-700: #344054;
-  --gray-300: #d0d5dd;
-  --gray-900: #101828;
+    --gray-50: #f9fafb;
+    --gray-100: #f2f4f7;
+    --gray-900: #101828;
+    --gray-500: #667085;
+    --gray-700: #344054;
+    --gray-300: #d0d5dd;
+    --gray-900: #101828;
 
-  --white: #ffffff;
+    --white: #ffffff;
 
-  /* custom-colors */
-  --gradient-primary-60050090-deg: linear-gradient(90deg, #7f56d9 0%, #9e77ed 100%);
+    --gradient-primary-60050090-deg: linear-gradient(90deg, #7f56d9 0%, #9e77ed 100%);
 
-  --gradient-primary-60050090-deg-box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    --gradient-primary-60050090-deg-box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 
-  /* font-size */
-  --fs-text-sm: 14px;
-  --fs-text-md: 16px;
-  --fs-text-xl: 20px;
+    --fs-text-sm: 14px;
+    --fs-text-md: 16px;
+    --fs-text-xl: 20px;
 
-  --fs-lg: 24px;
+    --fs-lg: 24px;
 
-  --fs-display-sm: 30px;
-  --fs-display-md: 36px;
-  --fs-display-lg: 48px;
+    --fs-display-sm: 30px;
+    --fs-display-md: 36px;
+    --fs-display-lg: 48px;
 
-  /* font-weight */
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semibold: 600;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
 
-  /* spaces */
-  --spacing-4: 4px;
-  --spacing-6: 6px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-64: 64px;
-  --spacing-96: 96px;
+    --spacing-4: 4px;
+    --spacing-6: 6px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-20: 20px;
+    --spacing-24: 24px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-48: 48px;
+    --spacing-64: 64px;
+    --spacing-96: 96px;
 
-  /* Modal mask */
-  --dialog-bg-mask: rgba(52, 64, 84, 0.7);
+    --dialog-bg-mask: rgba(52, 64, 84, 0.7);
 
-  /* Filters */
-  --blur-md: var(--blur-8);
+    --blur-md: var(--blur-8);
 
-  /* Border radius */
-  --b-radius-12: 12px;
+    --b-radius-12: 12px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: var(--white);
+    background-color: var(--white);
 }
 
-/* Override primeReact Styles */
-@import "./components/atoms/a-avatar/_a-avatar.scss";
-@import "./components/atoms/a-button/_a-button";
-@import "./components/atoms/a-checkbox/a-checkbox";
-@import "./components/atoms/a-input/a-input";
-@import "./components/organism/o-block-ui/o-block-ui";
-@import "./components/organism/o-dialog/o-dialog-ui";
+@import './components/atoms/_avatar.scss';
+@import './components/atoms/_button.scss';
+@import './components/atoms/_checkbox.scss';
+@import './components/atoms/_input.scss';
+
+@import './components/organism/_blockUI.scss';
+@import './components/organism/_dialog.scss';
+
+@import './components/templates/_401.scss';
+
+@import './components/pages/_welcome.scss';
+@import './components/pages/_login.scss';
+@import './components/pages/_unauthorized.scss';
