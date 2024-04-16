@@ -103,7 +103,7 @@ exports[`Deve renderizar a pagina de login, corretamente. Deve preservar a estru
           onPaste={[Function]}
           placeholder="Endereço de e-mail"
           type="email"
-          value="admin@matheusgomesdev.com.br"
+          value="test@matheusgomesdev.com.br"
         />
       </div>
       <div
