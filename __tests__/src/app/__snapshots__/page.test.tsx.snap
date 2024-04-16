@@ -84,7 +84,7 @@ exports[`Deve renderizar a pagina de login, corretamente. Deve preservar a estru
       >
         <label
           className="label"
-          data-testid="label-testid"
+          data-testid="label-email-testid"
           htmlFor="email"
         >
           Email
@@ -112,7 +112,7 @@ exports[`Deve renderizar a pagina de login, corretamente. Deve preservar a estru
       >
         <label
           className="label"
-          data-testid="label-testid"
+          data-testid="label-password-testid"
           htmlFor="password"
         >
           Senha
@@ -142,7 +142,7 @@ exports[`Deve renderizar a pagina de login, corretamente. Deve preservar a estru
           className="p-checkbox p-component"
           data-pc-name="checkbox"
           data-pc-section="root"
-          data-testid="checkbox-testid"
+          data-testid="input-manter_logado-testid"
           id="checkbox"
           onBlur={[Function]}
           onClick={[Function]}
@@ -179,7 +179,7 @@ exports[`Deve renderizar a pagina de login, corretamente. Deve preservar a estru
         </div>
         <label
           className="label"
-          data-testid="label-testid"
+          data-testid="label-manter_logado-testid"
           onClick={[Function]}
         >
           Mantenha-me conectado.
