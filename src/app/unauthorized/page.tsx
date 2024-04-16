@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Button, Text, Title } from '@/components/atoms';
@@ -13,8 +13,6 @@ const PageUnauthorized = () => {
 
     const { t } = useTranslation();
 
-    const handleLogin = useCallback(() => router.push('/'), []);
-
     return (
         <main data-testid="p-401" className="page-unauthorized">
             <Header />
@@ -26,7 +24,7 @@ const PageUnauthorized = () => {
 
                 <Text variant="fwReg-fs20-lh30-gray500">{t('specific.unauthorized.label.description')}</Text>
 
-                <Button variant="gradient" onClick={handleLogin}>
+                <Button variant="gradient" onClick={() => router.push('/')}>
                     {t('specific.unauthorized.label.facaLogin')}
                 </Button>
             </main>

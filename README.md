@@ -139,7 +139,7 @@ Algumas validações importantes do sistema:
 ### Deploy e Hospedagem
 
 -   Vercel
--   Heroku
+-   Render
 
 ### Documentacao
 
