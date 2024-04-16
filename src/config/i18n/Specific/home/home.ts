@@ -8,6 +8,7 @@ const i18n_home = {
             email: 'Endereço de e-mail',
             senha: 'Digite sua senha',
             manterConectado: 'Mantenha-me conectado.',
+            btnEntrar: 'Entrar',
         },
         inputErrorMessage: {
             invalid_email: 'E-mail inválido.',

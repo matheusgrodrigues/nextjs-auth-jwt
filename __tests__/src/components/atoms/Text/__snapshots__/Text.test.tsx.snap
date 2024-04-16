@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o Text, corretamente Deve preservar a estrutura visual do Text 1`] = `
+<p
+  className="text__fwSb_fs16_primary"
+  data-testid="text-testid"
+>
+  Text
+</p>
+`;

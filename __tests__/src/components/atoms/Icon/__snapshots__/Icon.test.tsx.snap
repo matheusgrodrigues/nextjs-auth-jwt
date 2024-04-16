@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar os icones corretamente Deve preservar a estrutura visual do icone 1`] = `
+<i
+  className="icon pi pi-lock"
+/>
+`;

@@ -10,6 +10,8 @@ const authAdapter: AuthPortProps = {
     login: async ({ identifier, password }) => {
         const method = 'POST';
 
+        // TODO: ajustar NEXT_PUBLIC_STRAPI_API_URL para STRAPI_API_URL que está na vercel.
+
         const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local`;
 
         try {

@@ -10,7 +10,7 @@ interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
 
 const Label: React.FC<LabelProps> = ({ children, ...props }) => {
     return (
-        <label data-testid="label-testid" className={styles.label} {...props}>
+        <label className={styles.label} {...props}>
             {children}
         </label>
     );

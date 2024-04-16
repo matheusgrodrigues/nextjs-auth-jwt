@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o Header corretamente Deve preservar a estrutura visual do componente 1`] = `
+<header
+  className="header"
+  data-testid="header"
+  id="header"
+>
+  <a
+    className="link"
+    href="https://github.com/matheusgrodrigues"
+  >
+    <div
+      className="p-avatar p-component p-avatar-image p-avatar-circle"
+      data-pc-name="avatar"
+      data-pc-section="root"
+      data-testid="avatar-testid"
+      style={{}}
+    >
+      <img
+        alt="avatar"
+        data-pc-section="image"
+        onError={[Function]}
+        src="/images/a-avatar.jpeg"
+      />
+    </div>
+  </a>
+  <button
+    className="button p-button p-component"
+    data-pc-name="button"
+    data-pc-section="root"
+    data-testid="button-testid"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <i
+      className="icon pi pi-sun"
+    />
+  </button>
+</header>
+`;

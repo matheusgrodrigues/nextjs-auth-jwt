@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar a pagina de login, corretamente. Deve preservar a estrutura visual da pagina de login. 1`] = `
+<main
+  className="page-login"
+  data-testid="page-login"
+>
+  <header
+    className="header"
+    data-testid="header"
+    id="header"
+  >
+    <a
+      className="link"
+      href="https://github.com/matheusgrodrigues"
+    >
+      <div
+        className="p-avatar p-component p-avatar-image p-avatar-circle"
+        data-pc-name="avatar"
+        data-pc-section="root"
+        data-testid="avatar-testid"
+        style={{}}
+      >
+        <img
+          alt="avatar"
+          data-pc-section="image"
+          onError={[Function]}
+          src="/images/a-avatar.jpeg"
+        />
+      </div>
+    </a>
+    <button
+      className="button p-button p-component"
+      data-pc-name="button"
+      data-pc-section="root"
+      data-testid="button-testid"
+      disabled={false}
+      onClick={[Function]}
+    >
+      <i
+        className="icon pi pi-sun"
+      />
+    </button>
+  </header>
+  <form
+    action="#"
+    data-testid="page-login-form-testid"
+    onReset={[Function]}
+    onSubmit={[Function]}
+    style={
+      {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "20px",
+      }
+    }
+  >
+    <div
+      className="page-login__form"
+    >
+      <div
+        className="page-login__form_title"
+        data-testid="page-login-title-testid"
+      >
+        <i
+          className="icon pi pi-lock"
+        />
+        <h2
+          className="title__h2"
+          data-testid="title-testid"
+        >
+          Acesse sua conta
+        </h2>
+        <p
+          className="text__fwReg_fs16_gray500"
+          data-testid="text-testid"
+        >
+          Estamos felizes em vê-lo novamente! Insira suas credenciais para entrar.
+        </p>
+      </div>
+      <div
+        className="input_label"
+        data-testid="input-with-label-email-testid"
+      >
+        <label
+          className="label"
+          data-testid="label-email-testid"
+          htmlFor="email"
+        >
+          Email
+        </label>
+        <input
+          className="p-inputtext p-component p-filled"
+          data-pc-name="inputtext"
+          data-pc-section="root"
+          data-testid="input-email-testid"
+          name="email"
+          onBeforeInput={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onPaste={[Function]}
+          placeholder="Endereço de e-mail"
+          type="email"
+          value="admin@matheusgomesdev.com.br"
+        />
+      </div>
+      <div
+        className="input_label"
+        data-testid="input-with-label-password-testid"
+      >
+        <label
+          className="label"
+          data-testid="label-password-testid"
+          htmlFor="password"
+        >
+          Senha
+        </label>
+        <input
+          className="p-inputtext p-component p-filled"
+          data-pc-name="inputtext"
+          data-pc-section="root"
+          data-testid="input-password-testid"
+          name="password"
+          onBeforeInput={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onPaste={[Function]}
+          placeholder="Digite sua senha"
+          type="password"
+          value="123456"
+        />
+      </div>
+      <div
+        className="checkboxWithLabel"
+        data-testid="checkboxWithLabel-testid"
+      >
+        <div
+          className="p-checkbox p-component"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+          data-testid="input-manter_logado-testid"
+          id="checkbox"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={null}
+          onMouseDown={null}
+          style={{}}
+        >
+          <div
+            className="p-hidden-accessible"
+            data-pc-section="hiddeninputwrapper"
+          >
+            <input
+              data-pc-section="hiddeninput"
+              defaultChecked={false}
+              disabled={false}
+              id={null}
+              name="manter_logado"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              required={false}
+              tabIndex={null}
+              type="checkbox"
+            />
+          </div>
+          <div
+            className="p-checkbox-box"
+            data-p-disabled={false}
+            data-p-focus={false}
+            data-p-highlight={false}
+            data-pc-section="input"
+          />
+        </div>
+        <label
+          className="label"
+          data-testid="label-manter_logado-testid"
+          onClick={[Function]}
+        >
+          Mantenha-me conectado.
+        </label>
+      </div>
+      <button
+        className="button__gradient p-button p-component"
+        data-pc-name="button"
+        data-pc-section="root"
+        data-testid="button-testid"
+        disabled={false}
+        type="submit"
+      >
+        Entrar
+      </button>
+    </div>
+  </form>
+  <div
+    className="footer"
+    id="footer"
+  >
+    <div
+      className="footer__name"
+    >
+      <p>
+        © 
+        2024
+        <a
+          className="link"
+          href="https://matheusgomesdev.com.br"
+        >
+          matheusgomesdev.
+        </a>
+      </p>
+    </div>
+    <div
+      className="footer__icons"
+    >
+      <a
+        className="link"
+        href="https://github.com/matheusgrodrigues/nextjs-auth-jwt"
+      >
+        <i
+          className="icon pi pi-github"
+        />
+      </a>
+      <a
+        className="link"
+        href="https://www.linkedin.com/in/matheusgomes/"
+      >
+        <i
+          className="icon pi pi-linkedin"
+        />
+      </a>
+    </div>
+  </div>
+</main>
+`;

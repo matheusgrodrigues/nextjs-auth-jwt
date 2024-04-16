@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o Avatar corretamente Deve preservar a estrutura visual do componente 1`] = `
+<div
+  className="p-avatar p-component p-avatar-circle"
+  data-pc-name="avatar"
+  data-pc-section="root"
+  style={{}}
+/>
+`;

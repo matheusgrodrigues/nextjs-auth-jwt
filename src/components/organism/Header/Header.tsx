@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     return (
         <header data-testid="header" className={styles.header} id="header">
             <Link href="https://github.com/matheusgrodrigues">
-                <Avatar image="/images/a-avatar.jpeg" label={''} shape="circle" />
+                <Avatar data-testid="avatar-testid" image="/images/a-avatar.jpeg" label={''} shape="circle" />
             </Link>
             <Button variant="transparent" onClick={theme.toggleTheme}>
                 <Icon icon="pi-sun" />

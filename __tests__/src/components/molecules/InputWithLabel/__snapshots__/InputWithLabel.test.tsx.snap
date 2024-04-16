@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o InputWithLabel corretamente. Deve preservar a estrutura visual do componente. 1`] = `
+<form
+  action="#"
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <div
+    className="input_label"
+    data-testid="input-with-label-email-testid"
+  >
+    <label
+      className="label"
+      data-testid="label-email-testid"
+      htmlFor="email"
+    >
+      Email
+    </label>
+    <input
+      className="p-inputtext p-component"
+      data-pc-name="inputtext"
+      data-pc-section="root"
+      data-testid="input-email-testid"
+      name="email"
+      onBeforeInput={[Function]}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onInput={[Function]}
+      onKeyDown={[Function]}
+      onPaste={[Function]}
+      type="email"
+    />
+  </div>
+</form>
+`;
