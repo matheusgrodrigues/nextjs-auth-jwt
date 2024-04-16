@@ -27,7 +27,7 @@ export const withSessionHOC = <P extends object>(Component: ComponentType<P & Se
                 if (window.location.pathname === '/') {
                     router.push('/');
                 } else {
-                    router.push('/401');
+                    router.push('/unauthorized');
                 }
             } else if (!loading && !error && data.session && window.location.pathname === '/') {
                 router.push('/welcome');
